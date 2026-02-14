@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP‑Schulungen 2026 · Dark Mode mit Kontrast</title>
+    <title>ZfP‑Schulungen 2026 · Anthrazit Dark Mode</title>
     <style>
         * {
             box-sizing: border-box;
@@ -19,7 +19,7 @@
             min-height: 100vh;
         }
         :root {
-            /* Light Mode - Grüntöne */
+            /* Light Mode - Grüntöne (bleibt wie gehabt) */
             --bg-body: #f0f7f0;
             --header-bg: linear-gradient(145deg, #1e4a2b, #2d6a3f);
             --header-text: white;
@@ -62,46 +62,46 @@
         }
 
         body.dark {
-            /* Dark Mode - Verbesserter Kontrast mit Abstufungen */
-            --bg-body: #121212; /* Sehr dunkel für maximalen Kontrast */
-            --header-bg: linear-gradient(145deg, #1a2a1a, #0f1a0f);
-            --header-text: #f0f7f0;
-            --card-bg: #1e2a1e; /* Dunkelgrün, aber heller als Hintergrund */
-            --card-border: #3a553a;
-            --month-title: #b8e6b8; /* Helles Grün für Titel */
-            --item-bg: #253225; /* Mittleres Dunkelgrün */
-            --item-border: #3e5a3e;
-            --item-type: #d0f0d0; /* Sehr helles Grün für Text */
-            --location-bg: #1e3a1e; /* Etwas hellerer Hintergrund */
-            --location-text: #d0f0d0;
-            --badge-bg: #1e3a1e;
-            --badge-text: #d0f0d0;
-            --start-badge-bg: #1e3a1e;
-            --start-badge-text: #d0f0d0;
-            --spots-text: #c0e8c0;
-            --bar-bg: #3a553a;
-            --fill-bg: #4caf50; /* Helles Grün für Füllung */
-            --panel-bg: #1e2a1e;
-            --panel-border: #3e5a3e;
-            --input-bg: #0a1a0a; /* Sehr dunkel für Input */
-            --input-border: #4caf50; /* Heller grüner Rahmen */
-            --label-color: #c0e8c0; /* Helle Labels */
-            --btn-border: #4caf50;
-            --btn-text: #d0f0d0;
-            --btn-primary-bg: #2e7d32; /* Mittleres Grün */
+            /* Dark Mode - Anthrazit-Palette mit maximalem Kontrast */
+            --bg-body: #121212; /* Tiefstes Anthrazit */
+            --header-bg: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            --header-text: #f0f0f0;
+            --card-bg: #2a2a2a; /* Helles Anthrazit für Karten */
+            --card-border: #4a4a4a;
+            --month-title: #e0e0e0; /* Helles Grau */
+            --item-bg: #2a2a2a;
+            --item-border: #4a4a4a;
+            --item-type: #f0f0f0; /* Sehr hell für maximalen Kontrast */
+            --location-bg: #3a3a3a;
+            --location-text: #f0f0f0;
+            --badge-bg: #3a3a3a;
+            --badge-text: #f0f0f0;
+            --start-badge-bg: #3a3a3a;
+            --start-badge-text: #f0f0f0;
+            --spots-text: #e0e0e0;
+            --bar-bg: #4a4a4a;
+            --fill-bg: #4caf50; /* Grüner Akzent bleibt */
+            --panel-bg: #2a2a2a;
+            --panel-border: #4a4a4a;
+            --input-bg: #1a1a1a; /* Dunkler für Input */
+            --input-border: #5a5a5a;
+            --label-color: #e0e0e0;
+            --btn-border: #5a5a5a;
+            --btn-text: #f0f0f0;
+            --btn-primary-bg: #2e7d32;
             --btn-primary-text: white;
             --btn-danger-bg: #b71c1c;
             --btn-danger-text: white;
-            --table-header-bg: #1a3a1a;
+            --table-header-bg: #3a3a3a;
             --table-header-text: #ffffff;
-            --table-border: #3a553a;
+            --table-border: #4a4a4a;
             --table-row-bg: #ffffff;
-            --table-row-alt: #f0fff0;
-            --empty-bg: #1e2a1e;
-            --empty-text: #b0d8b0;
-            --footnote: #a0c8a0;
-            --ort-hinweis-bg: #5a5a2ac0;
-            --ort-hinweis-text: #f0f7f0;
+            --table-row-alt: #f0f0f0;
+            --empty-bg: #2a2a2a;
+            --empty-text: #e0e0e0;
+            --footnote: #a0a0a0;
+            --ort-hinweis-bg: #4a4a4ac0;
+            --ort-hinweis-text: #f0f0f0;
         }
 
         .app {
@@ -523,7 +523,7 @@
     <div class="header">
         <h1>🔬 ZfP‑Schulungen 2026</h1>
         <div class="sub">Wirbelstrom · Ultraschall · Magnetpulver · Nital-Ätzen – max. 11 Plätze</div>
-        <div class="ort-hinweis">🏢 Bau 50, Raum Silber</div>
+        <div class="ort-hinweis">🏢 Bau 50, Raum Silber (alle Schulungen)</div>
     </div>
 
     <!-- MONATSÜBERSICHT 2026 -->
@@ -559,7 +559,7 @@
             <div id="listContainer"></div>
         </div>
     </div>
-    <div class="footnote">Häusner Daniel, WI/SW2-PQT</div>
+    <div class="footnote">* alle Felder notwendig · pro Schulung max. 11 Teilnehmer · Start 8:00 · Ende: Magnetpulver 14:00, alle anderen 16:00</div>
 
     <!-- Dark/Light Toggle - nur Icon -->
     <button class="theme-toggle" id="themeToggle">🌓</button>
