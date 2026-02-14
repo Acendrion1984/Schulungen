@@ -111,6 +111,119 @@
             font-size: 2.4rem;
             font-weight: 500;
             letter-spacing: -0.5px;
+            margin-bottom: 0.3rem;<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZfP‑Schulungen 2026 · mit Supabase</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            transition: background-color 0.2s ease, border-color 0.2s, color 0.1s;
+        }
+        body {
+            background: var(--bg-body);
+            padding: 2rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        :root {
+            --bg-body: #eef2f7;
+            --header-bg: linear-gradient(145deg, #0f3a5a, #12406b);
+            --header-text: white;
+            --card-bg: white;
+            --card-border: #d9e6f5;
+            --month-title: #163a5e;
+            --item-bg: #f6faff;
+            --item-border: #e2edfc;
+            --item-type: #002856;
+            --location-bg: #deecfd;
+            --location-text: #113258;
+            --badge-bg: #c3dafc;
+            --badge-text: #00337c;
+            --start-badge-bg: #ecf3fb;
+            --start-badge-text: #0f3c66;
+            --spots-text: #0d3b64;
+            --bar-bg: #d1e0f5;
+            --fill-bg: #1e7e34;
+            --panel-bg: white;
+            --panel-border: #cddef5;
+            --input-bg: #f7fcff;
+            --input-border: #c6ddfa;
+            --label-color: #113259;
+            --btn-border: #b2cef0;
+            --btn-text: #1f3b60;
+            --btn-primary-bg: #00377a;
+            --btn-primary-text: white;
+            --table-header-bg: #1a3f65;
+            --table-header-text: white;
+            --table-border: #d3e4fd;
+            --empty-bg: #f2f9ff;
+            --empty-text: #456f9c;
+            --footnote: #59799e;
+            --ort-hinweis-bg: #ffd966c0;
+            --ort-hinweis-text: #002856;
+        }
+
+        body.dark {
+            --bg-body: #121c28;
+            --header-bg: linear-gradient(145deg, #1a2f44, #1f3b54);
+            --header-text: #eef3fc;
+            --card-bg: #1f2e3f;
+            --card-border: #364f68;
+            --month-title: #bdd6f0;
+            --item-bg: #253544;
+            --item-border: #3f556b;
+            --item-type: #c6dcff;
+            --location-bg: #2f4560;
+            --location-text: #d2e6ff;
+            --badge-bg: #2d4b70;
+            --badge-text: #d6ecff;
+            --start-badge-bg: #2e4560;
+            --start-badge-text: #c4dcf5;
+            --spots-text: #b9d2f0;
+            --bar-bg: #3b5570;
+            --fill-bg: #3ca36b;
+            --panel-bg: #1f2f41;
+            --panel-border: #3e5772;
+            --input-bg: #2b3f55;
+            --input-border: #577599;
+            --label-color: #c1d9f5;
+            --btn-border: #577599;
+            --btn-text: #c6dcff;
+            --btn-primary-bg: #2a5f9e;
+            --btn-primary-text: white;
+            --table-header-bg: #2c4565;
+            --table-header-text: #ecf3ff;
+            --table-border: #426185;
+            --empty-bg: #253f59;
+            --empty-text: #b2cef0;
+            --footnote: #95b2d3;
+            --ort-hinweis-bg: #836f30c0;
+            --ort-hinweis-text: #ffe9b6;
+        }
+
+        .app {
+            max-width: 1400px;
+            width: 100%;
+            position: relative;
+        }
+        .header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 1.8rem 2.5rem;
+            border-radius: 40px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 18px 25px -10px #0f2e4870;
+        }
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.5px;
             margin-bottom: 0.3rem;
         }
         .header .sub {
@@ -128,7 +241,6 @@
             font-size: 1rem;
             backdrop-filter: blur(4px);
         }
-        /* Monats-Raster */
         .year-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -262,7 +374,6 @@
             min-width: 60px;
             text-align: right;
         }
-        /* Anmeldebereich */
         .reg-panel {
             background: var(--panel-bg);
             border-radius: 40px;
@@ -394,8 +505,6 @@
             color: var(--footnote);
             font-size: 0.9rem;
         }
-
-        /* Dark/Light Button unten rechts */
         .theme-toggle {
             position: fixed;
             bottom: 30px;
@@ -419,6 +528,12 @@
             background: var(--input-bg);
             border-color: var(--badge-text);
         }
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--footnote);
+            grid-column: 1 / -1;
+        }
     </style>
 </head>
 <body>
@@ -429,10 +544,12 @@
         <div class="ort-hinweis">🏢 Bau 50, Raum Silber (alle Schulungen)</div>
     </div>
 
-    <!-- MONATSÜBERSICHT 2026 (12 Monate) -->
-    <div class="year-grid" id="monthGrid"></div>
+    <!-- MONATSÜBERSICHT 2026 -->
+    <div class="year-grid" id="monthGrid">
+        <div class="loading">Lade Schulungen...</div>
+    </div>
 
-    <!-- ANMELDUNG (versteckt, bis eine Schulung gewählt wird) -->
+    <!-- ANMELDUNG -->
     <div class="reg-panel" id="regPanel" style="display: none;">
         <div class="reg-header">
             <h2 id="regTitle">Anmeldung</h2>
@@ -459,15 +576,24 @@
             <div id="listContainer"></div>
         </div>
     </div>
-    <div class="footnote">* alle Felder notwendig · pro Schulung max. 11 Teilnehmer · Start immer 8:00 · Ende: Magnetpulver 14:00, alle anderen 16:00</div>
+    <div class="footnote">* alle Felder notwendig · pro Schulung max. 11 Teilnehmer · Start 8:00 · Ende: Magnetpulver 14:00, alle anderen 16:00</div>
 
-    <!-- Dark/Light Toggle Button -->
-    <button class="theme-toggle" id="themeToggle">🌓 Umschalten</button>
+    <button class="theme-toggle" id="themeToggle">🌓 Dunkles Design</button>
 </div>
+
+<!-- Supabase SDK einbinden -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
     (function() {
-        // ---- Definitionen ----
+        // ==================== IHRE SUPABASE ZUGANGSDATEN ====================
+        const SUPABASE_URL = 'https://wqrynlgbspkjzxuxauvq.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_jkkaIcAKxMhkXSdnJY1Oiw_U-xPWr68';
+        
+        // Supabase Client initialisieren
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // ---- Konstanten ----
         const MAX = 11;
         const TRAINING_TYPES = {
             WIRBELSTROM: 'Wirbelstromprüfung',
@@ -482,48 +608,25 @@
             [TRAINING_TYPES.NITAL]: 8
         };
 
-        // Endzeit je nach Typ: Magnetpulver 14 Uhr, Rest 16 Uhr
         function getEndTime(type) {
             return type === TRAINING_TYPES.MAGNETPULVER ? '14:00' : '16:00';
         }
 
-        // ----- ALLE TERMINE 2026 (korrigiert: Wirbelstrom 11./12. Mai) -----
-        const trainings = [
-            // Januar
-            { id: 't1', type: TRAINING_TYPES.WIRBELSTROM, location: 'Bau 50, Raum Silber', dateStr: '19.01.–20.01.', startDate: '2026-01-19', days: 2, startTime: '08:00', attendees: [] },
-            // Februar
-            { id: 't2', type: TRAINING_TYPES.NITAL, location: 'Bau 50, Raum Silber', dateStr: '02.02.', startDate: '2026-02-02', days: 1, startTime: '08:00', attendees: [] },
-            { id: 't3', type: TRAINING_TYPES.MAGNETPULVER, location: 'Bau 50, Raum Silber', dateStr: '23.02.–24.02.', startDate: '2026-02-23', days: 2, startTime: '08:00', attendees: [] },
-            // März
-            { id: 't4', type: TRAINING_TYPES.WIRBELSTROM, location: 'Bau 50, Raum Silber', dateStr: '09.03.–10.03.', startDate: '2026-03-09', days: 2, startTime: '08:00', attendees: [] },
-            // April
-            { id: 't5', type: TRAINING_TYPES.ULTRASCHALL, location: 'Bau 50, Raum Silber', dateStr: '13.04.–15.04.', startDate: '2026-04-13', days: 3, startTime: '08:00', attendees: [] },
-            // Mai (korrigiert: 11./12. Mai)
-            { id: 't7', type: TRAINING_TYPES.WIRBELSTROM, location: 'Bau 50, Raum Silber', dateStr: '11.05.–12.05.', startDate: '2026-05-11', days: 2, startTime: '08:00', attendees: [] },
-            // Juni (Magnetpulver 08/09, Nital 26.06)
-            { id: 't6', type: TRAINING_TYPES.MAGNETPULVER, location: 'Bau 50, Raum Silber', dateStr: '08.06.–09.06.', startDate: '2026-06-08', days: 2, startTime: '08:00', attendees: [] },
-            { id: 't8', type: TRAINING_TYPES.NITAL, location: 'Bau 50, Raum Silber', dateStr: '26.06.', startDate: '2026-06-26', days: 1, startTime: '08:00', attendees: [] },
-            // Juli
-            { id: 't9', type: TRAINING_TYPES.WIRBELSTROM, location: 'Bau 50, Raum Silber', dateStr: '06.07.–07.07.', startDate: '2026-07-06', days: 2, startTime: '08:00', attendees: [] },
-            // Oktober
-            { id: 't10', type: TRAINING_TYPES.WIRBELSTROM, location: 'Bau 50, Raum Silber', dateStr: '12.10.–13.10.', startDate: '2026-10-12', days: 2, startTime: '08:00', attendees: [] },
-            // November
-            { id: 't11', type: TRAINING_TYPES.MAGNETPULVER, location: 'Bau 50, Raum Silber', dateStr: '09.11.–10.11.', startDate: '2026-11-09', days: 2, startTime: '08:00', attendees: [] },
-            { id: 't12', type: TRAINING_TYPES.NITAL, location: 'Bau 50, Raum Silber', dateStr: '16.11.', startDate: '2026-11-16', days: 1, startTime: '08:00', attendees: [] }
-        ];
-
-        // Monatsnamen
         const monthNames = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
 
         function durationInfo(type) {
-            const h = DURATION[type];
+            const h = DURATION[type] || 0;
             const days = Math.ceil(h/8);
             return `${h} Std. (${days} Tag${days>1?'e':''})`;
         }
 
+        // Globale Variable für alle Schulungen (aus Supabase)
+        let trainings = [];
+
+        // Ausgewählte ID
         let selectedId = null;
 
-        // DOM
+        // DOM-Elemente
         const monthGrid = document.getElementById('monthGrid');
         const regPanel = document.getElementById('regPanel');
         const regTitle = document.getElementById('regTitle');
@@ -545,6 +648,36 @@
             themeToggle.innerHTML = document.body.classList.contains('dark') ? '☀️ Helles Design' : '🌓 Dunkles Design';
         });
 
+        // ========== DATEN VON SUPABASE LADEN ==========
+        async function loadTrainings() {
+            try {
+                monthGrid.innerHTML = '<div class="loading">Lade Schulungen...</div>';
+                
+                const { data, error } = await supabase
+                    .from('trainings')
+                    .select('*')
+                    .order('start_date', { ascending: true });
+
+                if (error) throw error;
+
+                trainings = data || [];
+                
+                // attendees als Array parsen (falls als JSONB gespeichert)
+                trainings.forEach(t => {
+                    if (typeof t.attendees === 'string') {
+                        try { t.attendees = JSON.parse(t.attendees); } 
+                        catch { t.attendees = []; }
+                    }
+                    if (!Array.isArray(t.attendees)) t.attendees = [];
+                });
+
+                buildMonthGrid();
+            } catch (err) {
+                console.error('Fehler beim Laden:', err);
+                monthGrid.innerHTML = `<div class="empty-message">❌ Fehler beim Laden: ${err.message}. Bitte Supabase-Konfiguration prüfen.</div>`;
+            }
+        }
+
         // Monatsübersicht aufbauen
         function buildMonthGrid() {
             const months = Array.from({ length: 12 }, (_, i) => {
@@ -553,9 +686,9 @@
                     name: monthNames[i],
                     month: monthNum,
                     trainings: trainings.filter(t => {
-                        const d = new Date(t.startDate + 'T12:00:00');
+                        const d = new Date(t.start_date + 'T12:00:00');
                         return d.getMonth() + 1 === monthNum;
-                    }).sort((a,b) => new Date(a.startDate) - new Date(b.startDate))
+                    }).sort((a,b) => new Date(a.start_date) - new Date(b.start_date))
                 };
             });
 
@@ -566,7 +699,7 @@
                     html += `<div style="padding:0.7rem; color: var(--footnote);">– keine Schulung –</div>`;
                 } else {
                     m.trainings.forEach(t => {
-                        const taken = t.attendees.length;
+                        const taken = t.attendees?.length || 0;
                         const fill = (taken / MAX) * 100;
                         const endTime = getEndTime(t.type);
                         html += `
@@ -577,7 +710,7 @@
                                 </div>
                                 <div class="location">📍 ${t.location}</div>
                                 <div class="date-time">
-                                    <span>📅 ${t.dateStr}</span>
+                                    <span>📅 ${t.date_str}</span>
                                     <span class="start-badge">⏰ 8:00 – ${endTime} Uhr</span>
                                 </div>
                                 <div class="spots-row">
@@ -610,33 +743,35 @@
             regPanel.style.display = 'block';
             regTitle.textContent = `${training.type} – ${training.location}`;
             const endTime = getEndTime(training.type);
-            regMeta.textContent = `${training.dateStr}  |  täglich 8:00–${endTime} Uhr  |  ${durationInfo(training.type)}`;
+            regMeta.textContent = `${training.date_str}  |  täglich 8:00–${endTime} Uhr  |  ${durationInfo(training.type)}`;
             renderAttendeeList(training);
+            // Felder leeren
             vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; geburtstagInp.value = ''; geburtsortInp.value = '';
             regPanel.scrollIntoView({ behavior: 'smooth' });
         }
 
         function renderAttendeeList(training) {
             if (!training) { if (selectedId) training = findTraining(selectedId); else return; }
-            countBadge.textContent = `${training.attendees.length}/${MAX}`;
-            if (training.attendees.length === 0) {
+            const attendees = training.attendees || [];
+            countBadge.textContent = `${attendees.length}/${MAX}`;
+            if (attendees.length === 0) {
                 listContainer.innerHTML = '<div class="empty-message">✗ Noch keine Anmeldungen</div>';
                 return;
             }
             let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Geburtstag</th><th>Geburtsort</th></tr></thead><tbody>';
-            training.attendees.forEach(a => {
+            attendees.forEach(a => {
                 tab += `<tr><td>${a.name}</td><td>${a.vorname}</td><td>${a.personalnummer}</td><td>${a.geburtstag}</td><td>${a.geburtsort}</td></tr>`;
             });
             tab += '</tbody></table></div>';
             listContainer.innerHTML = tab;
         }
 
-        function anmelden() {
+        // ========== ANMELDUNG IN SUPABASE SPEICHERN ==========
+        async function anmelden() {
             if (!selectedId) { alert('Bitte wählen Sie eine Schulung.'); return; }
             const training = findTraining(selectedId);
             if (!training) return;
-            if (training.attendees.length >= MAX) { alert('Maximale Teilnehmerzahl erreicht.'); return; }
-
+            
             const vorname = vornameInp.value.trim();
             const name = nameInp.value.trim();
             const persnr = persnrInp.value.trim();
@@ -648,14 +783,55 @@
                 return;
             }
 
-            training.attendees.push({ vorname, name, personalnummer: persnr, geburtstag: gebtag, geburtsort: gebort });
+            // Prüfen ob noch Plätze frei (lokal)
+            if ((training.attendees?.length || 0) >= MAX) {
+                alert('Maximale Teilnehmerzahl bereits erreicht.');
+                return;
+            }
 
-            buildMonthGrid();
-            renderAttendeeList(training);
-            vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; geburtstagInp.value = ''; geburtsortInp.value = '';
+            try {
+                // 1. Neue Registrierung in Tabelle 'registrations' speichern
+                const { error: insertError } = await supabase
+                    .from('registrations')
+                    .insert([{
+                        training_id: selectedId,
+                        vorname: vorname,
+                        name: name,
+                        personalnummer: persnr,
+                        geburtstag: gebtag,
+                        geburtsort: gebort
+                    }]);
 
-            anmeldenBtn.textContent = '✓ Erfolg';
-            setTimeout(() => anmeldenBtn.innerHTML = '➕ Anmelden', 800);
+                if (insertError) throw insertError;
+
+                // 2. Lokalen Attendee hinzufügen
+                const newAttendee = { vorname, name, personalnummer: persnr, geburtstag: gebtag, geburtsort: gebort };
+                
+                if (!training.attendees) training.attendees = [];
+                training.attendees.push(newAttendee);
+
+                // 3. Supabase trainings-Tabelle updaten (attendees als JSONB)
+                const { error: updateError } = await supabase
+                    .from('trainings')
+                    .update({ attendees: training.attendees })
+                    .eq('id', selectedId);
+
+                if (updateError) throw updateError;
+
+                // 4. UI aktualisieren
+                buildMonthGrid();               // Auslastung neu zeichnen
+                renderAttendeeList(training);    // Teilnehmerliste neu
+
+                // Felder leeren
+                vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; geburtstagInp.value = ''; geburtsortInp.value = '';
+
+                anmeldenBtn.textContent = '✓ Erfolg';
+                setTimeout(() => anmeldenBtn.innerHTML = '➕ Anmelden', 800);
+
+            } catch (err) {
+                console.error('Fehler bei Anmeldung:', err);
+                alert('Fehler beim Speichern: ' + err.message);
+            }
         }
 
         function cancelSelection() {
@@ -663,15 +839,13 @@
             regPanel.style.display = 'none';
         }
 
+        // Event-Listener
         cancelBtn.addEventListener('click', cancelSelection);
         anmeldenBtn.addEventListener('click', (e) => { e.preventDefault(); anmelden(); });
 
-        buildMonthGrid();
+        // Initial laden
+        loadTrainings();
         regPanel.style.display = 'none';
-
-        // Initialen Modus setzen (kein dunkel)
-        document.body.classList.remove('dark');
-        themeToggle.innerHTML = '🌓 Dunkles Design';
     })();
 </script>
 </body>
