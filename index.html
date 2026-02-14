@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP‑Schulungen 2026 · mobilfreundlich</title>
+    <title>ZfP‑Schulungen 2026 · mit Abmeldefunktion</title>
     <style>
         * {
             box-sizing: border-box;
@@ -47,6 +47,8 @@
             --btn-text: #1e4a2b;
             --btn-primary-bg: #2e7d32;
             --btn-primary-text: white;
+            --btn-danger-bg: #d32f2f;
+            --btn-danger-text: white;
             --table-header-bg: #2e7d32;
             --table-header-text: white;
             --table-border: #c8e6c8;
@@ -90,6 +92,8 @@
             --btn-text: #b8e0b8;
             --btn-primary-bg: #2e7d32;
             --btn-primary-text: white;
+            --btn-danger-bg: #b71c1c;
+            --btn-danger-text: white;
             --table-header-bg: #1e3a1e;
             --table-header-text: #e0f0e0;
             --table-border: #3a5a3a;
@@ -377,6 +381,15 @@
             background: #1e4a2b;
             transform: scale(1.02);
         }
+        .btn-danger {
+            background: var(--btn-danger-bg);
+            border-color: var(--btn-danger-bg);
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #b71c1c;
+            transform: scale(1.02);
+        }
         .btn:hover {
             background: var(--input-bg);
         }
@@ -437,6 +450,24 @@
         td strong {
             font-weight: 700;
             color: #1e4a2b;
+        }
+        .remove-btn {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            white-space: nowrap;
+        }
+        .remove-btn:hover {
+            background: #b71c1c;
+            transform: scale(1.05);
         }
         .empty-message {
             background: var(--empty-bg);
@@ -595,7 +626,6 @@
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark');
-            // Icon bleibt gleich, nur Farbe ändert sich
         });
 
         // ========== DATEN VON SUPABASE LADEN ==========
@@ -700,20 +730,99 @@
             regPanel.scrollIntoView({ behavior: 'smooth' });
         }
 
+        // ========== TEILNEHMERLISTE ANZEIGEN (mit Abmelde-Buttons) ==========
         function renderAttendeeList(training) {
-            if (!training) { if (selectedId) training = findTraining(selectedId); else return; }
+            if (!training) { 
+                if (selectedId) training = findTraining(selectedId); 
+                else return; 
+            }
             const attendees = training.attendees || [];
             countBadge.textContent = `${attendees.length}/${MAX}`;
+            
             if (attendees.length === 0) {
                 listContainer.innerHTML = '<div class="empty-message">✗ Noch keine Anmeldungen</div>';
                 return;
             }
-            let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Geburtstag</th><th>Geburtsort</th></tr></thead><tbody>';
-            attendees.forEach(a => {
-                tab += `<tr><td><strong>${a.name}</strong></td><td><strong>${a.vorname}</strong></td><td><strong>${a.personalnummer}</strong></td><td><strong>${a.geburtstag}</strong></td><td><strong>${a.geburtsort}</strong></td></tr>`;
+            
+            let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Geburtstag</th><th>Geburtsort</th><th>Aktion</th></tr></thead><tbody>';
+            
+            attendees.forEach((a, index) => {
+                tab += `<tr>
+                    <td><strong>${a.name}</strong></td>
+                    <td><strong>${a.vorname}</strong></td>
+                    <td><strong>${a.personalnummer}</strong></td>
+                    <td><strong>${a.geburtstag}</strong></td>
+                    <td><strong>${a.geburtsort}</strong></td>
+                    <td>
+                        <button class="remove-btn" data-index="${index}" data-training-id="${training.id}">
+                            ❌ Abmelden
+                        </button>
+                    </td>
+                </tr>`;
             });
+            
             tab += '</tbody></table></div>';
             listContainer.innerHTML = tab;
+            
+            // Event-Listener für alle Abmelde-Buttons
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    const trainingId = btn.dataset.trainingId;
+                    const index = parseInt(btn.dataset.index);
+                    await removeAttendee(trainingId, index);
+                });
+            });
+        }
+
+        // ========== TEILNEHMER ENTFERNEN (Abmelden) ==========
+        async function removeAttendee(trainingId, attendeeIndex) {
+            const training = findTraining(trainingId);
+            if (!training || !training.attendees || attendeeIndex >= training.attendees.length) return;
+            
+            // Bestätigung einholen
+            if (!confirm('Möchten Sie diese Anmeldung wirklich zurückziehen?')) return;
+            
+            try {
+                // Attendee aus dem lokalen Array entfernen
+                const removedAttendee = training.attendees[attendeeIndex];
+                training.attendees.splice(attendeeIndex, 1);
+                
+                // 1. Supabase trainings-Tabelle updaten
+                const { error: updateError } = await supabase
+                    .from('trainings')
+                    .update({ attendees: training.attendees })
+                    .eq('id', trainingId);
+                
+                if (updateError) throw updateError;
+                
+                // 2. Aus registrations-Tabelle löschen (anhand der Daten)
+                // Da wir keine eindeutige ID haben, löschen wir anhand der Kombination
+                const { error: deleteError } = await supabase
+                    .from('registrations')
+                    .delete()
+                    .eq('training_id', trainingId)
+                    .eq('vorname', removedAttendee.vorname)
+                    .eq('name', removedAttendee.name)
+                    .eq('personalnummer', removedAttendee.personalnummer)
+                    .eq('geburtstag', removedAttendee.geburtstag)
+                    .eq('geburtsort', removedAttendee.geburtsort);
+                
+                if (deleteError) throw deleteError;
+                
+                // 3. UI aktualisieren
+                buildMonthGrid(); // Auslastung neu zeichnen
+                renderAttendeeList(training); // Teilnehmerliste neu
+                
+                // Kurze Erfolgsmeldung
+                alert('Anmeldung erfolgreich zurückgezogen.');
+                
+            } catch (err) {
+                console.error('Fehler beim Abmelden:', err);
+                alert('Fehler beim Abmelden: ' + err.message);
+                // Bei Fehler: neu laden vom Server?
+                await loadTrainings();
+            }
         }
 
         // ========== ANMELDUNG IN SUPABASE SPEICHERN ==========
@@ -736,6 +845,15 @@
             // Prüfen ob noch Plätze frei (lokal)
             if ((training.attendees?.length || 0) >= MAX) {
                 alert('Maximale Teilnehmerzahl bereits erreicht.');
+                return;
+            }
+
+            // Prüfen ob bereits angemeldet (Doppelanmeldung verhindern)
+            const alreadyRegistered = training.attendees?.some(a => 
+                a.personalnummer === persnr && a.name === name && a.vorname === vorname
+            );
+            if (alreadyRegistered) {
+                alert('Diese Person ist bereits für diese Schulung angemeldet.');
                 return;
             }
 
