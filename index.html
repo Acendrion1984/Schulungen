@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP‑Schulungen 2026 · mit Abmeldefunktion</title>
+    <title>ZfP‑Schulungen 2026 · Dark Mode mit Kontrast</title>
     <style>
         * {
             box-sizing: border-box;
@@ -59,53 +59,49 @@
             --footnote: #2e5a2e;
             --ort-hinweis-bg: #ffd966c0;
             --ort-hinweis-text: #1e4a2b;
-            --list-highlight: #ffffff;
-            --list-text: #1e4a2b;
         }
 
         body.dark {
-            /* Dark Mode - Anthrazit mit grünen Akzenten */
-            --bg-body: #1a1e1a;
-            --header-bg: linear-gradient(145deg, #2a2f2a, #1e2a1e);
-            --header-text: #e0e7e0;
-            --card-bg: #2a302a;
-            --card-border: #3a4a3a;
-            --month-title: #9ecf9e;
-            --item-bg: #2a332a;
-            --item-border: #3a4a3a;
-            --item-type: #b8e0b8;
-            --location-bg: #2a402a;
-            --location-text: #b8e0b8;
-            --badge-bg: #2a402a;
-            --badge-text: #b8e0b8;
-            --start-badge-bg: #2a3a2a;
-            --start-badge-text: #b8e0b8;
-            --spots-text: #b8e0b8;
-            --bar-bg: #3a4a3a;
-            --fill-bg: #4caf50;
-            --panel-bg: #2a302a;
-            --panel-border: #3a4a3a;
-            --input-bg: #1a2a1a;
-            --input-border: #3a5a3a;
-            --label-color: #b8e0b8;
-            --btn-border: #3a5a3a;
-            --btn-text: #b8e0b8;
-            --btn-primary-bg: #2e7d32;
+            /* Dark Mode - Verbesserter Kontrast mit Abstufungen */
+            --bg-body: #121212; /* Sehr dunkel für maximalen Kontrast */
+            --header-bg: linear-gradient(145deg, #1a2a1a, #0f1a0f);
+            --header-text: #f0f7f0;
+            --card-bg: #1e2a1e; /* Dunkelgrün, aber heller als Hintergrund */
+            --card-border: #3a553a;
+            --month-title: #b8e6b8; /* Helles Grün für Titel */
+            --item-bg: #253225; /* Mittleres Dunkelgrün */
+            --item-border: #3e5a3e;
+            --item-type: #d0f0d0; /* Sehr helles Grün für Text */
+            --location-bg: #1e3a1e; /* Etwas hellerer Hintergrund */
+            --location-text: #d0f0d0;
+            --badge-bg: #1e3a1e;
+            --badge-text: #d0f0d0;
+            --start-badge-bg: #1e3a1e;
+            --start-badge-text: #d0f0d0;
+            --spots-text: #c0e8c0;
+            --bar-bg: #3a553a;
+            --fill-bg: #4caf50; /* Helles Grün für Füllung */
+            --panel-bg: #1e2a1e;
+            --panel-border: #3e5a3e;
+            --input-bg: #0a1a0a; /* Sehr dunkel für Input */
+            --input-border: #4caf50; /* Heller grüner Rahmen */
+            --label-color: #c0e8c0; /* Helle Labels */
+            --btn-border: #4caf50;
+            --btn-text: #d0f0d0;
+            --btn-primary-bg: #2e7d32; /* Mittleres Grün */
             --btn-primary-text: white;
             --btn-danger-bg: #b71c1c;
             --btn-danger-text: white;
-            --table-header-bg: #1e3a1e;
-            --table-header-text: #e0f0e0;
-            --table-border: #3a5a3a;
+            --table-header-bg: #1a3a1a;
+            --table-header-text: #ffffff;
+            --table-border: #3a553a;
             --table-row-bg: #ffffff;
-            --table-row-alt: #f5fff5;
-            --empty-bg: #1a2a1a;
-            --empty-text: #9ecf9e;
-            --footnote: #9ecf9e;
+            --table-row-alt: #f0fff0;
+            --empty-bg: #1e2a1e;
+            --empty-text: #b0d8b0;
+            --footnote: #a0c8a0;
             --ort-hinweis-bg: #5a5a2ac0;
-            --ort-hinweis-text: #e0f0e0;
-            --list-highlight: #ffffff;
-            --list-text: #1a2a1a;
+            --ort-hinweis-text: #f0f7f0;
         }
 
         .app {
@@ -352,6 +348,10 @@
             background: var(--card-bg);
             box-shadow: 0 0 0 3px #8bc34a70;
         }
+        .field input::placeholder {
+            color: var(--footnote);
+            opacity: 0.7;
+        }
         .actions {
             display: flex;
             flex-wrap: wrap;
@@ -436,7 +436,7 @@
         td {
             padding: 0.8rem 0.8rem;
             border-bottom: 1px solid #c8e6c8;
-            color: #1e4a2b; /* Dunkelgrün für guten Kontrast auf weiß */
+            color: #1e4a2b;
             font-weight: 500;
             font-size: 0.95rem;
         }
@@ -542,7 +542,10 @@
             <div class="field"><label>Vorname *</label><input id="vorname" placeholder="Max"></div>
             <div class="field"><label>Name *</label><input id="name" placeholder="Mustermann"></div>
             <div class="field"><label>Personalnummer *</label><input id="persnr" placeholder="z.B. 87312"></div>
-            <div class="field"><label>Geburtstag *</label><input id="geburtstag" type="date"></div>
+            <div class="field">
+                <label>Geburtstag * (TT.MM.JJJJ)</label>
+                <input id="geburtstag" placeholder="31.12.1990" value="">
+            </div>
             <div class="field"><label>Geburtsort *</label><input id="geburtsort" placeholder="Stadt"></div>
         </div>
 
@@ -601,6 +604,36 @@
             return `${h} Std. (${days} Tag${days>1?'e':''})`;
         }
 
+        // Hilfsfunktion für Datumsvalidierung TT.MM.JJJJ
+        function validateGermanDate(dateStr) {
+            if (!dateStr) return false;
+            const pattern = /^(\d{2})\.(\d{2})\.(\d{4})$/;
+            const match = dateStr.match(pattern);
+            if (!match) return false;
+            
+            const day = parseInt(match[1], 10);
+            const month = parseInt(match[2], 10) - 1; // JS Monate 0-11
+            const year = parseInt(match[3], 10);
+            
+            const date = new Date(year, month, day);
+            return date.getDate() === day && 
+                   date.getMonth() === month && 
+                   date.getFullYear() === year;
+        }
+
+        // Konvertiere TT.MM.JJJJ zu YYYY-MM-DD für Supabase
+        function germanToIsoDate(germanDate) {
+            const [day, month, year] = germanDate.split('.');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Konvertiere YYYY-MM-DD zu TT.MM.JJJJ für Anzeige
+        function isoToGermanDate(isoDate) {
+            if (!isoDate) return '';
+            const [year, month, day] = isoDate.split('-');
+            return `${day}.${month}.${year}`;
+        }
+
         // Globale Variable für alle Schulungen (aus Supabase)
         let trainings = [];
 
@@ -649,6 +682,15 @@
                         catch { t.attendees = []; }
                     }
                     if (!Array.isArray(t.attendees)) t.attendees = [];
+                    
+                    // Konvertiere Geburtstage im attendees-Array von ISO zu deutsch für Anzeige
+                    if (t.attendees && t.attendees.length) {
+                        t.attendees.forEach(a => {
+                            if (a.geburtstag && a.geburtstag.includes('-')) {
+                                a.geburtstag = isoToGermanDate(a.geburtstag);
+                            }
+                        });
+                    }
                 });
 
                 buildMonthGrid();
@@ -796,8 +838,9 @@
                 
                 if (updateError) throw updateError;
                 
-                // 2. Aus registrations-Tabelle löschen (anhand der Daten)
-                // Da wir keine eindeutige ID haben, löschen wir anhand der Kombination
+                // 2. Aus registrations-Tabelle löschen - konvertiere deutsches Datum zu ISO für die Suche
+                const isoGeburtstag = germanToIsoDate(removedAttendee.geburtstag);
+                
                 const { error: deleteError } = await supabase
                     .from('registrations')
                     .delete()
@@ -805,7 +848,7 @@
                     .eq('vorname', removedAttendee.vorname)
                     .eq('name', removedAttendee.name)
                     .eq('personalnummer', removedAttendee.personalnummer)
-                    .eq('geburtstag', removedAttendee.geburtstag)
+                    .eq('geburtstag', isoGeburtstag)
                     .eq('geburtsort', removedAttendee.geburtsort);
                 
                 if (deleteError) throw deleteError;
@@ -834,11 +877,17 @@
             const vorname = vornameInp.value.trim();
             const name = nameInp.value.trim();
             const persnr = persnrInp.value.trim();
-            const gebtag = geburtstagInp.value;
+            const geburtstagGerman = geburtstagInp.value.trim();
             const gebort = geburtsortInp.value.trim();
 
-            if (!vorname || !name || !persnr || !gebtag || !gebort) {
+            if (!vorname || !name || !persnr || !geburtstagGerman || !gebort) {
                 alert('Bitte alle Felder ausfüllen.');
+                return;
+            }
+
+            // Validiere deutsches Datumsformat
+            if (!validateGermanDate(geburtstagGerman)) {
+                alert('Bitte geben Sie das Geburtsdatum im Format TT.MM.JJJJ ein (z.B. 31.12.1990).');
                 return;
             }
 
@@ -857,8 +906,11 @@
                 return;
             }
 
+            // Konvertiere deutsches Datum zu ISO für Supabase
+            const isoGeburtstag = germanToIsoDate(geburtstagGerman);
+
             try {
-                // 1. Neue Registrierung in Tabelle 'registrations' speichern
+                // 1. Neue Registrierung in Tabelle 'registrations' speichern (mit ISO-Datum)
                 const { error: insertError } = await supabase
                     .from('registrations')
                     .insert([{
@@ -866,14 +918,20 @@
                         vorname: vorname,
                         name: name,
                         personalnummer: persnr,
-                        geburtstag: gebtag,
+                        geburtstag: isoGeburtstag,
                         geburtsort: gebort
                     }]);
 
                 if (insertError) throw insertError;
 
-                // 2. Lokalen Attendee hinzufügen
-                const newAttendee = { vorname, name, personalnummer: persnr, geburtstag: gebtag, geburtsort: gebort };
+                // 2. Lokalen Attendee hinzufügen (mit deutschem Datum für Anzeige)
+                const newAttendee = { 
+                    vorname, 
+                    name, 
+                    personalnummer: persnr, 
+                    geburtstag: geburtstagGerman, // Deutsch für Anzeige
+                    geburtsort: gebort 
+                };
                 
                 if (!training.attendees) training.attendees = [];
                 training.attendees.push(newAttendee);
