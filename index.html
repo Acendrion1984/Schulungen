@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP‑Schulungen 2026 · Cloud-Daten</title>
+    <title>ZfP‑Schulungen 2026</title>
     <style>
         * {
             box-sizing: border-box;
@@ -19,7 +19,6 @@
             min-height: 100vh;
         }
         :root {
-            /* Light Mode - Grüntöne */
             --bg-body: #f0f7f0;
             --header-bg: linear-gradient(145deg, #1e4a2b, #2d6a3f);
             --header-text: white;
@@ -65,7 +64,6 @@
         }
 
         body.dark {
-            /* Dark Mode - Anthrazit-Palette */
             --bg-body: #121212;
             --header-bg: linear-gradient(145deg, #2a2a2a, #1a1a1a);
             --header-text: #f0f0f0;
@@ -116,7 +114,6 @@
             position: relative;
         }
         
-        /* Loading Overlay */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -183,7 +180,6 @@
             backdrop-filter: blur(4px);
         }
         
-        /* Monats-Raster - mobil optimiert */
         .year-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -320,7 +316,6 @@
             font-size: 0.9rem;
         }
         
-        /* Anmeldebereich */
         .reg-panel {
             background: var(--panel-bg);
             border-radius: 28px;
@@ -450,7 +445,6 @@
             background: var(--input-bg);
         }
         
-        /* Teilnehmerliste - hervorgehoben mit weißem Hintergrund */
         .attendee-list {
             margin-top: 1.8rem;
             border-top: 2px dashed var(--panel-border);
@@ -540,7 +534,6 @@
             text-align: center;
         }
         
-        /* Dark/Light Toggle - kleiner Icon-Button */
         .theme-toggle {
             position: fixed;
             bottom: 20px;
@@ -567,7 +560,6 @@
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner"></div>
         <div class="loading-text">Lade Schulungsdaten aus der Cloud...</div>
@@ -580,12 +572,8 @@
             <div class="ort-hinweis">🏢 Bau 50, Raum Silber (alle Schulungen)</div>
         </div>
 
-        <!-- MONATSÜBERSICHT 2026 -->
-        <div class="year-grid" id="monthGrid">
-            <!-- Wird dynamisch befüllt -->
-        </div>
+        <div class="year-grid" id="monthGrid"></div>
 
-        <!-- ANMELDUNG -->
         <div class="reg-panel" id="regPanel" style="display: none;">
             <div class="reg-header">
                 <h2 id="regTitle">Anmeldung</h2>
@@ -609,7 +597,7 @@
                 </div>
                 <div class="field">
                     <label>Geburtstag <span class="optional">(optional, TT.MM.JJJJ)</span></label>
-                    <input id="geburtstag" placeholder="31.12.1990" value="">
+                    <input id="geburtstag" placeholder="31.12.1990">
                 </div>
                 <div class="field">
                     <label>Geburtsort <span class="optional">(optional)</span></label>
@@ -629,23 +617,43 @@
         </div>
         <div class="footnote">* Nur Name und Vorname sind Pflichtfelder · pro Schulung max. 11 Teilnehmer · Start 8:00 · Ende: Magnetpulver 14:00, alle anderen 16:00</div>
 
-        <!-- Dark/Light Toggle - nur Icon -->
         <button class="theme-toggle" id="themeToggle">🌓</button>
     </div>
 
-    <!-- Supabase SDK einbinden -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
         (function() {
-            // ==================== SUPABASE KONFIGURATION ====================
             const SUPABASE_URL = 'https://wqrynlgbspkjzxuxauvq.supabase.co';
             const SUPABASE_ANON_KEY = 'sb_publishable_jkkaIcAKxMhkXSdnJY1Oiw_U-xPWr68';
             
-            // Supabase Client initialisieren
             const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-            // ---- Konstanten ----
+            // Theme Management
+            const themeToggle = document.getElementById('themeToggle');
+            const STORAGE_KEY = 'zfp-theme-preference';
+            
+            function loadThemePreference() {
+                const savedTheme = localStorage.getItem(STORAGE_KEY);
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark');
+                }
+            }
+            
+            function toggleTheme() {
+                if (document.body.classList.contains('dark')) {
+                    document.body.classList.remove('dark');
+                    localStorage.setItem(STORAGE_KEY, 'light');
+                } else {
+                    document.body.classList.add('dark');
+                    localStorage.setItem(STORAGE_KEY, 'dark');
+                }
+            }
+            
+            themeToggle.addEventListener('click', toggleTheme);
+            loadThemePreference();
+
+            // Konstanten
             const MAX = 11;
             const TRAINING_TYPES = {
                 WIRBELSTROM: 'Wirbelstromprüfung',
@@ -672,9 +680,8 @@
                 return `${h} Std. (${days} Tag${days>1?'e':''})`;
             }
 
-            // Hilfsfunktion für Datumsvalidierung TT.MM.JJJJ (optional)
             function validateGermanDate(dateStr) {
-                if (!dateStr) return true; // Leer ist OK (optional)
+                if (!dateStr) return true;
                 const pattern = /^(\d{2})\.(\d{2})\.(\d{4})$/;
                 const match = dateStr.match(pattern);
                 if (!match) return false;
@@ -689,26 +696,21 @@
                        date.getFullYear() === year;
             }
 
-            // Konvertiere TT.MM.JJJJ zu YYYY-MM-DD für Supabase (falls angegeben)
             function germanToIsoDate(germanDate) {
                 if (!germanDate) return null;
                 const [day, month, year] = germanDate.split('.');
                 return `${year}-${month}-${day}`;
             }
 
-            // Konvertiere YYYY-MM-DD zu TT.MM.JJJJ für Anzeige
             function isoToGermanDate(isoDate) {
                 if (!isoDate) return '';
                 const [year, month, day] = isoDate.split('-');
                 return `${day}.${month}.${year}`;
             }
 
-            // Globale Variable für alle Schulungen
             let trainings = [];
             let selectedId = null;
-            let dataLoaded = false;
 
-            // DOM-Elemente
             const loadingOverlay = document.getElementById('loadingOverlay');
             const monthGrid = document.getElementById('monthGrid');
             const regPanel = document.getElementById('regPanel');
@@ -723,17 +725,9 @@
             const persnrInp = document.getElementById('persnr');
             const geburtstagInp = document.getElementById('geburtstag');
             const geburtsortInp = document.getElementById('geburtsort');
-            const themeToggle = document.getElementById('themeToggle');
 
-            // Dark Mode Toggle
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark');
-            });
-
-            // ========== DATEN VON SUPABASE LADEN ==========
             async function loadTrainings() {
                 try {
-                    // Loading anzeigen
                     loadingOverlay.classList.remove('hidden');
                     
                     const { data, error } = await supabase
@@ -743,17 +737,19 @@
 
                     if (error) throw error;
 
-                    trainings = data || [];
-                    
-                    // attendees als Array parsen
+                    if (!data || data.length === 0) {
+                        monthGrid.innerHTML = '<div class="empty-message">Keine Schulungen gefunden. Bitte SQL-Skript ausführen.</div>';
+                        loadingOverlay.classList.add('hidden');
+                        return;
+                    }
+
+                    trainings = data.map(t => ({
+                        ...t,
+                        attendees: Array.isArray(t.attendees) ? t.attendees : 
+                                  (typeof t.attendees === 'string' ? JSON.parse(t.attendees) : [])
+                    }));
+
                     trainings.forEach(t => {
-                        if (typeof t.attendees === 'string') {
-                            try { t.attendees = JSON.parse(t.attendees); } 
-                            catch { t.attendees = []; }
-                        }
-                        if (!Array.isArray(t.attendees)) t.attendees = [];
-                        
-                        // Konvertiere Geburtstage für Anzeige
                         if (t.attendees && t.attendees.length) {
                             t.attendees.forEach(a => {
                                 if (a.geburtstag && a.geburtstag.includes('-')) {
@@ -763,22 +759,21 @@
                         }
                     });
 
-                    // UI aktualisieren
                     buildMonthGrid();
                     
-                    // Loading ausblenden
                     setTimeout(() => {
                         loadingOverlay.classList.add('hidden');
-                    }, 500); // Kurze Verzögerung für bessere UX
+                    }, 500);
                     
                 } catch (err) {
                     console.error('Fehler beim Laden:', err);
-                    monthGrid.innerHTML = `<div class="empty-message">❌ Fehler beim Laden: ${err.message}. Bitte Seite neu laden.</div>`;
+                    monthGrid.innerHTML = `<div class="empty-message" style="background: #ffebee; color: #c62828;">
+                        ❌ Fehler beim Laden: ${err.message}
+                    </div>`;
                     loadingOverlay.classList.add('hidden');
                 }
             }
 
-            // Monatsübersicht aufbauen
             function buildMonthGrid() {
                 const months = Array.from({ length: 12 }, (_, i) => {
                     const monthNum = i + 1;
@@ -845,12 +840,10 @@
                 const endTime = getEndTime(training.type);
                 regMeta.textContent = `${training.date_str}  |  täglich 8:00–${endTime} Uhr  |  ${durationInfo(training.type)}`;
                 renderAttendeeList(training);
-                // Felder leeren
                 vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; geburtstagInp.value = ''; geburtsortInp.value = '';
                 regPanel.scrollIntoView({ behavior: 'smooth' });
             }
 
-            // ========== TEILNEHMERLISTE ANZEIGEN ==========
             function renderAttendeeList(training) {
                 if (!training) { 
                     if (selectedId) training = findTraining(selectedId); 
@@ -884,7 +877,6 @@
                 tab += '</tbody></table></div>';
                 listContainer.innerHTML = tab;
                 
-                // Event-Listener für Abmelde-Buttons
                 document.querySelectorAll('.remove-btn').forEach(btn => {
                     btn.addEventListener('click', async (e) => {
                         e.stopPropagation();
@@ -895,7 +887,6 @@
                 });
             }
 
-            // ========== TEILNEHMER ENTFERNEN ==========
             async function removeAttendee(trainingId, attendeeIndex) {
                 const training = findTraining(trainingId);
                 if (!training || !training.attendees || attendeeIndex >= training.attendees.length) return;
@@ -903,10 +894,8 @@
                 if (!confirm('Möchten Sie diese Anmeldung wirklich zurückziehen?')) return;
                 
                 try {
-                    const removedAttendee = training.attendees[attendeeIndex];
                     training.attendees.splice(attendeeIndex, 1);
                     
-                    // trainings-Tabelle updaten
                     const { error: updateError } = await supabase
                         .from('trainings')
                         .update({ attendees: training.attendees })
@@ -914,39 +903,6 @@
                     
                     if (updateError) throw updateError;
                     
-                    // Aus registrations-Tabelle löschen (wenn Geburtstag vorhanden)
-                    const deleteQuery = supabase
-                        .from('registrations')
-                        .delete()
-                        .eq('training_id', trainingId)
-                        .eq('vorname', removedAttendee.vorname || '')
-                        .eq('name', removedAttendee.name || '');
-                    
-                    // Nur wenn Personalnummer vorhanden, auch danach filtern
-                    if (removedAttendee.personalnummer) {
-                        deleteQuery.eq('personalnummer', removedAttendee.personalnummer);
-                    }
-                    
-                    // Nur wenn Geburtstag vorhanden, konvertieren und filtern
-                    if (removedAttendee.geburtstag && removedAttendee.geburtstag !== '-') {
-                        const isoGeburtstag = germanToIsoDate(removedAttendee.geburtstag);
-                        if (isoGeburtstag) {
-                            deleteQuery.eq('geburtstag', isoGeburtstag);
-                        }
-                    }
-                    
-                    // Nur wenn Geburtsort vorhanden, filtern
-                    if (removedAttendee.geburtsort && removedAttendee.geburtsort !== '-') {
-                        deleteQuery.eq('geburtsort', removedAttendee.geburtsort);
-                    }
-                    
-                    const { error: deleteError } = await deleteQuery;
-                    
-                    if (deleteError && deleteError.code !== 'PGRST116') { // PGRST116 = no rows returned
-                        console.warn('Fehler beim Löschen aus registrations (ignoriert):', deleteError);
-                    }
-                    
-                    // UI aktualisieren
                     buildMonthGrid();
                     renderAttendeeList(training);
                     
@@ -955,11 +911,10 @@
                 } catch (err) {
                     console.error('Fehler beim Abmelden:', err);
                     alert('Fehler beim Abmelden: ' + err.message);
-                    await loadTrainings(); // Neu laden bei Fehler
+                    await loadTrainings();
                 }
             }
 
-            // ========== ANMELDUNG SPEICHERN ==========
             async function anmelden() {
                 if (!selectedId) { alert('Bitte wählen Sie eine Schulung.'); return; }
                 const training = findTraining(selectedId);
@@ -971,25 +926,21 @@
                 const geburtstagGerman = geburtstagInp.value.trim() || null;
                 const gebort = geburtsortInp.value.trim() || null;
 
-                // NUR Name und Vorname sind Pflichtfelder
                 if (!vorname || !name) {
                     alert('Bitte füllen Sie die Pflichtfelder Name und Vorname aus.');
                     return;
                 }
 
-                // Optionales Datum validieren (falls angegeben)
                 if (geburtstagGerman && !validateGermanDate(geburtstagGerman)) {
                     alert('Bitte geben Sie das Geburtsdatum im Format TT.MM.JJJJ ein (z.B. 31.12.1990) oder lassen Sie es leer.');
                     return;
                 }
 
-                // Prüfen ob noch Plätze frei
                 if ((training.attendees?.length || 0) >= MAX) {
                     alert('Maximale Teilnehmerzahl bereits erreicht.');
                     return;
                 }
 
-                // Prüfen ob bereits angemeldet (anhand Name + Vorname)
                 const alreadyRegistered = training.attendees?.some(a => 
                     a.name === name && a.vorname === vorname
                 );
@@ -998,42 +949,15 @@
                     return;
                 }
 
-                // Konvertiere optionales Datum
-                const isoGeburtstag = geburtstagGerman ? germanToIsoDate(geburtstagGerman) : null;
+                const newAttendee = { vorname, name };
+                if (persnr) newAttendee.personalnummer = persnr;
+                if (geburtstagGerman) newAttendee.geburtstag = geburtstagGerman;
+                if (gebort) newAttendee.geburtsort = gebort;
+                
+                if (!training.attendees) training.attendees = [];
+                training.attendees.push(newAttendee);
 
                 try {
-                    // In registrations-Tabelle speichern
-                    const registrationData = {
-                        training_id: selectedId,
-                        vorname: vorname,
-                        name: name
-                    };
-                    
-                    // Nur vorhandene optionale Felder hinzufügen
-                    if (persnr) registrationData.personalnummer = persnr;
-                    if (isoGeburtstag) registrationData.geburtstag = isoGeburtstag;
-                    if (gebort) registrationData.geburtsort = gebort;
-                    
-                    const { error: insertError } = await supabase
-                        .from('registrations')
-                        .insert([registrationData]);
-
-                    if (insertError) throw insertError;
-
-                    // Lokalen Attendee hinzufügen
-                    const newAttendee = { 
-                        vorname, 
-                        name
-                    };
-                    
-                    if (persnr) newAttendee.personalnummer = persnr;
-                    if (geburtstagGerman) newAttendee.geburtstag = geburtstagGerman;
-                    if (gebort) newAttendee.geburtsort = gebort;
-                    
-                    if (!training.attendees) training.attendees = [];
-                    training.attendees.push(newAttendee);
-
-                    // trainings-Tabelle updaten
                     const { error: updateError } = await supabase
                         .from('trainings')
                         .update({ attendees: training.attendees })
@@ -1041,11 +965,9 @@
 
                     if (updateError) throw updateError;
 
-                    // UI aktualisieren
                     buildMonthGrid();
                     renderAttendeeList(training);
 
-                    // Felder leeren
                     vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; 
                     geburtstagInp.value = ''; geburtsortInp.value = '';
 
@@ -1063,11 +985,9 @@
                 regPanel.style.display = 'none';
             }
 
-            // Event-Listener
             cancelBtn.addEventListener('click', cancelSelection);
             anmeldenBtn.addEventListener('click', (e) => { e.preventDefault(); anmelden(); });
 
-            // ========== START: DATEN LADEN ==========
             document.addEventListener('DOMContentLoaded', () => {
                 loadTrainings();
                 regPanel.style.display = 'none';
