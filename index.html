@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP‑Schulungen 2026</title>
+    <title>ZfP‑Schulungen 2026 · mit Teilnehmer-Bearbeitung</title>
     <style>
         * {
             box-sizing: border-box;
@@ -47,6 +47,8 @@
             --btn-text: #1e4a2b;
             --btn-primary-bg: #2e7d32;
             --btn-primary-text: white;
+            --btn-warning-bg: #f59e0b;
+            --btn-warning-text: white;
             --btn-danger-bg: #d32f2f;
             --btn-danger-text: white;
             --table-header-bg: #2e7d32;
@@ -92,6 +94,8 @@
             --btn-text: #f0f0f0;
             --btn-primary-bg: #2e7d32;
             --btn-primary-text: white;
+            --btn-warning-bg: #f59e0b;
+            --btn-warning-text: white;
             --btn-danger-bg: #b71c1c;
             --btn-danger-text: white;
             --table-header-bg: #3a3a3a;
@@ -432,6 +436,15 @@
             background: #1e4a2b;
             transform: scale(1.02);
         }
+        .btn-warning {
+            background: var(--btn-warning-bg);
+            border-color: var(--btn-warning-bg);
+            color: white;
+        }
+        .btn-warning:hover {
+            background: #e68a00;
+            transform: scale(1.02);
+        }
         .btn-danger {
             background: var(--btn-danger-bg);
             border-color: var(--btn-danger-bg);
@@ -500,23 +513,36 @@
             font-weight: 700;
             color: #1e4a2b;
         }
+        .action-cell {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            white-space: nowrap;
+        }
+        .edit-btn {
+            background: #f59e0b;
+            color: white;
+        }
+        .edit-btn:hover {
+            background: #e68a00;
+        }
         .remove-btn {
             background: #d32f2f;
             color: white;
-            border: none;
-            border-radius: 30px;
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            white-space: nowrap;
         }
         .remove-btn:hover {
             background: #b71c1c;
-            transform: scale(1.05);
         }
         .empty-message {
             background: var(--empty-bg);
@@ -557,7 +583,47 @@
             transform: scale(1.1);
             background: var(--input-bg);
         }
+
+        /* Modal für Teilnehmer-Bearbeitung */
+        .teilnehmer-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        .teilnehmer-modal-content {
+            background: var(--panel-bg);
+            border-radius: 28px;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+        }
+        .teilnehmer-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .teilnehmer-modal-header h3 {
+            color: var(--month-title);
+            font-size: 1.5rem;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--footnote);
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div class="loading-overlay" id="loadingOverlay">
@@ -565,11 +631,55 @@
         <div class="loading-text">Lade Schulungsdaten aus der Cloud...</div>
     </div>
 
+    <!-- Modal für Teilnehmer-Bearbeitung -->
+    <div class="teilnehmer-modal" id="teilnehmerModal">
+        <div class="teilnehmer-modal-content">
+            <div class="teilnehmer-modal-header">
+                <h3 id="teilnehmerModalTitle">Teilnehmer bearbeiten</h3>
+                <button class="close-modal" onclick="closeTeilnehmerModal()">&times;</button>
+            </div>
+            <form id="teilnehmerForm" class="modal-form">
+                <input type="hidden" id="editTrainingId">
+                <input type="hidden" id="editAttendeeIndex">
+                
+                <div class="field">
+                    <label>Vorname *</label>
+                    <input type="text" id="editVorname" required>
+                </div>
+                
+                <div class="field">
+                    <label>Name *</label>
+                    <input type="text" id="editName" required>
+                </div>
+                
+                <div class="field">
+                    <label>Personalnummer <span class="optional">(optional)</span></label>
+                    <input type="text" id="editPersonalnummer">
+                </div>
+                
+                <div class="field">
+                    <label>Geburtstag <span class="optional">(optional, TT.MM.JJJJ)</span></label>
+                    <input type="text" id="editGeburtstag" placeholder="31.12.1990">
+                </div>
+                
+                <div class="field">
+                    <label>Geburtsort <span class="optional">(optional)</span></label>
+                    <input type="text" id="editGeburtsort" placeholder="Stadt">
+                </div>
+                
+                <div class="actions" style="margin-top: 1.5rem;">
+                    <button type="button" class="btn" onclick="closeTeilnehmerModal()">Abbrechen</button>
+                    <button type="submit" class="btn btn-primary">Speichern</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div class="app" id="app">
         <div class="header">
             <h1>🔬 ZfP‑Schulungen 2026</h1>
             <div class="sub">Wirbelstrom · Ultraschall · Magnetpulver · Nital-Ätzen – max. 11 Plätze</div>
-            <div class="ort-hinweis">🏢 Bau 50, Raum Silber (alle Schulungen)</div>
+            <div class="ort-hinweis">🏢 Bau 50, Raum Silber</div>
         </div>
 
         <div class="year-grid" id="monthGrid"></div>
@@ -615,12 +725,10 @@
                 <div id="listContainer"></div>
             </div>
         </div>
-        <div class="footnote">* Nur Name und Vorname sind Pflichtfelder · pro Schulung max. 11 Teilnehmer · Start 8:00 · Ende: Magnetpulver 14:00, alle anderen 16:00</div>
+        <div class="footnote"> · pro Schulung max. 11 Teilnehmer · Start 8:00 · Ende: 14:00 (MT) 16:00 (ET/NE/UT)</div>
 
         <button class="theme-toggle" id="themeToggle">🌓</button>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
         (function() {
@@ -726,6 +834,17 @@
             const geburtstagInp = document.getElementById('geburtstag');
             const geburtsortInp = document.getElementById('geburtsort');
 
+            // Modal-Elemente
+            const teilnehmerModal = document.getElementById('teilnehmerModal');
+            const editTrainingId = document.getElementById('editTrainingId');
+            const editAttendeeIndex = document.getElementById('editAttendeeIndex');
+            const editVorname = document.getElementById('editVorname');
+            const editName = document.getElementById('editName');
+            const editPersonalnummer = document.getElementById('editPersonalnummer');
+            const editGeburtstag = document.getElementById('editGeburtstag');
+            const editGeburtsort = document.getElementById('editGeburtsort');
+            const teilnehmerForm = document.getElementById('teilnehmerForm');
+
             async function loadTrainings() {
                 try {
                     loadingOverlay.classList.remove('hidden');
@@ -736,12 +855,6 @@
                         .order('start_date', { ascending: true });
 
                     if (error) throw error;
-
-                    if (!data || data.length === 0) {
-                        monthGrid.innerHTML = '<div class="empty-message">Keine Schulungen gefunden. Bitte SQL-Skript ausführen.</div>';
-                        loadingOverlay.classList.add('hidden');
-                        return;
-                    }
 
                     trainings = data.map(t => ({
                         ...t,
@@ -857,7 +970,7 @@
                     return;
                 }
                 
-                let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Geburtstag</th><th>Geburtsort</th><th>Aktion</th></tr></thead><tbody>';
+                let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Geburtstag</th><th>Geburtsort</th><th>Aktionen</th></tr></thead><tbody>';
                 
                 attendees.forEach((a, index) => {
                     tab += `<tr>
@@ -867,27 +980,113 @@
                         <td><strong>${a.geburtstag || '-'}</strong></td>
                         <td><strong>${a.geburtsort || '-'}</strong></td>
                         <td>
-                            <button class="remove-btn" data-index="${index}" data-training-id="${training.id}">
-                                ❌ Abmelden
-                            </button>
+                            <div class="action-cell">
+                                <button class="action-btn edit-btn" onclick="window.editAttendee('${training.id}', ${index})">
+                                    <i class="fas fa-edit"></i> Bearbeiten
+                                </button>
+                                <button class="action-btn remove-btn" onclick="window.removeAttendee('${training.id}', ${index})">
+                                    <i class="fas fa-trash"></i> Abmelden
+                                </button>
+                            </div>
                         </td>
                     </tr>`;
                 });
                 
                 tab += '</tbody></table></div>';
                 listContainer.innerHTML = tab;
-                
-                document.querySelectorAll('.remove-btn').forEach(btn => {
-                    btn.addEventListener('click', async (e) => {
-                        e.stopPropagation();
-                        const trainingId = btn.dataset.trainingId;
-                        const index = parseInt(btn.dataset.index);
-                        await removeAttendee(trainingId, index);
-                    });
-                });
             }
 
-            async function removeAttendee(trainingId, attendeeIndex) {
+            // Teilnehmer bearbeiten - Modal öffnen
+            window.editAttendee = function(trainingId, attendeeIndex) {
+                const training = findTraining(trainingId);
+                if (!training || !training.attendees || !training.attendees[attendeeIndex]) return;
+                
+                const attendee = training.attendees[attendeeIndex];
+                
+                editTrainingId.value = trainingId;
+                editAttendeeIndex.value = attendeeIndex;
+                editVorname.value = attendee.vorname || '';
+                editName.value = attendee.name || '';
+                editPersonalnummer.value = attendee.personalnummer || '';
+                editGeburtstag.value = attendee.geburtstag || '';
+                editGeburtsort.value = attendee.geburtsort || '';
+                
+                teilnehmerModal.style.display = 'flex';
+            };
+
+            // Modal schließen
+            window.closeTeilnehmerModal = function() {
+                teilnehmerModal.style.display = 'none';
+            };
+
+            // Teilnehmer aktualisieren
+            teilnehmerForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const trainingId = editTrainingId.value;
+                const index = parseInt(editAttendeeIndex.value);
+                const training = findTraining(trainingId);
+                
+                if (!training || !training.attendees || !training.attendees[index]) return;
+                
+                const vorname = editVorname.value.trim();
+                const name = editName.value.trim();
+                const persnr = editPersonalnummer.value.trim() || null;
+                const geburtstagGerman = editGeburtstag.value.trim() || null;
+                const gebort = editGeburtsort.value.trim() || null;
+
+                if (!vorname || !name) {
+                    alert('Bitte füllen Sie die Pflichtfelder Name und Vorname aus.');
+                    return;
+                }
+
+                if (geburtstagGerman && !validateGermanDate(geburtstagGerman)) {
+                    alert('Bitte geben Sie das Geburtsdatum im Format TT.MM.JJJJ ein (z.B. 31.12.1990) oder lassen Sie es leer.');
+                    return;
+                }
+
+                // Prüfen auf Doppelung (außer bei sich selbst)
+                const duplicateExists = training.attendees.some((a, i) => 
+                    i !== index && a.name === name && a.vorname === vorname
+                );
+                
+                if (duplicateExists) {
+                    alert(`${vorname} ${name} ist bereits für diese Schulung angemeldet.`);
+                    return;
+                }
+
+                try {
+                    // Attendee aktualisieren
+                    training.attendees[index] = {
+                        vorname,
+                        name
+                    };
+                    
+                    if (persnr) training.attendees[index].personalnummer = persnr;
+                    if (geburtstagGerman) training.attendees[index].geburtstag = geburtstagGerman;
+                    if (gebort) training.attendees[index].geburtsort = gebort;
+
+                    // In Supabase speichern
+                    const { error: updateError } = await supabase
+                        .from('trainings')
+                        .update({ attendees: training.attendees })
+                        .eq('id', trainingId);
+
+                    if (updateError) throw updateError;
+
+                    // UI aktualisieren
+                    buildMonthGrid();
+                    renderAttendeeList(training);
+                    
+                    closeTeilnehmerModal();
+                    
+                } catch (err) {
+                    console.error('Fehler beim Aktualisieren:', err);
+                    alert('Fehler beim Speichern: ' + err.message);
+                }
+            });
+
+            window.removeAttendee = async function(trainingId, attendeeIndex) {
                 const training = findTraining(trainingId);
                 if (!training || !training.attendees || attendeeIndex >= training.attendees.length) return;
                 
@@ -913,7 +1112,7 @@
                     alert('Fehler beim Abmelden: ' + err.message);
                     await loadTrainings();
                 }
-            }
+            };
 
             async function anmelden() {
                 if (!selectedId) { alert('Bitte wählen Sie eine Schulung.'); return; }
@@ -987,6 +1186,13 @@
 
             cancelBtn.addEventListener('click', cancelSelection);
             anmeldenBtn.addEventListener('click', (e) => { e.preventDefault(); anmelden(); });
+
+            // Modal schließen bei Klick außerhalb
+            window.onclick = function(event) {
+                if (event.target === teilnehmerModal) {
+                    closeTeilnehmerModal();
+                }
+            };
 
             document.addEventListener('DOMContentLoaded', () => {
                 loadTrainings();
