@@ -658,6 +658,11 @@
                 </div>
                 
                 <div class="field">
+                    <label>Abteilung <span class="optional">(optional)</span></label>
+                    <input type="text" id="editAbteilung" placeholder="z.B. Fertigung, QS, Entwicklung">
+                </div>
+                
+                <div class="field">
                     <label>Geburtstag <span class="optional">(optional, TT.MM.JJJJ)</span></label>
                     <input type="text" id="editGeburtstag" placeholder="31.12.1990">
                 </div>
@@ -704,6 +709,10 @@
                 <div class="field">
                     <label>Personalnummer <span class="optional">(optional)</span></label>
                     <input id="persnr" placeholder="z.B. 87312">
+                </div>
+                <div class="field">
+                    <label>Abteilung <span class="optional">(optional)</span></label>
+                    <input id="abteilung" placeholder="z.B. Fertigung, QS, Entwicklung">
                 </div>
                 <div class="field">
                     <label>Geburtstag <span class="optional">(optional, TT.MM.JJJJ)</span></label>
@@ -831,6 +840,7 @@
             const vornameInp = document.getElementById('vorname');
             const nameInp = document.getElementById('name');
             const persnrInp = document.getElementById('persnr');
+            const abteilungInp = document.getElementById('abteilung');
             const geburtstagInp = document.getElementById('geburtstag');
             const geburtsortInp = document.getElementById('geburtsort');
 
@@ -841,6 +851,7 @@
             const editVorname = document.getElementById('editVorname');
             const editName = document.getElementById('editName');
             const editPersonalnummer = document.getElementById('editPersonalnummer');
+            const editAbteilung = document.getElementById('editAbteilung');
             const editGeburtstag = document.getElementById('editGeburtstag');
             const editGeburtsort = document.getElementById('editGeburtsort');
             const teilnehmerForm = document.getElementById('teilnehmerForm');
@@ -953,7 +964,7 @@
                 const endTime = getEndTime(training.type);
                 regMeta.textContent = `${training.date_str}  |  täglich 8:00–${endTime} Uhr  |  ${durationInfo(training.type)}`;
                 renderAttendeeList(training);
-                vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; geburtstagInp.value = ''; geburtsortInp.value = '';
+                vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; abteilungInp.value = ''; geburtstagInp.value = ''; geburtsortInp.value = '';
                 regPanel.scrollIntoView({ behavior: 'smooth' });
             }
 
@@ -970,13 +981,14 @@
                     return;
                 }
                 
-                let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Geburtstag</th><th>Geburtsort</th><th>Aktionen</th></tr></thead><tbody>';
+                let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Abteilung</th><th>Geburtstag</th><th>Geburtsort</th><th>Aktionen</th></tr></thead><tbody>';
                 
                 attendees.forEach((a, index) => {
                     tab += `<tr>
                         <td><strong>${a.name || ''}</strong></td>
                         <td><strong>${a.vorname || ''}</strong></td>
                         <td><strong>${a.personalnummer || '-'}</strong></td>
+                        <td><strong>${a.abteilung || '-'}</strong></td>
                         <td><strong>${a.geburtstag || '-'}</strong></td>
                         <td><strong>${a.geburtsort || '-'}</strong></td>
                         <td>
@@ -1008,6 +1020,7 @@
                 editVorname.value = attendee.vorname || '';
                 editName.value = attendee.name || '';
                 editPersonalnummer.value = attendee.personalnummer || '';
+                editAbteilung.value = attendee.abteilung || '';
                 editGeburtstag.value = attendee.geburtstag || '';
                 editGeburtsort.value = attendee.geburtsort || '';
                 
@@ -1032,6 +1045,7 @@
                 const vorname = editVorname.value.trim();
                 const name = editName.value.trim();
                 const persnr = editPersonalnummer.value.trim() || null;
+                const abteilung = editAbteilung.value.trim() || null;
                 const geburtstagGerman = editGeburtstag.value.trim() || null;
                 const gebort = editGeburtsort.value.trim() || null;
 
@@ -1063,6 +1077,7 @@
                     };
                     
                     if (persnr) training.attendees[index].personalnummer = persnr;
+                    if (abteilung) training.attendees[index].abteilung = abteilung;
                     if (geburtstagGerman) training.attendees[index].geburtstag = geburtstagGerman;
                     if (gebort) training.attendees[index].geburtsort = gebort;
 
@@ -1122,6 +1137,7 @@
                 const vorname = vornameInp.value.trim();
                 const name = nameInp.value.trim();
                 const persnr = persnrInp.value.trim() || null;
+                const abteilung = abteilungInp.value.trim() || null;
                 const geburtstagGerman = geburtstagInp.value.trim() || null;
                 const gebort = geburtsortInp.value.trim() || null;
 
@@ -1150,6 +1166,7 @@
 
                 const newAttendee = { vorname, name };
                 if (persnr) newAttendee.personalnummer = persnr;
+                if (abteilung) newAttendee.abteilung = abteilung;
                 if (geburtstagGerman) newAttendee.geburtstag = geburtstagGerman;
                 if (gebort) newAttendee.geburtsort = gebort;
                 
@@ -1167,7 +1184,7 @@
                     buildMonthGrid();
                     renderAttendeeList(training);
 
-                    vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; 
+                    vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; abteilungInp.value = '';
                     geburtstagInp.value = ''; geburtsortInp.value = '';
 
                     anmeldenBtn.textContent = '✓ Erfolg';
