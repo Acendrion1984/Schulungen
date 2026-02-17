@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -746,30 +746,68 @@
             
             const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-            // Theme Management
-            const themeToggle = document.getElementById('themeToggle');
-            const STORAGE_KEY = 'zfp-theme-preference';
-            
-            function loadThemePreference() {
-                const savedTheme = localStorage.getItem(STORAGE_KEY);
-                if (savedTheme === 'dark') {
-                    document.body.classList.add('dark');
-                }
-            }
-            
-            function toggleTheme() {
-                if (document.body.classList.contains('dark')) {
-                    document.body.classList.remove('dark');
-                    localStorage.setItem(STORAGE_KEY, 'light');
-                } else {
-                    document.body.classList.add('dark');
-                    localStorage.setItem(STORAGE_KEY, 'dark');
-                }
-            }
-            
-            themeToggle.addEventListener('click', toggleTheme);
-            loadThemePreference();
+ // ===== SYNCHRONISIERTES THEME MANAGEMENT =====
+const THEME_STORAGE_KEY = 'zfp-theme-preference';
+const themeToggle = document.getElementById('themeToggle');
 
+// Initial Theme laden
+function initSyncedTheme() {
+    const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+}
+
+// Theme umschalten und alle anderen Tabs benachrichtigen
+function toggleSyncedTheme() {
+    const isDarkMode = document.body.classList.contains('dark');
+    
+    if (isDarkMode) {
+        document.body.classList.remove('dark');
+        localStorage.setItem(THEME_STORAGE_KEY, 'light');
+    } else {
+        document.body.classList.add('dark');
+        localStorage.setItem(THEME_STORAGE_KEY, 'dark');
+    }
+    
+    // Event auslösen für andere Tabs/Fenster
+    localStorage.setItem('theme_changed_at', Date.now().toString());
+}
+
+// Auf Theme-Änderungen in anderen Tabs reagieren
+window.addEventListener('storage', function(e) {
+    if (e.key === THEME_STORAGE_KEY) {
+        const newTheme = e.newValue;
+        if (newTheme === 'dark') {
+            document.body.classList.add('dark');
+        } else {
+            document.body.classList.remove('dark');
+        }
+    }
+});
+
+// Theme Toggle Button Event
+if (themeToggle) {
+    // Entferne alle bestehenden Event-Listener
+    themeToggle.replaceWith(themeToggle.cloneNode(true));
+    
+    // Hole den neuen Button nach dem Klonen
+    const newThemeToggle = document.getElementById('themeToggle');
+    
+    // Füge den neuen Event-Listener hinzu
+    newThemeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleSyncedTheme();
+    });
+}
+
+// Initialisierung
+initSyncedTheme();
+
+// Initialisierung
+initSyncedTheme();
             // Konstanten
             const MAX = 11;
             const TRAINING_TYPES = {
