@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>ZfP‑Schulungen 2026 · mit Anwesenheitsliste & Praxisphasen-Doku</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+            transition: background-color 0.2s ease, border-color 0.2s, color 0.1s;
+        }
+        body {
+            background: var(--bg-body);
+            padding: 1rem 0.8rem;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        :root {
+            --bg-body: #f0f7f0;
+            --header-bg: linear-gradient(145deg, #1e4a2b, #2d6a3f);
+            --header-text: white;
+            --card-bg: #ffffff;
+            --card-border: #c0e0c0;
+            --month-title: #1e4a2b;
+            --item-bg: #f4fcf4;
+            --item-border: #c8e6c8;
+            --item-type: #1e4a2b;
+            --location-bg: #d8f0d8;
+            --location-text: #1e4a2b;
+            --badge-bg: #c8e6c8;
+            --badge-text: #1e4a2b;
+            --start-badge-bg: #e8f5e8;
+            --start-badge-text: #1e4a2b;
+            --spots-text: #1e4a2b;
+            --bar-bg: #d0e8d0;
+            --fill-bg: #2e7d32;
+            --panel-bg: #ffffff;
+            --panel-border: #c0e0c0;
+            --input-bg: #f8fff8;
+            --input-border: #a8d8a8;
+            --label-color: #1e4a2b;
+            --optional-label: #2e5a2e;
+            --btn-border: #a8d8a8;
+            --btn-text: #1e4a2b;
+            --btn-primary-bg: #2e7d32;
+            --btn-primary-text: white;
+            --btn-warning-bg: #f59e0b;
+            --btn-warning-text: white;
+            --btn-danger-bg: #d32f2f;
+            --btn-danger-text: white;
+            --btn-info-bg: #0288d1;
+            --btn-info-text: white;
+            --btn-success-bg: #2e7d32;
+            --btn-success-text: white;
+            --table-header-bg: #2e7d32;
+            --table-header-text: white;
+            --table-border: #c8e6c8;
+            --table-row-bg: #ffffff;
+            --table-row-alt: #f9fff9;
+            --empty-bg: #e8f5e8;
+            --empty-text: #1e4a2b;
+            --footnote: #2e5a2e;
+            --ort-hinweis-bg: #ffd966c0;
+            --ort-hinweis-text: #1e4a2b;
+            --loading-bg: #ffffff;
+            --loading-text: #1e4a2b;
+            --modal-overlay: rgba(0,0,0,0.5);
+            --progress-bg: #e0e0e0;
+            --progress-fill: #2e7d32;
+        }
+
+        body.dark {
+            --bg-body: #121212;
+            --header-bg: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            --header-text: #f0f0f0;
+            --card-bg: #2a2a2a;
+            --card-border: #4a4a4a;
+            --month-title: #e0e0e0;
+            --item-bg: #2a2a2a;
+            --item-border: #4a4a4a;
+            --item-type: #f0f0f0;
+            --location-bg: #3a3a3a;
+            --location-text: #f0f0f0;
+            --badge-bg: #3a3a3a;
+            --badge-text: #f0f0f0;
+            --start-badge-bg: #3a3a3a;
+            --start-badge-text: #f0f0f0;
+            --spots-text: #e0e0e0;
+            --bar-bg: #4a4a4a;
+            --fill-bg: #4caf50;
+            --panel-bg: #2a2a2a;
+            --panel-border: #4a4a4a;
+            --input-bg: #1a1a1a;
+            --input-border: #5a5a5a;
+            --label-color: #e0e0e0;
+            --optional-label: #a0a0a0;
+            --btn-border: #5a5a5a;
+            --btn-text: #f0f0f0;
+            --btn-primary-bg: #2e7d32;
+            --btn-primary-text: white;
+            --btn-warning-bg: #f59e0b;
+            --btn-warning-text: white;
+            --btn-danger-bg: #b71c1c;
+            --btn-danger-text: white;
+            --btn-info-bg: #0288d1;
+            --btn-info-text: white;
+            --btn-success-bg: #2e7d32;
+            --btn-success-text: white;
+            --table-header-bg: #3a3a3a;
+            --table-header-text: #ffffff;
+            --table-border: #4a4a4a;
+            --table-row-bg: #ffffff;
+            --table-row-alt: #f0f0f0;
+            --empty-bg: #2a2a2a;
+            --empty-text: #e0e0e0;
+            --footnote: #a0a0a0;
+            --ort-hinweis-bg: #4a4a4ac0;
+            --ort-hinweis-text: #f0f0f0;
+            --loading-bg: #2a2a2a;
+            --loading-text: #e0e0e0;
+            --modal-overlay: rgba(0,0,0,0.7);
+            --progress-bg: #4a4a4a;
+            --progress-fill: #4caf50;
+        }
+
+        .app {
+            max-width: 1200px;
+            width: 100%;
+            position: relative;
+        }
+        
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 0.3s ease;
+        }
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid var(--card-border);
+            border-top-color: #4caf50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1.5rem;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .loading-text {
+            color: var(--loading-text);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 1.5rem 1.5rem;
+            border-radius: 28px;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 18px 25px -10px #1e4a2b70;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.3rem;
+        }
+        .header .sub {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        .header .ort-hinweis {
+            background: var(--ort-hinweis-bg);
+            color: var(--ort-hinweis-text);
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+        }
+        
+        .year-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+        @media (min-width: 600px) {
+            .year-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1000px) {
+            .year-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .month-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 1.2rem 1rem;
+            box-shadow: 0 5px 18px rgba(0,30,0,0.06);
+            border: 1px solid var(--card-border);
+            transition: 0.2s;
+        }
+        .month-card:hover {
+            border-color: #6a9e6a;
+            box-shadow: 0 12px 22px -10px #1e4a2b80;
+        }
+        .month-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--month-title);
+            border-bottom: 2px solid var(--card-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .month-badge {
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            border-radius: 40px;
+            padding: 0.2rem 0.7rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .training-item {
+            background: var(--item-bg);
+            border-radius: 18px;
+            padding: 0.8rem 0.9rem;
+            margin-bottom: 0.7rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            border: 1px solid var(--item-border);
+            box-shadow: 0 2px 6px rgba(0,30,0,0.05);
+        }
+        .training-item:hover {
+            background: var(--location-bg);
+            border-color: #4caf50;
+            transform: translateX(2px);
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.3rem;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+        }
+        .training-type {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--item-type);
+        }
+        .duration-chip {
+            background: #2e7d32;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+        .location {
+            background: var(--location-bg);
+            color: var(--location-text);
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.8rem;
+            margin: 0.3rem 0;
+            font-weight: 500;
+        }
+        .date-time {
+            font-size: 0.85rem;
+            color: var(--start-badge-text);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.8rem;
+        }
+        .start-badge {
+            background: var(--start-badge-bg);
+            border-radius: 20px;
+            padding: 0.2rem 0.6rem;
+            font-weight: 500;
+            color: var(--start-badge-text);
+        }
+        .spots-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .bar {
+            flex: 1;
+            height: 6px;
+            background: var(--bar-bg);
+            border-radius: 12px;
+        }
+        .fill {
+            height: 6px;
+            background: var(--fill-bg);
+            border-radius: 12px;
+            width: 0%;
+        }
+        .spots-text {
+            font-weight: 600;
+            color: var(--spots-text);
+            min-width: 50px;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        
+        .reg-panel {
+            background: var(--panel-bg);
+            border-radius: 28px;
+            padding: 1.5rem 1.2rem;
+            margin-top: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0, 37, 0, 0.1);
+            border: 1px solid var(--panel-border);
+        }
+        .reg-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+        @media (min-width: 700px) {
+            .reg-header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .reg-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--month-title);
+        }
+        .meta-info {
+            background: var(--badge-bg);
+            padding: 0.4rem 1.2rem;
+            border-radius: 60px;
+            color: var(--badge-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn-print {
+            background: var(--btn-info-bg);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-print:hover {
+            background: #0269a3;
+            transform: scale(1.02);
+        }
+        
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        @media (min-width: 500px) {
+            .two-cols {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+        .field label {
+            font-weight: 600;
+            color: var(--label-color);
+            margin-left: 0.3rem;
+            font-size: 0.9rem;
+        }
+        .field label.optional {
+            color: var(--optional-label);
+            font-weight: 400;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        .field input, .field textarea {
+            background: var(--input-bg);
+            border: 2px solid var(--input-border);
+            padding: 0.7rem 1rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            color: var(--item-type);
+            width: 100%;
+        }
+        .field textarea {
+            border-radius: 20px;
+            resize: vertical;
+            min-height: 80px;
+        }
+        .field input:focus, .field textarea:focus {
+            border-color: #4caf50;
+            outline: none;
+            background: var(--card-bg);
+            box-shadow: 0 0 0 3px #8bc34a70;
+        }
+        .field input::placeholder, .field textarea::placeholder {
+            color: var(--footnote);
+            opacity: 0.7;
+        }
+        .required-hint {
+            color: var(--optional-label);
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            margin: 1.5rem 0 1.2rem;
+        }
+        .btn {
+            background: transparent;
+            border: 1.8px solid var(--btn-border);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--btn-text);
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            flex: 1 1 auto;
+        }
+        .btn-primary {
+            background: var(--btn-primary-bg);
+            border-color: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
+            box-shadow: 0 6px 14px #1e4a2b60;
+        }
+        .btn-primary:hover {
+            background: #1e4a2b;
+            transform: scale(1.02);
+        }
+        .btn-warning {
+            background: var(--btn-warning-bg);
+            border-color: var(--btn-warning-bg);
+            color: white;
+        }
+        .btn-warning:hover {
+            background: #e68a00;
+            transform: scale(1.02);
+        }
+        .btn-danger {
+            background: var(--btn-danger-bg);
+            border-color: var(--btn-danger-bg);
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #b71c1c;
+            transform: scale(1.02);
+        }
+        .btn-success {
+            background: var(--btn-success-bg);
+            border-color: var(--btn-success-bg);
+            color: white;
+        }
+        .btn-success:hover {
+            background: #1e4a2b;
+            transform: scale(1.02);
+        }
+        .btn:hover {
+            background: var(--input-bg);
+        }
+        
+        .attendee-list {
+            margin-top: 1.8rem;
+            border-top: 2px dashed var(--panel-border);
+            padding-top: 1.2rem;
+        }
+        .list-title {
+            display: flex;
+            gap: 1rem;
+            align-items: baseline;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .list-title h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--month-title);
+        }
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 20px;
+            background: transparent;
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0,40,0,0.15);
+            border: 2px solid #4caf50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 18px;
+        }
+        th {
+            background: #2e7d32;
+            color: white;
+            padding: 0.9rem 0.8rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        td {
+            padding: 0.8rem 0.8rem;
+            border-bottom: 1px solid #c8e6c8;
+            color: #1e4a2b;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        tr:nth-child(even) {
+            background-color: #f5fff5;
+        }
+        tr:hover {
+            background-color: #e8f5e8;
+        }
+        td strong {
+            font-weight: 700;
+            color: #1e4a2b;
+        }
+        .action-cell {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            background: none;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            white-space: nowrap;
+        }
+        .edit-btn {
+            background: #f59e0b;
+            color: white;
+        }
+        .edit-btn:hover {
+            background: #e68a00;
+        }
+        .remove-btn {
+            background: #d32f2f;
+            color: white;
+        }
+        .remove-btn:hover {
+            background: #b71c1c;
+        }
+        .praxis-btn {
+            background: #2e7d32;
+            color: white;
+        }
+        .praxis-btn:hover {
+            background: #1e4a2b;
+        }
+        .praxis-btn.completed {
+            background: #9e9e9e;
+        }
+        .empty-message {
+            background: var(--empty-bg);
+            padding: 1.5rem;
+            border-radius: 30px;
+            color: var(--empty-text);
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .footnote {
+            margin-top: 1rem;
+            color: var(--footnote);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--panel-bg);
+            border: 2px solid #4caf50;
+            border-radius: 50px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,30,0,0.3);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            padding: 0;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: var(--input-bg);
+        }
+
+        /* Modal für Teilnehmer-Bearbeitung */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--modal-overlay);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        .modal-content {
+            background: var(--panel-bg);
+            border-radius: 28px;
+            width: 100%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            position: sticky;
+            top: 0;
+            background: var(--panel-bg);
+            z-index: 10;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--panel-border);
+        }
+        .modal-header h3 {
+            color: var(--month-title);
+            font-size: 1.5rem;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--footnote);
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: var(--progress-bg);
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--progress-fill);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+        .praxis-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .praxis-table th {
+            background: var(--table-header-bg);
+            color: var(--table-header-text);
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .praxis-table td {
+            padding: 0.5rem;
+            border: 1px solid var(--table-border);
+        }
+        .praxis-table input, .praxis-table textarea {
+            width: 100%;
+            padding: 0.3rem;
+            border: 1px solid var(--input-border);
+            border-radius: 4px;
+            background: var(--input-bg);
+            color: var(--item-type);
+        }
+        .total-hours {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            text-align: right;
+        }
+        .signature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Lade Schulungsdaten aus der Cloud...</div>
+    </div>
+
+    <!-- Modal für Teilnehmer-Bearbeitung -->
+    <div class="modal" id="teilnehmerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="teilnehmerModalTitle">Teilnehmer bearbeiten</h3>
+                <button class="close-modal" onclick="closeTeilnehmerModal()">&times;</button>
+            </div>
+            <form id="teilnehmerForm" class="modal-form">
+                <input type="hidden" id="editTrainingId">
+                <input type="hidden" id="editAttendeeIndex">
+                
+                <div class="two-cols">
+                    <div class="field">
+                        <label>Vorname *</label>
+                        <input type="text" id="editVorname" required>
+                    </div>
+                    
+                    <div class="field">
+                        <label>Name *</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    
+                    <div class="field">
+                        <label>Personalnummer *</label>
+                        <input type="text" id="editPersonalnummer" required>
+                    </div>
+                    
+                    <div class="field">
+                        <label>Abteilung *</label>
+                        <input type="text" id="editAbteilung" required placeholder="z.B. WI/SW2-P11Q">
+                    </div>
+                    
+                    <div class="field">
+                        <label>Geburtstag * (TT.MM.JJJJ)</label>
+                        <input type="text" id="editGeburtstag" required placeholder="31.12.1990">
+                    </div>
+                    
+                    <div class="field">
+                        <label>Geburtsort *</label>
+                        <input type="text" id="editGeburtsort" required placeholder="Stadt">
+                    </div>
+                </div>
+                
+                <div class="actions" style="margin-top: 1.5rem;">
+                    <button type="button" class="btn" onclick="closeTeilnehmerModal()">Abbrechen</button>
+                    <button type="submit" class="btn btn-primary">Speichern</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal für Praxisphasen-Dokumentation -->
+    <div class="modal" id="praxisModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="praxisModalTitle">Dokumentation praktische Phase - Nital-Ätzen</h3>
+                <button class="close-modal" onclick="closePraxisModal()">&times;</button>
+            </div>
+            
+            <div class="section">
+                <h4>Fortschritt: <span id="praxisProgressText">0/160 Stunden</span></h4>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="praxisProgressBar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <form id="praxisForm">
+                <input type="hidden" id="praxisTrainingId">
+                <input type="hidden" id="praxisAttendeeIndex">
+                
+                <div class="section">
+                    <h4>Wöchentliche Dokumentation</h4>
+                    <div class="table-wrap">
+                        <table class="praxis-table" id="praxisEntriesTable">
+                            <thead>
+                                <tr>
+                                    <th>Woche</th>
+                                    <th>Betreute Stunden</th>
+                                    <th>Anzahl Beurteilungen</th>
+                                    <th>Kommentar / Lernpunkt</th>
+                                    <th>Unterschrift Pate</th>
+                                    <th>Unterschrift Prüfer</th>
+                                    <th>Aktion</th>
+                                </tr>
+                            </thead>
+                            <tbody id="praxisEntriesBody">
+                                <!-- Wird dynamisch befüllt -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="actions">
+                        <button type="button" class="btn btn-success" onclick="addPraxisEntry()">
+                            <i class="fas fa-plus"></i> Neue Woche hinzufügen
+                        </button>
+                    </div>
+                    
+                    <div class="total-hours" id="praxisTotalHours">
+                        Gesamtsumme: 0 / 160 Stunden
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h4>Abschließende Bestätigung</h4>
+                    
+                    <div class="signature-grid">
+                        <div class="field">
+                            <label>Pate Name</label>
+                            <input type="text" id="praxisPateName" placeholder="Name des Paten">
+                        </div>
+                        <div class="field">
+                            <label>Pate Datum</label>
+                            <input type="text" id="praxisPateDate" placeholder="TT.MM.JJJJ">
+                        </div>
+                        <div class="field">
+                            <label>Pate Unterschrift</label>
+                            <input type="text" id="praxisPateSignature" placeholder="Unterschrift">
+                        </div>
+                        
+                        <div class="field">
+                            <label>Prüfer Name</label>
+                            <input type="text" id="praxisPrueferName" placeholder="Name des Prüfers" readonly>
+                        </div>
+                        <div class="field">
+                            <label>Prüfer Datum</label>
+                            <input type="text" id="praxisPrueferDate" placeholder="TT.MM.JJJJ">
+                        </div>
+                        <div class="field">
+                            <label>Prüfer Unterschrift</label>
+                            <input type="text" id="praxisPrueferSignature" placeholder="Unterschrift">
+                        </div>
+                        
+                        <div class="field">
+                            <label>Prüfaufsicht Name</label>
+                            <input type="text" id="praxisAufsichtName" placeholder="Name der Prüfaufsicht">
+                        </div>
+                        <div class="field">
+                            <label>Prüfaufsicht Datum</label>
+                            <input type="text" id="praxisAufsichtDate" placeholder="TT.MM.JJJJ">
+                        </div>
+                        <div class="field">
+                            <label>Prüfaufsicht Unterschrift</label>
+                            <input type="text" id="praxisAufsichtSignature" placeholder="Unterschrift">
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <label>
+                            <input type="checkbox" id="praxisCompleted" onchange="togglePraxisCompleted()">
+                            Praxisphase abgeschlossen (160 Stunden erreicht)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="button" class="btn" onclick="closePraxisModal()">Schließen</button>
+                    <button type="submit" class="btn btn-primary">Speichern</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="app" id="app">
+        <div class="header">
+            <h1>🔬 ZfP‑Schulungen 2026</h1>
+            <div class="sub">Wirbelstrom · Ultraschall · Magnetpulver · Nital-Ätzen – max. 11 Plätze</div>
+            <div class="ort-hinweis">🏢 Bau 50, Raum Silber/Gold</div>
+        </div>
+
+        <div class="year-grid" id="monthGrid"></div>
+
+        <div class="reg-panel" id="regPanel" style="display: none;">
+            <div class="reg-header">
+                <h2 id="regTitle">Anmeldung</h2>
+                <span class="meta-info" id="regMeta"></span>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-print" onclick="generateAttendancePDF()">
+                    <i class="fas fa-file-pdf"></i> Anwesenheitsliste PDF
+                </button>
+            </div>
+
+            <div class="required-hint">* Alle Felder sind Pflichtfelder</div>
+
+            <div class="two-cols">
+                <div class="field">
+                    <label>Vorname *</label>
+                    <input id="vorname" placeholder="Max" required>
+                </div>
+                <div class="field">
+                    <label>Name *</label>
+                    <input id="name" placeholder="Mustermann" required>
+                </div>
+                <div class="field">
+                    <label>Personalnummer *</label>
+                    <input id="persnr" placeholder="z.B. 02003504" required>
+                </div>
+                <div class="field">
+                    <label>Abteilung *</label>
+                    <input id="abteilung" placeholder="z.B. WI/SW2-P11Q" required>
+                </div>
+                <div class="field">
+                    <label>Geburtstag * (TT.MM.JJJJ)</label>
+                    <input id="geburtstag" placeholder="31.12.1990" required>
+                </div>
+                <div class="field">
+                    <label>Geburtsort *</label>
+                    <input id="geburtsort" placeholder="Stadt" required>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn" id="cancelBtn">← Andere Schulung</button>
+                <button class="btn btn-primary" id="anmeldenBtn">➕ Anmelden</button>
+            </div>
+
+            <div class="attendee-list">
+                <div class="list-title">
+                    <h3>📋 Teilnehmerliste</h3>
+                    <span class="month-badge" id="countBadge">0/11</span>
+                    <span class="month-badge" style="background: #2e7d32; color: white;">Nital-Ätzen: Praxisphasen-Doku verfügbar</span>
+                </div>
+                <div id="listContainer"></div>
+            </div>
+        </div>
+        <div class="footnote"> · pro Schulung max. 11 Teilnehmer · alle Felder Pflicht · Nital-Ätzen: 160h Praxisphase dokumentieren</div>
+
+        <button class="theme-toggle" id="themeToggle">🌓</button>
+    </div>
+
+    <script>
+        (function() {
+            const SUPABASE_URL = 'https://wqrynlgbspkjzxuxauvq.supabase.co';
+            const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndxcnlubGdic3Branp4dXhhdXZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYxNDU5OTAsImV4cCI6MjA1MTcyMTk5MH0.jkkaIcAKxMhkXSdnJY1Oiw_U-xPWr68F8HcrbGbrKRI';
+            
+            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            // ===== THEME MANAGEMENT =====
+            const THEME_STORAGE_KEY = 'zfp-theme-preference';
+            const themeToggle = document.getElementById('themeToggle');
+
+            function initSyncedTheme() {
+                const savedTheme = localStorage.getItem(THEME_STORAGE_KEY) || 'light';
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark');
+                } else {
+                    document.body.classList.remove('dark');
+                }
+            }
+
+            function toggleSyncedTheme() {
+                const isDarkMode = document.body.classList.contains('dark');
+                
+                if (isDarkMode) {
+                    document.body.classList.remove('dark');
+                    localStorage.setItem(THEME_STORAGE_KEY, 'light');
+                } else {
+                    document.body.classList.add('dark');
+                    localStorage.setItem(THEME_STORAGE_KEY, 'dark');
+                }
+                
+                localStorage.setItem('theme_changed_at', Date.now().toString());
+            }
+
+            window.addEventListener('storage', function(e) {
+                if (e.key === THEME_STORAGE_KEY) {
+                    const newTheme = e.newValue;
+                    if (newTheme === 'dark') {
+                        document.body.classList.add('dark');
+                    } else {
+                        document.body.classList.remove('dark');
+                    }
+                }
+            });
+
+            if (themeToggle) {
+                themeToggle.replaceWith(themeToggle.cloneNode(true));
+                const newThemeToggle = document.getElementById('themeToggle');
+                newThemeToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleSyncedTheme();
+                });
+            }
+
+            initSyncedTheme();
+
+            // ===== KONSTANTEN =====
+            const MAX = 11;
+            const PRAXIS_STUNDEN_ZIEL = 160;
+            const TRAINING_TYPES = {
+                WIRBELSTROM: 'Wirbelstromprüfung',
+                ULTRASCHALL: 'Ultraschallprüfung',
+                MAGNETPULVER: 'Magnetpulverprüfung',
+                NITAL: 'Nital-Ätzen'
+            };
+            const DURATION = {
+                [TRAINING_TYPES.WIRBELSTROM]: 16,
+                [TRAINING_TYPES.ULTRASCHALL]: 24,
+                [TRAINING_TYPES.MAGNETPULVER]: 12,
+                [TRAINING_TYPES.NITAL]: 8
+            };
+
+            function getEndTime(type) {
+                return type === TRAINING_TYPES.MAGNETPULVER ? '14:00' : '16:00';
+            }
+
+            const monthNames = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+
+            function durationInfo(type) {
+                const h = DURATION[type] || 0;
+                const days = Math.ceil(h/8);
+                return `${h} Std. (${days} Tag${days>1?'e':''})`;
+            }
+
+            function validateGermanDate(dateStr) {
+                if (!dateStr) return false;
+                const pattern = /^(\d{2})\.(\d{2})\.(\d{4})$/;
+                const match = dateStr.match(pattern);
+                if (!match) return false;
+                
+                const day = parseInt(match[1], 10);
+                const month = parseInt(match[2], 10) - 1;
+                const year = parseInt(match[3], 10);
+                
+                const date = new Date(year, month, day);
+                return date.getDate() === day && 
+                       date.getMonth() === month && 
+                       date.getFullYear() === year;
+            }
+
+            function germanToIsoDate(germanDate) {
+                if (!germanDate) return null;
+                const [day, month, year] = germanDate.split('.');
+                return `${year}-${month}-${day}`;
+            }
+
+            function isoToGermanDate(isoDate) {
+                if (!isoDate) return '';
+                const [year, month, day] = isoDate.split('-');
+                return `${day}.${month}.${year}`;
+            }
+
+            let trainings = [];
+            let selectedId = null;
+
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const monthGrid = document.getElementById('monthGrid');
+            const regPanel = document.getElementById('regPanel');
+            const regTitle = document.getElementById('regTitle');
+            const regMeta = document.getElementById('regMeta');
+            const countBadge = document.getElementById('countBadge');
+            const listContainer = document.getElementById('listContainer');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const anmeldenBtn = document.getElementById('anmeldenBtn');
+            const vornameInp = document.getElementById('vorname');
+            const nameInp = document.getElementById('name');
+            const persnrInp = document.getElementById('persnr');
+            const abteilungInp = document.getElementById('abteilung');
+            const geburtstagInp = document.getElementById('geburtstag');
+            const geburtsortInp = document.getElementById('geburtsort');
+
+            // Modal-Elemente
+            const teilnehmerModal = document.getElementById('teilnehmerModal');
+            const editTrainingId = document.getElementById('editTrainingId');
+            const editAttendeeIndex = document.getElementById('editAttendeeIndex');
+            const editVorname = document.getElementById('editVorname');
+            const editName = document.getElementById('editName');
+            const editPersonalnummer = document.getElementById('editPersonalnummer');
+            const editAbteilung = document.getElementById('editAbteilung');
+            const editGeburtstag = document.getElementById('editGeburtstag');
+            const editGeburtsort = document.getElementById('editGeburtsort');
+            const teilnehmerForm = document.getElementById('teilnehmerForm');
+
+            // Praxis-Modal-Elemente
+            const praxisModal = document.getElementById('praxisModal');
+            const praxisTrainingId = document.getElementById('praxisTrainingId');
+            const praxisAttendeeIndex = document.getElementById('praxisAttendeeIndex');
+            const praxisEntriesBody = document.getElementById('praxisEntriesBody');
+            const praxisProgressText = document.getElementById('praxisProgressText');
+            const praxisProgressBar = document.getElementById('praxisProgressBar');
+            const praxisTotalHours = document.getElementById('praxisTotalHours');
+            const praxisForm = document.getElementById('praxisForm');
+            const praxisPateName = document.getElementById('praxisPateName');
+            const praxisPateDate = document.getElementById('praxisPateDate');
+            const praxisPateSignature = document.getElementById('praxisPateSignature');
+            const praxisPrueferName = document.getElementById('praxisPrueferName');
+            const praxisPrueferDate = document.getElementById('praxisPrueferDate');
+            const praxisPrueferSignature = document.getElementById('praxisPrueferSignature');
+            const praxisAufsichtName = document.getElementById('praxisAufsichtName');
+            const praxisAufsichtDate = document.getElementById('praxisAufsichtDate');
+            const praxisAufsichtSignature = document.getElementById('praxisAufsichtSignature');
+            const praxisCompleted = document.getElementById('praxisCompleted');
+
+            async function loadTrainings() {
+                try {
+                    loadingOverlay.classList.remove('hidden');
+                    
+                    const { data, error } = await supabase
+                        .from('trainings')
+                        .select('*')
+                        .order('start_date', { ascending: true });
+
+                    if (error) throw error;
+
+                    trainings = data.map(t => ({
+                        ...t,
+                        attendees: Array.isArray(t.attendees) ? t.attendees : 
+                                  (typeof t.attendees === 'string' ? JSON.parse(t.attendees) : [])
+                    }));
+
+                    trainings.forEach(t => {
+                        if (t.attendees && t.attendees.length) {
+                            t.attendees.forEach(a => {
+                                if (a.geburtstag && a.geburtstag.includes('-')) {
+                                    a.geburtstag = isoToGermanDate(a.geburtstag);
+                                }
+                                // Initialisiere Praxis-Daten falls nicht vorhanden
+                                if (!a.praxisPhase) {
+                                    a.praxisPhase = {
+                                        entries: [],
+                                        completed: false,
+                                        signatures: {}
+                                    };
+                                }
+                            });
+                        }
+                    });
+
+                    buildMonthGrid();
+                    
+                    setTimeout(() => {
+                        loadingOverlay.classList.add('hidden');
+                    }, 500);
+                    
+                } catch (err) {
+                    console.error('Fehler beim Laden:', err);
+                    monthGrid.innerHTML = `<div class="empty-message" style="background: #ffebee; color: #c62828;">
+                        ❌ Fehler beim Laden: ${err.message}
+                    </div>`;
+                    loadingOverlay.classList.add('hidden');
+                }
+            }
+
+            function buildMonthGrid() {
+                const months = Array.from({ length: 12 }, (_, i) => {
+                    const monthNum = i + 1;
+                    return {
+                        name: monthNames[i],
+                        month: monthNum,
+                        trainings: trainings.filter(t => {
+                            const d = new Date(t.start_date + 'T12:00:00');
+                            return d.getMonth() + 1 === monthNum;
+                        }).sort((a,b) => new Date(a.start_date) - new Date(b.start_date))
+                    };
+                });
+
+                let html = '';
+                months.forEach(m => {
+                    html += `<div class="month-card"><div class="month-title"><span>${m.name}</span><span class="month-badge">${m.trainings.length}</span></div>`;
+                    if (m.trainings.length === 0) {
+                        html += `<div style="padding:0.7rem; color: var(--footnote);">– keine Schulung –</div>`;
+                    } else {
+                        m.trainings.forEach(t => {
+                            const taken = t.attendees?.length || 0;
+                            const fill = (taken / MAX) * 100;
+                            const endTime = getEndTime(t.type);
+                            html += `
+                                <div class="training-item" data-id="${t.id}">
+                                    <div class="item-header">
+                                        <span class="training-type">${t.type}</span>
+                                        <span class="duration-chip">${durationInfo(t.type)}</span>
+                                    </div>
+                                    <div class="location">📍 ${t.location}</div>
+                                    <div class="date-time">
+                                        <span>📅 ${t.date_str}</span>
+                                        <span class="start-badge">⏰ ${t.start_time || '8:00'} – ${endTime} Uhr</span>
+                                    </div>
+                                    <div class="spots-row">
+                                        <div class="bar"><div class="fill" style="width:${fill}%"></div></div>
+                                        <span class="spots-text">${taken}/${MAX}</span>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                    }
+                    html += '</div>';
+                });
+                monthGrid.innerHTML = html;
+
+                document.querySelectorAll('.training-item').forEach(el => {
+                    el.addEventListener('click', () => {
+                        selectTraining(el.dataset.id);
+                    });
+                });
+            }
+
+            function findTraining(id) {
+                return trainings.find(t => t.id === id);
+            }
+
+            function selectTraining(id) {
+                const training = findTraining(id);
+                if (!training) return;
+                selectedId = id;
+                regPanel.style.display = 'block';
+                regTitle.textContent = `${training.type} – ${training.location}`;
+                const endTime = getEndTime(training.type);
+                regMeta.textContent = `${training.date_str}  |  täglich ${training.start_time || '8:00'}–${endTime} Uhr  |  ${durationInfo(training.type)}`;
+                renderAttendeeList(training);
+                vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; abteilungInp.value = ''; geburtstagInp.value = ''; geburtsortInp.value = '';
+                regPanel.scrollIntoView({ behavior: 'smooth' });
+            }
+
+            function renderAttendeeList(training) {
+                if (!training) { 
+                    if (selectedId) training = findTraining(selectedId); 
+                    else return; 
+                }
+                const attendees = training.attendees || [];
+                countBadge.textContent = `${attendees.length}/${MAX}`;
+                
+                if (attendees.length === 0) {
+                    listContainer.innerHTML = '<div class="empty-message">✗ Noch keine Anmeldungen</div>';
+                    return;
+                }
+                
+                let tab = '<div class="table-wrap"><table><thead><tr><th>Name</th><th>Vorname</th><th>Personalnr</th><th>Abteilung</th><th>Geburtstag</th><th>Geburtsort</th><th>Praxisphase</th><th>Aktionen</th></tr></thead><tbody>';
+                
+                attendees.forEach((a, index) => {
+                    const isNital = training.type === TRAINING_TYPES.NITAL;
+                    const praxisCompleted = a.praxisPhase?.completed || false;
+                    const praxisTotal = a.praxisPhase?.entries?.reduce((sum, e) => sum + (parseInt(e.hours) || 0), 0) || 0;
+                    
+                    tab += `<tr>
+                        <td><strong>${a.name || ''}</strong></td>
+                        <td><strong>${a.vorname || ''}</strong></td>
+                        <td><strong>${a.personalnummer || ''}</strong></td>
+                        <td><strong>${a.abteilung || ''}</strong></td>
+                        <td><strong>${a.geburtstag || ''}</strong></td>
+                        <td><strong>${a.geburtsort || ''}</strong></td>
+                        <td>
+                            ${isNital ? `
+                                <button class="action-btn praxis-btn ${praxisCompleted ? 'completed' : ''}" 
+                                        onclick="window.openPraxisModal('${training.id}', ${index})">
+                                    <i class="fas fa-clipboard-list"></i> 
+                                    ${praxisCompleted ? '✓ Abgeschlossen' : `${praxisTotal}/160h`}
+                                </button>
+                            ` : '—'}
+                        </td>
+                        <td>
+                            <div class="action-cell">
+                                <button class="action-btn edit-btn" onclick="window.editAttendee('${training.id}', ${index})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="action-btn remove-btn" onclick="window.removeAttendee('${training.id}', ${index})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>`;
+                });
+                
+                tab += '</tbody></table></div>';
+                listContainer.innerHTML = tab;
+            }
+
+            // Teilnehmer bearbeiten - Modal öffnen
+            window.editAttendee = function(trainingId, attendeeIndex) {
+                const training = findTraining(trainingId);
+                if (!training || !training.attendees || !training.attendees[attendeeIndex]) return;
+                
+                const attendee = training.attendees[attendeeIndex];
+                
+                editTrainingId.value = trainingId;
+                editAttendeeIndex.value = attendeeIndex;
+                editVorname.value = attendee.vorname || '';
+                editName.value = attendee.name || '';
+                editPersonalnummer.value = attendee.personalnummer || '';
+                editAbteilung.value = attendee.abteilung || '';
+                editGeburtstag.value = attendee.geburtstag || '';
+                editGeburtsort.value = attendee.geburtsort || '';
+                
+                teilnehmerModal.style.display = 'flex';
+            };
+
+            // Modal schließen
+            window.closeTeilnehmerModal = function() {
+                teilnehmerModal.style.display = 'none';
+            };
+
+            // Praxis-Modal öffnen
+            window.openPraxisModal = function(trainingId, attendeeIndex) {
+                const training = findTraining(trainingId);
+                if (!training || !training.attendees || !training.attendees[attendeeIndex]) return;
+                
+                const attendee = training.attendees[attendeeIndex];
+                
+                praxisTrainingId.value = trainingId;
+                praxisAttendeeIndex.value = attendeeIndex;
+                praxisPrueferName.value = `${attendee.vorname || ''} ${attendee.name || ''}`.trim();
+                
+                // Initialisiere Praxis-Daten falls nicht vorhanden
+                if (!attendee.praxisPhase) {
+                    attendee.praxisPhase = {
+                        entries: [],
+                        completed: false,
+                        signatures: {}
+                    };
+                }
+                
+                // Lade vorhandene Daten
+                renderPraxisEntries(attendee.praxisPhase);
+                
+                // Lade Signaturen
+                praxisPateName.value = attendee.praxisPhase.signatures?.pateName || '';
+                praxisPateDate.value = attendee.praxisPhase.signatures?.pateDate || '';
+                praxisPateSignature.value = attendee.praxisPhase.signatures?.pateSignature || '';
+                praxisPrueferDate.value = attendee.praxisPhase.signatures?.prueferDate || '';
+                praxisPrueferSignature.value = attendee.praxisPhase.signatures?.prueferSignature || '';
+                praxisAufsichtName.value = attendee.praxisPhase.signatures?.aufsichtName || '';
+                praxisAufsichtDate.value = attendee.praxisPhase.signatures?.aufsichtDate || '';
+                praxisAufsichtSignature.value = attendee.praxisPhase.signatures?.aufsichtSignature || '';
+                praxisCompleted.checked = attendee.praxisPhase.completed || false;
+                
+                updatePraxisProgress(attendee.praxisPhase);
+                
+                praxisModal.style.display = 'flex';
+            };
+
+            function renderPraxisEntries(praxisPhase) {
+                const entries = praxisPhase.entries || [];
+                let html = '';
+                
+                entries.forEach((entry, index) => {
+                    html += `<tr>
+                        <td><input type="text" value="${entry.week || ''}" placeholder="KW/Jahr" onchange="updatePraxisEntry(${index}, 'week', this.value)"></td>
+                        <td><input type="number" value="${entry.hours || 0}" min="0" max="40" onchange="updatePraxisEntry(${index}, 'hours', this.value)"></td>
+                        <td><input type="number" value="${entry.evaluations || 0}" min="0" onchange="updatePraxisEntry(${index}, 'evaluations', this.value)"></td>
+                        <td><textarea onchange="updatePraxisEntry(${index}, 'comment', this.value)">${entry.comment || ''}</textarea></td>
+                        <td><input type="text" value="${entry.pateSignature || ''}" placeholder="Unterschrift" onchange="updatePraxisEntry(${index}, 'pateSignature', this.value)"></td>
+                        <td><input type="text" value="${entry.prueferSignature || ''}" placeholder="Unterschrift" onchange="updatePraxisEntry(${index}, 'prueferSignature', this.value)"></td>
+                        <td><button type="button" class="action-btn remove-btn" onclick="removePraxisEntry(${index})"><i class="fas fa-trash"></i></button></td>
+                    </tr>`;
+                });
+                
+                praxisEntriesBody.innerHTML = html;
+            }
+
+            window.updatePraxisEntry = function(index, field, value) {
+                const trainingId = praxisTrainingId.value;
+                const attendeeIndex = parseInt(praxisAttendeeIndex.value);
+                const training = findTraining(trainingId);
+                
+                if (training && training.attendees && training.attendees[attendeeIndex]) {
+                    const attendee = training.attendees[attendeeIndex];
+                    if (!attendee.praxisPhase) attendee.praxisPhase = { entries: [] };
+                    if (!attendee.praxisPhase.entries) attendee.praxisPhase.entries = [];
+                    if (!attendee.praxisPhase.entries[index]) attendee.praxisPhase.entries[index] = {};
+                    
+                    attendee.praxisPhase.entries[index][field] = value;
+                    
+                    updatePraxisProgress(attendee.praxisPhase);
+                }
+            };
+
+            window.addPraxisEntry = function() {
+                const trainingId = praxisTrainingId.value;
+                const attendeeIndex = parseInt(praxisAttendeeIndex.value);
+                const training = findTraining(trainingId);
+                
+                if (training && training.attendees && training.attendees[attendeeIndex]) {
+                    const attendee = training.attendees[attendeeIndex];
+                    if (!attendee.praxisPhase) attendee.praxisPhase = { entries: [] };
+                    if (!attendee.praxisPhase.entries) attendee.praxisPhase.entries = [];
+                    
+                    attendee.praxisPhase.entries.push({
+                        week: '',
+                        hours: 0,
+                        evaluations: 0,
+                        comment: '',
+                        pateSignature: '',
+                        prueferSignature: ''
+                    });
+                    
+                    renderPraxisEntries(attendee.praxisPhase);
+                    updatePraxisProgress(attendee.praxisPhase);
+                }
+            };
+
+            window.removePraxisEntry = function(index) {
+                const trainingId = praxisTrainingId.value;
+                const attendeeIndex = parseInt(praxisAttendeeIndex.value);
+                const training = findTraining(trainingId);
+                
+                if (training && training.attendees && training.attendees[attendeeIndex]) {
+                    const attendee = training.attendees[attendeeIndex];
+                    if (attendee.praxisPhase && attendee.praxisPhase.entries) {
+                        attendee.praxisPhase.entries.splice(index, 1);
+                        renderPraxisEntries(attendee.praxisPhase);
+                        updatePraxisProgress(attendee.praxisPhase);
+                    }
+                }
+            };
+
+            function updatePraxisProgress(praxisPhase) {
+                const total = praxisPhase.entries?.reduce((sum, e) => sum + (parseInt(e.hours) || 0), 0) || 0;
+                const percentage = Math.min(100, (total / PRAXIS_STUNDEN_ZIEL) * 100);
+                
+                praxisProgressText.textContent = `${total}/${PRAXIS_STUNDEN_ZIEL} Stunden`;
+                praxisProgressBar.style.width = `${percentage}%`;
+                praxisTotalHours.textContent = `Gesamtsumme: ${total} / ${PRAXIS_STUNDEN_ZIEL} Stunden`;
+                
+                // Automatisch als abgeschlossen markieren wenn Ziel erreicht
+                if (total >= PRAXIS_STUNDEN_ZIEL && !praxisCompleted.checked) {
+                    praxisCompleted.checked = true;
+                }
+            }
+
+            window.togglePraxisCompleted = function() {
+                // Kann für zusätzliche Logik verwendet werden
+            };
+
+            window.closePraxisModal = function() {
+                praxisModal.style.display = 'none';
+            };
+
+            // Praxis-Form speichern
+            praxisForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const trainingId = praxisTrainingId.value;
+                const attendeeIndex = parseInt(praxisAttendeeIndex.value);
+                const training = findTraining(trainingId);
+                
+                if (!training || !training.attendees || !training.attendees[attendeeIndex]) return;
+                
+                const attendee = training.attendees[attendeeIndex];
+                
+                // Speichere Signaturen
+                if (!attendee.praxisPhase) attendee.praxisPhase = { entries: [] };
+                attendee.praxisPhase.signatures = {
+                    pateName: praxisPateName.value,
+                    pateDate: praxisPateDate.value,
+                    pateSignature: praxisPateSignature.value,
+                    prueferDate: praxisPrueferDate.value,
+                    prueferSignature: praxisPrueferSignature.value,
+                    aufsichtName: praxisAufsichtName.value,
+                    aufsichtDate: praxisAufsichtDate.value,
+                    aufsichtSignature: praxisAufsichtSignature.value
+                };
+                
+                attendee.praxisPhase.completed = praxisCompleted.checked;
+                
+                try {
+                    const { error: updateError } = await supabase
+                        .from('trainings')
+                        .update({ attendees: training.attendees })
+                        .eq('id', trainingId);
+                    
+                    if (updateError) throw updateError;
+                    
+                    buildMonthGrid();
+                    renderAttendeeList(training);
+                    
+                    closePraxisModal();
+                    
+                    alert('Praxisphase erfolgreich gespeichert.');
+                    
+                } catch (err) {
+                    console.error('Fehler beim Speichern:', err);
+                    alert('Fehler beim Speichern: ' + err.message);
+                }
+            });
+
+            // Teilnehmer aktualisieren
+            teilnehmerForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const trainingId = editTrainingId.value;
+                const index = parseInt(editAttendeeIndex.value);
+                const training = findTraining(trainingId);
+                
+                if (!training || !training.attendees || !training.attendees[index]) return;
+                
+                const vorname = editVorname.value.trim();
+                const name = editName.value.trim();
+                const persnr = editPersonalnummer.value.trim();
+                const abteilung = editAbteilung.value.trim();
+                const geburtstagGerman = editGeburtstag.value.trim();
+                const gebort = editGeburtsort.value.trim();
+
+                if (!vorname || !name || !persnr || !abteilung || !geburtstagGerman || !gebort) {
+                    alert('Bitte füllen Sie alle Felder aus.');
+                    return;
+                }
+
+                if (!validateGermanDate(geburtstagGerman)) {
+                    alert('Bitte geben Sie das Geburtsdatum im Format TT.MM.JJJJ ein (z.B. 31.12.1990).');
+                    return;
+                }
+
+                // Prüfen auf Doppelung (außer bei sich selbst)
+                const duplicateExists = training.attendees.some((a, i) => 
+                    i !== index && a.name === name && a.vorname === vorname
+                );
+                
+                if (duplicateExists) {
+                    alert(`${vorname} ${name} ist bereits für diese Schulung angemeldet.`);
+                    return;
+                }
+
+                try {
+                    // Behalte Praxis-Daten bei
+                    const praxisPhase = training.attendees[index].praxisPhase;
+                    
+                    training.attendees[index] = {
+                        vorname,
+                        name,
+                        personalnummer: persnr,
+                        abteilung,
+                        geburtstag: geburtstagGerman,
+                        geburtsort: gebort,
+                        praxisPhase: praxisPhase || { entries: [], completed: false, signatures: {} }
+                    };
+
+                    const { error: updateError } = await supabase
+                        .from('trainings')
+                        .update({ attendees: training.attendees })
+                        .eq('id', trainingId);
+
+                    if (updateError) throw updateError;
+
+                    buildMonthGrid();
+                    renderAttendeeList(training);
+                    
+                    closeTeilnehmerModal();
+                    
+                } catch (err) {
+                    console.error('Fehler beim Aktualisieren:', err);
+                    alert('Fehler beim Speichern: ' + err.message);
+                }
+            });
+
+            window.removeAttendee = async function(trainingId, attendeeIndex) {
+                const training = findTraining(trainingId);
+                if (!training || !training.attendees || attendeeIndex >= training.attendees.length) return;
+                
+                if (!confirm('Möchten Sie diese Anmeldung wirklich zurückziehen?')) return;
+                
+                try {
+                    training.attendees.splice(attendeeIndex, 1);
+                    
+                    const { error: updateError } = await supabase
+                        .from('trainings')
+                        .update({ attendees: training.attendees })
+                        .eq('id', trainingId);
+                    
+                    if (updateError) throw updateError;
+                    
+                    buildMonthGrid();
+                    renderAttendeeList(training);
+                    
+                    alert('Anmeldung erfolgreich zurückgezogen.');
+                    
+                } catch (err) {
+                    console.error('Fehler beim Abmelden:', err);
+                    alert('Fehler beim Abmelden: ' + err.message);
+                    await loadTrainings();
+                }
+            };
+
+            async function anmelden() {
+                if (!selectedId) { alert('Bitte wählen Sie eine Schulung.'); return; }
+                const training = findTraining(selectedId);
+                if (!training) return;
+                
+                const vorname = vornameInp.value.trim();
+                const name = nameInp.value.trim();
+                const persnr = persnrInp.value.trim();
+                const abteilung = abteilungInp.value.trim();
+                const geburtstagGerman = geburtstagInp.value.trim();
+                const gebort = geburtsortInp.value.trim();
+
+                if (!vorname || !name || !persnr || !abteilung || !geburtstagGerman || !gebort) {
+                    alert('Bitte füllen Sie alle Felder aus.');
+                    return;
+                }
+
+                if (!validateGermanDate(geburtstagGerman)) {
+                    alert('Bitte geben Sie das Geburtsdatum im Format TT.MM.JJJJ ein (z.B. 31.12.1990).');
+                    return;
+                }
+
+                if ((training.attendees?.length || 0) >= MAX) {
+                    alert('Maximale Teilnehmerzahl bereits erreicht.');
+                    return;
+                }
+
+                const alreadyRegistered = training.attendees?.some(a => 
+                    a.name === name && a.vorname === vorname
+                );
+                if (alreadyRegistered) {
+                    alert(`${vorname} ${name} ist bereits für diese Schulung angemeldet.`);
+                    return;
+                }
+
+                const newAttendee = { 
+                    vorname, 
+                    name,
+                    personalnummer: persnr,
+                    abteilung,
+                    geburtstag: geburtstagGerman,
+                    geburtsort: gebort,
+                    praxisPhase: training.type === TRAINING_TYPES.NITAL ? {
+                        entries: [],
+                        completed: false,
+                        signatures: {}
+                    } : undefined
+                };
+                
+                if (!training.attendees) training.attendees = [];
+                training.attendees.push(newAttendee);
+
+                try {
+                    const { error: updateError } = await supabase
+                        .from('trainings')
+                        .update({ attendees: training.attendees })
+                        .eq('id', selectedId);
+
+                    if (updateError) throw updateError;
+
+                    buildMonthGrid();
+                    renderAttendeeList(training);
+
+                    vornameInp.value = ''; nameInp.value = ''; persnrInp.value = ''; abteilungInp.value = '';
+                    geburtstagInp.value = ''; geburtsortInp.value = '';
+
+                    anmeldenBtn.textContent = '✓ Erfolg';
+                    setTimeout(() => anmeldenBtn.innerHTML = '➕ Anmelden', 800);
+
+                } catch (err) {
+                    console.error('Fehler bei Anmeldung:', err);
+                    alert('Fehler beim Speichern: ' + err.message);
+                }
+            }
+
+            function cancelSelection() {
+                selectedId = null;
+                regPanel.style.display = 'none';
+            }
+
+            cancelBtn.addEventListener('click', cancelSelection);
+            anmeldenBtn.addEventListener('click', (e) => { e.preventDefault(); anmelden(); });
+
+            // Modal schließen bei Klick außerhalb
+            window.onclick = function(event) {
+                if (event.target.classList.contains('modal')) {
+                    if (event.target.id === 'teilnehmerModal') {
+                        closeTeilnehmerModal();
+                    } else if (event.target.id === 'praxisModal') {
+                        closePraxisModal();
+                    }
+                }
+            };
+
+            document.addEventListener('DOMContentLoaded', () => {
+                loadTrainings();
+                regPanel.style.display = 'none';
+            });
+
+            // ===== PDF GENERATOR =====
+            window.generateAttendancePDF = function() {
+                if (!selectedId) {
+                    alert('Bitte wählen Sie zuerst eine Schulung aus.');
+                    return;
+                }
+
+                const training = findTraining(selectedId);
+                if (!training) return;
+
+                const printWindow = window.open('', '_blank');
+                if (!printWindow) {
+                    alert('Bitte erlauben Sie Pop-ups für diese Seite');
+                    return;
+                }
+
+                const attendees = training.attendees || [];
+                const endTime = getEndTime(training.type);
+                const startTime = training.start_time || '8:00';
+                const days = training.days || 1;
+                
+                // Checkbox-Funktion
+                const getCheckbox = (checked) => {
+                    return checked ? '☒' : '☐';
+                };
+
+                // Tabelle generieren
+                let tableRows = '';
+                
+                // Vorhandene Teilnehmer
+                attendees.forEach(a => {
+                    tableRows += '<tr>';
+                    tableRows += `<td>${a.personalnummer || ''}</td>`;
+                    tableRows += `<td>${a.name || ''}, ${a.vorname || ''}</td>`;
+                    tableRows += `<td>${a.abteilung || ''}</td>`;
+                    tableRows += `<td>${a.geburtsort || ''}</td>`;
+                    tableRows += `<td>${a.geburtstag || ''}</td>`;
+                    
+                    for (let d = 0; d < days; d++) {
+                        tableRows += '<td>          </td>';
+                    }
+                    
+                    tableRows += '<td>☐ ja ☐ nein</td>';
+                    tableRows += '</tr>';
+                });
+                
+                // Leere Zeilen bis 10
+                for (let i = attendees.length; i < 11; i++) {
+                    tableRows += '<tr>';
+                    tableRows += '<td>                </td>';
+                    tableRows += '<td>                              </td>';
+                    tableRows += '<td>                </td>';
+                    tableRows += '<td>                </td>';
+                    tableRows += '<td>    .    .     </td>';
+                    
+                    for (let d = 0; d < days; d++) {
+                        tableRows += '<td>          </td>';
+                    }
+                    
+                    tableRows += '<td>☐ ja ☐ nein</td>';
+                    tableRows += '</tr>';
+                }
+
+                const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>Anwesenheitsliste - ${training.type}</title>
+                    <style>
+                        body {
+                            font-family: Arial, Helvetica, sans-serif;
+                            margin: 30px;
+                            background: white;
+                            color: black;
+                            font-size: 11pt;
+                        }
+                        .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                        }
+                        h1 {
+                            font-size: 20pt;
+                            font-weight: bold;
+                            text-align: center;
+                            margin-bottom: 20px;
+                        }
+                        .seminarcode {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 10px 0;
+                        }
+                        .seminocode-label {
+                            font-weight: bold;
+                            margin-right: 10px;
+                        }
+                        .seminocode-field {
+                            border-bottom: 1px solid black;
+                            min-width: 300px;
+                            padding: 0 10px 3px 10px;
+                        }
+                        .thema-section {
+                            margin: 10px 0;
+                        }
+                        .thema-grid {
+                            display: grid;
+                            grid-template-columns: repeat(3, 1fr);
+                            gap: 10px 20px;
+                            border: 1px solid black;
+                            padding: 15px;
+                        }
+                        .checkbox-item {
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            white-space: nowrap;
+                        }
+                        .qualifikation-grid, .requalifizierung-grid {
+                            display: flex;
+                            gap: 40px;
+                            border: 1px solid black;
+                            padding: 12px 20px;
+                            margin: 15px 0;
+                        }
+                        .info-grid {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            gap: 10px;
+                            margin: 20px 0;
+                            border: 1px solid black;
+                            padding: 15px;
+                        }
+                        .info-item {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        .info-label {
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                        }
+                        .info-field {
+                            border-bottom: 1px solid black;
+                            padding: 5px 0 3px 0;
+                            min-height: 10px;
+                        }
+                        .hinweise {
+                            margin: 5px 0;
+                            border-top: 1px dashed #999;
+                            border-bottom: 1px dashed #999;
+                            padding: 5px 0;
+                        }
+                        .hinweis-item {
+                            margin: 8px 0;
+                            display: flex;
+                            gap: 5px;
+                        }
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 10px 0;
+                            font-size: 9.5pt;
+                        }
+                        th {
+                            background: #e6e6e6;
+                            border: 1px solid black;
+                            padding: 8px 4px;
+                            font-weight: bold;
+                            text-align: center;
+                        }
+                        td {
+                            border: 1px solid black;
+                            padding: 6px 4px;
+                        }
+                        .footer {
+                            margin-top: 40px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-end;
+                        }
+                        .internal {
+                            font-weight: bold;
+                            text-transform: uppercase;
+                        }
+                        @media print {
+                            body { margin: 5px; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Anwesenheitsliste</h1>
+                        
+                        <div class="seminocode">
+                            <span class="seminocode-label">Seminarcode:</span>
+                            <span class="seminocode-field">_________________</span>
+                        </div>
+                        
+                        <div class="thema-section">
+                            <div style="font-weight: bold; margin-bottom: 4px;">Thema:</div>
+                            <div class="thema-grid">
+                                <div class="checkbox-item">${getCheckbox(training.type.includes('Wirbelstrom') && training.type.includes('Gefüge'))} Wirbelstromprüfung Gefüge</div>
+                                <div class="checkbox-item">${getCheckbox(training.type.includes('Wirbelstrom') && training.type.includes('Riss'))} Wirbelstromprüfung Riss</div>
+                                <div class="checkbox-item">${getCheckbox(training.type.includes('Wirbelstrom') && training.type.includes('Thermische'))} Wirbelstromprüfung Schleifbrand</div>
+                                <div class="checkbox-item">${getCheckbox(training.type.includes('Barkhausen'))} Barkhausenrauschen</div>
+                                <div class="checkbox-item">${getCheckbox(training.type.includes('Ultraschall'))} Ultraschallprüfung</div>
+                                <div class="checkbox-item">${getCheckbox(training.type.includes('Nital'))} Nitalätzen</div>
+                                <div class="checkbox-item">${getCheckbox(training.type.includes('Magnetpulver'))} Magnetpulverprüfung</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 8px;">Qualifikation:</div>
+                            <div class="qualifikation-grid">
+                                <div class="checkbox-item">☐ Prüfwerker nach S245012/ S245012-1</div>
+                                <div class="checkbox-item">☐ Level 2 nach S245012-1</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 8px;">Requalifizierung:</div>
+                            <div class="requalifizierung-grid">
+                                <div class="checkbox-item">☐ ja</div>
+                                <div class="checkbox-item">☐ nein</div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Datum:</span>
+                                <span class="info-field">${training.date_str || '_________________'}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Seminarort:</span>
+                                <span class="info-field">${training.location || '_________________'}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Uhrzeit:</span>
+                                <span class="info-field">${startTime} - ${endTime} Uhr</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Referent /-in:</span>
+                                <span class="info-field">Häusner Daniel</span>
+                            </div>
+                        </div>
+                        
+                        <div class="hinweise">
+                            <div class="hinweis-item">
+                                <span>➢</span>
+                                <i>Beachte Schaeffler Prozedur S245012* „Qualifizierung und Verantwortlichkeiten von Personal“</i>
+                            </div>
+                        </div>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Personal-<br>nummer</th>
+                                    <th>Name, Vorname</th>
+                                    <th>Abteilung</th>
+                                    <th>Geburtsort</th>
+                                    <th>Geburts-<br>datum</th>
+                                    ${days > 1 ? '<th>Kürzel<br>1.Tag</th><th>Kürzel<br>2.Tag</th>' + (days > 2 ? '<th>Kürzel<br>3.Tag</th>' : '') : '<th>Kürzel<br>1.Tag</th>'}
+                                    <th>Prüfung bestanden</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableRows}
+                            </tbody>
+                        </table>
+                        
+                        <div class="footer">
+                            <div>Seite 1 von 1</div>
+                        </div>
+                    </div>
+                </body>
+                </html>
+                `;
+                
+                printWindow.document.write(html);
+                printWindow.document.close();
+                printWindow.focus();
+                printWindow.print();
+            };
+        })();
+    </script>
+</body>
+</html>
