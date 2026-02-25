@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP‑Schulungen 2026 · mit Anwesenheitsliste</title>
+    <title>ZfP‑Schulungen · mit Anwesenheitsliste</title>
     <style>
         * {
             box-sizing: border-box;
@@ -61,8 +61,6 @@
             --empty-bg: #e8f5e8;
             --empty-text: #1e4a2b;
             --footnote: #2e5a2e;
-            --ort-hinweis-bg: #ffd966c0;
-            --ort-hinweis-text: #1e4a2b;
             --loading-bg: #ffffff;
             --loading-text: #1e4a2b;
             --cancelled-bg: #ffebee;
@@ -72,6 +70,8 @@
             --deadline-closed-text: #ffffff;
             --deadline-open: #c8e6c9;
             --deadline-open-text: #2e7d32;
+            --locked-bg: #ffb74d;
+            --locked-text: #000000;
         }
 
         body.dark {
@@ -117,8 +117,6 @@
             --empty-bg: #2a2a2a;
             --empty-text: #e0e0e0;
             --footnote: #a0a0a0;
-            --ort-hinweis-bg: #4a4a4ac0;
-            --ort-hinweis-text: #f0f0f0;
             --loading-bg: #2a2a2a;
             --loading-text: #e0e0e0;
             --cancelled-bg: #4a2a2a;
@@ -128,12 +126,15 @@
             --deadline-closed-text: #ffffff;
             --deadline-open: #1e4a2b;
             --deadline-open-text: #a5d6a7;
+            --locked-bg: #b95f00;
+            --locked-text: #ffffff;
         }
 
         .app {
-            max-width: 1200px;
+            max-width: 1920px;
             width: 100%;
             position: relative;
+            margin: 0 auto;
         }
         
         .loading-overlay {
@@ -190,34 +191,31 @@
             font-size: 1rem;
             opacity: 0.9;
         }
-        .header .ort-hinweis {
-            background: var(--ort-hinweis-bg);
-            color: var(--ort-hinweis-text);
-            padding: 0.2rem 1rem;
-            border-radius: 40px;
-            display: inline-block;
-            margin-top: 0.6rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            backdrop-filter: blur(4px);
-        }
         
-        .year-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.2rem;
-            margin-bottom: 1.8rem;
-        }
-        @media (min-width: 600px) {
-            .year-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (min-width: 1000px) {
-            .year-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
+.year-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 1.8rem;
+}
+
+@media (max-width: 1600px) {
+    .year-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1200px) {
+    .year-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .year-grid {
+        grid-template-columns: 1fr;
+    }
+}
         
         .month-card {
             background: var(--card-bg);
@@ -251,7 +249,6 @@
             font-weight: 600;
         }
         
-        /* NEUE STYLES für Anmeldestatus */
         .status-indicator {
             display: inline-block;
             padding: 0.2rem 0.7rem;
@@ -259,10 +256,15 @@
             font-size: 0.7rem;
             font-weight: 600;
             margin-left: 0.5rem;
+            white-space: nowrap;
         }
-        .status-indicator.closed {
+        .status-indicator.past {
             background: var(--deadline-closed);
             color: var(--deadline-closed-text);
+        }
+        .status-indicator.locked {
+            background: var(--locked-bg);
+            color: var(--locked-text);
         }
         .status-indicator.open {
             background: var(--deadline-open);
@@ -279,6 +281,7 @@
             font-weight: bold;
             text-align: center;
             font-size: 0.8rem;
+            white-space: nowrap;
         }
         
         .cancellation-banner {
@@ -297,7 +300,6 @@
             background: var(--cancelled-bg);
             border-color: var(--cancelled-border);
         }
-        /* ENDE NEUE STYLES */
         
         .training-item {
             background: var(--item-bg);
@@ -308,29 +310,69 @@
             transition: all 0.15s;
             border: 1px solid var(--item-border);
             box-shadow: 0 2px 6px rgba(0,30,0,0.05);
+            min-width: 320px;
         }
         .training-item:hover {
             background: var(--location-bg);
             border-color: #4caf50;
             transform: translateX(2px);
         }
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.3rem;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
-        .training-type {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--item-type);
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    width: 100%;
+}
+
+.training-type {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--item-type);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    flex: 1;
+}
+
+.duration-chip {
+    background: #2e7d32;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.status-indicator {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    margin-left: 0;
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.location {
+    background: var(--location-bg);
+    color: var(--location-text);
+    padding: 0.2rem 0.7rem;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 0.8rem;
+    margin: 0.3rem 0 0.5rem 0;
+    font-weight: 500;
+    white-space: nowrap;
+}
         .duration-chip {
             background: #2e7d32;
             color: white;
@@ -339,6 +381,7 @@
             font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.2px;
+            white-space: nowrap;
         }
         .location {
             background: var(--location-bg);
@@ -349,14 +392,16 @@
             font-size: 0.8rem;
             margin: 0.3rem 0;
             font-weight: 500;
+            white-space: nowrap;
         }
         .date-time {
             font-size: 0.85rem;
             color: var(--start-badge-text);
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             align-items: baseline;
             gap: 0.8rem;
+            white-space: nowrap;
         }
         .start-badge {
             background: var(--start-badge-bg);
@@ -364,6 +409,7 @@
             padding: 0.2rem 0.6rem;
             font-weight: 500;
             color: var(--start-badge-text);
+            white-space: nowrap;
         }
         .spots-row {
             display: flex;
@@ -389,6 +435,7 @@
             min-width: 50px;
             text-align: right;
             font-size: 0.9rem;
+            white-space: nowrap;
         }
         
         .reg-panel {
@@ -398,7 +445,21 @@
             margin-top: 1.5rem;
             box-shadow: 0 15px 30px rgba(0, 37, 0, 0.1);
             border: 1px solid var(--panel-border);
+            animation: slideIn 0.3s ease-out;
+            transform-origin: right;
         }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
         .reg-header {
             display: flex;
             flex-direction: column;
@@ -424,6 +485,7 @@
             color: var(--badge-text);
             font-size: 0.9rem;
             font-weight: 500;
+            white-space: nowrap;
         }
         
         .action-buttons {
@@ -454,15 +516,11 @@
         
         .two-cols {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
             margin-bottom: 1.2rem;
         }
-        @media (min-width: 500px) {
-            .two-cols {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+        
         .field {
             display: flex;
             flex-direction: column;
@@ -603,6 +661,7 @@
             font-weight: 600;
             font-size: 0.95rem;
             text-align: left;
+            white-space: nowrap;
         }
         td {
             padding: 0.8rem 0.8rem;
@@ -610,6 +669,7 @@
             color: #1e4a2b;
             font-weight: 500;
             font-size: 0.95rem;
+            white-space: nowrap;
         }
         tr:nth-child(even) {
             background-color: #f5fff5;
@@ -624,7 +684,7 @@
         .action-cell {
             display: flex;
             gap: 5px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
         .action-btn {
             background: none;
@@ -788,9 +848,8 @@
 
     <div class="app" id="app">
         <div class="header">
-            <h1>🔬 ZfP‑Schulungen 2026</h1>
-            <div class="sub">Wirbelstrom · Ultraschall · Magnetpulver · Nital-Ätzen – max. 11 Plätze</div>
-            <div class="ort-hinweis">🏢 Bau 50, Raum Silber/Gold</div>
+            <h1>🔬 ZfP‑Schulungen</h1>
+            <div class="sub">Wirbelstromprüfung · Ultraschallprüfung · Magnetpulverprüfung · Nital-Ätzen – max. 11 Plätze</div>
         </div>
 
         <div class="year-grid" id="monthGrid"></div>
@@ -801,7 +860,6 @@
                 <span class="meta-info" id="regMeta"></span>
             </div>
 
-            <!-- Ausfall-Banner -->
             <div id="cancellationBanner" class="cancellation-banner" style="display: none;"></div>
 
             <div class="action-buttons">
@@ -861,7 +919,6 @@
             
             const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-            // ===== THEME MANAGEMENT =====
             const THEME_STORAGE_KEY = 'zfp-theme-preference';
             const themeToggle = document.getElementById('themeToggle');
 
@@ -910,10 +967,8 @@
 
             initSyncedTheme();
 
-            // ===== KONSTANTEN =====
             const MAX = 11;
             
-            // Mindestteilnehmer pro Prüfverfahren
             const MIN_PARTICIPANTS = {
                 'Wirbelstromprüfung': 3,
                 'Magnetpulverprüfung': 2,
@@ -962,39 +1017,30 @@
                        date.getFullYear() === year;
             }
 
-            function germanToIsoDate(germanDate) {
-                if (!germanDate) return null;
-                const [day, month, year] = germanDate.split('.');
-                return `${year}-${month}-${day}`;
+            function isTrainingPast(startDate) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const courseDate = new Date(startDate + 'T12:00:00');
+                return courseDate < today;
             }
 
-            function isoToGermanDate(isoDate) {
-                if (!isoDate) return '';
-                const [year, month, day] = isoDate.split('-');
-                return `${day}.${month}.${year}`;
-            }
-
-            // Prüfen ob Anmeldung abgeschlossen (14 Tage vorher oder Schulung vorbei)
-            function isRegistrationClosed(startDate) {
+            function isRegistrationLocked(startDate) {
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
                 const courseDate = new Date(startDate + 'T12:00:00');
                 const daysUntilCourse = Math.ceil((courseDate - today) / (1000 * 60 * 60 * 24));
-                
-                // Wenn Schulung in der Vergangenheit liegt oder weniger als 14 Tage entfernt
                 return daysUntilCourse < 14;
             }
 
-            // Prüfen ob Schulung ausfällt
             function checkTrainingCancellation(training) {
                 const attendeesCount = training.attendees?.length || 0;
                 const minRequired = MIN_PARTICIPANTS[training.type] || 2;
-                const registrationClosed = isRegistrationClosed(training.start_date);
+                const registrationLocked = isRegistrationLocked(training.start_date);
                 
-                if (registrationClosed && attendeesCount < minRequired) {
+                if (registrationLocked && attendeesCount < minRequired) {
                     return {
                         cancelled: true,
-                        reason: `❌ AUSGEFALLEN: Nur ${attendeesCount}/${minRequired} Teilnehmer (Mindestzahl ${minRequired})`
+                        reason: `❌ AUSGEFALLEN (Mindestteilnehmerzahl ${minRequired} nicht erreicht)`
                     };
                 }
                 return { cancelled: false };
@@ -1020,7 +1066,6 @@
             const geburtstagInp = document.getElementById('geburtstag');
             const geburtsortInp = document.getElementById('geburtsort');
 
-            // Modal-Elemente
             const teilnehmerModal = document.getElementById('teilnehmerModal');
             const editTrainingId = document.getElementById('editTrainingId');
             const editAttendeeIndex = document.getElementById('editAttendeeIndex');
@@ -1053,7 +1098,8 @@
                         if (t.attendees && t.attendees.length) {
                             t.attendees.forEach(a => {
                                 if (a.geburtstag && a.geburtstag.includes('-')) {
-                                    a.geburtstag = isoToGermanDate(a.geburtstag);
+                                    const [year, month, day] = a.geburtstag.split('-');
+                                    a.geburtstag = `${day}.${month}.${year}`;
                                 }
                             });
                         }
@@ -1097,18 +1143,23 @@
                             const taken = t.attendees?.length || 0;
                             const fill = (taken / MAX) * 100;
                             const endTime = getEndTime(t.type);
-                            const registrationClosed = isRegistrationClosed(t.start_date);
+                            const isPast = isTrainingPast(t.start_date);
+                            const isLocked = isRegistrationLocked(t.start_date);
                             const cancellation = checkTrainingCancellation(t);
                             
-                            // CSS-Klasse für ausgefallene Schulungen
                             const cancelledClass = cancellation.cancelled ? 'cancelled' : '';
                             
-                            // Status Text basierend auf Anmeldefrist
                             let statusText = '';
-                            if (registrationClosed) {
+                            let statusClass = '';
+                            if (isPast) {
                                 statusText = '🔒 Abgeschlossen';
+                                statusClass = 'past';
+                            } else if (isLocked) {
+                                statusText = '🔒 Anmeldung gesperrt';
+                                statusClass = 'locked';
                             } else {
                                 statusText = '✅ Anmeldung offen';
+                                statusClass = 'open';
                             }
                             
                             html += `
@@ -1116,7 +1167,7 @@
                                     <div class="item-header">
                                         <span class="training-type">
                                             ${t.type}
-                                            <span class="status-indicator ${registrationClosed ? 'closed' : 'open'}">
+                                            <span class="status-indicator ${statusClass}">
                                                 ${statusText}
                                             </span>
                                         </span>
@@ -1158,14 +1209,13 @@
                 if (!training) return;
                 selectedId = id;
                 
-                // Prüfungen für diese Schulung
-                const registrationClosed = isRegistrationClosed(training.start_date);
+                const isPast = isTrainingPast(training.start_date);
+                const isLocked = isRegistrationLocked(training.start_date);
                 const cancellation = checkTrainingCancellation(training);
                 
                 regPanel.style.display = 'block';
                 regTitle.textContent = `${training.type} – ${training.location}`;
                 
-                // Ausfall-Banner anzeigen wenn nötig
                 if (cancellation.cancelled) {
                     cancellationBanner.style.display = 'block';
                     cancellationBanner.textContent = cancellation.reason;
@@ -1173,19 +1223,20 @@
                     cancellationBanner.style.display = 'none';
                 }
                 
-                // Anmelde-Button deaktivieren wenn abgeschlossen
-                if (registrationClosed || cancellation.cancelled) {
+                if (isPast || isLocked || cancellation.cancelled) {
                     anmeldenBtn.disabled = true;
-                    if (registrationClosed) {
-                        anmeldenBtn.title = "Anmeldung abgeschlossen";
-                        anmeldenBtn.innerHTML = '🔒 Anmeldung abgeschlossen';
-                    }
-                    if (cancellation.cancelled) {
+                    
+                    if (isPast) {
+                        anmeldenBtn.title = "Schulung bereits abgeschlossen";
+                        anmeldenBtn.innerHTML = '🔒 Schulung abgeschlossen';
+                    } else if (isLocked) {
+                        anmeldenBtn.title = "Anmeldung gesperrt (14 Tage vor Kursbeginn)";
+                        anmeldenBtn.innerHTML = '🔒 Anmeldung gesperrt';
+                    } else if (cancellation.cancelled) {
                         anmeldenBtn.title = "Schulung findet nicht statt";
                         anmeldenBtn.innerHTML = '❌ Schulung ausgefallen';
                     }
                     
-                    // Eingabefelder deaktivieren
                     vornameInp.disabled = true;
                     nameInp.disabled = true;
                     persnrInp.disabled = true;
@@ -1197,7 +1248,6 @@
                     anmeldenBtn.title = "";
                     anmeldenBtn.innerHTML = '➕ Anmelden';
                     
-                    // Eingabefelder aktivieren
                     vornameInp.disabled = false;
                     nameInp.disabled = false;
                     persnrInp.disabled = false;
@@ -1255,7 +1305,6 @@
                 listContainer.innerHTML = tab;
             }
 
-            // Teilnehmer bearbeiten - Modal öffnen
             window.editAttendee = function(trainingId, attendeeIndex) {
                 const training = findTraining(trainingId);
                 if (!training || !training.attendees || !training.attendees[attendeeIndex]) return;
@@ -1274,12 +1323,10 @@
                 teilnehmerModal.style.display = 'flex';
             };
 
-            // Modal schließen
             window.closeTeilnehmerModal = function() {
                 teilnehmerModal.style.display = 'none';
             };
 
-            // Teilnehmer aktualisieren
             teilnehmerForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
@@ -1306,7 +1353,6 @@
                     return;
                 }
 
-                // Prüfen auf Doppelung (außer bei sich selbst)
                 const duplicateExists = training.attendees.some((a, i) => 
                     i !== index && a.name === name && a.vorname === vorname
                 );
@@ -1377,9 +1423,8 @@
                 const training = findTraining(selectedId);
                 if (!training) return;
                 
-                // Prüfen ob Anmeldung noch möglich
-                if (isRegistrationClosed(training.start_date)) {
-                    alert('Die Anmeldung für diese Schulung ist bereits abgeschlossen.');
+                if (isRegistrationLocked(training.start_date)) {
+                    alert('Die Anmeldung für diese Schulung ist gesperrt (14 Tage vor Kursbeginn).');
                     return;
                 }
                 
@@ -1456,7 +1501,6 @@
             cancelBtn.addEventListener('click', cancelSelection);
             anmeldenBtn.addEventListener('click', (e) => { e.preventDefault(); anmelden(); });
 
-            // Modal schließen bei Klick außerhalb
             window.onclick = function(event) {
                 if (event.target === teilnehmerModal) {
                     closeTeilnehmerModal();
@@ -1468,7 +1512,6 @@
                 regPanel.style.display = 'none';
             });
 
-            // ===== PDF GENERATOR =====
             window.generateAttendancePDF = function() {
                 if (!selectedId) {
                     alert('Bitte wählen Sie zuerst eine Schulung aus.');
@@ -1706,7 +1749,7 @@
                             </div>
                             <div class="info-item">
                                 <span class="info-label">Referent /-in:</span>
-                                <span class="info-field">Häusner Daniel</span>
+                                <span class="info-field">_________________</span>
                             </div>
                         </div>
                         
