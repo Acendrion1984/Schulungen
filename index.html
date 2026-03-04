@@ -647,7 +647,7 @@
             }
             const json = await res.json();
             fileSha = json.sha;
-            const content = atob(json.content.replace(/\n/g,''));
+            const content = decodeURIComponent(escape(atob(json.content.replace(/\n/g,''))));
             return JSON.parse(content);
         }
 
@@ -816,9 +816,11 @@
         /* ═══════════════════════════════════════════
            HELPERS
         ═══════════════════════════════════════════ */
-        function durationInfo(type) {
-            const h = DURATION[type] || 0;
-            const d = Math.ceil(h/8);
+        function durationInfo(type, days) {
+            const d = days || Math.ceil((DURATION[type]||8)/8);
+            const et = endTime(type);
+            const lastH = et === '14:00' ? 6 : 8;
+            const h = d > 1 ? (d - 1) * 8 + lastH : lastH;
             return `${h} Std. (${d} Tag${d>1?'e':''})`;
         }
         function endTime(type) { return type === 'Magnetpulverprüfung' ? '14:00' : '16:00'; }
@@ -876,7 +878,7 @@
                         <div class="training-item${cancel.cancelled?' cancelled':''}" data-id="${t.id}">
                             <div class="item-top">
                                 <span class="type-name">${t.type}</span>
-                                <span class="dur-chip">${durationInfo(t.type)}</span>
+                                <span class="dur-chip">${durationInfo(t.type, t.days)}</span>
                             </div>
                             <div><span class="status-chip ${sc}">${st}</span></div>
                             ${cancel.cancelled ? `<div class="cancel-warn">${cancel.reason}</div>`:''}
@@ -915,7 +917,7 @@
             panel.style.display = 'block';
             document.getElementById('regTitle').textContent = `${t.type} – ${t.location}`;
             const et = endTime(t.type);
-            document.getElementById('regMeta').textContent = `${t.date_str}  |  täglich ${t.start_time||'8:00'}–${et} Uhr  |  ${durationInfo(t.type)}`;
+            document.getElementById('regMeta').textContent = `${t.date_str}  |  täglich ${t.start_time||'8:00'}–${et} Uhr  |  ${durationInfo(t.type, t.days)}`;
 
             const cb = document.getElementById('cancelBanner');
             if (cancel.cancelled) { cb.style.display='block'; cb.textContent=cancel.reason; }
@@ -1235,4 +1237,3 @@
     </script>
 </body>
 </html>
-
