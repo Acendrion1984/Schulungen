@@ -43,6 +43,9 @@
             --cancelled-bg: #ffebee;
             --cancelled-border: #ef5350;
             --cancelled-text: #c62828;
+            --demo-bg: #e3f2fd;
+            --demo-border: #2196f3;
+            --demo-text: #0d47a1;
         }
         body.dark {
             --bg: #1a1a1a;
@@ -69,6 +72,9 @@
             --cancelled-bg: #2a1818;
             --cancelled-border: #b71c1c;
             --cancelled-text: #ff8a80;
+            --demo-bg: #0d2b3e;
+            --demo-border: #42a5f5;
+            --demo-text: #bbdefb;
         }
 
         body {
@@ -119,6 +125,71 @@
         .header-left h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.4px; }
         .header-left .sub { font-size: 0.9rem; opacity: 0.8; margin-top: 0.2rem; font-weight: 400; }
         .header-actions { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+
+        /* ── DEMO LINK für Ultraschallprüfung April ── */
+        .demo-link-container {
+            background: var(--demo-bg);
+            border: 2px solid var(--demo-border);
+            border-radius: var(--radius-xl);
+            padding: 1.2rem 1.8rem;
+            margin-bottom: 1.4rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .demo-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .demo-badge {
+            background: var(--demo-border);
+            color: white;
+            font-weight: 700;
+            padding: 0.3rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        .demo-text {
+            color: var(--demo-text);
+            font-weight: 500;
+        }
+        .demo-text strong {
+            font-size: 1.1rem;
+        }
+        .demo-button {
+            background: white;
+            color: #0d47a1;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: 0.7rem 1.8rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+        .demo-button:hover {
+            background: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(33, 150, 243, 0.4);
+        }
+        .dark .demo-button {
+            background: #1e3a5f;
+            color: white;
+        }
+        .dark .demo-button:hover {
+            background: #2b4b78;
+        }
 
         /* ── GITHUB CONFIG PANEL ── */
         .gh-config-panel {
@@ -489,6 +560,19 @@
                     <span id="ghBadgeText">GitHub konfigurieren</span>
                 </div>
             </div>
+        </div>
+
+        <!-- DEMO LINK für Ultraschallprüfung April -->
+        <div class="demo-link-container" id="demoLinkContainer">
+            <div class="demo-info">
+                <span class="demo-badge"><i class="fas fa-flask"></i> DEMO</span>
+                <div class="demo-text">
+                    <strong>Ultraschallprüfung April 2025</strong> – Testen Sie die digitale Prüfungsfunktion
+                </div>
+            </div>
+            <a href="https://acendrion1984.github.io/Pr-fungsfragen/" target="_blank" class="demo-button">
+                <i class="fas fa-external-link-alt"></i> Zur digitalen Prüfung
+            </a>
         </div>
 
         <!-- GITHUB CONFIG PANEL -->
@@ -1217,6 +1301,7 @@
             initTheme();
             loadGhConfig();
 
+            // Demo-Link immer sichtbar (keine Bedingung notwendig)
             // Auto-connect if config already saved
             if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
                 loadTrainings(true);
@@ -1236,4 +1321,4 @@
     })();
     </script>
 </body>
-</html> 
+</html>
