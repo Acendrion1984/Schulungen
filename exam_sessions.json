@@ -1,0 +1,1330 @@
+[
+  {
+    "id": "mmtpeqzu9kvgsz8va49",
+    "method": "MT",
+    "date": "2026-03-16",
+    "location": "Bau 50, Raum Silber",
+    "trainer": "",
+    "name": "Magnetpulverprüfung – 23.02.–24.02.2026",
+    "config": {
+      "AT": 20,
+      "ST": 10,
+      "PR": 4
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-16T21:36:59.181Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "AT-033",
+            "AT-020",
+            "AT-021",
+            "AT-002",
+            "AT-001",
+            "AT-011",
+            "AT-017",
+            "AT-003",
+            "AT-012",
+            "AT-007",
+            "AT-009",
+            "AT-025",
+            "AT-004",
+            "AT-028",
+            "AT-034",
+            "AT-029",
+            "AT-031",
+            "AT-018",
+            "AT-027",
+            "AT-006"
+          ],
+          "ST": [
+            "MT-ST-004",
+            "MT-ST-005",
+            "MT-ST-009",
+            "MT-ST-008",
+            "MT-ST-002",
+            "MT-ST-003",
+            "MT-ST-001",
+            "MT-ST-006",
+            "MT-ST-010",
+            "MT-ST-007"
+          ],
+          "PR": [
+            "MT-PR-002",
+            "MT-PR-003",
+            "MT-PR-001",
+            "MT-PR-004"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "60834",
+        "name": "Dieter Welz",
+        "employeeId": "60834",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "AT-004",
+            "AT-035",
+            "AT-030",
+            "AT-011",
+            "AT-013",
+            "AT-002",
+            "AT-014",
+            "AT-020",
+            "AT-018",
+            "AT-032",
+            "AT-003",
+            "AT-019",
+            "AT-024",
+            "AT-009",
+            "AT-005",
+            "AT-031",
+            "AT-025",
+            "AT-007",
+            "AT-001",
+            "AT-021"
+          ],
+          "ST": [
+            "MT-ST-008",
+            "MT-ST-009",
+            "MT-ST-001",
+            "MT-ST-003",
+            "MT-ST-002",
+            "MT-ST-007",
+            "MT-ST-010",
+            "MT-ST-004",
+            "MT-ST-006",
+            "MT-ST-005"
+          ],
+          "PR": [
+            "MT-PR-004",
+            "MT-PR-001",
+            "MT-PR-002",
+            "MT-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02006619",
+        "name": "Celina Frank",
+        "employeeId": "02006619",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "AT-027",
+            "AT-029",
+            "AT-022",
+            "AT-010",
+            "AT-018",
+            "AT-002",
+            "AT-033",
+            "AT-003",
+            "AT-016",
+            "AT-009",
+            "AT-015",
+            "AT-017",
+            "AT-004",
+            "AT-005",
+            "AT-023",
+            "AT-024",
+            "AT-006",
+            "AT-014",
+            "AT-011",
+            "AT-020"
+          ],
+          "ST": [
+            "MT-ST-010",
+            "MT-ST-002",
+            "MT-ST-007",
+            "MT-ST-008",
+            "MT-ST-005",
+            "MT-ST-004",
+            "MT-ST-006",
+            "MT-ST-001",
+            "MT-ST-009",
+            "MT-ST-003"
+          ],
+          "PR": [
+            "MT-PR-001",
+            "MT-PR-002",
+            "MT-PR-004",
+            "MT-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02894633",
+        "name": "Christian Göpfert",
+        "employeeId": "02894633",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "AT-018",
+            "AT-002",
+            "AT-019",
+            "AT-029",
+            "AT-028",
+            "AT-010",
+            "AT-009",
+            "AT-003",
+            "AT-033",
+            "AT-001",
+            "AT-021",
+            "AT-014",
+            "AT-017",
+            "AT-030",
+            "AT-032",
+            "AT-035",
+            "AT-025",
+            "AT-027",
+            "AT-005",
+            "AT-016"
+          ],
+          "ST": [
+            "MT-ST-002",
+            "MT-ST-007",
+            "MT-ST-009",
+            "MT-ST-008",
+            "MT-ST-003",
+            "MT-ST-004",
+            "MT-ST-006",
+            "MT-ST-010",
+            "MT-ST-001",
+            "MT-ST-005"
+          ],
+          "PR": [
+            "MT-PR-004",
+            "MT-PR-002",
+            "MT-PR-001",
+            "MT-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "020087339",
+        "name": "Andreas Kippes",
+        "employeeId": "020087339",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "AT-023",
+            "AT-028",
+            "AT-031",
+            "AT-009",
+            "AT-011",
+            "AT-017",
+            "AT-035",
+            "AT-007",
+            "AT-018",
+            "AT-003",
+            "AT-032",
+            "AT-012",
+            "AT-006",
+            "AT-002",
+            "AT-034",
+            "AT-029",
+            "AT-025",
+            "AT-027",
+            "AT-022",
+            "AT-024"
+          ],
+          "ST": [
+            "MT-ST-001",
+            "MT-ST-002",
+            "MT-ST-010",
+            "MT-ST-008",
+            "MT-ST-003",
+            "MT-ST-006",
+            "MT-ST-005",
+            "MT-ST-009",
+            "MT-ST-004",
+            "MT-ST-007"
+          ],
+          "PR": [
+            "MT-PR-004",
+            "MT-PR-002",
+            "MT-PR-003",
+            "MT-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02039237",
+        "name": "Holger Müller",
+        "employeeId": "02039237",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "AT-003",
+            "AT-021",
+            "AT-027",
+            "AT-022",
+            "AT-028",
+            "AT-009",
+            "AT-011",
+            "AT-012",
+            "AT-013",
+            "AT-025",
+            "AT-018",
+            "AT-014",
+            "AT-001",
+            "AT-023",
+            "AT-024",
+            "AT-029",
+            "AT-010",
+            "AT-034",
+            "AT-005",
+            "AT-033"
+          ],
+          "ST": [
+            "MT-ST-006",
+            "MT-ST-004",
+            "MT-ST-003",
+            "MT-ST-001",
+            "MT-ST-005",
+            "MT-ST-002",
+            "MT-ST-008",
+            "MT-ST-010",
+            "MT-ST-007",
+            "MT-ST-009"
+          ],
+          "PR": [
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-001",
+            "MT-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02009230",
+        "name": "Rene Bocklet",
+        "employeeId": "02009230",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-026",
+            "AT-005",
+            "AT-027",
+            "AT-001",
+            "AT-012",
+            "AT-023",
+            "AT-007",
+            "AT-022",
+            "AT-010",
+            "AT-018",
+            "AT-004",
+            "AT-011",
+            "AT-030",
+            "AT-009",
+            "AT-017",
+            "AT-032",
+            "AT-003",
+            "AT-013",
+            "AT-028",
+            "AT-033"
+          ],
+          "ST": [
+            "MT-ST-007",
+            "MT-ST-002",
+            "MT-ST-009",
+            "MT-ST-006",
+            "MT-ST-004",
+            "MT-ST-005",
+            "MT-ST-010",
+            "MT-ST-008",
+            "MT-ST-003",
+            "MT-ST-001"
+          ],
+          "PR": [
+            "MT-PR-002",
+            "MT-PR-003",
+            "MT-PR-001",
+            "MT-PR-004"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02002964",
+        "name": "Julian Jauernig",
+        "employeeId": "02002964",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-006",
+            "AT-014",
+            "AT-027",
+            "AT-032",
+            "AT-023",
+            "AT-016",
+            "AT-028",
+            "AT-007",
+            "AT-034",
+            "AT-018",
+            "AT-005",
+            "AT-031",
+            "AT-030",
+            "AT-009",
+            "AT-017",
+            "AT-001",
+            "AT-011",
+            "AT-002",
+            "AT-029",
+            "AT-022"
+          ],
+          "ST": [
+            "MT-ST-002",
+            "MT-ST-004",
+            "MT-ST-003",
+            "MT-ST-009",
+            "MT-ST-010",
+            "MT-ST-006",
+            "MT-ST-008",
+            "MT-ST-007",
+            "MT-ST-005",
+            "MT-ST-001"
+          ],
+          "PR": [
+            "MT-PR-002",
+            "MT-PR-004",
+            "MT-PR-003",
+            "MT-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02894788",
+        "name": "Daniel Weidner",
+        "employeeId": "02894788",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-005",
+            "AT-026",
+            "AT-025",
+            "AT-032",
+            "AT-009",
+            "AT-019",
+            "AT-033",
+            "AT-035",
+            "AT-031",
+            "AT-016",
+            "AT-011",
+            "AT-012",
+            "AT-018",
+            "AT-022",
+            "AT-030",
+            "AT-034",
+            "AT-007",
+            "AT-024",
+            "AT-029",
+            "AT-013"
+          ],
+          "ST": [
+            "MT-ST-006",
+            "MT-ST-008",
+            "MT-ST-002",
+            "MT-ST-007",
+            "MT-ST-010",
+            "MT-ST-005",
+            "MT-ST-003",
+            "MT-ST-009",
+            "MT-ST-004",
+            "MT-ST-001"
+          ],
+          "PR": [
+            "MT-PR-003",
+            "MT-PR-002",
+            "MT-PR-001",
+            "MT-PR-004"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02003676",
+        "name": "Max Endres",
+        "employeeId": "02003676",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-027",
+            "AT-007",
+            "AT-011",
+            "AT-026",
+            "AT-018",
+            "AT-015",
+            "AT-031",
+            "AT-025",
+            "AT-004",
+            "AT-020",
+            "AT-010",
+            "AT-006",
+            "AT-028",
+            "AT-005",
+            "AT-033",
+            "AT-030",
+            "AT-014",
+            "AT-019",
+            "AT-035",
+            "AT-032"
+          ],
+          "ST": [
+            "MT-ST-006",
+            "MT-ST-003",
+            "MT-ST-004",
+            "MT-ST-009",
+            "MT-ST-008",
+            "MT-ST-002",
+            "MT-ST-007",
+            "MT-ST-005",
+            "MT-ST-001",
+            "MT-ST-010"
+          ],
+          "PR": [
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-001",
+            "MT-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02003504",
+        "name": "Markus Elzenbeck",
+        "employeeId": "02003504",
+        "department": "WI/SW2-P112",
+        "questions": {
+          "AT": [
+            "AT-001",
+            "AT-032",
+            "AT-018",
+            "AT-033",
+            "AT-003",
+            "AT-014",
+            "AT-002",
+            "AT-009",
+            "AT-008",
+            "AT-030",
+            "AT-019",
+            "AT-024",
+            "AT-035",
+            "AT-027",
+            "AT-016",
+            "AT-020",
+            "AT-026",
+            "AT-029",
+            "AT-013",
+            "AT-007"
+          ],
+          "ST": [
+            "MT-ST-005",
+            "MT-ST-004",
+            "MT-ST-009",
+            "MT-ST-007",
+            "MT-ST-001",
+            "MT-ST-006",
+            "MT-ST-010",
+            "MT-ST-002",
+            "MT-ST-003",
+            "MT-ST-008"
+          ],
+          "PR": [
+            "MT-PR-002",
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02012471",
+        "name": "Christopher Pflaum",
+        "employeeId": "02012471",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-012",
+            "AT-009",
+            "AT-019",
+            "AT-006",
+            "AT-024",
+            "AT-015",
+            "AT-011",
+            "AT-003",
+            "AT-005",
+            "AT-018",
+            "AT-010",
+            "AT-023",
+            "AT-001",
+            "AT-008",
+            "AT-030",
+            "AT-021",
+            "AT-028",
+            "AT-035",
+            "AT-016",
+            "AT-020"
+          ],
+          "ST": [
+            "MT-ST-007",
+            "MT-ST-010",
+            "MT-ST-003",
+            "MT-ST-008",
+            "MT-ST-006",
+            "MT-ST-002",
+            "MT-ST-004",
+            "MT-ST-001",
+            "MT-ST-005",
+            "MT-ST-009"
+          ],
+          "PR": [
+            "MT-PR-001",
+            "MT-PR-004",
+            "MT-PR-002",
+            "MT-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02008789",
+        "name": "Leon Nagel",
+        "employeeId": "02008789",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-011",
+            "AT-010",
+            "AT-025",
+            "AT-027",
+            "AT-031",
+            "AT-030",
+            "AT-028",
+            "AT-014",
+            "AT-026",
+            "AT-033",
+            "AT-002",
+            "AT-021",
+            "AT-006",
+            "AT-005",
+            "AT-004",
+            "AT-029",
+            "AT-015",
+            "AT-016",
+            "AT-008",
+            "AT-012"
+          ],
+          "ST": [
+            "MT-ST-004",
+            "MT-ST-009",
+            "MT-ST-010",
+            "MT-ST-006",
+            "MT-ST-001",
+            "MT-ST-002",
+            "MT-ST-005",
+            "MT-ST-003",
+            "MT-ST-007",
+            "MT-ST-008"
+          ],
+          "PR": [
+            "MT-PR-001",
+            "MT-PR-002",
+            "MT-PR-003",
+            "MT-PR-004"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02006667",
+        "name": "Oliver Tschubanow",
+        "employeeId": "02006667",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "AT-001",
+            "AT-006",
+            "AT-015",
+            "AT-008",
+            "AT-031",
+            "AT-016",
+            "AT-019",
+            "AT-017",
+            "AT-035",
+            "AT-005",
+            "AT-034",
+            "AT-013",
+            "AT-024",
+            "AT-021",
+            "AT-018",
+            "AT-027",
+            "AT-011",
+            "AT-022",
+            "AT-033",
+            "AT-028"
+          ],
+          "ST": [
+            "MT-ST-009",
+            "MT-ST-004",
+            "MT-ST-007",
+            "MT-ST-001",
+            "MT-ST-010",
+            "MT-ST-003",
+            "MT-ST-006",
+            "MT-ST-005",
+            "MT-ST-002",
+            "MT-ST-008"
+          ],
+          "PR": [
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-002",
+            "MT-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "0208365",
+        "name": "Yusuf Emen",
+        "employeeId": "0208365",
+        "department": "WI/SW2-P12Q",
+        "questions": {
+          "AT": [
+            "AT-035",
+            "AT-020",
+            "AT-004",
+            "AT-028",
+            "AT-025",
+            "AT-012",
+            "AT-013",
+            "AT-003",
+            "AT-011",
+            "AT-034",
+            "AT-006",
+            "AT-032",
+            "AT-016",
+            "AT-008",
+            "AT-005",
+            "AT-001",
+            "AT-030",
+            "AT-017",
+            "AT-031",
+            "AT-009"
+          ],
+          "ST": [
+            "MT-ST-004",
+            "MT-ST-005",
+            "MT-ST-008",
+            "MT-ST-002",
+            "MT-ST-003",
+            "MT-ST-006",
+            "MT-ST-010",
+            "MT-ST-007",
+            "MT-ST-009",
+            "MT-ST-001"
+          ],
+          "PR": [
+            "MT-PR-001",
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02087906",
+        "name": "Marco Heinickel",
+        "employeeId": "02087906",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-001",
+            "AT-011",
+            "AT-028",
+            "AT-006",
+            "AT-026",
+            "AT-015",
+            "AT-029",
+            "AT-002",
+            "AT-027",
+            "AT-016",
+            "AT-032",
+            "AT-019",
+            "AT-017",
+            "AT-031",
+            "AT-008",
+            "AT-009",
+            "AT-023",
+            "AT-014",
+            "AT-010",
+            "AT-018"
+          ],
+          "ST": [
+            "MT-ST-005",
+            "MT-ST-007",
+            "MT-ST-003",
+            "MT-ST-006",
+            "MT-ST-001",
+            "MT-ST-008",
+            "MT-ST-004",
+            "MT-ST-002",
+            "MT-ST-009",
+            "MT-ST-010"
+          ],
+          "PR": [
+            "MT-PR-001",
+            "MT-PR-003",
+            "MT-PR-002",
+            "MT-PR-004"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02006389",
+        "name": "Stefan Dehler",
+        "employeeId": "02006389",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-020",
+            "AT-012",
+            "AT-014",
+            "AT-021",
+            "AT-031",
+            "AT-017",
+            "AT-008",
+            "AT-002",
+            "AT-005",
+            "AT-030",
+            "AT-027",
+            "AT-018",
+            "AT-035",
+            "AT-024",
+            "AT-015",
+            "AT-023",
+            "AT-019",
+            "AT-032",
+            "AT-034",
+            "AT-001"
+          ],
+          "ST": [
+            "MT-ST-005",
+            "MT-ST-001",
+            "MT-ST-006",
+            "MT-ST-010",
+            "MT-ST-008",
+            "MT-ST-009",
+            "MT-ST-003",
+            "MT-ST-007",
+            "MT-ST-002",
+            "MT-ST-004"
+          ],
+          "PR": [
+            "MT-PR-002",
+            "MT-PR-004",
+            "MT-PR-003",
+            "MT-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02054670",
+        "name": "Ralf Dunz",
+        "employeeId": "02054670",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-004",
+            "AT-022",
+            "AT-025",
+            "AT-032",
+            "AT-011",
+            "AT-015",
+            "AT-009",
+            "AT-030",
+            "AT-023",
+            "AT-016",
+            "AT-017",
+            "AT-033",
+            "AT-003",
+            "AT-006",
+            "AT-007",
+            "AT-020",
+            "AT-035",
+            "AT-021",
+            "AT-012",
+            "AT-034"
+          ],
+          "ST": [
+            "MT-ST-007",
+            "MT-ST-005",
+            "MT-ST-001",
+            "MT-ST-004",
+            "MT-ST-006",
+            "MT-ST-008",
+            "MT-ST-009",
+            "MT-ST-010",
+            "MT-ST-003",
+            "MT-ST-002"
+          ],
+          "PR": [
+            "MT-PR-004",
+            "MT-PR-001",
+            "MT-PR-003",
+            "MT-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02008193",
+        "name": "Nils Wasserbäch",
+        "employeeId": "02008193",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-007",
+            "AT-008",
+            "AT-023",
+            "AT-034",
+            "AT-019",
+            "AT-001",
+            "AT-021",
+            "AT-033",
+            "AT-022",
+            "AT-016",
+            "AT-010",
+            "AT-012",
+            "AT-027",
+            "AT-026",
+            "AT-014",
+            "AT-005",
+            "AT-025",
+            "AT-024",
+            "AT-029",
+            "AT-035"
+          ],
+          "ST": [
+            "MT-ST-006",
+            "MT-ST-007",
+            "MT-ST-008",
+            "MT-ST-002",
+            "MT-ST-003",
+            "MT-ST-005",
+            "MT-ST-010",
+            "MT-ST-001",
+            "MT-ST-009",
+            "MT-ST-004"
+          ],
+          "PR": [
+            "MT-PR-001",
+            "MT-PR-002",
+            "MT-PR-004",
+            "MT-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02009312",
+        "name": "Christoph Thomas",
+        "employeeId": "02009312",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-027",
+            "AT-002",
+            "AT-034",
+            "AT-021",
+            "AT-024",
+            "AT-025",
+            "AT-023",
+            "AT-004",
+            "AT-030",
+            "AT-013",
+            "AT-028",
+            "AT-003",
+            "AT-011",
+            "AT-022",
+            "AT-005",
+            "AT-029",
+            "AT-026",
+            "AT-035",
+            "AT-001",
+            "AT-031"
+          ],
+          "ST": [
+            "MT-ST-010",
+            "MT-ST-001",
+            "MT-ST-003",
+            "MT-ST-004",
+            "MT-ST-005",
+            "MT-ST-009",
+            "MT-ST-006",
+            "MT-ST-002",
+            "MT-ST-007",
+            "MT-ST-008"
+          ],
+          "PR": [
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-002",
+            "MT-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02002527",
+        "name": "Rene Ruloffs",
+        "employeeId": "02002527",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-001",
+            "AT-027",
+            "AT-028",
+            "AT-033",
+            "AT-018",
+            "AT-017",
+            "AT-032",
+            "AT-029",
+            "AT-031",
+            "AT-013",
+            "AT-035",
+            "AT-014",
+            "AT-019",
+            "AT-007",
+            "AT-003",
+            "AT-005",
+            "AT-022",
+            "AT-016",
+            "AT-020",
+            "AT-002"
+          ],
+          "ST": [
+            "MT-ST-008",
+            "MT-ST-003",
+            "MT-ST-007",
+            "MT-ST-002",
+            "MT-ST-010",
+            "MT-ST-001",
+            "MT-ST-006",
+            "MT-ST-009",
+            "MT-ST-005",
+            "MT-ST-004"
+          ],
+          "PR": [
+            "MT-PR-004",
+            "MT-PR-001",
+            "MT-PR-002",
+            "MT-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "2004784",
+        "name": "Dominik Rippstein",
+        "employeeId": "2004784",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "AT-001",
+            "AT-029",
+            "AT-015",
+            "AT-012",
+            "AT-033",
+            "AT-024",
+            "AT-014",
+            "AT-028",
+            "AT-010",
+            "AT-027",
+            "AT-025",
+            "AT-016",
+            "AT-019",
+            "AT-007",
+            "AT-017",
+            "AT-035",
+            "AT-030",
+            "AT-023",
+            "AT-002",
+            "AT-032"
+          ],
+          "ST": [
+            "MT-ST-008",
+            "MT-ST-002",
+            "MT-ST-010",
+            "MT-ST-003",
+            "MT-ST-005",
+            "MT-ST-006",
+            "MT-ST-007",
+            "MT-ST-009",
+            "MT-ST-001",
+            "MT-ST-004"
+          ],
+          "PR": [
+            "MT-PR-002",
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "2084948",
+        "name": "Serdar Özdemir",
+        "employeeId": "2084948",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "AT-017",
+            "AT-011",
+            "AT-033",
+            "AT-016",
+            "AT-034",
+            "AT-021",
+            "AT-031",
+            "AT-008",
+            "AT-026",
+            "AT-004",
+            "AT-024",
+            "AT-019",
+            "AT-035",
+            "AT-015",
+            "AT-003",
+            "AT-020",
+            "AT-010",
+            "AT-013",
+            "AT-027",
+            "AT-009"
+          ],
+          "ST": [
+            "MT-ST-004",
+            "MT-ST-007",
+            "MT-ST-001",
+            "MT-ST-006",
+            "MT-ST-005",
+            "MT-ST-008",
+            "MT-ST-009",
+            "MT-ST-003",
+            "MT-ST-010",
+            "MT-ST-002"
+          ],
+          "PR": [
+            "MT-PR-003",
+            "MT-PR-004",
+            "MT-PR-001",
+            "MT-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
+  }
+]
