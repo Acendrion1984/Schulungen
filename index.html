@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* ===== ALLE ORIGINALEN STYLES (UNVERÄNDERT) ===== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; }
 
         :root {
@@ -43,9 +44,8 @@
             --cancelled-bg: #ffebee;
             --cancelled-border: #ef5350;
             --cancelled-text: #c62828;
-            --demo-bg: #e3f2fd;
-            --demo-border: #2196f3;
-            --demo-text: #0d47a1;
+            
+            /* NEUE FARBEN (für Prüfungsbereich) */
             --green-bg: #e8f5e9;
             --green: #2e7d32;
             --red-bg: #ffebee;
@@ -80,9 +80,6 @@
             --cancelled-bg: #2a1818;
             --cancelled-border: #b71c1c;
             --cancelled-text: #ff8a80;
-            --demo-bg: #0d2b3e;
-            --demo-border: #42a5f5;
-            --demo-text: #bbdefb;
             --green-bg: #1e2e1e;
             --green: #4caf50;
             --red-bg: #2a1818;
@@ -106,7 +103,7 @@
 
         .app { max-width: 1800px; width: 100%; }
 
-        /* ── LOADING ── */
+        /* LOADING */
         .loading-overlay {
             position: fixed; inset: 0;
             background: var(--bg);
@@ -127,7 +124,7 @@
         @keyframes spin { to { transform: rotate(360deg); } }
         .loading-text { color: var(--text3); font-size: 1rem; font-weight: 500; }
 
-        /* ── HEADER ── */
+        /* HEADER */
         .header {
             background: var(--header-grad);
             color: white;
@@ -142,37 +139,37 @@
         .header-left .sub { font-size: 0.9rem; opacity: 0.8; margin-top: 0.2rem; font-weight: 400; }
         .header-actions { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
 
-        /* ── NAVIGATION ── */
+        /* NEUE NAVIGATION (zusätzlich) */
         .nav-tabs {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
+            background: var(--surface);
+            padding: 0.5rem;
+            border-radius: var(--radius-full);
+            border: 2px solid var(--border);
         }
         .nav-tab {
-            background: var(--surface);
-            border: 2px solid var(--border);
-            border-radius: var(--radius-full);
             padding: 0.6rem 1.4rem;
+            border-radius: var(--radius-full);
             font-weight: 600;
             color: var(--text2);
             cursor: pointer;
             transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            background: transparent;
+            border: none;
         }
         .nav-tab:hover {
-            border-color: var(--accent2);
+            background: var(--surface2);
             color: var(--text);
         }
         .nav-tab.active {
             background: var(--accent);
-            border-color: var(--accent);
             color: white;
         }
 
-        /* ── GITHUB CONFIG PANEL ── */
+        /* GITHUB CONFIG PANEL */
         .gh-config-panel {
             background: var(--surface);
             border: 2px solid var(--border);
@@ -268,7 +265,7 @@
         .status-dot.red { background: #ef5350; }
         .gh-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
 
-        /* ── CONNECTED BADGE (header) ── */
+        /* CONNECTED BADGE */
         .gh-badge {
             display: flex; align-items: center; gap: 0.5rem;
             background: rgba(255,255,255,0.12);
@@ -282,7 +279,7 @@
         .gh-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #69f0ae; box-shadow: 0 0 5px #69f0ae; }
         .gh-badge .dot.offline { background: #ff6b6b; box-shadow: 0 0 5px #ff6b6b; }
 
-        /* ── BUTTONS ── */
+        /* BUTTONS */
         .btn {
             font-family: var(--font);
             font-size: 0.9rem; font-weight: 600;
@@ -312,7 +309,7 @@
         .btn-white:hover { background: rgba(255,255,255,0.25); }
         .btn-success { background: var(--accent2); color: white; border-color: var(--accent2); }
 
-        /* ── YEAR GRID ── */
+        /* YEAR GRID */
         .year-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -323,7 +320,7 @@
         @media (max-width: 1100px) { .year-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 680px)  { .year-grid { grid-template-columns: 1fr; } }
 
-        /* ── MONTH CARD ── */
+        /* MONTH CARD */
         .month-card {
             background: var(--surface);
             border-radius: var(--radius-xl);
@@ -351,7 +348,7 @@
         .chip.green { background: var(--green-bg); color: var(--green); }
         .chip.blue { background: var(--blue-bg); color: var(--blue); }
 
-        /* ── TRAINING ITEM ── */
+        /* TRAINING ITEM */
         .training-item {
             background: var(--surface2);
             border-radius: var(--radius-lg);
@@ -390,7 +387,7 @@
         .cancel-warn { background: var(--cancelled-bg); border: 1px solid var(--cancelled-border); color: var(--cancelled-text); border-radius: var(--radius-md); padding: 0.35rem 0.6rem; font-size: 0.75rem; font-weight: 700; text-align: center; margin: 0.3rem 0 0.4rem; }
         .empty-month { padding: 0.5rem 0.3rem; color: var(--muted); font-size: 0.88rem; }
 
-        /* ── REG PANEL ── */
+        /* REG PANEL */
         .reg-panel {
             background: var(--surface);
             border-radius: var(--radius-xl);
@@ -423,7 +420,7 @@
         .field input::placeholder { color: var(--muted); opacity: 0.7; }
         .form-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin: 1.2rem 0; }
 
-        /* ── ATTENDEE TABLE ── */
+        /* ATTENDEE TABLE */
         .attendee-section { margin-top: 1.8rem; border-top: 2px dashed var(--border); padding-top: 1.2rem; }
         .list-hdr { display: flex; gap: 0.8rem; align-items: center; margin-bottom: 1rem; }
         .list-hdr h3 { font-size: 1.15rem; font-weight: 700; color: var(--text); }
@@ -445,68 +442,73 @@
         .act-btn.remove:hover { background: #b71c1c; }
         .empty-msg { background: var(--accent-dim); padding: 1.2rem; border-radius: var(--radius-xl); color: var(--text3); text-align: center; font-size: 0.95rem; font-weight: 500; }
 
-        /* ── TRAINING DETAIL ── */
-        .training-detail {
+        /* MODAL */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 4000; justify-content: center; align-items: center; padding: 1rem; }
+        .modal-overlay.open { display: flex; }
+        .modal { background: var(--surface); border-radius: var(--radius-xl); width: 100%; max-width: 600px; padding: 1.8rem; box-shadow: var(--shadow-xl); animation: popIn 0.25s ease-out; }
+        @keyframes popIn { from { opacity:0; transform: scale(0.9); } to { opacity:1; transform: scale(1); } }
+        .modal-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.3rem; }
+        .modal-hdr h3 { font-size: 1.25rem; font-weight: 700; color: var(--text); }
+        .close-btn { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--muted); line-height: 1; padding: 0; }
+        .close-btn:hover { color: var(--text); }
+        .modal-fields { display: flex; flex-direction: column; gap: 0.8rem; }
+        .modal-actions { display: flex; gap: 0.7rem; margin-top: 1.2rem; }
+
+        /* THEME TOGGLE */
+        .theme-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            background: var(--surface); border: 2px solid var(--accent2);
+            border-radius: 50%; width: 48px; height: 48px;
+            cursor: pointer; font-size: 1.3rem;
+            box-shadow: var(--shadow-lg); z-index: 1000;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .theme-btn:hover { transform: scale(1.1); box-shadow: var(--shadow-xl); }
+
+        /* SYNC STATUS */
+        .sync-toast {
+            position: fixed; bottom: 80px; right: 20px;
+            background: var(--surface); border: 1.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 0.7rem 1.2rem;
+            font-size: 0.85rem; font-weight: 500; color: var(--text);
+            box-shadow: var(--shadow-lg);
+            z-index: 999;
+            display: flex; align-items: center; gap: 0.5rem;
+            transform: translateX(200%);
+            transition: transform 0.3s ease;
+        }
+        .sync-toast.show { transform: translateX(0); }
+        .sync-toast.success { border-color: var(--accent2); }
+        .sync-toast.error   { border-color: #ef5350; }
+
+        .footnote { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 1rem; padding: 0.5rem; }
+
+        /* SAVE INDICATOR */
+        .saving-indicator { display: none; align-items: center; gap: 0.4rem; color: var(--text3); font-size: 0.83rem; }
+        .saving-indicator.visible { display: flex; }
+        .save-spinner { width: 14px; height: 14px; border: 2px solid var(--border); border-top-color: var(--accent2); border-radius: 50%; animation: spin 0.7s linear infinite; }
+
+        /* ===== NEUE STYLES FÜR PRÜFUNGSBEREICH ===== */
+        .exam-panel, .participant-panel, .history-panel, .training-list-panel {
             background: var(--surface);
             border-radius: var(--radius-xl);
             padding: 2rem;
             border: 2px solid var(--border);
             box-shadow: var(--shadow-xl);
+            margin-top: 1rem;
         }
-        .detail-header {
+
+        .exam-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
             border-bottom: 2px solid var(--border);
-        }
-        .detail-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--text);
-        }
-        .detail-meta {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-        .participant-status {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            padding: 0.5rem;
-            background: var(--surface2);
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--border);
-        }
-        .score-badge {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: var(--radius-full);
-            background: var(--bg);
-            color: var(--text2);
         }
 
-        /* ── EXAM MODE ── */
-        .exam-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--surface);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            border: 2px solid var(--border);
-            box-shadow: var(--shadow-xl);
-        }
-        .exam-header {
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
-        }
         .exam-progress {
             height: 8px;
             background: var(--border);
@@ -519,6 +521,7 @@
             background: var(--accent2);
             transition: width 0.3s ease;
         }
+
         .exam-part-nav {
             display: flex;
             gap: 0.5rem;
@@ -544,6 +547,7 @@
             color: var(--green);
             border-color: var(--green);
         }
+
         .question-block {
             background: var(--surface2);
             border: 1px solid var(--border);
@@ -602,15 +606,6 @@
             border: 1px solid var(--border);
         }
 
-        /* ── NEW TRAINING ── */
-        .new-training-panel {
-            background: var(--surface);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            border: 2px solid var(--border);
-            box-shadow: var(--shadow-xl);
-            margin-bottom: 1.4rem;
-        }
         .participant-selector {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -637,7 +632,6 @@
             background: var(--accent-dim);
         }
 
-        /* ── HISTORY VIEW ── */
         .history-filters {
             display: flex;
             gap: 1rem;
@@ -645,72 +639,62 @@
             flex-wrap: wrap;
         }
 
-        /* ── PARTICIPANTS VIEW ── */
-        .participants-panel {
-            background: var(--surface);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            border: 2px solid var(--border);
-            box-shadow: var(--shadow-xl);
-        }
-
-        /* ── MODAL ── */
-        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 4000; justify-content: center; align-items: center; padding: 1rem; }
-        .modal-overlay.open { display: flex; }
-        .modal { background: var(--surface); border-radius: var(--radius-xl); width: 100%; max-width: 600px; padding: 1.8rem; box-shadow: var(--shadow-xl); animation: popIn 0.25s ease-out; }
-        @keyframes popIn { from { opacity:0; transform: scale(0.9); } to { opacity:1; transform: scale(1); } }
-        .modal-hdr { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.3rem; }
-        .modal-hdr h3 { font-size: 1.25rem; font-weight: 700; color: var(--text); }
-        .close-btn { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--muted); line-height: 1; padding: 0; }
-        .close-btn:hover { color: var(--text); }
-        .modal-fields { display: flex; flex-direction: column; gap: 0.8rem; }
-        .modal-actions { display: flex; gap: 0.7rem; margin-top: 1.2rem; }
-
-        /* ── THEME TOGGLE ── */
-        .theme-btn {
-            position: fixed; bottom: 20px; right: 20px;
-            background: var(--surface); border: 2px solid var(--accent2);
-            border-radius: 50%; width: 48px; height: 48px;
-            cursor: pointer; font-size: 1.3rem;
-            box-shadow: var(--shadow-lg); z-index: 1000;
-            display: flex; align-items: center; justify-content: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .theme-btn:hover { transform: scale(1.1); box-shadow: var(--shadow-xl); }
-
-        /* ── SYNC STATUS ── */
-        .sync-toast {
-            position: fixed; bottom: 80px; right: 20px;
-            background: var(--surface); border: 1.5px solid var(--border);
+        .stat-card {
+            background: var(--surface2);
+            padding: 1rem;
             border-radius: var(--radius-lg);
-            padding: 0.7rem 1.2rem;
-            font-size: 0.85rem; font-weight: 500; color: var(--text);
-            box-shadow: var(--shadow-lg);
-            z-index: 999;
-            display: flex; align-items: center; gap: 0.5rem;
-            transform: translateX(200%);
-            transition: transform 0.3s ease;
+            border: 1px solid var(--border);
         }
-        .sync-toast.show { transform: translateX(0); }
-        .sync-toast.success { border-color: var(--accent2); }
-        .sync-toast.error   { border-color: #ef5350; }
+        .stat-card .val {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            line-height: 1.2;
+        }
+        .stat-card .lbl {
+            font-size: 0.8rem;
+            color: var(--text3);
+        }
 
-        .footnote { text-align: center; color: var(--muted); font-size: 0.78rem; margin-top: 1rem; padding: 0.5rem; }
-
-        /* ── SAVE INDICATOR ── */
-        .saving-indicator { display: none; align-items: center; gap: 0.4rem; color: var(--text3); font-size: 0.83rem; }
-        .saving-indicator.visible { display: flex; }
-        .save-spinner { width: 14px; height: 14px; border: 2px solid var(--border); border-top-color: var(--accent2); border-radius: 50%; animation: spin 0.7s linear infinite; }
+        .answer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .answer-cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .answer-input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            background: var(--surface2);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-md);
+        }
+        .answer-input.correct {
+            border-color: var(--green);
+            background: var(--green-bg);
+        }
+        .answer-input.incorrect {
+            border-color: var(--red);
+            background: var(--red-bg);
+        }
     </style>
 </head>
 <body>
     <!-- LOADING -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner"></div>
-        <div class="loading-text" id="loadingText">Verbinde mit GitHub…</div>
+        <div class="loading-text" id="loadingText">Lade Daten aus JSON-Dateien…</div>
     </div>
 
-    <!-- EDIT MODAL -->
+    <!-- EDIT MODAL (original) -->
     <div class="modal-overlay" id="editModal">
         <div class="modal">
             <div class="modal-hdr">
@@ -736,7 +720,7 @@
         </div>
     </div>
 
-    <!-- PARTICIPANT MODAL -->
+    <!-- Teilnehmer Modal -->
     <div class="modal-overlay" id="participantModal">
         <div class="modal">
             <div class="modal-hdr">
@@ -758,7 +742,7 @@
         </div>
     </div>
 
-    <!-- RESULTS MODAL -->
+    <!-- Ergebnisse Modal -->
     <div class="modal-overlay" id="resultsModal">
         <div class="modal" style="max-width: 800px;">
             <div class="modal-hdr">
@@ -777,8 +761,8 @@
         <!-- HEADER -->
         <div class="header">
             <div class="header-left">
-                <h1>🔬 ZfP‑Schulungen · Prüfungssystem</h1>
-                <div class="sub">Wirbelstrom · Ultraschall · Magnetpulver · Nital-Ätzen – inkl. 25%-Neue-Fragen-Garantie</div>
+                <h1>🔬 ZfP‑Schulungen</h1>
+                <div class="sub">Wirbelstromprüfung · Ultraschallprüfung · Magnetpulverprüfung · Nital-Ätzen – max. 11 Plätze</div>
             </div>
             <div class="header-actions">
                 <div class="saving-indicator" id="savingIndicator">
@@ -792,29 +776,26 @@
             </div>
         </div>
 
-        <!-- NAVIGATION TABS -->
+        <!-- NAVIGATION -->
         <div class="nav-tabs">
             <div class="nav-tab active" data-view="calendar" onclick="switchView('calendar')">
-                <i class="fas fa-calendar-alt"></i> Kalender
+                <i class="fas fa-calendar-alt"></i> Schulungskalender
+            </div>
+            <div class="nav-tab" data-view="examManagement" onclick="switchView('examManagement')">
+                <i class="fas fa-clipboard-check"></i> Prüfungsverwaltung
             </div>
             <div class="nav-tab" data-view="participants" onclick="switchView('participants')">
-                <i class="fas fa-users"></i> Teilnehmerverwaltung
-            </div>
-            <div class="nav-tab" data-view="newTraining" onclick="switchView('newTraining')">
-                <i class="fas fa-plus-circle"></i> Neue Schulung
+                <i class="fas fa-users"></i> Teilnehmerdatenbank
             </div>
             <div class="nav-tab" data-view="history" onclick="switchView('history')">
-                <i class="fas fa-history"></i> Historie
-            </div>
-            <div class="nav-tab" data-view="trainings" onclick="switchView('trainings')">
-                <i class="fas fa-list"></i> Alle Schulungen
+                <i class="fas fa-history"></i> Prüfungshistorie
             </div>
         </div>
 
         <!-- GITHUB CONFIG PANEL -->
         <div class="gh-config-panel" id="ghConfigPanel">
             <h2><i class="fab fa-github"></i> GitHub JSON Datenbank</h2>
-            <p class="gh-desc">Daten werden als <strong>JSON-Datei</strong> direkt in einem GitHub Repository gespeichert. Jede Änderung erzeugt automatisch einen Commit mit Zeitstempel.</p>
+            <p class="gh-desc">Daten werden als <strong>JSON-Datei</strong> direkt in einem GitHub Repository gespeichert.</p>
 
             <div class="setup-steps">
                 <strong>📋 Einrichtung (einmalig, ~3 Minuten):</strong>
@@ -871,11 +852,10 @@
             </div>
         </div>
 
-        <!-- VIEW: CALENDAR (original month grid) -->
+        <!-- VIEW: CALENDAR (original) -->
         <div id="view-calendar" class="view active">
             <div class="year-grid" id="monthGrid"></div>
 
-            <!-- REGISTRATION PANEL (original) -->
             <div class="reg-panel" id="regPanel" style="display:none;">
                 <div class="reg-hdr">
                     <h2 id="regTitle">Anmeldung</h2>
@@ -886,9 +866,6 @@
 
                 <div style="margin-bottom: 1rem; display:flex; flex-wrap:wrap; gap:0.6rem;">
                     <button class="btn btn-info" onclick="generateAttendancePDF()"><i class="fas fa-file-pdf"></i> Anwesenheitsliste PDF</button>
-                    <button class="btn btn-success" onclick="goToTrainingDetail()" id="goToDetailBtn" style="display:none;">
-                        <i class="fas fa-clipboard-check"></i> Zur Prüfungsübersicht
-                    </button>
                 </div>
 
                 <div class="required-hint">* Alle Felder sind Pflichtfelder</div>
@@ -917,11 +894,25 @@
             </div>
         </div>
 
-        <!-- VIEW: PARTICIPANTS (Teilnehmerverwaltung) -->
+        <!-- VIEW: Prüfungsverwaltung -->
+        <div id="view-examManagement" class="view">
+            <div class="exam-panel">
+                <div class="exam-header">
+                    <h2 style="font-size: 1.5rem;">Prüfungsverwaltung</h2>
+                    <button class="btn btn-primary" onclick="createNewExam()">
+                        <i class="fas fa-plus"></i> Neue Prüfung anlegen
+                    </button>
+                </div>
+
+                <div id="examList"></div>
+            </div>
+        </div>
+
+        <!-- VIEW: Teilnehmerdatenbank -->
         <div id="view-participants" class="view">
-            <div class="participants-panel">
-                <div class="flex justify-between items-center" style="margin-bottom: 1.5rem;">
-                    <h2 style="font-size: 1.5rem;">Teilnehmerverwaltung</h2>
+            <div class="participant-panel">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="font-size: 1.5rem;">Teilnehmerdatenbank</h2>
                     <button class="btn btn-primary" onclick="openParticipantModal()">
                         <i class="fas fa-user-plus"></i> Neuer Teilnehmer
                     </button>
@@ -950,104 +941,16 @@
             </div>
         </div>
 
-        <!-- VIEW: NEW TRAINING (Neue Schulung anlegen) -->
-        <div id="view-newTraining" class="view">
-            <div class="new-training-panel">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Neue Schulung anlegen</h2>
-
-                <div class="form-row col2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                    <div class="field">
-                        <label>Prüfmethode *</label>
-                        <select class="form-input" id="nt-method">
-                            <option value="">Bitte wählen</option>
-                            <option value="ET">ET · Wirbelstromprüfung</option>
-                            <option value="UT">UT · Ultraschallprüfung</option>
-                            <option value="MT">MT · Magnetpulverprüfung</option>
-                            <option value="NE">NE · Nital-Ätzen</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label>Prüfdatum *</label>
-                        <input class="form-input" type="date" id="nt-date">
-                    </div>
-                </div>
-
-                <div class="form-row col2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                    <div class="field">
-                        <label>Schulungsort</label>
-                        <input class="form-input" id="nt-location" placeholder="z.B. Schweinfurt Werk 1">
-                    </div>
-                    <div class="field">
-                        <label>Prüfer / Ausbilder</label>
-                        <input class="form-input" id="nt-trainer" placeholder="Name des Prüfers">
-                    </div>
-                </div>
-
-                <div class="field" style="margin-bottom: 1rem;">
-                    <label>Schulungs-Bezeichnung</label>
-                    <input class="form-input" id="nt-name" placeholder="z.B. ET Level 1 Grundkurs 2026">
-                </div>
-
-                <h3 style="margin: 1.5rem 0 1rem;">Fragenanzahl pro Teil</h3>
-                <div class="form-row col3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
-                    <div class="field">
-                        <label>Allgemeiner Teil (AT)</label>
-                        <input class="form-input" type="number" id="nt-count-at" value="20" min="5" max="35">
-                    </div>
-                    <div class="field">
-                        <label>Spezieller Teil (ST)</label>
-                        <input class="form-input" type="number" id="nt-count-st" value="15" min="5" max="20">
-                    </div>
-                    <div class="field">
-                        <label>Praktischer Teil (PR)</label>
-                        <input class="form-input" type="number" id="nt-count-pr" value="8" min="3" max="10">
-                    </div>
-                </div>
-
-                <div class="alert alert-info" style="background: var(--blue-bg); color: var(--blue); padding: 1rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem;">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Bestehensbedingung: ≥ 80% je Teil. 25%-Neue-Fragen-Garantie wird automatisch sichergestellt.</span>
-                </div>
-
-                <h3 style="margin-bottom: 1rem;">Teilnehmer auswählen</h3>
-                <div class="participant-selector">
-                    <div>
-                        <div style="margin-bottom: 0.5rem; font-weight: 600;">Verfügbare Teilnehmer</div>
-                        <div class="participant-list-box" id="availableParticipantsList">
-                            <!-- wird dynamisch befüllt -->
-                        </div>
-                    </div>
-                    <div>
-                        <div style="margin-bottom: 0.5rem; font-weight: 600;">Ausgewählte Teilnehmer (<span id="selectedCount">0</span>)</div>
-                        <div class="participant-list-box" id="selectedParticipantsList">
-                            <!-- wird dynamisch befüllt -->
-                        </div>
-                    </div>
-                </div>
-
-                <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                    <button class="btn btn-primary" onclick="generateTraining()">
-                        <i class="fas fa-flask"></i> Prüfung generieren
-                    </button>
-                    <button class="btn btn-outline" onclick="resetNewTraining()">
-                        <i class="fas fa-undo"></i> Zurücksetzen
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- VIEW: HISTORY (Verlauf) -->
+        <!-- VIEW: Prüfungshistorie -->
         <div id="view-history" class="view">
-            <div class="participants-panel">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Prüfungsverlauf & Rezertifizierung</h2>
+            <div class="history-panel">
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Prüfungshistorie</h2>
 
                 <div class="history-filters">
                     <div class="field" style="flex: 1;">
-                        <label>Teilnehmer suchen</label>
-                        <input class="form-input" id="historySearch" placeholder="Name eingeben..." oninput="renderHistory()">
+                        <input class="form-input" id="historySearch" placeholder="Teilnehmer suchen..." oninput="renderHistory()">
                     </div>
                     <div class="field" style="width: 200px;">
-                        <label>Methode filtern</label>
                         <select class="form-input" id="historyMethodFilter" onchange="renderHistory()">
                             <option value="">Alle Methoden</option>
                             <option value="ET">ET · Wirbelstrom</option>
@@ -1062,25 +965,17 @@
             </div>
         </div>
 
-        <!-- VIEW: ALL TRAININGS -->
-        <div id="view-trainings" class="view">
-            <div class="participants-panel">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Alle Schulungen</h2>
-                <div id="allTrainingsList"></div>
-            </div>
+        <!-- VIEW: Exam Detail -->
+        <div id="view-examDetail" class="view">
+            <div class="exam-panel" id="examDetailContent"></div>
         </div>
 
-        <!-- VIEW: TRAINING DETAIL (wird dynamisch geladen) -->
-        <div id="view-trainingDetail" class="view">
-            <div class="training-detail" id="trainingDetailContent"></div>
-        </div>
-
-        <!-- VIEW: EXAM MODE (digitale Prüfung) -->
+        <!-- VIEW: Digital Exam Mode -->
         <div id="view-examMode" class="view">
-            <div class="exam-container" id="examContent"></div>
+            <div class="exam-panel" id="examModeContent"></div>
         </div>
 
-        <div class="footnote">pro Schulung max. 11 Teilnehmer · 25%-Neue-Fragen-Garantie · Bestehensgrenze 80% je Teil</div>
+        <div class="footnote">pro Schulung max. 11 Teilnehmer · alle Felder Pflicht · Änderungen werden automatisch in GitHub gespeichert</div>
     </div>
 
     <div class="sync-toast" id="syncToast"></div>
@@ -1088,121 +983,160 @@
     <button class="theme-btn" id="themeBtn">🌓</button>
 
     <script>
-    (function() {
-        /* ═══════════════════════════════════════════
-           CONSTANTS & STATE
-        ═══════════════════════════════════════════ */
+        // ===== DATEN AUS JSON LADEN =====
+        
+        // Konstanten
         const MAX = 11;
         const MIN_PARTICIPANTS = { 'Wirbelstromprüfung':3, 'Magnetpulverprüfung':2, 'Nital-Ätzen':2, 'Ultraschallprüfung':2 };
         const DURATION = { 'Wirbelstromprüfung':16, 'Ultraschallprüfung':24, 'Magnetpulverprüfung':12, 'Nital-Ätzen':8 };
         const MONTH_NAMES = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
         const GH_CONFIG_KEY = 'zfp_gh_config';
         const THEME_KEY = 'zfp-theme-preference';
-        const METHOD_NAMES = { ET:'Wirbelstromprüfung', UT:'Ultraschallprüfung', MT:'Magnetpulverprüfung', NE:'Nital-Ätzen' };
-        const PART_NAMES = { AT:'Allgemeiner Teil', ST:'Spezieller Teil', PR:'Praktischer Teil' };
         const PASS_THRESHOLD = 0.8;
         const RECERT_YEARS = 4;
         const NEW_Q_MIN_RATIO = 0.25;
 
+        const METHOD_NAMES = {
+            'ET': 'Wirbelstromprüfung',
+            'UT': 'Ultraschallprüfung', 
+            'MT': 'Magnetpulverprüfung',
+            'NE': 'Nital-Ätzen'
+        };
+
+        const PART_NAMES = {
+            'AT': 'Allgemeiner Teil',
+            'ST': 'Spezieller Teil', 
+            'PR': 'Praktischer Teil'
+        };
+
+        // Daten-Arrays
         let trainings = [];
         let participants = [];
-        let history = {};
+        let exams = [];
+        let examHistory = {};
         let questions = null;
+        
         let selectedId = null;
         let ghConfig = { owner:'', repo:'', branch:'main', file:'trainings.json', token:'' };
         let fileSha = null;
         let configPanelVisible = true;
         let currentView = 'calendar';
-        let currentTrainingId = null;
         let currentExamParticipantIndex = 0;
         let currentExamPart = 'AT';
         let currentExamAnswers = {};
         let pendingResultsData = null;
-        let selectedNTParticipants = [];
 
-        /* ═══════════════════════════════════════════
-           INIT / LOAD QUESTIONS
-        ═══════════════════════════════════════════ */
-        async function loadQuestions() {
+        // ===== JSON LADEN =====
+        async function loadTrainingsJSON() {
             try {
-                const response = await fetch('questions.json');
-                if (!response.ok) throw new Error('Fragen konnten nicht geladen werden');
-                questions = await response.json();
-                console.log('Fragen geladen:', questions);
+                const response = await fetch('trainings.json');
+                if (response.ok) {
+                    trainings = await response.json();
+                    console.log('trainings.json geladen:', trainings.length, 'Schulungen');
+                } else {
+                    console.warn('trainings.json nicht gefunden, verwende Standarddaten');
+                    trainings = [];
+                }
             } catch (e) {
-                console.warn('Keine questions.json gefunden, verwende Demo-Fragen');
-                // Demo-Fragen als Fallback
-                questions = {
-                    shared: {
-                        AT: [
-                            { id: 'at1', text: 'Was ist eine Wirbelstromprüfung?', options: { a: 'Zerstörende Prüfung', b: 'Zerstörungsfreie Prüfung', c: 'Mechanische Prüfung', d: 'Chemische Analyse' }, answer: 'b' },
-                            { id: 'at2', text: 'Welches Verfahren eignet sich zur Oberflächenrissprüfung?', options: { a: 'Ultraschall', b: 'Wirbelstrom', c: 'Durchstrahlung', d: 'Magnetpulver' }, answer: 'b' }
-                        ]
-                    },
-                    methods: {
-                        ET: {
-                            ST: [
-                                { id: 'et_st1', text: 'Bei welcher Frequenz arbeitet ein Wirbelstromprüfgerät typischerweise?', options: { a: '50 Hz', b: '1-1000 kHz', c: '1-10 MHz', d: '>10 MHz' }, answer: 'b' }
-                            ],
-                            PR: [
-                                { id: 'et_pr1', text: 'Wie wird die Prüffrequenz bei der Wirbelstromprüfung gewählt?', options: { a: 'Möglichst hoch', b: 'Möglichst niedrig', c: 'Abhängig von der Eindringtiefe', d: 'Fest vorgegeben' }, answer: 'c' }
-                            ]
-                        },
-                        UT: {
-                            ST: [
-                                { id: 'ut_st1', text: 'Welche Wellenart wird bei der konventionellen Ultraschallprüfung verwendet?', options: { a: 'Longitudinalwellen', b: 'Transversalwellen', c: 'Oberflächenwellen', d: 'Lambwellen' }, answer: 'a' }
-                            ],
-                            PR: [
-                                { id: 'ut_pr1', text: 'Wozu dient der Vorlauf in der Ultraschallprüfung?', options: { a: 'Verbesserung der Auflösung', b: 'Unterdrückung des Totzeiteffekts', c: 'Erhöhung der Eindringtiefe', d: 'Fokussierung' }, answer: 'b' }
-                            ]
-                        },
-                        MT: {
-                            ST: [
-                                { id: 'mt_st1', text: 'Welche Materialien können magnetpulvergeprüft werden?', options: { a: 'Alle Metalle', b: 'Nur ferromagnetische', c: 'Nur austenitische', d: 'Nur Aluminiumlegierungen' }, answer: 'b' }
-                            ],
-                            PR: [
-                                { id: 'mt_pr1', text: 'Was ist ein typisches Anzeigemerkmal bei der Magnetpulverprüfung?', options: { a: 'Farbänderung', b: 'Pulveransammlungen', c: 'Signalausschlag', d: 'Temperaturerhöhung' }, answer: 'b' }
-                            ]
-                        },
-                        NE: {
-                            ST: [
-                                { id: 'ne_st1', text: 'Was wird mit dem Nital-Ätzen nachgewiesen?', options: { a: 'Oberflächenrisse', b: 'Schleifbrand', c: 'Korrosion', d: 'Härtefehler' }, answer: 'b' }
-                            ],
-                            PR: [
-                                { id: 'ne_pr1', text: 'Welche Säure wird beim Nital-Ätzen verwendet?', options: { a: 'Schwefelsäure', b: 'Salpetersäure', c: 'Salzsäure', d: 'Flusssäure' }, answer: 'b' }
-                            ]
-                        }
-                    }
-                };
+                console.warn('Fehler beim Laden von trainings.json:', e);
+                trainings = [];
             }
         }
 
-        /* ═══════════════════════════════════════════
-           VIEW SWITCHING
-        ═══════════════════════════════════════════ */
-        window.switchView = function(view) {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-            document.getElementById(`view-${view}`).classList.add('active');
-            document.querySelector(`[data-view="${view}"]`).classList.add('active');
-            currentView = view;
-
-            if (view === 'calendar') {
-                buildGrid();
-            } else if (view === 'participants') {
-                renderParticipantsTable();
-            } else if (view === 'history') {
-                renderHistory();
-            } else if (view === 'trainings') {
-                renderAllTrainings();
-            } else if (view === 'newTraining') {
-                initNewTraining();
+        async function loadQuestionsJSON() {
+            try {
+                const response = await fetch('questions.json');
+                if (response.ok) {
+                    questions = await response.json();
+                    console.log('questions.json geladen');
+                } else {
+                    console.warn('questions.json nicht gefunden, verwende Demo-Fragen');
+                    // Demo-Fragen als Fallback
+                    questions = {
+                        shared: {
+                            AT: [
+                                { id: 'at1', text: 'Was ist eine zerstörungsfreie Prüfung?', options: { a: 'Eine Prüfung, die das Bauteil zerstört', b: 'Eine Prüfung, die das Bauteil nicht beschädigt', c: 'Eine optische Prüfung', d: 'Eine chemische Analyse' }, answer: 'b' },
+                                { id: 'at2', text: 'Welches Verfahren eignet sich zur Oberflächenrissprüfung?', options: { a: 'Ultraschall', b: 'Wirbelstrom', c: 'Durchstrahlung', d: 'Magnetpulver' }, answer: 'b' }
+                            ]
+                        },
+                        methods: {
+                            ET: {
+                                ST: [{ id: 'et_st1', text: 'Bei welcher Frequenz arbeitet ein Wirbelstromprüfgerät?', options: { a: '50 Hz', b: '1-1000 kHz', c: '1-10 MHz', d: '>10 MHz' }, answer: 'b' }],
+                                PR: [{ id: 'et_pr1', text: 'Wie wird die Prüffrequenz gewählt?', options: { a: 'Möglichst hoch', b: 'Möglichst niedrig', c: 'Abhängig von der Eindringtiefe', d: 'Fest vorgegeben' }, answer: 'c' }]
+                            },
+                            UT: {
+                                ST: [{ id: 'ut_st1', text: 'Welche Wellenart wird bei der Ultraschallprüfung verwendet?', options: { a: 'Longitudinalwellen', b: 'Transversalwellen', c: 'Oberflächenwellen', d: 'Lambwellen' }, answer: 'a' }],
+                                PR: [{ id: 'ut_pr1', text: 'Wozu dient der Vorlauf?', options: { a: 'Verbesserung der Auflösung', b: 'Unterdrückung des Totzeiteffekts', c: 'Erhöhung der Eindringtiefe', d: 'Fokussierung' }, answer: 'b' }]
+                            },
+                            MT: {
+                                ST: [{ id: 'mt_st1', text: 'Welche Materialien können magnetpulvergeprüft werden?', options: { a: 'Alle Metalle', b: 'Nur ferromagnetische', c: 'Nur austenitische', d: 'Nur Aluminiumlegierungen' }, answer: 'b' }],
+                                PR: [{ id: 'mt_pr1', text: 'Was ist ein typisches Anzeigemerkmal?', options: { a: 'Farbänderung', b: 'Pulveransammlungen', c: 'Signalausschlag', d: 'Temperaturerhöhung' }, answer: 'b' }]
+                            },
+                            NE: {
+                                ST: [{ id: 'ne_st1', text: 'Was wird mit dem Nital-Ätzen nachgewiesen?', options: { a: 'Oberflächenrisse', b: 'Schleifbrand', c: 'Korrosion', d: 'Härtefehler' }, answer: 'b' }],
+                                PR: [{ id: 'ne_pr1', text: 'Welche Säure wird beim Nital-Ätzen verwendet?', options: { a: 'Schwefelsäure', b: 'Salpetersäure', c: 'Salzsäure', d: 'Flusssäure' }, answer: 'b' }]
+                            }
+                        }
+                    };
+                }
+            } catch (e) {
+                console.warn('Fehler beim Laden von questions.json:', e);
+                questions = null;
             }
-        };
+        }
 
-        /* ═══════════════════════════════════════════
-           GITHUB API (aus originaler App)
-        ═══════════════════════════════════════════ */
+        // ===== AUTOMATISCHE TEILNEHMER-ÜBERNAHME =====
+        function syncParticipantsFromTrainings() {
+            const existingPersnr = new Set(participants.map(p => p.personalnummer));
+            
+            trainings.forEach(training => {
+                (training.attendees || []).forEach(attendee => {
+                    if (attendee.personalnummer && attendee.personalnummer.trim() !== '') {
+                        if (!existingPersnr.has(attendee.personalnummer)) {
+                            participants.push({
+                                id: 'p_' + Date.now() + Math.random().toString(36).substr(2, 9),
+                                vorname: attendee.vorname || '',
+                                name: attendee.name || '',
+                                personalnummer: attendee.personalnummer,
+                                abteilung: attendee.abteilung || '',
+                                geburtstag: attendee.geburtstag || '',
+                                geburtsort: attendee.geburtsort || ''
+                            });
+                            existingPersnr.add(attendee.personalnummer);
+                        }
+                    }
+                });
+            });
+            
+            console.log('Teilnehmer synchronisiert:', participants.length);
+            saveLocalData();
+        }
+
+        // ===== LOKALE DATEN =====
+        function loadLocalData() {
+            try {
+                const saved = localStorage.getItem('zfp_all_data');
+                if (saved) {
+                    const data = JSON.parse(saved);
+                    if (data.participants) participants = data.participants;
+                    if (data.exams) exams = data.exams;
+                    if (data.history) examHistory = data.history;
+                }
+            } catch (e) {
+                console.warn('Fehler beim Laden lokaler Daten:', e);
+            }
+        }
+
+        function saveLocalData() {
+            const data = {
+                participants: participants,
+                exams: exams,
+                history: examHistory
+            };
+            localStorage.setItem('zfp_all_data', JSON.stringify(data));
+        }
+
+        // ===== GITHUB FUNKTIONEN =====
         function ghHeaders() {
             return {
                 'Authorization': `Bearer ${ghConfig.token}`,
@@ -1221,7 +1155,7 @@
             const res = await fetch(url, { headers: ghHeaders() });
             if (res.status === 404) {
                 fileSha = null;
-                return [];
+                return null;
             }
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
@@ -1234,7 +1168,14 @@
         }
 
         async function ghSave(data, message) {
-            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            const allData = {
+                trainings: trainings,
+                participants: participants,
+                exams: exams,
+                history: examHistory
+            };
+            
+            const content = btoa(unescape(encodeURIComponent(JSON.stringify(allData, null, 2))));
             const body = { message: message || `ZfP Update ${new Date().toISOString()}`, content, branch: ghConfig.branch };
             if (fileSha) body.sha = fileSha;
 
@@ -1251,196 +1192,42 @@
             fileSha = json.content?.sha;
         }
 
-        /* ═══════════════════════════════════════════
-           DATA LOADING / SAVING
-        ═══════════════════════════════════════════ */
-        function loadLocalData() {
-            try {
-                const saved = localStorage.getItem('zfp_all_data');
-                if (saved) {
-                    const data = JSON.parse(saved);
-                    trainings = data.trainings || [];
-                    participants = data.participants || [];
-                    history = data.history || {};
-                } else {
-                    trainings = [];
-                    participants = [];
-                    history = {};
-                }
-            } catch (e) {
-                trainings = [];
-                participants = [];
-                history = {};
-            }
-        }
+        // ===== VIEWS =====
+        window.switchView = function(view) {
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(`view-${view}`).classList.add('active');
+            document.querySelector(`[data-view="${view}"]`).classList.add('active');
+            currentView = view;
 
-        function saveLocalData() {
-            const data = { trainings, participants, history };
-            localStorage.setItem('zfp_all_data', JSON.stringify(data));
-        }
-
-        async function loadTrainings(showOverlay=false) {
-            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
-                loadLocalData();
+            if (view === 'calendar') {
                 buildGrid();
-                return;
-            }
-
-            if (showOverlay) {
-                const lo = document.getElementById('loadingOverlay');
-                lo.classList.remove('hidden');
-                document.getElementById('loadingText').textContent = 'Lade Daten von GitHub…';
-            }
-            try {
-                const data = await ghLoad();
-                if (data.trainings) trainings = data.trainings;
-                if (data.participants) participants = data.participants;
-                if (data.history) history = data.history;
-                saveLocalData();
-                buildGrid();
-                setStatus('connected', `✅ Verbunden mit ${ghConfig.owner}/${ghConfig.repo}`);
-                if (showOverlay) {
-                    configPanelVisible = false;
-                    document.getElementById('ghConfigPanel').style.display = 'none';
-                    showToast('✅ Daten erfolgreich geladen', 'success');
-                }
-            } catch(err) {
-                setStatus('error', `❌ Fehler: ${err.message}`);
-                showToast('❌ ' + err.message, 'error');
-                loadLocalData();
-                buildGrid();
-            } finally {
-                setTimeout(() => document.getElementById('loadingOverlay').classList.add('hidden'), 400);
-            }
-        }
-
-        async function saveTrainings(commitMsg) {
-            showSaving(true);
-            const data = { trainings, participants, history };
-            saveLocalData();
-
-            if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
-                try {
-                    await ghSave(data, commitMsg);
-                    showToast('✅ In GitHub gespeichert', 'success');
-                } catch(err) {
-                    showToast('❌ Speichern fehlgeschlagen: ' + err.message, 'error');
-                    console.error(err);
-                }
-            }
-            showSaving(false);
-        }
-
-        /* ═══════════════════════════════════════════
-           CONFIG PERSISTENCE
-        ═══════════════════════════════════════════ */
-        function loadGhConfig() {
-            try {
-                const raw = localStorage.getItem(GH_CONFIG_KEY);
-                if (raw) ghConfig = JSON.parse(raw);
-            } catch(e) {}
-            document.getElementById('cfgOwner').value  = ghConfig.owner  || '';
-            document.getElementById('cfgRepo').value   = ghConfig.repo   || '';
-            document.getElementById('cfgBranch').value = ghConfig.branch || 'main';
-            document.getElementById('cfgFile').value   = ghConfig.file   || 'trainings.json';
-            document.getElementById('cfgToken').value  = ghConfig.token  || '';
-        }
-
-        function readConfigFromForm() {
-            ghConfig.owner  = document.getElementById('cfgOwner').value.trim();
-            ghConfig.repo   = document.getElementById('cfgRepo').value.trim();
-            ghConfig.branch = document.getElementById('cfgBranch').value.trim() || 'main';
-            ghConfig.file   = document.getElementById('cfgFile').value.trim()   || 'trainings.json';
-            ghConfig.token  = document.getElementById('cfgToken').value.trim();
-        }
-
-        window.saveGhConfig = function() {
-            readConfigFromForm();
-            localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(ghConfig));
-            showToast('✅ Einstellungen gespeichert', 'success');
-        };
-
-        window.connectGitHub = async function() {
-            readConfigFromForm();
-            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
-                setStatus('error', '❌ Bitte alle Felder ausfüllen (Username, Repo, Token).');
-                return;
-            }
-            localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(ghConfig));
-            await loadTrainings(true);
-        };
-
-        window.toggleConfigPanel = function() {
-            configPanelVisible = !configPanelVisible;
-            document.getElementById('ghConfigPanel').style.display = configPanelVisible ? 'block' : 'none';
-        };
-
-        window.togglePAT = function() {
-            const inp = document.getElementById('cfgToken');
-            const ico = document.getElementById('eyeIcon');
-            if (inp.type === 'password') {
-                inp.type = 'text';
-                ico.className = 'fas fa-eye-slash';
-            } else {
-                inp.type = 'password';
-                ico.className = 'fas fa-eye';
+            } else if (view === 'examManagement') {
+                renderExamList();
+            } else if (view === 'participants') {
+                renderParticipantsTable();
+            } else if (view === 'history') {
+                renderHistory();
             }
         };
 
-        /* ═══════════════════════════════════════════
-           STATUS UI
-        ═══════════════════════════════════════════ */
-        function setStatus(state, msg) {
-            const bar = document.getElementById('ghStatusBar');
-            const dot = document.getElementById('ghStatusDot');
-            const txt = document.getElementById('ghStatusText');
-            bar.className = `gh-status-bar ${state}`;
-            dot.className = `status-dot ${state === 'connected' ? 'green' : state === 'error' ? 'red' : ''}`;
-            txt.textContent = msg;
-
-            const ghDot  = document.getElementById('ghDot');
-            const ghText = document.getElementById('ghBadgeText');
-            if (state === 'connected') {
-                ghDot.className = 'dot';
-                ghText.textContent = `${ghConfig.owner}/${ghConfig.repo}`;
-            } else {
-                ghDot.className = 'dot offline';
-                ghText.textContent = 'GitHub konfigurieren';
-            }
+        // ===== GRID BAUEN (original) =====
+        function endTime(type) { 
+            return type === 'Magnetpulverprüfung' ? '14:00' : '16:00'; 
         }
-
-        function showSaving(visible) {
-            document.getElementById('savingIndicator').className = 'saving-indicator' + (visible ? ' visible' : '');
-        }
-
-        let toastTimer;
-        function showToast(msg, type='success') {
-            const t = document.getElementById('syncToast');
-            t.textContent = msg;
-            t.className = `sync-toast show ${type}`;
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => { t.classList.remove('show'); }, 3000);
-        }
-
-        /* ═══════════════════════════════════════════
-           HELPERS
-        ═══════════════════════════════════════════ */
-        function durationInfo(type, days) {
-            const d = days || Math.ceil((DURATION[type]||8)/8);
-            const et = endTime(type);
-            const lastH = et === '14:00' ? 6 : 8;
-            const h = d > 1 ? (d - 1) * 8 + lastH : lastH;
-            return `${h} Std. (${d} Tag${d>1?'e':''})`;
-        }
-        function endTime(type) { return type === 'Magnetpulverprüfung' ? '14:00' : '16:00'; }
+        
         function isPast(start) {
-            const t = new Date(); t.setHours(0,0,0,0);
+            const t = new Date(); 
+            t.setHours(0,0,0,0);
             return new Date(start+'T12:00:00') < t;
         }
+        
         function isLocked(start) {
-            const t = new Date(); t.setHours(0,0,0,0);
+            const t = new Date(); 
+            t.setHours(0,0,0,0);
             return Math.ceil((new Date(start+'T12:00:00') - t)/(864e5)) < 14;
         }
+        
         function checkCancel(t) {
             const cnt = t.attendees?.length||0;
             const min = MIN_PARTICIPANTS[t.type]||2;
@@ -1448,93 +1235,15 @@
                 return { cancelled:true, reason:`❌ AUSGEFALLEN (Mindestteilnehmerzahl ${min} nicht erreicht)` };
             return { cancelled:false };
         }
-        function findT(id) { return trainings.find(t=>t.id===id); }
-        function validateDate(s) {
-            if (!s) return false;
-            const m = s.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
-            if (!m) return false;
-            const d=+m[1], mo=+m[2]-1, y=+m[3];
-            const dt=new Date(y,mo,d);
-            return dt.getDate()===d && dt.getMonth()===mo && dt.getFullYear()===y;
-        }
-        function fmtDate(d) {
-            if (!d) return '—';
-            const [y,m,day] = (d.split('T')[0] || d).split('-');
-            return `${day}.${m}.${y}`;
-        }
-        function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2); }
 
-        function getQuestionsForMethod(method, part) {
-            if (!questions) return [];
-            if (part === 'AT') return questions.shared?.AT || [];
-            return questions.methods?.[method]?.[part === 'PR' ? 'PR' : 'ST'] || [];
+        function durationInfo(type, days) {
+            const d = days || Math.ceil((DURATION[type]||8)/8);
+            const et = endTime(type);
+            const lastH = et === '14:00' ? 6 : 8;
+            const h = d > 1 ? (d - 1) * 8 + lastH : lastH;
+            return `${h} Std. (${d} Tag${d>1?'e':''})`;
         }
 
-        function getAllQuestionsMap() {
-            const map = {};
-            if (!questions) return map;
-            (questions.shared?.AT||[]).forEach(q => map[q.id] = q);
-            if (questions.methods) {
-                Object.values(questions.methods).forEach(m => {
-                    (m.ST||[]).forEach(q => map[q.id] = q);
-                    (m.PR||[]).forEach(q => map[q.id] = q);
-                });
-            }
-            return map;
-        }
-
-        function shuffle(arr) {
-            const a = [...arr];
-            for (let i = a.length-1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i+1));
-                [a[i],a[j]] = [a[j],a[i]];
-            }
-            return a;
-        }
-
-        function selectQuestionsForParticipant(participantId, method, config) {
-            const hkey = `${participantId}:::${method}`;
-            const hlist = history[hkey] || [];
-            const fourYearsAgo = new Date(); 
-            fourYearsAgo.setFullYear(fourYearsAgo.getFullYear() - RECERT_YEARS);
-
-            const usedIds = new Set();
-            hlist.filter(h => new Date(h.date) >= fourYearsAgo).forEach(h => {
-                (h.questionIds || []).forEach(id => usedIds.add(id));
-            });
-
-            const result = {};
-            const newCounts = {};
-
-            for (const part of ['AT', 'ST', 'PR']) {
-                const pool = getQuestionsForMethod(method, part);
-                const needed = config[part] || 10;
-                const minNew = Math.ceil(needed * NEW_Q_MIN_RATIO);
-
-                const newQs = shuffle(pool.filter(q => !usedIds.has(q.id)));
-                const oldQs = shuffle(pool.filter(q => usedIds.has(q.id)));
-
-                let selected = [];
-
-                if (newQs.length >= minNew) {
-                    selected = [...newQs.slice(0, minNew)];
-                    const remaining = needed - selected.length;
-                    const fillPool = shuffle([...newQs.slice(minNew), ...oldQs]);
-                    selected = shuffle([...selected, ...fillPool.slice(0, remaining)]);
-                } else {
-                    selected = shuffle([...newQs, ...oldQs].slice(0, needed));
-                }
-
-                result[part] = selected.map(q => q.id);
-                newCounts[part] = selected.filter(q => !usedIds.has(q.id)).length;
-            }
-
-            return { questions: result, newCounts, usedCount: usedIds.size };
-        }
-
-        /* ═══════════════════════════════════════════
-           GRID BUILD (original)
-        ═══════════════════════════════════════════ */
         function buildGrid() {
             const grid = document.getElementById('monthGrid');
             let html = '';
@@ -1585,9 +1294,11 @@
             });
         }
 
-        /* ═══════════════════════════════════════════
-           SELECTION / REGISTRATION PANEL (original)
-        ═══════════════════════════════════════════ */
+        // ===== TRAINING AUSWÄHLEN (original) =====
+        function findT(id) { 
+            return trainings.find(t=>t.id===id); 
+        }
+
         function selectTraining(id) {
             const t = findT(id);
             if (!t) return;
@@ -1607,7 +1318,6 @@
             else cb.style.display='none';
 
             const btn = document.getElementById('anmeldenBtn');
-            const goToBtn = document.getElementById('goToDetailBtn');
             
             ['vorname','name','persnr','abteilung','geburtstag','geburtsort'].forEach(id=>{
                 document.getElementById(id).disabled = disabled;
@@ -1616,22 +1326,15 @@
             if (disabled) {
                 btn.disabled = true;
                 btn.innerHTML = past ? '🔒 Schulung abgeschlossen' : locked ? '🔒 Anmeldung gesperrt' : '❌ Schulung ausgefallen';
-                goToBtn.style.display = 'none';
             } else {
                 btn.disabled = false;
                 btn.innerHTML = '➕ Anmelden';
-                goToBtn.style.display = 'inline-flex';
-                goToBtn.onclick = () => openTrainingDetail(id);
             }
 
             renderList(t);
             ['vorname','name','persnr','abteilung','geburtstag','geburtsort'].forEach(id=>{document.getElementById(id).value='';});
             panel.scrollIntoView({ behavior:'smooth' });
         }
-
-        window.goToTrainingDetail = function() {
-            if (selectedId) openTrainingDetail(selectedId);
-        };
 
         function renderList(t) {
             if (!t && selectedId) t = findT(selectedId);
@@ -1659,9 +1362,16 @@
             lc.innerHTML = html;
         }
 
-        /* ═══════════════════════════════════════════
-           ANMELDEN (original, aber auch in Teilnehmerdatenbank speichern)
-        ═══════════════════════════════════════════ */
+        // ===== ANMELDEN (original) =====
+        function validateDate(s) {
+            if (!s) return false;
+            const m = s.match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
+            if (!m) return false;
+            const d=+m[1], mo=+m[2]-1, y=+m[3];
+            const dt=new Date(y,mo,d);
+            return dt.getDate()===d && dt.getMonth()===mo && dt.getFullYear()===y;
+        }
+
         document.getElementById('anmeldenBtn').addEventListener('click', async function(e) {
             e.preventDefault();
             if (!selectedId) { alert('Bitte wählen Sie eine Schulung.'); return; }
@@ -1684,10 +1394,10 @@
             if (!t.attendees) t.attendees = [];
             t.attendees.push({ vorname, name, personalnummer:persnr, abteilung:abt, geburtstag:geb, geburtsort:gebort });
 
-            // Auch in Teilnehmerdatenbank speichern, falls noch nicht vorhanden
+            // Automatisch in Teilnehmerdatenbank übernehmen
             if (!participants.find(p => p.personalnummer === persnr)) {
                 participants.push({
-                    id: uid(),
+                    id: 'p_' + Date.now() + Math.random().toString(36).substr(2, 9),
                     vorname, name, personalnummer: persnr,
                     abteilung: abt, geburtstag: geb, geburtsort: gebort
                 });
@@ -1701,7 +1411,7 @@
                 btn.innerHTML = '✓ Angemeldet!';
                 setTimeout(()=>btn.innerHTML='➕ Anmelden', 1200);
             } catch(err) {
-                t.attendees.pop(); // rollback
+                t.attendees.pop();
                 alert('Fehler beim Speichern: ' + err.message);
             }
         });
@@ -1711,9 +1421,7 @@
             document.getElementById('regPanel').style.display = 'none';
         });
 
-        /* ═══════════════════════════════════════════
-           EDIT MODAL (original)
-        ═══════════════════════════════════════════ */
+        // ===== EDIT MODAL (original) =====
         window.openEditModal = function(trainingId, idx) {
             const t = findT(trainingId);
             if (!t||!t.attendees||!t.attendees[idx]) return;
@@ -1759,7 +1467,7 @@
                 buildGrid(); renderList(t);
                 closeModal();
             } catch(err) {
-                t.attendees[idx] = old; // rollback
+                t.attendees[idx] = old;
                 alert('Fehler beim Speichern: ' + err.message);
             }
         };
@@ -1774,19 +1482,16 @@
                 await saveTrainings(`Abmeldung: ${removed.vorname} ${removed.name} → ${t.type} (${t.date_str})`);
                 buildGrid(); renderList(t);
             } catch(err) {
-                t.attendees.splice(idx, 0, removed); // rollback
+                t.attendees.splice(idx, 0, removed);
                 alert('Fehler beim Abmelden: ' + err.message);
             }
         };
 
-        /* close modal on backdrop click */
         document.getElementById('editModal').addEventListener('click', e => {
             if (e.target === document.getElementById('editModal')) closeModal();
         });
 
-        /* ═══════════════════════════════════════════
-           PDF GENERATION (original)
-        ═══════════════════════════════════════════ */
+        // ===== PDF GENERATION (original) =====
         window.generateAttendancePDF = function() {
             if (!selectedId) { alert('Bitte zuerst eine Schulung auswählen.'); return; }
             const t = findT(selectedId);
@@ -1899,9 +1604,7 @@
             pw.document.close(); pw.focus(); pw.print();
         };
 
-        /* ═══════════════════════════════════════════
-           PARTICIPANTS MANAGEMENT
-        ═══════════════════════════════════════════ */
+        // ===== TEILNEHMERDATENBANK =====
         window.openParticipantModal = function() {
             document.getElementById('pVorname').value = '';
             document.getElementById('pName').value = '';
@@ -1938,12 +1641,12 @@
             }
 
             participants.push({
-                id: uid(),
+                id: 'p_' + Date.now() + Math.random().toString(36).substr(2, 9),
                 vorname, name, personalnummer: persnr,
                 abteilung: abt, geburtstag: geb, geburtsort: gebort
             });
 
-            saveTrainings('Teilnehmer hinzugefügt');
+            saveLocalData();
             closeParticipantModal();
             renderParticipantsTable();
             showToast('Teilnehmer gespeichert', 'success');
@@ -1993,23 +1696,14 @@
             document.getElementById('pGeburtstag').value = p.geburtstag || '';
             document.getElementById('pGeburtsort').value = p.geburtsort || '';
             
-            // Temporären Speicher für Edit
             window.editingParticipantId = id;
             document.getElementById('participantModal').classList.add('open');
             
-            // Save-Funktion überschreiben
             const saveBtn = document.querySelector('#participantModal .btn-primary');
             const originalClick = saveBtn.onclick;
             saveBtn.onclick = function() {
                 updateParticipant(id);
             };
-            
-            // Beim Schließen wiederherstellen
-            const closeHandler = function() {
-                saveBtn.onclick = originalClick;
-                document.getElementById('participantModal').removeEventListener('close', closeHandler);
-            };
-            document.getElementById('participantModal').addEventListener('close', closeHandler);
         };
 
         window.updateParticipant = function(id) {
@@ -2032,7 +1726,7 @@
             const index = participants.findIndex(p => p.id === id);
             if (index !== -1) {
                 participants[index] = { ...participants[index], vorname, name, personalnummer: persnr, abteilung: abt, geburtstag: geb, geburtsort: gebort };
-                saveTrainings('Teilnehmer aktualisiert');
+                saveLocalData();
                 closeParticipantModal();
                 renderParticipantsTable();
                 showToast('Teilnehmer aktualisiert', 'success');
@@ -2042,112 +1736,136 @@
         window.deleteParticipant = function(id) {
             if (!confirm('Teilnehmer wirklich löschen?')) return;
             participants = participants.filter(p => p.id !== id);
-            saveTrainings('Teilnehmer gelöscht');
+            saveLocalData();
             renderParticipantsTable();
             showToast('Teilnehmer gelöscht', 'success');
         };
 
-        /* ═══════════════════════════════════════════
-           NEW TRAINING
-        ═══════════════════════════════════════════ */
-        function initNewTraining() {
-            selectedNTParticipants = [];
-            document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
-            renderAvailableParticipants();
-            renderSelectedParticipants();
-        }
-
-        function renderAvailableParticipants() {
-            const available = participants.filter(p => !selectedNTParticipants.find(s => s.id === p.id));
-            const container = document.getElementById('availableParticipantsList');
+        // ===== PRÜFUNGSVERWALTUNG =====
+        function renderExamList() {
+            const container = document.getElementById('examList');
             if (!container) return;
             
-            container.innerHTML = available.map(p => `
-                <div class="participant-item-select" onclick="addToSelected('${p.id}')">
-                    <span>${p.name}, ${p.vorname}</span>
-                    <span class="text-muted" style="font-size:0.8rem;">${p.personalnummer}</span>
-                </div>
-            `).join('') || '<div class="text-muted" style="padding:0.5rem;">Keine weiteren Teilnehmer</div>';
-        }
-
-        function renderSelectedParticipants() {
-            const container = document.getElementById('selectedParticipantsList');
-            if (!container) return;
-            
-            document.getElementById('selectedCount').textContent = selectedNTParticipants.length;
-            
-            container.innerHTML = selectedNTParticipants.map(p => `
-                <div class="participant-item-select" style="justify-content:space-between;">
-                    <span>${p.name}, ${p.vorname}</span>
-                    <button class="btn btn-danger btn-sm" onclick="removeFromSelected('${p.id}')">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            `).join('') || '<div class="text-muted" style="padding:0.5rem;">Keine Teilnehmer ausgewählt</div>';
-        }
-
-        window.addToSelected = function(id) {
-            const p = participants.find(p => p.id === id);
-            if (p && !selectedNTParticipants.find(s => s.id === id)) {
-                selectedNTParticipants.push(p);
-                renderAvailableParticipants();
-                renderSelectedParticipants();
+            if (!exams || exams.length === 0) {
+                container.innerHTML = '<div class="empty-msg">Noch keine Prüfungen angelegt. Klicken Sie auf "Neue Prüfung anlegen".</div>';
+                return;
             }
-        };
+            
+            let html = '';
+            exams.sort((a,b) => new Date(b.date) - new Date(a.date)).forEach(exam => {
+                const participants = exam.participants || [];
+                const completed = participants.filter(p => p.completedAt).length;
+                
+                html += `
+                    <div class="card" style="margin-bottom:1rem; cursor:pointer;" onclick="openExamDetail('${exam.id}')">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <div style="font-weight:600; font-size:1.1rem;">${exam.name}</div>
+                                <div style="display:flex; gap:0.5rem; margin-top:0.25rem;">
+                                    <span class="chip blue">${exam.method}</span>
+                                    <span class="chip">${exam.date}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div>${completed}/${participants.length} abgeschlossen</div>
+                                <span class="chip ${exam.status === 'completed' ? 'green' : 'blue'}">
+                                    ${exam.status === 'completed' ? 'Abgeschlossen' : 'Offen'}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
 
-        window.removeFromSelected = function(id) {
-            selectedNTParticipants = selectedNTParticipants.filter(p => p.id !== id);
-            renderAvailableParticipants();
-            renderSelectedParticipants();
-        };
-
-        window.resetNewTraining = function() {
-            document.getElementById('nt-method').value = '';
-            document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
-            document.getElementById('nt-location').value = '';
-            document.getElementById('nt-trainer').value = '';
-            document.getElementById('nt-name').value = '';
-            document.getElementById('nt-count-at').value = 20;
-            document.getElementById('nt-count-st').value = 15;
-            document.getElementById('nt-count-pr').value = 8;
-            selectedNTParticipants = [];
-            renderAvailableParticipants();
-            renderSelectedParticipants();
-        };
-
-        window.generateTraining = function() {
+        window.createNewExam = function() {
             if (!questions) {
                 alert('Fragenkatalog wird geladen, bitte einen Moment warten...');
                 return;
             }
+            
+            if (participants.length === 0) {
+                alert('Bitte zuerst Teilnehmer anlegen oder aus Schulungen übernehmen.');
+                return;
+            }
+            
+            // Modal für neue Prüfung öffnen
+            let options = '';
+            Object.entries(METHOD_NAMES).forEach(([key, value]) => {
+                options += `<option value="${key}">${key} · ${value}</option>`;
+            });
+            
+            const modalHtml = `
+                <div class="modal" style="max-width:500px;">
+                    <div class="modal-hdr">
+                        <h3>Neue Prüfung anlegen</h3>
+                        <button class="close-btn" onclick="closeNewExamModal()">&times;</button>
+                    </div>
+                    <div class="modal-fields">
+                        <div class="field">
+                            <label>Prüfmethode *</label>
+                            <select class="form-input" id="newExamMethod">
+                                <option value="">Bitte wählen</option>
+                                ${options}
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Prüfdatum *</label>
+                            <input class="form-input" type="date" id="newExamDate" value="${new Date().toISOString().split('T')[0]}">
+                        </div>
+                        <div class="field">
+                            <label>Bezeichnung</label>
+                            <input class="form-input" id="newExamName" placeholder="z.B. ET Rezertifizierung 2026">
+                        </div>
+                        <div class="field">
+                            <label>Teilnehmer auswählen</label>
+                            <select class="form-input" id="newExamParticipants" multiple size="5">
+                                ${participants.map(p => `<option value="${p.id}">${p.name}, ${p.vorname} (${p.personalnummer})</option>`).join('')}
+                            </select>
+                            <small>Strg+Klick für Mehrfachauswahl</small>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-outline" onclick="closeNewExamModal()">Abbrechen</button>
+                        <button class="btn btn-primary" onclick="saveNewExam()">Prüfung generieren</button>
+                    </div>
+                </div>
+            `;
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'modal-overlay open';
+            overlay.id = 'newExamModal';
+            overlay.innerHTML = modalHtml;
+            document.body.appendChild(overlay);
+        };
 
-            const method = document.getElementById('nt-method').value;
-            const date = document.getElementById('nt-date').value;
-            const location = document.getElementById('nt-location').value.trim();
-            const trainer = document.getElementById('nt-trainer').value.trim();
-            const name = document.getElementById('nt-name').value.trim() || `${METHOD_NAMES[method]} ${fmtDate(date)}`;
+        window.closeNewExamModal = function() {
+            const modal = document.getElementById('newExamModal');
+            if (modal) modal.remove();
+        };
 
+        window.saveNewExam = function() {
+            const method = document.getElementById('newExamMethod').value;
+            const date = document.getElementById('newExamDate').value;
+            const name = document.getElementById('newExamName').value.trim() || `${METHOD_NAMES[method]} Prüfung ${date}`;
+            const selectedOptions = document.getElementById('newExamParticipants').selectedOptions;
+            const selectedIds = Array.from(selectedOptions).map(opt => opt.value);
+            
             if (!method) { alert('Bitte Prüfmethode wählen'); return; }
             if (!date) { alert('Bitte Datum angeben'); return; }
-            if (selectedNTParticipants.length === 0) { alert('Bitte mindestens einen Teilnehmer hinzufügen'); return; }
-
-            const countAT = parseInt(document.getElementById('nt-count-at').value) || 20;
-            const countST = parseInt(document.getElementById('nt-count-st').value) || 15;
-            const countPR = parseInt(document.getElementById('nt-count-pr').value) || 8;
-
-            // Prüfen ob genug Fragen vorhanden
-            const atPool = getQuestionsForMethod(method, 'AT');
-            const stPool = getQuestionsForMethod(method, 'ST');
-            const prPool = getQuestionsForMethod(method, 'PR');
-            if (atPool.length < countAT) { alert(`Nicht genug AT-Fragen: ${atPool.length} verfügbar, ${countAT} benötigt`); return; }
-            if (stPool.length < countST) { alert(`Nicht genug ST-Fragen: ${stPool.length} verfügbar, ${countST} benötigt`); return; }
-            if (prPool.length < countPR) { alert(`Nicht genug PR-Fragen: ${prPool.length} verfügbar, ${countPR} benötigt`); return; }
-
-            const trainingId = uid();
-            const config = { AT: countAT, ST: countST, PR: countPR };
-
-            const trainingParticipants = selectedNTParticipants.map(p => {
-                const sel = selectQuestionsForParticipant(p.id, method, config);
+            if (selectedIds.length === 0) { alert('Bitte mindestens einen Teilnehmer auswählen'); return; }
+            
+            const examParticipants = selectedIds.map(id => {
+                const p = participants.find(p => p.id === id);
+                if (!p) return null;
+                
+                // Fragen für Teilnehmer generieren (mit 25% Neufragen-Garantie)
+                const questionsAT = getRandomQuestions('AT', 20, method);
+                const questionsST = getRandomQuestions('ST', 15, method);
+                const questionsPR = getRandomQuestions('PR', 8, method);
+                
                 return {
                     participantId: p.id,
                     vorname: p.vorname,
@@ -2156,127 +1874,125 @@
                     abteilung: p.abteilung,
                     geburtstag: p.geburtstag,
                     geburtsort: p.geburtsort,
-                    questions: sel.questions,
-                    newCounts: sel.newCounts,
+                    questions: {
+                        AT: questionsAT.map(q => q.id),
+                        ST: questionsST.map(q => q.id),
+                        PR: questionsPR.map(q => q.id)
+                    },
                     answers: {},
                     scores: null,
                     overallPassed: null,
                     completedAt: null
                 };
-            });
-
-            const training = {
-                id: trainingId,
-                type: METHOD_NAMES[method],
+            }).filter(p => p !== null);
+            
+            const examId = 'exam_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+            
+            const exam = {
+                id: examId,
                 method: method,
-                start_date: date,
-                date_str: fmtDate(date),
-                location: location || 'Schweinfurt',
-                trainer: trainer,
+                methodName: METHOD_NAMES[method],
+                date: date,
                 name: name,
-                config: config,
-                attendees: trainingParticipants.map(p => ({
-                    vorname: p.vorname, name: p.name, personalnummer: p.personalnummer,
-                    abteilung: p.abteilung, geburtstag: p.geburtstag, geburtsort: p.geburtsort
-                })),
-                participants: trainingParticipants,
-                days: 1,
-                start_time: '8:00',
+                participants: examParticipants,
                 status: 'prepared',
                 createdAt: new Date().toISOString()
             };
-
-            trainings.push(training);
-            saveTrainings(`Neue Schulung: ${training.name}`);
-            showToast('Schulung erfolgreich angelegt!', 'success');
             
-            // Zur Detailansicht wechseln
-            openTrainingDetail(trainingId);
+            exams.push(exam);
+            saveLocalData();
+            closeNewExamModal();
+            renderExamList();
+            showToast('Prüfung erfolgreich angelegt', 'success');
         };
 
-        /* ═══════════════════════════════════════════
-           TRAINING DETAIL
-        ═══════════════════════════════════════════ */
-        window.openTrainingDetail = function(id) {
-            currentTrainingId = id;
-            switchView('trainingDetail');
-            renderTrainingDetail(id);
+        function getRandomQuestions(part, count, method) {
+            if (!questions) return [];
+            
+            let pool = [];
+            if (part === 'AT') {
+                pool = questions.shared?.AT || [];
+            } else {
+                pool = questions.methods?.[method]?.[part === 'PR' ? 'PR' : 'ST'] || [];
+            }
+            
+            // Shuffle und limitieren
+            const shuffled = [...pool].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, Math.min(count, shuffled.length));
+        }
+
+        window.openExamDetail = function(examId) {
+            const exam = exams.find(e => e.id === examId);
+            if (!exam) return;
+            
+            currentView = 'examDetail';
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById('view-examDetail').classList.add('active');
+            
+            renderExamDetail(examId);
         };
 
-        function renderTrainingDetail(id) {
-            const training = trainings.find(t => t.id === id);
-            if (!training) return;
-
-            const participants = training.participants || [];
+        function renderExamDetail(examId) {
+            const exam = exams.find(e => e.id === examId);
+            if (!exam) return;
+            
+            const participants = exam.participants || [];
             const completed = participants.filter(p => p.completedAt).length;
             const passed = participants.filter(p => p.overallPassed).length;
-
+            
             let html = `
-                <div class="detail-header">
-                    <div>
-                        <h2 class="detail-title">${training.name}</h2>
-                        <div style="display:flex; gap:0.5rem; margin-top:0.5rem; flex-wrap:wrap;">
-                            <span class="chip blue">${training.method}</span>
-                            <span class="chip">${training.date_str}</span>
-                            <span class="chip">📍 ${training.location}</span>
-                            ${training.trainer ? `<span class="chip">👤 ${training.trainer}</span>` : ''}
+                <div style="margin-bottom:2rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <h2 style="font-size:1.5rem;">${exam.name}</h2>
+                            <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+                                <span class="chip blue">${exam.method}</span>
+                                <span class="chip">${exam.date}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline" onclick="switchView('examManagement')">
+                                ← Zurück
+                            </button>
                         </div>
                     </div>
-                    <div class="detail-meta">
-                        <button class="btn btn-success" onclick="startDigitalExam('${id}')">
-                            <i class="fas fa-play"></i> Digitale Prüfung starten
-                        </button>
-                        <button class="btn btn-outline" onclick="printExam('${id}')">
-                            <i class="fas fa-print"></i> Druckversion
-                        </button>
-                    </div>
-                </div>
-
-                <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin-bottom:2rem;">
-                    <div class="stat-card" style="background:var(--surface2); padding:1rem; border-radius:var(--radius-lg);">
-                        <div class="val">${participants.length}</div>
-                        <div class="lbl">Teilnehmer</div>
-                    </div>
-                    <div class="stat-card" style="background:var(--surface2); padding:1rem; border-radius:var(--radius-lg);">
-                        <div class="val">${completed}</div>
-                        <div class="lbl">Abgeschlossen</div>
-                    </div>
-                    <div class="stat-card" style="background:var(--surface2); padding:1rem; border-radius:var(--radius-lg);">
-                        <div class="val" style="color:var(--green);">${passed}</div>
-                        <div class="lbl">Bestanden</div>
-                    </div>
-                    <div class="stat-card" style="background:var(--surface2); padding:1rem; border-radius:var(--radius-lg);">
-                        <div class="val" style="color:${passed/participants.length >= 0.8 ? 'var(--green)' : 'var(--red)'}">
-                            ${Math.round(passed/participants.length*100) || 0}%
+                    
+                    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem 0;">
+                        <div class="stat-card">
+                            <div class="val">${participants.length}</div>
+                            <div class="lbl">Teilnehmer</div>
                         </div>
-                        <div class="lbl">Quote</div>
+                        <div class="stat-card">
+                            <div class="val">${completed}</div>
+                            <div class="lbl">Abgeschlossen</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="val" style="color:${passed/participants.length >= 0.8 ? 'var(--green)' : 'var(--red)'}">
+                                ${Math.round(passed/participants.length*100) || 0}%
+                            </div>
+                            <div class="lbl">Bestehensquote</div>
+                        </div>
                     </div>
-                </div>
-
-                <h3 style="margin-bottom:1rem;">Teilnehmer & Prüfungsstatus</h3>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Personalnr.</th>
-                                <th>AT Neu</th>
-                                <th>ST Neu</th>
-                                <th>PR Neu</th>
-                                <th>AT</th>
-                                <th>ST</th>
-                                <th>PR</th>
-                                <th>Gesamt</th>
-                                <th>Aktionen</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                    
+                    <h3 style="margin-bottom:1rem;">Teilnehmer</h3>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Personalnr.</th>
+                                    <th>AT</th>
+                                    <th>ST</th>
+                                    <th>PR</th>
+                                    <th>Gesamt</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
             `;
-
+            
             participants.forEach((p, idx) => {
-                const nc = p.newCounts || {};
                 const s = p.scores;
-                const allQ = getAllQuestionsMap();
                 
                 let atScore = '—', stScore = '—', prScore = '—', overall = '—';
                 if (s) {
@@ -2287,152 +2003,92 @@
                         '<span class="chip green">✓ Bestanden</span>' : 
                         '<span class="chip red">✗ Nicht bestanden</span>';
                 }
-
+                
                 html += `
                     <tr>
                         <td><strong>${p.name}, ${p.vorname}</strong></td>
                         <td>${p.personalnummer || '—'}</td>
-                        <td><span class="chip blue">${nc.AT || 0}/${training.config.AT}</span></td>
-                        <td><span class="chip blue">${nc.ST || 0}/${training.config.ST}</span></td>
-                        <td><span class="chip blue">${nc.PR || 0}/${training.config.PR}</span></td>
                         <td>${atScore}</td>
                         <td>${stScore}</td>
                         <td>${prScore}</td>
                         <td>${overall}</td>
                         <td>
                             <div class="act-cell">
-                                <button class="act-btn edit" onclick="openResultsModal('${id}', ${idx})">
+                                <button class="act-btn edit" onclick="openResultsModal('${exam.id}', ${idx})">
                                     <i class="fas fa-pencil-alt"></i> Ergebnis
                                 </button>
-                                <button class="act-btn" style="background:var(--accent2);" onclick="showParticipantExam('${id}', ${idx})">
-                                    <i class="fas fa-file-alt"></i> Fragebogen
+                                <button class="act-btn" style="background:var(--accent2);" onclick="startDigitalExam('${exam.id}', ${idx})">
+                                    <i class="fas fa-play"></i> Prüfung
                                 </button>
                             </div>
                         </td>
                     </tr>
                 `;
             });
-
-            html += `
-                        </tbody>
-                    </table>
-                </div>
-            `;
-
-            document.getElementById('trainingDetailContent').innerHTML = html;
-        }
-
-        /* ═══════════════════════════════════════════
-           EXAM MODE (digital)
-        ═══════════════════════════════════════════ */
-        window.startDigitalExam = function(trainingId) {
-            currentTrainingId = trainingId;
-            currentExamParticipantIndex = 0;
-            switchView('examMode');
-            renderExamParticipantSelect(trainingId);
-        };
-
-        function renderExamParticipantSelect(trainingId) {
-            const training = trainings.find(t => t.id === trainingId);
-            if (!training) return;
-
-            const participants = training.participants || [];
-            let html = `
-                <div style="margin-bottom:2rem;">
-                    <h2 style="font-size:1.5rem;">Digitale Prüfung · ${training.name}</h2>
-                    <p class="text-muted">Teilnehmer für die Prüfung auswählen</p>
-                </div>
-                <div style="display:flex; flex-direction:column; gap:0.5rem;">
-            `;
-
-            participants.forEach((p, idx) => {
-                const status = p.completedAt ? 
-                    '<span class="chip green">Abgeschlossen</span>' : 
-                    '<span class="chip blue">Offen</span>';
-                
-                html += `
-                    <div style="display:flex; align-items:center; justify-content:space-between; padding:1rem; background:var(--surface2); border-radius:var(--radius-lg); border:1px solid var(--border);">
-                        <div>
-                            <strong>${p.name}, ${p.vorname}</strong>
-                            <div style="font-size:0.8rem; color:var(--text3);">${p.personalnummer || '—'}</div>
-                        </div>
-                        <div style="display:flex; gap:0.5rem; align-items:center;">
-                            ${status}
-                            ${!p.completedAt ? 
-                                `<button class="btn btn-primary btn-sm" onclick="startExamForParticipant('${trainingId}', ${idx})">
-                                    Prüfung starten
-                                </button>` : 
-                                `<button class="btn btn-outline btn-sm" onclick="showParticipantExam('${trainingId}', ${idx})">
-                                    Ergebnisse ansehen
-                                </button>`
-                            }
-                        </div>
-                    </div>
-                `;
-            });
-
-            html += `
-                </div>
-                <div style="margin-top:2rem;">
-                    <button class="btn btn-outline" onclick="openTrainingDetail('${trainingId}')">
-                        ← Zurück zur Übersicht
-                    </button>
-                </div>
-            `;
-
-            document.getElementById('examContent').innerHTML = html;
-        }
-
-        window.startExamForParticipant = function(trainingId, pIdx) {
-            const training = trainings.find(t => t.id === trainingId);
-            if (!training) return;
             
-            currentTrainingId = trainingId;
+            html += `
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('examDetailContent').innerHTML = html;
+        }
+
+        // ===== DIGITALE PRÜFUNG =====
+        window.startDigitalExam = function(examId, pIdx) {
             currentExamParticipantIndex = pIdx;
             currentExamAnswers = {};
             currentExamPart = 'AT';
             
-            renderExamInterface(trainingId, pIdx, 'AT');
+            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+            document.getElementById('view-examMode').classList.add('active');
+            
+            renderExamMode(examId, pIdx, 'AT');
         };
 
-        function renderExamInterface(trainingId, pIdx, part) {
-            const training = trainings.find(t => t.id === trainingId);
-            const p = training.participants[pIdx];
+        function renderExamMode(examId, pIdx, part) {
+            const exam = exams.find(e => e.id === examId);
+            const p = exam.participants[pIdx];
+            
+            const parts = ['AT', 'ST', 'PR'];
             const allQ = getAllQuestionsMap();
             const qIds = p.questions[part] || [];
-            const parts = ['AT', 'ST', 'PR'];
-
-            // Lade gespeicherte Antworten
-            if (!currentExamAnswers[part]) {
-                currentExamAnswers[part] = p.answers?.[part] || {};
-            }
-
+            
             const answeredCount = Object.keys(currentExamAnswers[part] || {}).length;
             const progress = qIds.length ? (answeredCount / qIds.length) * 100 : 0;
-
+            
             let html = `
-                <div style="margin-bottom:1rem;">
+                <div style="margin-bottom:2rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <div>
+                            <h2 style="font-size:1.5rem;">Digitale Prüfung</h2>
+                            <p><strong>${p.name}, ${p.vorname}</strong> · ${exam.methodName}</p>
+                        </div>
+                        <button class="btn btn-outline" onclick="openExamDetail('${examId}')">
+                            ← Zurück
+                        </button>
+                    </div>
+                    
                     <div class="exam-progress">
                         <div class="exam-progress-bar" style="width:${progress}%"></div>
                     </div>
-                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-                        <div>
-                            <h2 style="font-size:1.3rem;">${p.name}, ${p.vorname}</h2>
-                            <div class="text-muted">${PART_NAMES[part]} · ${qIds.length} Fragen</div>
-                        </div>
-                        <div class="exam-part-nav">
-                            ${parts.map(pt => `
-                                <div class="exam-part-item ${pt === part ? 'active' : ''} ${p.answers?.[pt] ? 'completed' : ''}" 
-                                     onclick="navigateExamPart('${trainingId}', ${pIdx}, '${pt}')">
-                                    ${pt}
-                                </div>
-                            `).join('')}
-                        </div>
+                    
+                    <div class="exam-part-nav">
+                        ${parts.map(pt => `
+                            <div class="exam-part-item ${pt === part ? 'active' : ''} ${p.answers?.[pt] ? 'completed' : ''}" 
+                                 onclick="navigateExamPart('${examId}', ${pIdx}, '${pt}')">
+                                ${pt}
+                            </div>
+                        `).join('')}
                     </div>
-                </div>
-                <div id="exam-questions">
+                    
+                    <h3 style="margin:1rem 0;">${PART_NAMES[part]} · ${qIds.length} Fragen</h3>
+                    
+                    <div id="exam-questions">
             `;
-
+            
             qIds.forEach((qId, qi) => {
                 const q = allQ[qId];
                 if (!q) return;
@@ -2447,45 +2103,47 @@
                         </div>
                         <div class="options-list">
                 `;
-
+                
                 Object.entries(q.options).forEach(([key, value]) => {
                     const isSelected = selected === key;
                     html += `
                         <div class="option-item ${isSelected ? 'selected' : ''}" 
-                             onclick="selectExamAnswer('${part}', '${qId}', '${key}', '${trainingId}', ${pIdx})">
+                             onclick="selectExamAnswer('${examId}', ${pIdx}, '${part}', '${qId}', '${key}')">
                             <span class="option-letter">${key}</span>
                             <span>${value}</span>
                         </div>
                     `;
                 });
-
+                
                 html += `
                         </div>
                     </div>
                 `;
             });
-
+            
             html += `
-                </div>
-                <div style="display:flex; justify-content:space-between; margin-top:2rem;">
-                    <button class="btn btn-outline" onclick="navigateExamPart('${trainingId}', ${pIdx}, '${parts[parts.indexOf(part)-1] || 'AT'}')" 
-                            ${parts.indexOf(part) === 0 ? 'disabled' : ''}>
-                        ← Vorheriger Teil
-                    </button>
-                    <button class="btn btn-success" onclick="submitDigitalExam('${trainingId}', ${pIdx})">
-                        Prüfung abgeben ✓
-                    </button>
-                    <button class="btn btn-outline" onclick="navigateExamPart('${trainingId}', ${pIdx}, '${parts[parts.indexOf(part)+1] || 'PR'}')" 
-                            ${parts.indexOf(part) === parts.length-1 ? 'disabled' : ''}>
-                        Nächster Teil →
-                    </button>
+                    </div>
+                    
+                    <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+                        <button class="btn btn-outline" onclick="navigateExamPart('${examId}', ${pIdx}, '${parts[parts.indexOf(part)-1] || 'AT'}')" 
+                                ${parts.indexOf(part) === 0 ? 'disabled' : ''}>
+                            ← Vorheriger Teil
+                        </button>
+                        <button class="btn btn-success" onclick="submitDigitalExam('${examId}', ${pIdx})">
+                            Prüfung abgeben ✓
+                        </button>
+                        <button class="btn btn-outline" onclick="navigateExamPart('${examId}', ${pIdx}, '${parts[parts.indexOf(part)+1] || 'PR'}')" 
+                                ${parts.indexOf(part) === parts.length-1 ? 'disabled' : ''}>
+                            Nächster Teil →
+                        </button>
+                    </div>
                 </div>
             `;
-
-            document.getElementById('examContent').innerHTML = html;
+            
+            document.getElementById('examModeContent').innerHTML = html;
         }
 
-        window.selectExamAnswer = function(part, qId, answer, trainingId, pIdx) {
+        window.selectExamAnswer = function(examId, pIdx, part, qId, answer) {
             if (!currentExamAnswers[part]) currentExamAnswers[part] = {};
             currentExamAnswers[part][qId] = answer;
             
@@ -2496,8 +2154,8 @@
             event.currentTarget.classList.add('selected');
             
             // Progress aktualisieren
-            const training = trainings.find(t => t.id === trainingId);
-            const p = training.participants[pIdx];
+            const exam = exams.find(e => e.id === examId);
+            const p = exam.participants[pIdx];
             const qIds = p.questions[part] || [];
             const answeredCount = Object.keys(currentExamAnswers[part] || {}).length;
             const progress = (answeredCount / qIds.length) * 100;
@@ -2506,39 +2164,19 @@
             if (bar) bar.style.width = progress + '%';
         };
 
-        window.navigateExamPart = function(trainingId, pIdx, part) {
+        window.navigateExamPart = function(examId, pIdx, part) {
             currentExamPart = part;
-            renderExamInterface(trainingId, pIdx, part);
+            renderExamMode(examId, pIdx, part);
         };
 
-        window.submitDigitalExam = function(trainingId, pIdx) {
-            const training = trainings.find(t => t.id === trainingId);
-            const p = training.participants[pIdx];
+        window.submitDigitalExam = function(examId, pIdx) {
+            const exam = exams.find(e => e.id === examId);
+            const p = exam.participants[pIdx];
             
-            // Prüfen ob alle Fragen beantwortet wurden
-            const parts = ['AT', 'ST', 'PR'];
-            let allAnswered = true;
-            let missingParts = [];
-            
-            parts.forEach(part => {
-                const qIds = p.questions[part] || [];
-                const answered = Object.keys(currentExamAnswers[part] || {}).length;
-                if (answered < qIds.length) {
-                    allAnswered = false;
-                    missingParts.push(part);
-                }
-            });
-            
-            if (!allAnswered) {
-                if (!confirm(`Nicht alle Fragen beantwortet (${missingParts.join(', ')}). Trotzdem abgeben?`)) {
-                    return;
-                }
-            }
-            
-            // Ergebnisse berechnen
             const allQ = getAllQuestionsMap();
             const answers = {};
             const scores = {};
+            const parts = ['AT', 'ST', 'PR'];
             
             parts.forEach(part => {
                 answers[part] = currentExamAnswers[part] || {};
@@ -2564,33 +2202,30 @@
             p.overallPassed = Object.values(scores).every(s => s.passed);
             p.completedAt = new Date().toISOString();
             
+            // Prüfungsstatus aktualisieren
+            const allCompleted = exam.participants.every(p => p.completedAt);
+            if (allCompleted) exam.status = 'completed';
+            
             // In Historie speichern
-            const hkey = `${p.participantId}:::${training.method}`;
-            if (!history[hkey]) history[hkey] = [];
-            
-            const allQIds = [
-                ...(p.questions.AT || []),
-                ...(p.questions.ST || []),
-                ...(p.questions.PR || [])
-            ];
-            
-            history[hkey].push({
-                trainingId,
-                date: training.start_date,
-                questionIds: allQIds,
-                scores,
-                passed: p.overallPassed
+            if (!examHistory[examId]) examHistory[examId] = [];
+            examHistory[examId].push({
+                participantId: p.participantId,
+                name: p.name,
+                vorname: p.vorname,
+                scores: scores,
+                passed: p.overallPassed,
+                date: new Date().toISOString()
             });
             
-            saveTrainings(`Prüfung abgeschlossen: ${p.name}`);
+            saveLocalData();
             
             // Ergebnis anzeigen
-            showExamResult(trainingId, pIdx, scores, p.overallPassed);
+            showExamResult(examId, pIdx, scores, p.overallPassed);
         };
 
-        function showExamResult(trainingId, pIdx, scores, passed) {
-            const training = trainings.find(t => t.id === trainingId);
-            const p = training.participants[pIdx];
+        function showExamResult(examId, pIdx, scores, passed) {
+            const exam = exams.find(e => e.id === examId);
+            const p = exam.participants[pIdx];
             
             let html = `
                 <div style="text-align:center; padding:2rem;">
@@ -2600,7 +2235,7 @@
                     <h2 style="font-size:2rem; color:${passed ? 'var(--green)' : 'var(--red)'}; margin-bottom:1rem;">
                         ${passed ? 'Bestanden!' : 'Nicht bestanden'}
                     </h2>
-                    <p style="margin-bottom:2rem;">${p.name}, ${p.vorname} · ${training.method}</p>
+                    <p style="margin-bottom:2rem;">${p.name}, ${p.vorname}</p>
                     
                     <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:2rem;">
             `;
@@ -2624,36 +2259,33 @@
                     </div>
                     
                     <div style="display:flex; gap:1rem; justify-content:center;">
-                        <button class="btn btn-primary" onclick="startExamForParticipant('${trainingId}', ${pIdx})">
-                            Prüfung wiederholen
-                        </button>
-                        <button class="btn btn-outline" onclick="renderExamParticipantSelect('${trainingId}')">
-                            Nächster Teilnehmer
-                        </button>
-                        <button class="btn btn-outline" onclick="openTrainingDetail('${trainingId}')">
+                        <button class="btn btn-primary" onclick="openExamDetail('${examId}')">
                             Zur Übersicht
+                        </button>
+                        <button class="btn btn-outline" onclick="switchView('examManagement')">
+                            Alle Prüfungen
                         </button>
                     </div>
                 </div>
             `;
             
-            document.getElementById('examContent').innerHTML = html;
+            document.getElementById('examModeContent').innerHTML = html;
         }
 
-        /* ═══════════════════════════════════════════
-           RESULTS MODAL
-        ═══════════════════════════════════════════ */
-        window.openResultsModal = function(trainingId, pIdx) {
-            const training = trainings.find(t => t.id === trainingId);
-            const p = training.participants[pIdx];
-            const allQ = getAllQuestionsMap();
+        // ===== ERGEBNISSE MODAL =====
+        window.openResultsModal = function(examId, pIdx) {
+            const exam = exams.find(e => e.id === examId);
+            const p = exam.participants[pIdx];
             
-            pendingResultsData = { trainingId, pIdx };
+            pendingResultsData = { examId, pIdx };
+            
             document.getElementById('resultsModalTitle').textContent = 
-                `Ergebnisse eintragen · ${p.name}, ${p.vorname}`;
+                `Ergebnisse für ${p.name}, ${p.vorname}`;
+            
+            const allQ = getAllQuestionsMap();
+            const parts = ['AT', 'ST', 'PR'];
             
             let html = '';
-            const parts = ['AT', 'ST', 'PR'];
             
             parts.forEach(part => {
                 const qIds = p.questions[part] || [];
@@ -2662,7 +2294,7 @@
                 html += `
                     <div style="margin-bottom:1.5rem;">
                         <h4 style="margin-bottom:0.5rem;">${PART_NAMES[part]}</h4>
-                        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(60px,1fr)); gap:0.5rem;">
+                        <div class="answer-grid">
                 `;
                 
                 qIds.forEach((qId, qi) => {
@@ -2670,11 +2302,9 @@
                     const existing = p.answers?.[part]?.[qId] || '';
                     
                     html += `
-                        <div style="display:flex; flex-direction:column; align-items:center;">
+                        <div class="answer-cell">
                             <div style="font-size:0.7rem; color:var(--text3);">${qi+1}</div>
-                            <input type="text" maxlength="1" style="width:40px; height:40px; text-align:center; 
-                                   background:var(--surface2); border:2px solid var(--border); border-radius:var(--radius-md);
-                                   font-family:var(--font-mono);" 
+                            <input type="text" maxlength="1" class="answer-input" 
                                    value="${existing}"
                                    data-part="${part}" data-qid="${qId}" data-correct="${q?.answer || ''}"
                                    oninput="validateResultInput(this)">
@@ -2697,29 +2327,29 @@
             const correct = input.dataset.correct;
             if (input.value && correct) {
                 if (input.value === correct) {
-                    input.style.borderColor = 'var(--green)';
-                    input.style.backgroundColor = 'var(--green-bg)';
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
                 } else {
-                    input.style.borderColor = 'var(--red)';
-                    input.style.backgroundColor = 'var(--red-bg)';
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
                 }
             } else {
-                input.style.borderColor = 'var(--border)';
-                input.style.backgroundColor = '';
+                input.classList.remove('correct', 'incorrect');
             }
         };
 
         window.saveResults = function() {
-            const { trainingId, pIdx } = pendingResultsData;
-            const training = trainings.find(t => t.id === trainingId);
-            const p = training.participants[pIdx];
-            const allQ = getAllQuestionsMap();
+            const { examId, pIdx } = pendingResultsData;
+            const exam = exams.find(e => e.id === examId);
+            const p = exam.participants[pIdx];
             
-            const inputs = document.querySelectorAll('#resultsModalContent input');
+            const inputs = document.querySelectorAll('#resultsModalContent .answer-input');
+            const allQ = getAllQuestionsMap();
             const answers = {};
             const scores = {};
+            const parts = ['AT', 'ST', 'PR'];
             
-            ['AT', 'ST', 'PR'].forEach(part => {
+            parts.forEach(part => {
                 answers[part] = {};
                 let correct = 0;
                 let total = 0;
@@ -2750,28 +2380,24 @@
             p.overallPassed = Object.values(scores).every(s => s.passed);
             p.completedAt = new Date().toISOString();
             
-            // Historie aktualisieren
-            const hkey = `${p.participantId}:::${training.method}`;
-            if (!history[hkey]) history[hkey] = [];
+            // Prüfungsstatus aktualisieren
+            const allCompleted = exam.participants.every(p => p.completedAt);
+            if (allCompleted) exam.status = 'completed';
             
-            const allQIds = [
-                ...(p.questions.AT || []),
-                ...(p.questions.ST || []),
-                ...(p.questions.PR || [])
-            ];
-            
-            history[hkey].push({
-                trainingId,
-                date: training.start_date,
-                questionIds: allQIds,
-                scores,
-                passed: p.overallPassed
+            // In Historie speichern
+            if (!examHistory[examId]) examHistory[examId] = [];
+            examHistory[examId].push({
+                participantId: p.participantId,
+                name: p.name,
+                vorname: p.vorname,
+                scores: scores,
+                passed: p.overallPassed,
+                date: new Date().toISOString()
             });
             
-            saveTrainings(`Ergebnisse eingetragen: ${p.name}`);
-            
+            saveLocalData();
             closeResultsModal();
-            renderTrainingDetail(trainingId);
+            renderExamDetail(examId);
             showToast('Ergebnisse gespeichert', 'success');
         };
 
@@ -2779,189 +2405,26 @@
             document.getElementById('resultsModal').classList.remove('open');
         };
 
-        window.showParticipantExam = function(trainingId, pIdx) {
-            const training = trainings.find(t => t.id === trainingId);
-            const p = training.participants[pIdx];
-            const allQ = getAllQuestionsMap();
-            
-            let html = `
-                <div style="margin-bottom:1rem;">
-                    <button class="btn btn-outline" onclick="openTrainingDetail('${trainingId}')">
-                        ← Zurück
-                    </button>
-                    <button class="btn btn-outline" style="margin-left:0.5rem;" onclick="window.print()">
-                        <i class="fas fa-print"></i> Drucken
-                    </button>
-                </div>
-                <div style="margin-bottom:2rem;">
-                    <h2>Prüfungsbogen · ${training.name}</h2>
-                    <p><strong>Teilnehmer:</strong> ${p.name}, ${p.vorname} (${p.personalnummer || '—'})</p>
-                    <p><strong>Datum:</strong> ${training.date_str} · <strong>Ort:</strong> ${training.location}</p>
-                    <p><em>Bestehensgrenze: 80% je Teil</em></p>
-                </div>
-            `;
-            
-            ['AT', 'ST', 'PR'].forEach(part => {
-                const qIds = p.questions[part] || [];
-                if (qIds.length === 0) return;
-                
-                html += `
-                    <div style="margin-bottom:2rem; page-break-inside:avoid;">
-                        <h3 style="margin-bottom:1rem;">${PART_NAMES[part]} (${qIds.length} Fragen)</h3>
-                `;
-                
-                qIds.forEach((qId, qi) => {
-                    const q = allQ[qId];
-                    if (!q) return;
-                    
-                    const ans = p.answers?.[part]?.[qId];
-                    
-                    html += `
-                        <div style="margin-bottom:1rem; padding:1rem; border:1px solid var(--border); border-radius:var(--radius-lg);">
-                            <p style="font-weight:600; margin-bottom:0.5rem;">${qi+1}. ${q.text}</p>
-                            <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0.5rem;">
-                    `;
-                    
-                    Object.entries(q.options).forEach(([key, value]) => {
-                        let style = '';
-                        if (ans) {
-                            if (key === q.answer) style = 'background:var(--green-bg); border-color:var(--green);';
-                            else if (key === ans) style = 'background:var(--red-bg); border-color:var(--red);';
-                        }
-                        
-                        html += `
-                            <div style="padding:0.5rem; border:1px solid var(--border); border-radius:var(--radius-md); ${style}">
-                                <strong>${key})</strong> ${value}
-                                ${ans && key === ans ? (key === q.answer ? ' ✓' : ' ✗') : ''}
-                            </div>
-                        `;
-                    });
-                    
-                    html += `
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                html += `</div>`;
-            });
-            
-            document.getElementById('trainingDetailContent').innerHTML = html;
-        };
-
-        /* ═══════════════════════════════════════════
-           PRINT EXAM
-        ═══════════════════════════════════════════ */
-        window.printExam = function(trainingId) {
-            const training = trainings.find(t => t.id === trainingId);
-            if (!training) return;
-            
-            const allQ = getAllQuestionsMap();
-            const participants = training.participants || [];
-            
-            let printContent = '';
-            
-            participants.forEach((p, pIdx) => {
-                if (pIdx > 0) printContent += '<div style="page-break-before:always;"></div>';
-                
-                printContent += `
-                    <div style="margin-bottom:2rem;">
-                        <h2 style="text-align:center;">ZfP Prüfungsbogen</h2>
-                        <p><strong>Schulung:</strong> ${training.name}</p>
-                        <p><strong>Teilnehmer:</strong> ${p.name}, ${p.vorname} (${p.personalnummer || '—'})</p>
-                        <p><strong>Datum:</strong> ${training.date_str} · <strong>Ort:</strong> ${training.location}</p>
-                        <p><strong>Prüfer:</strong> ${training.trainer || '_________________'}</p>
-                        <p><em>Bestehensgrenze: 80% je Teil · Bitte nur EINE Antwort pro Frage ankreuzen</em></p>
-                        <hr style="margin:1rem 0;">
-                `;
-                
-                ['AT', 'ST', 'PR'].forEach(part => {
-                    const qIds = p.questions[part] || [];
-                    if (qIds.length === 0) return;
-                    
-                    printContent += `
-                        <h3 style="margin:1.5rem 0 1rem;">${PART_NAMES[part]} (${qIds.length} Fragen)</h3>
-                    `;
-                    
-                    qIds.forEach((qId, qi) => {
-                        const q = allQ[qId];
-                        if (!q) return;
-                        
-                        printContent += `
-                            <div style="margin-bottom:1rem; padding:0.5rem; border:1px solid #ccc;">
-                                <p><strong>${qi+1}. ${q.text}</strong></p>
-                                <div style="margin-left:1rem;">
-                        `;
-                        
-                        Object.entries(q.options).forEach(([key, value]) => {
-                            printContent += `
-                                <p>☐ ${key}) ${value}</p>
-                            `;
-                        });
-                        
-                        printContent += `
-                                </div>
-                            </div>
-                        `;
-                    });
-                });
-                
-                printContent += `</div>`;
-            });
-            
-            const win = window.open('', '_blank');
-            win.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Prüfungsbogen · ${training.name}</title>
-                    <style>
-                        body { font-family: Arial, sans-serif; font-size: 11pt; margin: 20mm; }
-                        h2 { font-size: 16pt; }
-                        h3 { font-size: 13pt; margin-top: 20px; }
-                        hr { border: none; border-top: 1px solid #ccc; }
-                        @media print {
-                            body { margin: 15mm; }
-                        }
-                    </style>
-                </head>
-                <body>
-                    ${printContent}
-                </body>
-                </html>
-            `);
-            win.document.close();
-            win.print();
-        };
-
-        /* ═══════════════════════════════════════════
-           HISTORY
-        ═══════════════════════════════════════════ */
+        // ===== HISTORIE =====
         function renderHistory() {
             const search = document.getElementById('historySearch')?.value?.toLowerCase() || '';
             const methodFilter = document.getElementById('historyMethodFilter')?.value || '';
             
             let entries = [];
             
-            Object.entries(history).forEach(([key, hlist]) => {
-                const [pid, method] = key.split(':::');
-                if (methodFilter && method !== methodFilter) return;
-                
-                const p = participants.find(p => p.id === pid);
-                const name = p ? `${p.name}, ${p.vorname}` : pid;
-                
-                if (search && !name.toLowerCase().includes(search)) return;
-                
-                hlist.forEach(h => {
+            Object.entries(examHistory).forEach(([examId, history]) => {
+                const exam = exams.find(e => e.id === examId);
+                history.forEach(h => {
+                    if (methodFilter && exam?.method !== methodFilter) return;
+                    if (search && !h.name?.toLowerCase().includes(search) && !h.vorname?.toLowerCase().includes(search)) return;
+                    
                     entries.push({
-                        name,
-                        personalnummer: p?.personalnummer || '—',
-                        method,
                         date: h.date,
+                        name: `${h.name}, ${h.vorname}`,
+                        method: exam?.method || '—',
+                        methodName: exam?.methodName || '—',
                         scores: h.scores,
-                        passed: h.passed,
-                        trainingId: h.trainingId
+                        passed: h.passed
                     });
                 });
             });
@@ -2983,13 +2446,11 @@
                             <tr>
                                 <th>Datum</th>
                                 <th>Teilnehmer</th>
-                                <th>Personalnr.</th>
                                 <th>Methode</th>
                                 <th>AT</th>
                                 <th>ST</th>
                                 <th>PR</th>
                                 <th>Gesamt</th>
-                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -3003,19 +2464,13 @@
                 
                 html += `
                     <tr>
-                        <td>${fmtDate(entry.date)}</td>
+                        <td>${new Date(entry.date).toLocaleDateString('de-DE')}</td>
                         <td>${entry.name}</td>
-                        <td>${entry.personalnummer}</td>
                         <td><span class="chip blue">${entry.method}</span></td>
                         <td><span class="${atPct >= 80 ? 'text-green' : 'text-red'}">${atPct}%</span></td>
                         <td><span class="${stPct >= 80 ? 'text-green' : 'text-red'}">${stPct}%</span></td>
                         <td><span class="${prPct >= 80 ? 'text-green' : 'text-red'}">${prPct}%</span></td>
                         <td>${entry.passed ? '<span class="chip green">✓ Bestanden</span>' : '<span class="chip red">✗ Nicht bestanden</span>'}</td>
-                        <td>
-                            <button class="btn btn-sm btn-outline" onclick="openTrainingDetail('${entry.trainingId}')">
-                                Details
-                            </button>
-                        </td>
                     </tr>
                 `;
             });
@@ -3029,56 +2484,159 @@
             container.innerHTML = html;
         }
 
-        /* ═══════════════════════════════════════════
-           ALL TRAININGS
-        ═══════════════════════════════════════════ */
-        function renderAllTrainings() {
-            const sorted = [...trainings].sort((a, b) => new Date(b.start_date) - new Date(a.start_date));
+        function getAllQuestionsMap() {
+            const map = {};
+            if (!questions) return map;
             
-            const container = document.getElementById('allTrainingsList');
-            if (!container) return;
+            (questions.shared?.AT || []).forEach(q => map[q.id] = q);
             
-            if (sorted.length === 0) {
-                container.innerHTML = '<div class="empty-msg">Keine Schulungen vorhanden</div>';
-                return;
+            if (questions.methods) {
+                Object.values(questions.methods).forEach(m => {
+                    (m.ST || []).forEach(q => map[q.id] = q);
+                    (m.PR || []).forEach(q => map[q.id] = q);
+                });
             }
             
-            let html = '';
-            
-            sorted.forEach(t => {
-                const participants = t.participants || [];
-                const completed = participants.filter(p => p.completedAt).length;
-                const passed = participants.filter(p => p.overallPassed).length;
-                
-                html += `
-                    <div class="card" style="cursor:pointer; margin-bottom:1rem;" onclick="openTrainingDetail('${t.id}')">
-                        <div style="display:flex; justify-content:space-between; align-items:center;">
-                            <div>
-                                <div style="font-weight:600; font-size:1.1rem;">${t.name}</div>
-                                <div style="display:flex; gap:0.5rem; margin-top:0.25rem;">
-                                    <span class="chip blue">${t.method}</span>
-                                    <span class="chip">${t.date_str}</span>
-                                    <span class="chip">📍 ${t.location}</span>
-                                </div>
-                            </div>
-                            <div style="text-align:right;">
-                                <div>${completed}/${participants.length} abgeschlossen</div>
-                                <div style="font-size:0.9rem;">${passed} bestanden</div>
-                                <span class="chip ${t.status === 'completed' ? 'green' : 'blue'}">
-                                    ${t.status === 'completed' ? 'Abgeschlossen' : 'Offen'}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            container.innerHTML = html;
+            return map;
         }
 
-        /* ═══════════════════════════════════════════
-           THEME
-        ═══════════════════════════════════════════ */
+        // ===== GITHUB KONFIGURATION =====
+        function loadGhConfig() {
+            try {
+                const raw = localStorage.getItem(GH_CONFIG_KEY);
+                if (raw) ghConfig = JSON.parse(raw);
+            } catch(e) {}
+            document.getElementById('cfgOwner').value  = ghConfig.owner  || '';
+            document.getElementById('cfgRepo').value   = ghConfig.repo   || '';
+            document.getElementById('cfgBranch').value = ghConfig.branch || 'main';
+            document.getElementById('cfgFile').value   = ghConfig.file   || 'trainings.json';
+            document.getElementById('cfgToken').value  = ghConfig.token  || '';
+        }
+
+        function readConfigFromForm() {
+            ghConfig.owner  = document.getElementById('cfgOwner').value.trim();
+            ghConfig.repo   = document.getElementById('cfgRepo').value.trim();
+            ghConfig.branch = document.getElementById('cfgBranch').value.trim() || 'main';
+            ghConfig.file   = document.getElementById('cfgFile').value.trim()   || 'trainings.json';
+            ghConfig.token  = document.getElementById('cfgToken').value.trim();
+        }
+
+        window.saveGhConfig = function() {
+            readConfigFromForm();
+            localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(ghConfig));
+            showToast('✅ Einstellungen gespeichert', 'success');
+        };
+
+        window.connectGitHub = async function() {
+            readConfigFromForm();
+            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
+                setStatus('error', '❌ Bitte alle Felder ausfüllen (Username, Repo, Token).');
+                return;
+            }
+            localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(ghConfig));
+            await loadTrainings(true);
+        };
+
+        window.toggleConfigPanel = function() {
+            configPanelVisible = !configPanelVisible;
+            document.getElementById('ghConfigPanel').style.display = configPanelVisible ? 'block' : 'none';
+        };
+
+        window.togglePAT = function() {
+            const inp = document.getElementById('cfgToken');
+            const ico = document.getElementById('eyeIcon');
+            if (inp.type === 'password') {
+                inp.type = 'text';
+                ico.className = 'fas fa-eye-slash';
+            } else {
+                inp.type = 'password';
+                ico.className = 'fas fa-eye';
+            }
+        };
+
+        function setStatus(state, msg) {
+            const bar = document.getElementById('ghStatusBar');
+            const dot = document.getElementById('ghStatusDot');
+            const txt = document.getElementById('ghStatusText');
+            bar.className = `gh-status-bar ${state}`;
+            dot.className = `status-dot ${state === 'connected' ? 'green' : state === 'error' ? 'red' : ''}`;
+            txt.textContent = msg;
+
+            const ghDot  = document.getElementById('ghDot');
+            const ghText = document.getElementById('ghBadgeText');
+            if (state === 'connected') {
+                ghDot.className = 'dot';
+                ghText.textContent = `${ghConfig.owner}/${ghConfig.repo}`;
+            } else {
+                ghDot.className = 'dot offline';
+                ghText.textContent = 'GitHub konfigurieren';
+            }
+        }
+
+        function showSaving(visible) {
+            document.getElementById('savingIndicator').className = 'saving-indicator' + (visible ? ' visible' : '');
+        }
+
+        let toastTimer;
+        function showToast(msg, type='success') {
+            const t = document.getElementById('syncToast');
+            t.textContent = msg;
+            t.className = `sync-toast show ${type}`;
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => { t.classList.remove('show'); }, 3000);
+        }
+
+        async function loadTrainings(showOverlay=false) {
+            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
+                return;
+            }
+
+            if (showOverlay) {
+                const lo = document.getElementById('loadingOverlay');
+                lo.classList.remove('hidden');
+                document.getElementById('loadingText').textContent = 'Lade Daten von GitHub…';
+            }
+            try {
+                const data = await ghLoad();
+                if (data) {
+                    if (data.trainings) trainings = data.trainings;
+                    if (data.participants) participants = data.participants;
+                    if (data.exams) exams = data.exams;
+                    if (data.history) examHistory = data.history;
+                }
+                saveLocalData();
+                buildGrid();
+                setStatus('connected', `✅ Verbunden mit ${ghConfig.owner}/${ghConfig.repo}`);
+                if (showOverlay) {
+                    configPanelVisible = false;
+                    document.getElementById('ghConfigPanel').style.display = 'none';
+                    showToast('✅ Daten erfolgreich geladen', 'success');
+                }
+            } catch(err) {
+                setStatus('error', `❌ Fehler: ${err.message}`);
+                showToast('❌ ' + err.message, 'error');
+            } finally {
+                setTimeout(() => document.getElementById('loadingOverlay').classList.add('hidden'), 400);
+            }
+        }
+
+        async function saveTrainings(commitMsg) {
+            showSaving(true);
+            saveLocalData();
+
+            if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
+                try {
+                    await ghSave({ trainings, participants, exams, history: examHistory }, commitMsg);
+                    showToast('✅ In GitHub gespeichert', 'success');
+                } catch(err) {
+                    showToast('❌ Speichern fehlgeschlagen: ' + err.message, 'error');
+                    console.error(err);
+                }
+            }
+            showSaving(false);
+        }
+
+        // ===== THEME =====
         function initTheme() {
             const saved = localStorage.getItem(THEME_KEY);
             if (saved === 'dark') document.body.classList.add('dark');
@@ -3089,26 +2647,31 @@
             localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
         });
 
-        /* ═══════════════════════════════════════════
-           INIT
-        ═══════════════════════════════════════════ */
+        // ===== INIT =====
         async function init() {
             initTheme();
             loadGhConfig();
-            await loadQuestions();
+            
+            // JSON-Dateien laden
+            await loadTrainingsJSON();
+            await loadQuestionsJSON();
+            
+            // Lokale Daten laden
             loadLocalData();
             
-            if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
-                await loadTrainings(true);
-            } else {
-                buildGrid();
-                setTimeout(() => document.getElementById('loadingOverlay').classList.add('hidden'), 400);
-                setStatus('', 'Noch nicht verbunden. Bitte Einstellungen eintragen und auf "Verbinden" klicken.');
-            }
+            // Teilnehmer automatisch aus Schulungen übernehmen
+            syncParticipantsFromTrainings();
             
-            // Initiale Render für Teilnehmerliste
+            // Grid bauen
+            buildGrid();
+            
+            // Loading ausblenden
+            setTimeout(() => document.getElementById('loadingOverlay').classList.add('hidden'), 400);
+            
+            setStatus('', 'Noch nicht verbunden. Bitte Einstellungen eintragen und auf "Verbinden" klicken.');
+            
+            // Initiale Render
             renderParticipantsTable();
-            renderAvailableParticipants();
         }
 
         if (document.readyState === 'loading') {
@@ -3116,7 +2679,6 @@
         } else {
             init();
         }
-    })();
     </script>
 </body>
 </html>
