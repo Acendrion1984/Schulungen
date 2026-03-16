@@ -1026,64 +1026,90 @@
         let currentExamAnswers = {};
         let pendingResultsData = null;
 
-        // ===== JSON LADEN =====
-        async function loadTrainingsJSON() {
-            try {
-                const response = await fetch('trainings.json');
-                if (response.ok) {
-                    trainings = await response.json();
-                    console.log('trainings.json geladen:', trainings.length, 'Schulungen');
-                } else {
-                    console.warn('trainings.json nicht gefunden, verwende Standarddaten');
-                    trainings = [];
-                }
-            } catch (e) {
-                console.warn('Fehler beim Laden von trainings.json:', e);
-                trainings = [];
+ // ===== JSON LADEN - MINIMALER PATCH =====
+async function loadTrainingsJSON() {
+    try {
+        const response = await fetch('trainings.json');
+        if (response.ok) {
+            trainings = await response.json();
+            console.log('trainings.json geladen:', trainings.length, 'Schulungen');
+            
+            // Wenn trainings leer ist, Standarddaten verwenden
+            if (!trainings || trainings.length === 0) {
+                trainings = getDefaultTrainings();
             }
+        } else {
+            console.warn('trainings.json nicht gefunden, verwende Standarddaten');
+            trainings = getDefaultTrainings();
         }
+    } catch (e) {
+        console.warn('Fehler beim Laden von trainings.json:', e);
+        trainings = getDefaultTrainings();
+    }
+}
 
-        async function loadQuestionsJSON() {
-            try {
-                const response = await fetch('questions.json');
-                if (response.ok) {
-                    questions = await response.json();
-                    console.log('questions.json geladen');
-                } else {
-                    console.warn('questions.json nicht gefunden, verwende Demo-Fragen');
-                    // Demo-Fragen als Fallback
-                    questions = {
-                        shared: {
-                            AT: [
-                                { id: 'at1', text: 'Was ist eine zerstörungsfreie Prüfung?', options: { a: 'Eine Prüfung, die das Bauteil zerstört', b: 'Eine Prüfung, die das Bauteil nicht beschädigt', c: 'Eine optische Prüfung', d: 'Eine chemische Analyse' }, answer: 'b' },
-                                { id: 'at2', text: 'Welches Verfahren eignet sich zur Oberflächenrissprüfung?', options: { a: 'Ultraschall', b: 'Wirbelstrom', c: 'Durchstrahlung', d: 'Magnetpulver' }, answer: 'b' }
-                            ]
-                        },
-                        methods: {
-                            ET: {
-                                ST: [{ id: 'et_st1', text: 'Bei welcher Frequenz arbeitet ein Wirbelstromprüfgerät?', options: { a: '50 Hz', b: '1-1000 kHz', c: '1-10 MHz', d: '>10 MHz' }, answer: 'b' }],
-                                PR: [{ id: 'et_pr1', text: 'Wie wird die Prüffrequenz gewählt?', options: { a: 'Möglichst hoch', b: 'Möglichst niedrig', c: 'Abhängig von der Eindringtiefe', d: 'Fest vorgegeben' }, answer: 'c' }]
-                            },
-                            UT: {
-                                ST: [{ id: 'ut_st1', text: 'Welche Wellenart wird bei der Ultraschallprüfung verwendet?', options: { a: 'Longitudinalwellen', b: 'Transversalwellen', c: 'Oberflächenwellen', d: 'Lambwellen' }, answer: 'a' }],
-                                PR: [{ id: 'ut_pr1', text: 'Wozu dient der Vorlauf?', options: { a: 'Verbesserung der Auflösung', b: 'Unterdrückung des Totzeiteffekts', c: 'Erhöhung der Eindringtiefe', d: 'Fokussierung' }, answer: 'b' }]
-                            },
-                            MT: {
-                                ST: [{ id: 'mt_st1', text: 'Welche Materialien können magnetpulvergeprüft werden?', options: { a: 'Alle Metalle', b: 'Nur ferromagnetische', c: 'Nur austenitische', d: 'Nur Aluminiumlegierungen' }, answer: 'b' }],
-                                PR: [{ id: 'mt_pr1', text: 'Was ist ein typisches Anzeigemerkmal?', options: { a: 'Farbänderung', b: 'Pulveransammlungen', c: 'Signalausschlag', d: 'Temperaturerhöhung' }, answer: 'b' }]
-                            },
-                            NE: {
-                                ST: [{ id: 'ne_st1', text: 'Was wird mit dem Nital-Ätzen nachgewiesen?', options: { a: 'Oberflächenrisse', b: 'Schleifbrand', c: 'Korrosion', d: 'Härtefehler' }, answer: 'b' }],
-                                PR: [{ id: 'ne_pr1', text: 'Welche Säure wird beim Nital-Ätzen verwendet?', options: { a: 'Schwefelsäure', b: 'Salpetersäure', c: 'Salzsäure', d: 'Flusssäure' }, answer: 'b' }]
-                            }
-                        }
-                    };
-                }
-            } catch (e) {
-                console.warn('Fehler beim Laden von questions.json:', e);
-                questions = null;
+async function loadQuestionsJSON() {
+    try {
+        const response = await fetch('questions.json');
+        if (response.ok) {
+            questions = await response.json();
+            console.log('questions.json geladen');
+        } else {
+            console.warn('questions.json nicht gefunden, verwende Demo-Fragen');
+            questions = getDefaultQuestions();
+        }
+    } catch (e) {
+        console.warn('Fehler beim Laden von questions.json:', e);
+        questions = getDefaultQuestions();
+    }
+}
+
+// Standarddaten falls JSON nicht gefunden wird
+function getDefaultTrainings() {
+    return [
+        {
+            "id": "ws-19-01-2026",
+            "type": "Wirbelstromprüfung",
+            "location": "Bau 50, Raum Gold",
+            "date_str": "19.01.–20.01.2026",
+            "start_date": "2026-01-19",
+            "days": 2,
+            "start_time": "08:00",
+            "attendees": [
+                {"vorname":"Jürgen","name":"Wüstenhöfer","personalnummer":"45785","abteilung":"WI/SW2-P114","geburtstag":"14.03.1967","geburtsort":"Weisbrunn"},
+                {"vorname":"Dieter","name":"Welz","personalnummer":"60834","abteilung":"WI/SW2-P114","geburtstag":"28.06.1965","geburtsort":"Haßfurt"}
+            ]
+        },
+        {
+            "id": "ne-02-02-2026",
+            "type": "Nital-Ätzen",
+            "location": "Bau 50, Raum Silber",
+            "date_str": "02.02.2026",
+            "start_date": "2026-02-02",
+            "days": 1,
+            "start_time": "07:00",
+            "attendees": [
+                {"vorname":"Markus","name":"Elzenbeck","personalnummer":"02003504","abteilung":"WI/SW2-P112","geburtstag":"31.03.1985","geburtsort":"Schweinfurt"}
+            ]
+        }
+    ];
+}
+
+function getDefaultQuestions() {
+    return {
+        shared: {
+            AT: [
+                { id: 'at1', text: 'Was ist eine zerstörungsfreie Prüfung?', options: { a: 'Zerstört das Bauteil', b: 'Beschädigt das Bauteil nicht', c: 'Optische Prüfung', d: 'Chemische Analyse' }, answer: 'b' }
+            ]
+        },
+        methods: {
+            ET: {
+                ST: [{ id: 'et_st1', text: 'Frequenz bei Wirbelstrom?', options: { a: '50 Hz', b: '1-1000 kHz', c: '1-10 MHz', d: '>10 MHz' }, answer: 'b' }],
+                PR: [{ id: 'et_pr1', text: 'Wahl der Prüffrequenz?', options: { a: 'Möglichst hoch', b: 'Möglichst niedrig', c: 'Abhängig von Eindringtiefe', d: 'Fest vorgegeben' }, answer: 'c' }]
             }
         }
+    };
+}
 
         // ===== AUTOMATISCHE TEILNEHMER-ÜBERNAHME =====
         function syncParticipantsFromTrainings() {
