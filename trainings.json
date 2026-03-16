@@ -1,5 +1,67 @@
 {
-  "trainings": [],
+  "trainings": [
+    {
+      "id": "mmtixstvej0mla5nnov",
+      "type": "Ultraschallprüfung",
+      "method": "UT",
+      "start_date": "2026-03-16",
+      "date_str": "16.03.2026",
+      "location": "Schweinfurt",
+      "trainer": "",
+      "name": "Ultraschallprüfung 16.03.2026",
+      "config": {
+        "AT": 2,
+        "ST": 1,
+        "PR": 1
+      },
+      "attendees": [
+        {
+          "vorname": "tes",
+          "name": "sdfg",
+          "personalnummer": "ar",
+          "abteilung": "sfg",
+          "geburtstag": "10.10.1990",
+          "geburtsort": "dfgs"
+        }
+      ],
+      "participants": [
+        {
+          "participantId": "mmtidngpvoc32emjob",
+          "vorname": "tes",
+          "name": "sdfg",
+          "personalnummer": "ar",
+          "abteilung": "sfg",
+          "geburtstag": "10.10.1990",
+          "geburtsort": "dfgs",
+          "questions": {
+            "AT": [
+              "at2",
+              "at1"
+            ],
+            "ST": [
+              "ut_st1"
+            ],
+            "PR": [
+              "ut_pr1"
+            ]
+          },
+          "newCounts": {
+            "AT": 2,
+            "ST": 1,
+            "PR": 1
+          },
+          "answers": {},
+          "scores": null,
+          "overallPassed": null,
+          "completedAt": null
+        }
+      ],
+      "days": 1,
+      "start_time": "8:00",
+      "status": "prepared",
+      "createdAt": "2026-03-16T18:35:50.708Z"
+    }
+  ],
   "participants": [
     {
       "id": "mmtidngpvoc32emjob",
