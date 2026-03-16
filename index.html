@@ -1026,7 +1026,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
 
                 if (typeof navPruef==='function') navPruef('newTraining');
 
-                // Apply locked UI after navPruef renders the view
+                // Apply locked UI (runs after navPruef→initNewTraining completes)
                 setTimeout(function() {
                     var lockedInfo  = document.getElementById('nt-locked-info');
                     var searchArea  = document.getElementById('nt-search-area');
@@ -1037,7 +1037,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
                     if (newPCard)    newPCard.style.display    = 'none';
                     if (lockedLabel) lockedLabel.textContent   = t.attendees.length + ' Teilnehmer aus Schulungsanmeldung „' + t.type + ' – ' + t.date_str + '“';
                     if (typeof renderNTSelected === 'function') renderNTSelected();
-                }, 60);
+                }, 0);
             }, 200);
         };
 
@@ -2067,10 +2067,15 @@ function viewParticipantHistory(id) {
 
 // ===== NEW TRAINING =====
 function initNewTraining() {
+  // If ntLockedMode is true, we were called from openExamFromTraining –
+  // do NOT reset participants or mode, just render the pre-filled state.
+  if (ntLockedMode) {
+    renderNTSelected();
+    return;
+  }
   selectedNTParticipants = [];
-  ntLockedMode = false;   // free mode when opened directly
   document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
-  // Restore free-mode UI
+  // Free-mode UI
   const lockedInfo = document.getElementById('nt-locked-info');
   const searchArea = document.getElementById('nt-search-area');
   const newPCard   = document.getElementById('nt-new-participant-card');
