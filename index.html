@@ -717,10 +717,7 @@
                     <label>Branch</label>
                     <input id="cfgBranch" placeholder="main" value="main">
                 </div>
-                <div class="gh-field">
-                    <label>Dateiname</label>
-                    <input id="cfgFile" placeholder="trainings.json" value="trainings.json">
-                </div>
+                <!-- cfgFile removed – filenames are fixed -->
                 <div class="gh-field" style="grid-column: 1 / -1;">
                     <label>Personal Access Token (PAT)</label>
                     <div class="pat-row">
@@ -731,6 +728,10 @@
                 </div>
             </div>
 
+            <div style="background:var(--accent-dim);border-radius:var(--radius-md);padding:0.65rem 1rem;font-size:0.82rem;color:var(--text2);margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap">
+                <i class="fas fa-database"></i>
+                <span>Gespeicherte Dateien im Repository: <strong>trainings.json</strong> (Schulungen &amp; Teilnehmer) &nbsp;&middot;&nbsp; <strong>exam_history.json</strong> (Pr&uuml;fungshistorie &amp; 25%-Tracking)</span>
+            </div>
             <div class="gh-status-bar" id="ghStatusBar">
                 <div class="status-dot" id="ghStatusDot"></div>
                 <span id="ghStatusText">Noch nicht verbunden. Bitte Einstellungen eintragen.</span>
@@ -888,7 +889,9 @@
 
         let trainings = [];
         let selectedId = null;
-        let ghConfig = { owner:'', repo:'', branch:'main', file:'trainings.json', token:'' };
+        let ghConfig = { owner:'', repo:'', branch:'main', token:'' };
+        const TRAININGS_FILE = 'trainings.json';
+        const EXAM_HIST_FILE = 'exam_history.json';
         let fileSha = null; // GitHub file SHA for updates
         let configPanelVisible = true;
 
@@ -905,11 +908,11 @@
         }
 
         function ghUrl(path='') {
-            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.file}${path}`;
+            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}${path}`;
         }
 
         async function ghLoad() {
-            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.file}?ref=${ghConfig.branch}&t=${Date.now()}`;
+            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}?ref=${ghConfig.branch}&t=${Date.now()}`;
             const res = await fetch(url, { headers: ghHeaders() });
             if (res.status === 404) {
                 // file doesn't exist yet – return empty array
@@ -926,16 +929,32 @@
             return JSON.parse(content);
         }
 
-        async function ghSave(data, message) {
-            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-            const body = { message: message || `ZfP Update ${new Date().toISOString()}`, content, branch: ghConfig.branch };
-            if (fileSha) body.sha = fileSha;
+        async function fetchTrainingsSha() {
+            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}?ref=${ghConfig.branch}&t=${Date.now()}`;
+            const res = await fetch(url, { headers: ghHeaders() });
+            if (res.status === 404) { fileSha = null; return null; }
+            if (!res.ok) throw new Error('SHA fetch: HTTP ' + res.status);
+            const json = await res.json();
+            fileSha = json.sha;
+            return json.sha;
+        }
 
-            const res = await fetch(ghUrl(), {
-                method: 'PUT',
-                headers: ghHeaders(),
-                body: JSON.stringify(body)
-            });
+        async function ghSave(data, message) {
+            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            const commitMsg = message || `ZfP Update ${new Date().toLocaleString('de-DE')}`;
+
+            async function doSave(sha) {
+                const body = { message: commitMsg, content: encoded, branch: ghConfig.branch };
+                if (sha) body.sha = sha;
+                return fetch(ghUrl(), { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
+            }
+
+            let res = await doSave(fileSha);
+            if (res.status === 409 || res.status === 422) {
+                // SHA conflict – fetch fresh SHA and retry once
+                const freshSha = await fetchTrainingsSha();
+                res = await doSave(freshSha);
+            }
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 throw new Error(err.message || `HTTP ${res.status}`);
@@ -955,7 +974,6 @@
             document.getElementById('cfgOwner').value  = ghConfig.owner  || '';
             document.getElementById('cfgRepo').value   = ghConfig.repo   || '';
             document.getElementById('cfgBranch').value = ghConfig.branch || 'main';
-            document.getElementById('cfgFile').value   = ghConfig.file   || 'trainings.json';
             document.getElementById('cfgToken').value  = ghConfig.token  || '';
         }
 
@@ -963,7 +981,6 @@
             ghConfig.owner  = document.getElementById('cfgOwner').value.trim();
             ghConfig.repo   = document.getElementById('cfgRepo').value.trim();
             ghConfig.branch = document.getElementById('cfgBranch').value.trim() || 'main';
-            ghConfig.file   = document.getElementById('cfgFile').value.trim()   || 'trainings.json';
             ghConfig.token  = document.getElementById('cfgToken').value.trim();
         }
 
@@ -1060,7 +1077,7 @@
                     });
                 });
                 buildGrid();
-                setStatus('connected', `✅ Verbunden mit ${ghConfig.owner}/${ghConfig.repo} · Datei: ${ghConfig.file}`);
+                setStatus('connected', `✅ Verbunden: ${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch} · trainings.json + exam_history.json`);
                 if (showOverlay) {
                     configPanelVisible = false;
                     document.getElementById('ghConfigPanel').style.display = 'none';
@@ -1496,7 +1513,7 @@
         const EXAM_PASS_THRESHOLD = 0.8;
         const EXAM_RECERT_YEARS   = 4;
         const EXAM_NEW_Q_RATIO    = 0.25;
-        const EXAM_HISTORY_FILE   = 'exam_history.json';
+        // EXAM_HIST_FILE and TRAININGS_FILE are defined near ghConfig
         const METHOD_AUTO_MAP = {
             'Wirbelstromprüfung': 'ET',
             'Ultraschallprüfung': 'UT',
@@ -1559,41 +1576,104 @@
         }
 
         // ── Load/Save Exam History from GitHub ──
+        function examHistoryUrl() {
+            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${EXAM_HIST_FILE}`;
+        }
+
+        // Decode GitHub base64 content safely (handles UTF-8)
+        function ghDecodeContent(b64) {
+            return decodeURIComponent(escape(atob(b64.replace(/\n/g,''))));
+        }
+
+        // Fetch the current SHA of exam_history.json from GitHub (used for conflict recovery)
+        async function fetchExamHistorySha() {
+            const url = examHistoryUrl() + `?ref=${ghConfig.branch}&t=${Date.now()}`;
+            const res = await fetch(url, { headers: ghHeaders() });
+            if (res.status === 404) { examHistorySha = null; return null; }
+            if (!res.ok) throw new Error(`SHA-Abruf fehlgeschlagen: HTTP ${res.status}`);
+            const json = await res.json();
+            examHistorySha = json.sha;
+            return json.sha;
+        }
+
         async function loadExamHistoryFromGH() {
-            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) return;
+            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
+                showToast('⚠️ GitHub nicht konfiguriert – Prüfungshistorie nicht geladen', 'error');
+                return;
+            }
+            showSaving(true);
             try {
-                const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${EXAM_HISTORY_FILE}?ref=${ghConfig.branch}&t=${Date.now()}`;
+                const url = examHistoryUrl() + `?ref=${ghConfig.branch}&t=${Date.now()}`;
                 const res = await fetch(url, { headers: ghHeaders() });
-                if (res.status === 404) { examHistory = {}; examHistorySha = null; return; }
-                if (!res.ok) return;
+                if (res.status === 404) {
+                    // File doesn't exist yet – start fresh, that's fine
+                    examHistory = {};
+                    examHistorySha = null;
+                    showToast('ℹ️ exam_history.json noch nicht vorhanden – wird beim ersten Speichern angelegt', 'success');
+                    return;
+                }
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    throw new Error(err.message || `HTTP ${res.status}`);
+                }
                 const json = await res.json();
                 examHistorySha = json.sha;
-                const content = decodeURIComponent(escape(atob(json.content.replace(/\n/g,''))));
-                examHistory = JSON.parse(content);
-                showToast('📚 Prüfungshistorie geladen', 'success');
+                examHistory = JSON.parse(ghDecodeContent(json.content));
+                const keys = Object.keys(examHistory).length;
+                showToast(`📚 Prüfungshistorie geladen (${keys} Einträge)`, 'success');
             } catch(e) {
-                console.warn('Exam history load failed:', e);
+                showToast(`❌ Prüfungshistorie: ${e.message}`, 'error');
+                console.error('loadExamHistoryFromGH:', e);
+            } finally {
+                showSaving(false);
             }
         }
 
+        // Robust save with SHA-conflict retry (409/422 → refetch SHA → retry once)
         async function saveExamHistoryToGH() {
-            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) return;
-            try {
-                const content = btoa(unescape(encodeURIComponent(JSON.stringify(examHistory, null, 2))));
-                const body = {
-                    message: `Prüfungshistorie Update ${new Date().toISOString()}`,
-                    content, branch: ghConfig.branch
-                };
-                if (examHistorySha) body.sha = examHistorySha;
-                const res = await fetch(`https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${EXAM_HISTORY_FILE}`, {
-                    method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body)
+            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
+                showToast('⚠️ GitHub nicht konfiguriert – Prüfungshistorie NICHT gespeichert!', 'error');
+                return;
+            }
+            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(examHistory, null, 2))));
+            const commitMsg = `Prüfungshistorie ${new Date().toLocaleString('de-DE')}`;
+
+            async function doSave(sha) {
+                const body = { message: commitMsg, content: encoded, branch: ghConfig.branch };
+                if (sha) body.sha = sha;
+                return fetch(examHistoryUrl(), {
+                    method: 'PUT',
+                    headers: ghHeaders(),
+                    body: JSON.stringify(body)
                 });
-                if (res.ok) {
-                    const json = await res.json();
-                    examHistorySha = json.content?.sha;
+            }
+
+            showSaving(true);
+            try {
+                let res = await doSave(examHistorySha);
+
+                // SHA conflict (file was updated externally) → fetch fresh SHA and retry
+                if (res.status === 409 || res.status === 422) {
+                    showToast('🔄 SHA-Konflikt – lade aktuellen Stand…', 'success');
+                    const freshSha = await fetchExamHistorySha();
+                    res = await doSave(freshSha);
                 }
+
+                if (!res.ok) {
+                    const err = await res.json().catch(() => ({}));
+                    throw new Error(err.message || `HTTP ${res.status}`);
+                }
+
+                const json = await res.json();
+                // GitHub returns the new SHA of the file content
+                examHistorySha = json.content?.sha;
+                showToast('✅ Prüfungshistorie in GitHub gespeichert', 'success');
             } catch(e) {
-                console.warn('Exam history save failed:', e);
+                showToast(`❌ Prüfungshistorie NICHT gespeichert: ${e.message}`, 'error');
+                console.error('saveExamHistoryToGH:', e);
+                throw e; // re-throw so caller knows it failed
+            } finally {
+                showSaving(false);
             }
         }
 
@@ -1832,7 +1912,7 @@
             renderExamInterface();
         };
 
-        window.submitDigitalExam = function(pIdx) {
+        window.submitDigitalExam = async function(pIdx) {
             const p = currentExamSession.participants[pIdx];
             const allParts = ['AT','ST','PR'];
             const allAnswered = allParts.every(part => {
@@ -1859,7 +1939,14 @@
             p.passed      = allParts.every(pt => scores[pt].passed);
             p.completedAt = new Date().toISOString();
 
-            saveExamResult(pIdx);
+            // Show saving spinner in overlay while GitHub saves
+            document.getElementById('examOverlayContent').innerHTML =
+                `<div style="text-align:center;padding:4rem 2rem">
+                    <div class="spinner" style="margin:0 auto 1rem"></div>
+                    <div style="color:var(--text3);font-size:0.95rem">Wird in GitHub gespeichert…</div>
+                </div>`;
+
+            await saveExamResult(pIdx);
             showExamResult(pIdx);
         };
 
@@ -1907,12 +1994,13 @@
         };
 
         // ── Save result to history ──
-        function saveExamResult(pIdx) {
-            const sess    = currentExamSession;
-            const p       = sess.participants[pIdx];
-            const hkey    = `${p.persnr}:::${sess.method}`;
-            if (!examHistory[hkey]) examHistory[hkey] = [];
+        async function saveExamResult(pIdx) {
+            const sess = currentExamSession;
+            const p    = sess.participants[pIdx];
 
+            // 1. Write into in-memory history
+            const hkey = `${p.persnr}:::${sess.method}`;
+            if (!examHistory[hkey]) examHistory[hkey] = [];
             const allQIds = ['AT','ST','PR'].flatMap(part => p.questions[part] || []);
             examHistory[hkey].push({
                 date:        new Date().toISOString().split('T')[0],
@@ -1922,19 +2010,39 @@
                 passed:      p.passed
             });
 
-            // Also write pass/fail into the training attendee record
+            // 2. Write pass/fail back into the training's attendee record (for PDF etc.)
             const t = findT(sess.trainingId);
             if (t && t.attendees) {
                 const att = t.attendees.find(a => a.personalnummer === p.persnr);
                 if (att) {
                     att.pruefungBestanden = p.passed ? 'ja' : 'nein';
-                    att.pruefungDatum = new Date().toISOString().split('T')[0];
+                    att.pruefungDatum     = new Date().toISOString().split('T')[0];
                 }
             }
 
-            // Save both to GitHub
-            saveExamHistoryToGH().catch(console.warn);
-            saveTrainings(`Prüfungsergebnis: ${p.name} (${p.passed?'bestanden':'nicht bestanden'})`).catch(console.warn);
+            // 3. Save BOTH files to GitHub sequentially (not fire-and-forget!)
+            //    exam_history.json first, then trainings.json
+            let historyOk = false;
+            let trainingsOk = false;
+            try {
+                await saveExamHistoryToGH();
+                historyOk = true;
+            } catch(e) {
+                // Error already toasted inside saveExamHistoryToGH
+            }
+            try {
+                await saveTrainings(`Prüfungsergebnis: ${p.name} (${p.passed ? 'bestanden' : 'nicht bestanden'})`);
+                trainingsOk = true;
+            } catch(e) {
+                // Error already toasted inside saveTrainings
+            }
+
+            if (!historyOk || !trainingsOk) {
+                showToast(
+                    `⚠️ Speichern unvollständig:${!historyOk?' exam_history.json FEHLER':''}${!trainingsOk?' trainings.json FEHLER':''}`,
+                    'error'
+                );
+            }
         }
 
         // ── Manual result entry ──
@@ -1984,7 +2092,7 @@
             if (el.value && c) { el.classList.add(el.value === c ? 'ok' : 'bad'); }
         };
 
-        window.submitManualEntry = function(pIdx) {
+        window.submitManualEntry = async function(pIdx) {
             const p     = currentExamSession.participants[pIdx];
             const parts = ['AT','ST','PR'];
             const answers = {};
@@ -2014,7 +2122,14 @@
             p.passed      = parts.every(pt => scores[pt].passed);
             p.completedAt = new Date().toISOString();
 
-            saveExamResult(pIdx);
+            // Show saving state
+            document.getElementById('examOverlayContent').innerHTML =
+                `<div style="text-align:center;padding:4rem 2rem">
+                    <div class="spinner" style="margin:0 auto 1rem"></div>
+                    <div style="color:var(--text3);font-size:0.95rem">Wird in GitHub gespeichert…</div>
+                </div>`;
+
+            await saveExamResult(pIdx);
             showExamResult(pIdx);
         };
 
