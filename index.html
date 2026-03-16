@@ -906,7 +906,11 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
             document.querySelectorAll('.section-view').forEach(s => s.classList.remove('active'));
             document.getElementById('tab-' + tab).classList.add('active');
             document.getElementById('section-' + tab).classList.add('active');
-            if (tab === 'pruefungen' && typeof renderDashboard === 'function') setTimeout(renderDashboard,50);
+            if (tab === 'pruefungen') {
+                // Sync attendees → Prüfungssystem participants automatically
+                syncParticipantsFromAttendees();
+                if (typeof renderDashboard === 'function') setTimeout(renderDashboard, 50);
+            }
         };
 
         /* ─── Sync participants ─── */
@@ -1172,6 +1176,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
             try {
                 await ghSave(trainings, commitMsg);
                 showToast('✅ In GitHub gespeichert', 'success');
+                syncParticipantsFromAttendees();  // keep pruef participants in sync
             } catch(err) {
                 showToast('❌ Speichern fehlgeschlagen: ' + err.message, 'error');
                 console.error(err);
@@ -1862,6 +1867,7 @@ function viewParticipantHistory(id) {
 function initNewTraining() {
   selectedNTParticipants = [];
   document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
+  if (typeof syncParticipantsFromAttendees === 'function') syncParticipantsFromAttendees();
   renderNTSearch('');
   renderNTSelected();
 }
@@ -1872,6 +1878,8 @@ function updateNTMethod() {
 }
 
 function renderNTSearch(search) {
+  // Live-Sync: Schulungsanmeldungen → Prüfungssystem Teilnehmer
+  if (typeof syncParticipantsFromAttendees === 'function') syncParticipantsFromAttendees();
   const ps = getParticipants().filter(p =>
     (!search || p.name.toLowerCase().includes(search.toLowerCase()) || p.employeeId?.includes(search)) &&
     !selectedNTParticipants.find(s => s.id === p.id)
