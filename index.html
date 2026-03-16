@@ -707,10 +707,6 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
                     <label>Branch</label>
                     <input id="cfgBranch" placeholder="main" value="main">
                 </div>
-                <div class="gh-field">
-                    <label>Dateiname</label>
-                    <input id="cfgFile" placeholder="trainings.json" value="trainings.json">
-                </div>
                 <div class="gh-field" style="grid-column: 1 / -1;">
                     <label>Personal Access Token (PAT)</label>
                     <div class="pat-row">
@@ -721,6 +717,13 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
                 </div>
             </div>
 
+            <div style="background:var(--accent-dim);border-radius:var(--radius-lg);padding:.65rem 1.1rem;font-size:.82rem;color:var(--text2);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;border:1px solid var(--accent2)">
+                <i class="fas fa-database" style="color:var(--accent)"></i>
+                <span>Alle Daten werden im <strong>gleichen Repository</strong> gespeichert — in drei separaten Dateien:<br>
+                &nbsp;📄 <strong>trainings.json</strong> · Schulungen &amp; Anmeldungen &nbsp;|&nbsp;
+                📄 <strong>exam_sessions.json</strong> · Prüfungssessions &nbsp;|&nbsp;
+                📄 <strong>exam_history.json</strong> · Prüfungshistorie (25%-Tracking)</span>
+            </div>
             <div class="gh-status-bar" id="ghStatusBar">
                 <div class="status-dot" id="ghStatusDot"></div>
                 <span id="ghStatusText">Noch nicht verbunden. Bitte Einstellungen eintragen.</span>
@@ -744,8 +747,50 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
         <!-- ═══ SCHULUNGSKALENDER ═══ -->
         <div class="section-view active" id="section-schulungen">
 
+        <!-- CALENDAR HEADER: year nav + neue schulung button -->
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;margin-bottom:1rem">
+          <div style="display:flex;align-items:center;gap:.7rem">
+            <button class="btn btn-outline btn-sm" onclick="changeCalYear(-1)">&#8592; Vorjahr</button>
+            <span id="calYearLabel" style="font-size:1.4rem;font-weight:700;letter-spacing:-.3px;color:var(--text);min-width:80px;text-align:center"></span>
+            <button class="btn btn-outline btn-sm" onclick="changeCalYear(+1)">Nächstes Jahr &#8594;</button>
+          </div>
+          <button class="btn btn-primary" onclick="openNewTrainingModal()"><i class="fas fa-plus"></i> Neue Schulung anlegen</button>
+        </div>
+
         <!-- MONTH GRID -->
         <div class="year-grid" id="monthGrid"></div>
+
+        <!-- MODAL: Neue Schulung anlegen -->
+        <div class="modal-overlay-s" id="newTrainingModal">
+          <div class="modal-s" style="max-width:620px">
+            <div class="modal-hdr"><h3>➕ Neue Schulung anlegen</h3><button class="close-btn" onclick="closeNewTrainingModal()">&times;</button></div>
+            <div class="modal-fields-s">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+                <div class="field">
+                  <label>Schulungstyp *</label>
+                  <select id="ntType" style="background:var(--surface2);border:1.5px solid var(--border2);padding:.65rem 1rem;border-radius:var(--radius-full);font-size:.95rem;font-family:var(--font);color:var(--text);width:100%;outline:none">
+                    <option value="">– wählen –</option>
+                    <option value="Wirbelstromprüfung">Wirbelstromprüfung (ET)</option>
+                    <option value="Magnetpulverprüfung">Magnetpulverprüfung (MT)</option>
+                    <option value="Nital-Ätzen">Nital-Ätzen (NE)</option>
+                    <option value="Ultraschallprüfung">Ultraschallprüfung (UT)</option>
+                    <option value="Eindringprüfung">Eindringprüfung (PT)</option>
+                    <option value="Barkhausen Rauschen">Barkhausen Rauschen (BN)</option>
+                  </select>
+                </div>
+                <div class="field"><label>Standort / Ort *</label><input id="ntLocation" placeholder="z.B. Schweinfurt Werk 1"></div>
+                <div class="field"><label>Startdatum * (JJJJ-MM-TT)</label><input id="ntStartDate" type="date"></div>
+                <div class="field"><label>Dauer (Tage) *</label><input id="ntDays" type="number" min="1" max="5" value="1" placeholder="1"></div>
+                <div class="field"><label>Uhrzeit Beginn</label><input id="ntStartTime" type="time" value="08:00"></div>
+                <div class="field"><label>Anzeigetext Datum (optional)</label><input id="ntDateStr" placeholder="z.B. 15.–16.04.2026"></div>
+              </div>
+            </div>
+            <div class="modal-actions-s">
+              <button type="button" class="btn btn-outline" onclick="closeNewTrainingModal()">Abbrechen</button>
+              <button type="button" class="btn btn-primary" onclick="saveNewTraining()">📅 Schulung speichern</button>
+            </div>
+          </div>
+        </div>
 
         <!-- REGISTRATION PANEL -->
         <div class="reg-panel" id="regPanel" style="display:none;">
@@ -793,7 +838,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
           <div id="pruef-app" style="min-height:80vh"></div>
         </div><!-- /section-pruefungen -->
 
-        <div class="footnote">pro Schulung max. 11 Teilnehmer · alle Felder Pflicht · Änderungen werden automatisch in GitHub gespeichert</div>
+        <div class="footnote">pro Schulung max. 11 Teilnehmer · Schulungen anlegen mit ➕ · Kalender navigierbar nach Jahren · alle Daten automatisch in GitHub gespeichert</div>
     </div>
 
     <div class="sync-toast" id="syncToast"></div>
@@ -968,15 +1013,31 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
                 if (el('nt-location')) el('nt-location').value = t.location   || '';
                 if (el('nt-name'))     el('nt-name').value     = t.type + ' – ' + t.date_str;
                 syncParticipantsFromAttendees();
-                if (typeof selectedNTParticipants !== 'undefined') {
-                    selectedNTParticipants = [];
-                    (t.attendees||[]).forEach(function(a) {
-                        const p = window._pParticipants.find(function(pp){return pp.id===a.personalnummer;});
-                        if (p && !selectedNTParticipants.find(function(x){return x.id===p.id;})) selectedNTParticipants.push(p);
-                    });
-                    if (typeof renderNTSelected==='function') renderNTSelected();
-                }
+
+                // LOCKED: nur angemeldete Mitarbeiter – kein Hinzufügen / Entfernen möglich
+                ntLockedMode = true;
+                selectedNTParticipants = [];
+                (t.attendees||[]).forEach(function(a) {
+                    const p = window._pParticipants.find(function(pp){return pp.id===a.personalnummer;});
+                    if (p && !selectedNTParticipants.find(function(x){return x.id===p.id;})) {
+                        selectedNTParticipants.push(p);
+                    }
+                });
+
                 if (typeof navPruef==='function') navPruef('newTraining');
+
+                // Apply locked UI after navPruef renders the view
+                setTimeout(function() {
+                    var lockedInfo  = document.getElementById('nt-locked-info');
+                    var searchArea  = document.getElementById('nt-search-area');
+                    var newPCard    = document.getElementById('nt-new-participant-card');
+                    var lockedLabel = document.getElementById('nt-locked-label');
+                    if (lockedInfo)  { lockedInfo.style.display = 'flex'; lockedInfo.style.alignItems = 'center'; lockedInfo.style.gap = '.5rem'; }
+                    if (searchArea)  searchArea.style.display = 'none';
+                    if (newPCard)    newPCard.style.display    = 'none';
+                    if (lockedLabel) lockedLabel.textContent   = t.attendees.length + ' Teilnehmer aus Schulungsanmeldung „' + t.type + ' – ' + t.date_str + '“';
+                    if (typeof renderNTSelected === 'function') renderNTSelected();
+                }, 60);
             }, 200);
         };
 
@@ -984,7 +1045,8 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
 
         let trainings = [];
         let selectedId = null;
-        let ghConfig = { owner:'', repo:'', branch:'main', file:'trainings.json', token:'' };
+        let ghConfig = { owner:'', repo:'', branch:'main', token:'' };
+        const TRAININGS_FILE = 'trainings.json';
         let fileSha = null; // GitHub file SHA for updates
         let configPanelVisible = true;
 
@@ -1001,11 +1063,11 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
         }
 
         function ghUrl(path='') {
-            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.file}${path}`;
+            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}${path}`;
         }
 
         async function ghLoad() {
-            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.file}?ref=${ghConfig.branch}&t=${Date.now()}`;
+            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}?ref=${ghConfig.branch}&t=${Date.now()}`;
             const res = await fetch(url, { headers: ghHeaders() });
             if (res.status === 404) {
                 // file doesn't exist yet – return empty array
@@ -1051,7 +1113,6 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
             document.getElementById('cfgOwner').value  = ghConfig.owner  || '';
             document.getElementById('cfgRepo').value   = ghConfig.repo   || '';
             document.getElementById('cfgBranch').value = ghConfig.branch || 'main';
-            document.getElementById('cfgFile').value   = ghConfig.file   || 'trainings.json';
             document.getElementById('cfgToken').value  = ghConfig.token  || '';
         }
 
@@ -1059,7 +1120,6 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
             ghConfig.owner  = document.getElementById('cfgOwner').value.trim();
             ghConfig.repo   = document.getElementById('cfgRepo').value.trim();
             ghConfig.branch = document.getElementById('cfgBranch').value.trim() || 'main';
-            ghConfig.file   = document.getElementById('cfgFile').value.trim()   || 'trainings.json';
             ghConfig.token  = document.getElementById('cfgToken').value.trim();
         }
 
@@ -1156,7 +1216,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
                     });
                 });
                 buildGrid();
-                setStatus('connected', `✅ Verbunden mit ${ghConfig.owner}/${ghConfig.repo} · Datei: ${ghConfig.file}`);
+                setStatus('connected', `✅ Verbunden: ${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch}`);
                     await loadExamDataFromGH();
                 if (showOverlay) {
                     configPanelVisible = false;
@@ -1225,13 +1285,96 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
         /* ═══════════════════════════════════════════
            GRID BUILD
         ═══════════════════════════════════════════ */
+        /* ─── Calendar year navigation ─── */
+        let calYear = new Date().getFullYear();
+
+        function changeCalYear(delta) {
+            calYear += delta;
+            buildGrid();
+        }
+
+        window.openNewTrainingModal = function() {
+            if (!ghConfig.token) { showToast('Bitte zuerst GitHub verbinden.', 'error'); return; }
+            // Default date: first day of current displayed year/month
+            const today = new Date();
+            document.getElementById('ntStartDate').value = calYear + '-' + String(today.getMonth()+1).padStart(2,'0') + '-01';
+            document.getElementById('ntDateStr').value = '';
+            document.getElementById('ntType').value = '';
+            document.getElementById('ntLocation').value = '';
+            document.getElementById('ntDays').value = '1';
+            document.getElementById('ntStartTime').value = '08:00';
+            document.getElementById('newTrainingModal').classList.add('open');
+        };
+        window.closeNewTrainingModal = function() {
+            document.getElementById('newTrainingModal').classList.remove('open');
+        };
+        document.addEventListener('click', function(e) {
+            const m = document.getElementById('newTrainingModal');
+            if (m && e.target === m) m.classList.remove('open');
+        });
+
+        window.saveNewTraining = async function() {
+            const type      = document.getElementById('ntType').value.trim();
+            const location  = document.getElementById('ntLocation').value.trim();
+            const startDate = document.getElementById('ntStartDate').value.trim();
+            const days      = parseInt(document.getElementById('ntDays').value) || 1;
+            const startTime = document.getElementById('ntStartTime').value || '08:00';
+            let   dateStr   = document.getElementById('ntDateStr').value.trim();
+
+            if (!type)      { showToast('Bitte Schulungstyp wählen.', 'error'); return; }
+            if (!location)  { showToast('Bitte Standort angeben.', 'error'); return; }
+            if (!startDate) { showToast('Bitte Startdatum angeben.', 'error'); return; }
+
+            // Auto-generate dateStr if not provided
+            if (!dateStr) {
+                const d = new Date(startDate + 'T12:00:00');
+                if (days > 1) {
+                    const end = new Date(d); end.setDate(end.getDate() + days - 1);
+                    const fmt = dt => `${String(dt.getDate()).padStart(2,'0')}.${String(dt.getMonth()+1).padStart(2,'0')}.${dt.getFullYear()}`;
+                    dateStr = fmt(d) + ' – ' + fmt(end);
+                } else {
+                    dateStr = `${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()}`;
+                }
+            }
+
+            const newTraining = {
+                id: 'tr_' + Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+                type,
+                location,
+                start_date: startDate,
+                days,
+                start_time: startTime,
+                date_str: dateStr,
+                attendees: []
+            };
+
+            trainings.push(newTraining);
+            // Jump to the year of the new training
+            calYear = new Date(startDate + 'T12:00:00').getFullYear();
+            try {
+                await saveTrainings(`Neue Schulung: ${type} in ${location} am ${dateStr}`);
+                closeNewTrainingModal();
+                buildGrid();
+                showToast('✅ Schulung angelegt!');
+            } catch(e) {
+                trainings.pop();
+                showToast('❌ Fehler: ' + e.message, 'error');
+            }
+        };
+
         function buildGrid() {
             const grid = document.getElementById('monthGrid');
+            const label = document.getElementById('calYearLabel');
+            if (label) label.textContent = calYear;
+
+            // Auto-expand year if there are trainings outside current year
+            const years = [...new Set(trainings.map(t => new Date(t.start_date+'T12:00:00').getFullYear()))].sort();
+
             let html = '';
             for (let i=0;i<12;i++) {
                 const mTrainings = trainings.filter(t=>{
                     const d = new Date(t.start_date+'T12:00:00');
-                    return d.getMonth()===i;
+                    return d.getFullYear()===calYear && d.getMonth()===i;
                 }).sort((a,b)=>new Date(a.start_date)-new Date(b.start_date));
                 html += `<div class="month-card"><div class="month-title"><span>${MONTH_NAMES[i]}</span><span class="chip">${mTrainings.length}</span></div>`;
                 if (!mTrainings.length) {
@@ -1253,7 +1396,10 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
                                 <span class="type-name">${t.type}</span>
                                 <span class="dur-chip">${durationInfo(t.type, t.days)}</span>
                             </div>
-                            <div><span class="status-chip ${sc}">${st}</span></div>
+                            <div style="display:flex;align-items:center;justify-content:space-between;gap:.4rem;flex-wrap:wrap">
+                                <span class="status-chip ${sc}">${st}</span>
+                                <button onclick="event.stopPropagation();deleteTraining('${t.id}')" style="background:none;border:none;cursor:pointer;color:var(--muted);font-size:.8rem;padding:2px 6px;border-radius:var(--radius-sm)" title="Schulung löschen">🗑</button>
+                            </div>
                             ${cancel.cancelled ? `<div class="cancel-warn">${cancel.reason}</div>`:''}
                             <div class="location-tag">📍 ${t.location}</div>
                             <div class="date-row">
@@ -1274,6 +1420,29 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
                 el.addEventListener('click', () => selectTraining(el.dataset.id));
             });
         }
+
+        window.deleteTraining = async function(id) {
+            const t = trainings.find(x => x.id === id);
+            if (!t) return;
+            if ((t.attendees||[]).length > 0) {
+                if (!confirm(`"${t.type}" hat ${t.attendees.length} Anmeldung(en). Schulung wirklich löschen?`)) return;
+            } else {
+                if (!confirm(`Schulung "${t.type} – ${t.date_str}" wirklich löschen?`)) return;
+            }
+            const idx = trainings.findIndex(x => x.id === id);
+            trainings.splice(idx, 1);
+            try {
+                await saveTrainings(`Schulung gelöscht: ${t.type} ${t.date_str}`);
+                if (selectedId === id) {
+                    selectedId = null;
+                    document.getElementById('regPanel').style.display = 'none';
+                }
+                buildGrid();
+            } catch(e) {
+                trainings.splice(idx, 0, t);
+                showToast('❌ Fehler: ' + e.message, 'error');
+            }
+        };
 
         /* ═══════════════════════════════════════════
            SELECTION / REGISTRATION PANEL
@@ -1619,6 +1788,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
 let questions = null;
 let currentMethod = '';
 let selectedNTParticipants = [];
+let ntLockedMode = false;  // true = only schulungs attendees, no adding
 let currentTrainingId = null;
 let currentExamParticipantIndex = 0;
 let currentExamPart = 'AT';
@@ -1783,11 +1953,11 @@ function renderDashboard() {
     });
   });
   recertDue.sort((a,b) => a.daysLeft - b.daysLeft);
-  document.getElementById('dashRecert').innerHTML = recertDue.slice(0,5).map(r => `
+  document.getElementById('dashRecert').innerHTML = recertDue.slice(0,8).map(r => `
     <div class="flex justify-between items-center mb8">
       <div>
         <div class="text-sm font-semi">${r.p.name}</div>
-        <div class="text-xs text-dim">${r.m} · fällig ${fmtDate(r.due.toISOString().split('T')[0])}</div>
+        <div class="text-xs text-dim"><span class="badge badge-blue" style="font-size:.68rem">${r.m}</span> fällig ${fmtDate(r.due.toISOString().split('T')[0])}</div>
       </div>
       <span class="badge ${r.daysLeft < 60 ? 'badge-red' : r.daysLeft < 120 ? 'badge-amber' : 'badge-gray'}">${r.daysLeft}d</span>
     </div>
@@ -1802,15 +1972,47 @@ function renderParticipants(search = '') {
   const history = getHistory();
   const now = new Date();
   document.getElementById('participantsTable').innerHTML = ps.length ? ps.map(p => {
-    const lastExam = getLastExamInfo(p.id, history);
-    const recertDue = lastExam ? (() => { const d = new Date(lastExam.date); d.setFullYear(d.getFullYear()+RECERT_YEARS); return d; })() : null;
-    const daysLeft = recertDue ? Math.ceil((recertDue - now) / 86400000) : null;
+
+    // Collect all methods this participant has exam history for
+    const methodKeys = Object.keys(history).filter(k => k.startsWith(p.id + ':::'));
+
+    // Build per-method summary: last exam date + pass status + recert due
+    const methodRows = methodKeys.map(key => {
+      const method = key.split(':::')[1];
+      const entries = (history[key] || []).slice().sort((a,b) => new Date(b.date)-new Date(a.date));
+      const last = entries[0];
+      if (!last) return null;
+      const lastPassed = entries.find(e => e.passed);
+      const recertDate = lastPassed ? (() => { const d = new Date(lastPassed.date); d.setFullYear(d.getFullYear()+RECERT_YEARS); return d; })() : null;
+      const days = recertDate ? Math.ceil((recertDate - now) / 86400000) : null;
+      const color = !last.passed ? 'badge-red' : days === null ? 'badge-grey' : days < 60 ? 'badge-red' : days < 180 ? 'badge-amber' : 'badge-green';
+      return { method, last, recertDate, days, color };
+    }).filter(Boolean).sort((a,b) => a.method.localeCompare(b.method));
+
+    // Methods cell: one badge per method with last date + pass/fail
+    const methodsCell = methodRows.length ? methodRows.map(r =>
+      `<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem;flex-wrap:wrap">
+        <span class="badge badge-blue">${r.method}</span>
+        <span class="td-mono" style="font-size:.78rem">${fmtDate(r.last.date)}</span>
+        <span class="badge ${r.last.passed ? 'badge-green' : 'badge-red'}">${r.last.passed ? '✓' : '✗'}</span>
+      </div>`
+    ).join('') : '<span style="color:var(--text3);font-size:.83rem">– noch keine Prüfung –</span>';
+
+    // Recert cell: next due date across all methods (soonest)
+    const soonest = methodRows.filter(r => r.recertDate && r.days !== null).sort((a,b) => a.days - b.days)[0];
+    const recertCell = soonest
+      ? `<span class="badge ${soonest.color}" title="${soonest.method}">${soonest.method}: ${fmtDate(soonest.recertDate.toISOString().split('T')[0])} (${soonest.days}d)</span>`
+      + (methodRows.filter(r => r.recertDate).length > 1
+          ? `<div style="font-size:.72rem;color:var(--text3);margin-top:.2rem">${methodRows.filter(r=>r.recertDate&&r!==soonest).map(r=>`${r.method}: ${fmtDate(r.recertDate.toISOString().split('T')[0])}`).join(' · ')}</div>`
+          : '')
+      : '—';
+
     return `<tr>
       <td><strong>${p.name}</strong></td>
       <td class="td-mono">${p.employeeId || '—'}</td>
-      <td class="text-muted">${p.department || '—'}</td>
-      <td class="td-mono">${lastExam ? fmtDate(lastExam.date) + ' · ' + lastExam.method : '—'}</td>
-      <td>${recertDue ? `<span class="badge ${daysLeft<60?'badge-red':daysLeft<180?'badge-amber':'badge-green'}">${fmtDate(recertDue.toISOString().split('T')[0])}</span>` : '—'}</td>
+      <td style="color:var(--text2)">${p.department || '—'}</td>
+      <td>${methodsCell}</td>
+      <td>${recertCell}</td>
       <td><div class="btn-group">
         <button class="btn btn-secondary btn-sm" onclick="viewParticipantHistory('${p.id}')">Verlauf</button>
         <button class="btn btn-icon btn-secondary btn-sm" onclick="deleteParticipant('${p.id}')" title="Löschen">✕</button>
@@ -1866,7 +2068,15 @@ function viewParticipantHistory(id) {
 // ===== NEW TRAINING =====
 function initNewTraining() {
   selectedNTParticipants = [];
+  ntLockedMode = false;   // free mode when opened directly
   document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
+  // Restore free-mode UI
+  const lockedInfo = document.getElementById('nt-locked-info');
+  const searchArea = document.getElementById('nt-search-area');
+  const newPCard   = document.getElementById('nt-new-participant-card');
+  if (lockedInfo) lockedInfo.style.display = 'none';
+  if (searchArea) searchArea.style.display = 'block';
+  if (newPCard)   newPCard.style.display   = 'block';
   if (typeof syncParticipantsFromAttendees === 'function') syncParticipantsFromAttendees();
   renderNTSearch('');
   renderNTSelected();
@@ -1919,7 +2129,7 @@ function renderNTSelected() {
     <div class="participant-item" style="margin-bottom:4px">
       <div class="p-name">${p.name}</div>
       <div class="p-id">${p.employeeId || '—'}</div>
-      <button class="btn btn-danger btn-sm btn-icon" onclick="removeNTParticipant('${p.id}')">✕</button>
+      ${ntLockedMode ? '' : `<button class="btn btn-danger btn-sm btn-icon" onclick="removeNTParticipant('${p.id}')">✕</button>`}
     </div>
   `).join('') || '<div class="text-sm text-muted" style="padding:8px">Noch keine Teilnehmer ausgewählt</div>';
 }
@@ -1947,22 +2157,33 @@ function resetNewTraining() {
   document.getElementById('nt-count-st').value = 15;
   document.getElementById('nt-count-pr').value = 8;
   selectedNTParticipants = [];
+  ntLockedMode = false;
+  const lockedInfo = document.getElementById('nt-locked-info');
+  const searchArea = document.getElementById('nt-search-area');
+  const newPCard   = document.getElementById('nt-new-participant-card');
+  if (lockedInfo) lockedInfo.style.display = 'none';
+  if (searchArea) searchArea.style.display = 'block';
+  if (newPCard)   newPCard.style.display   = 'block';
   renderNTSelected();
   renderNTSearch('');
 }
 
 // ===== QUESTION SELECTION (25% NEW GUARANTEE) =====
+// "Neu" = Frage wurde in der LETZTEN Prüfung NICHT gestellt (nicht 4-Jahres-Fenster)
 function selectQuestionsForParticipant(participantId, method, config) {
   const history = getHistory();
   const hkey = `${participantId}:::${method}`;
   const hlist = history[hkey] || [];
-  const fourYearsAgo = new Date(); fourYearsAgo.setFullYear(fourYearsAgo.getFullYear() - RECERT_YEARS);
-  
-  // Collect all question IDs used in last 4 years
+
+  // Nur die LETZTE Prüfung zählt für die 25%-Neu-Garantie
+  const lastExam = hlist.length > 0
+    ? hlist.slice().sort((a, b) => new Date(b.date) - new Date(a.date))[0]
+    : null;
+
   const usedIds = new Set();
-  hlist.filter(h => new Date(h.date) >= fourYearsAgo).forEach(h => {
-    (h.questionIds || []).forEach(id => usedIds.add(id));
-  });
+  if (lastExam) {
+    (lastExam.questionIds || []).forEach(id => usedIds.add(id));
+  }
 
   const result = {};
   const newCounts = {};
@@ -2548,7 +2769,6 @@ function renderHistory() {
   const history = getHistory();
   const participants = getParticipants();
   const now = new Date();
-  const fourYearsAgo = new Date(); fourYearsAgo.setFullYear(fourYearsAgo.getFullYear() - RECERT_YEARS);
 
   let rows = [];
   Object.entries(history).forEach(([key, hlist]) => {
@@ -2557,7 +2777,8 @@ function renderHistory() {
     const p = participants.find(x => x.id === pid);
     const name = p?.name || pid;
     if (nameSearch && !name.toLowerCase().includes(nameSearch)) return;
-    hlist.filter(h => new Date(h.date) >= fourYearsAgo).forEach(h => {
+    // Alle Einträge anzeigen – kein Zeitlimit
+    hlist.forEach(h => {
       rows.push({ name, employeeId: p?.employeeId, method, ...h });
     });
   });
@@ -2923,7 +3144,7 @@ function initPruefSystem() {
         <div class="table-wrap">
           <table>
             <thead><tr>
-              <th>Name</th><th>Personal-Nr.</th><th>Abteilung</th><th>Letzte Prüfung</th><th>Rezertifiz. fällig</th><th></th>
+              <th>Name</th><th>Personal-Nr.</th><th>Abteilung</th><th>Prüfungsverfahren &amp; letzte Prüfung</th><th>Rezertifiz. fällig (nächste)</th><th></th>
             </tr></thead>
             <tbody id="participantsTable"></tbody>
           </table>
@@ -3000,14 +3221,22 @@ function initPruefSystem() {
         <div>
           <div class="card">
             <div class="card-title">Teilnehmerliste</div>
-            <div class="flex gap8 mb16">
-              <input class="form-input" style="flex:1" placeholder="Name oder Personal-Nr. suchen" id="nt-search" oninput="renderNTSearch(this.value)">
-              <button class="btn btn-secondary btn-sm" onclick="addAllParticipants()">Alle hinzufügen</button>
+            <!-- Locked mode: from Schulungskalender -->
+            <div id="nt-locked-info" style="display:none;background:var(--accent-dim);border:1px solid var(--accent2);border-radius:var(--radius-lg);padding:.7rem 1rem;font-size:.85rem;color:var(--text2);margin-bottom:.8rem;display:none">
+              <i class="fas fa-lock" style="color:var(--accent)"></i>
+              <span id="nt-locked-label">Teilnehmer aus Schulungsanmeldung – nicht änderbar</span>
             </div>
-            <div id="nt-search-results" style="max-height:200px;overflow-y:auto;margin-bottom:12px"></div>
-            <div class="separator"></div>
-            <div style="font-size:11px;font-family:var(--mono);color:var(--text3);margin-bottom:8px">AUSGEWÄHLT (<span id="nt-selected-count">0</span>)</div>
-            <div id="nt-selected-list" style="max-height:200px;overflow-y:auto"></div>
+            <!-- Free mode: standalone -->
+            <div id="nt-search-area">
+              <div class="flex gap8 mb16">
+                <input class="form-input" style="flex:1" placeholder="Name oder Personal-Nr. suchen" id="nt-search" oninput="renderNTSearch(this.value)">
+                <button class="btn btn-secondary btn-sm" onclick="addAllParticipants()">Alle hinzufügen</button>
+              </div>
+              <div id="nt-search-results" style="max-height:200px;overflow-y:auto;margin-bottom:12px"></div>
+              <div class="separator"></div>
+            </div>
+            <div style="font-size:11px;font-family:var(--mono);color:var(--text3);margin-bottom:8px">TEILNEHMER (<span id="nt-selected-count">0</span>)</div>
+            <div id="nt-selected-list" style="max-height:240px;overflow-y:auto"></div>
           </div>
 
           <div class="card" id="nt-new-participant-card">
@@ -3050,7 +3279,7 @@ function initPruefSystem() {
     <!-- HISTORY -->
     <div id="view-history" class="view">
       <div class="page-title">Verlauf &amp; Archiv</div>
-      <div class="page-sub">Prüfungshistorie der letzten 4 Jahre (Rezertifizierungszeitraum)</div>
+      <div class="page-sub">Vollständige Prüfungshistorie (25%-Garantie gilt gegen letzte Prüfung)</div>
       <div class="form-row col2" style="max-width:600px;margin-bottom:24px">
         <div class="form-group">
           <label class="form-label">Teilnehmer filtern</label>
@@ -3097,8 +3326,8 @@ function initPruefSystem() {
         <div class="text-sm text-muted" style="line-height:2">
           <b>ZfP Prüfungssystem v2.0</b><br>
           Norm: DIN EN ISO 9712 · Bestehensschwelle: 80% je Teil<br>
-          Rezertifizierungszeitraum: 4 Jahre<br>
-          25%-Neu-Fragen-Garantie: Automatisch sichergestellt<br>
+          Rezertifizierungshinweis: 4 Jahre (DGZfP-Norm)<br>
+          25%-Neu-Fragen-Garantie: gegen die <strong>letzte</strong> Prüfung (vollständige Historie wird gespeichert)<br>
           Datenspeicherung: Browser LocalStorage<br>
           <span class="text-dim">Schaeffler Technologies AG &amp; Co. KG · WI/SW2-PQT</span>
         </div>
