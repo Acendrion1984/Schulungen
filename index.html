@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>ZfP‑Schulungen · GitHub JSON</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+<title>ZfP · Schulungen &amp; Prüfungssystem · Schaeffler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+
         *, *::before, *::after { box-sizing: border-box; margin: 0; }
 
         :root {
@@ -437,201 +437,191 @@
         .saving-indicator { display: none; align-items: center; gap: 0.4rem; color: var(--text3); font-size: 0.83rem; }
         .saving-indicator.visible { display: flex; }
         .save-spinner { width: 14px; height: 14px; border: 2px solid var(--border); border-top-color: var(--accent2); border-radius: 50%; animation: spin 0.7s linear infinite; }
+    
 
-        /* ═══ PRÜFUNGS-SYSTEM ═══════════════════════════════════════════ */
-        .pruef-section {
-            margin-top: 2rem;
-            border-top: 2px dashed var(--accent2);
-            padding-top: 1.4rem;
-        }
-        .pruef-hdr {
-            display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 1.1rem; flex-wrap: wrap; gap: 0.6rem;
-        }
-        .pruef-hdr h3 { font-size: 1.15rem; font-weight: 700; color: var(--text); }
-        .pruef-method-badge {
-            background: var(--accent); color: white;
-            border-radius: var(--radius-full); padding: 0.2rem 0.8rem;
-            font-size: 0.8rem; font-weight: 700;
-        }
-        .pruef-config {
-            background: var(--surface2); border: 1.5px solid var(--border2);
-            border-radius: var(--radius-lg); padding: 1.2rem;
-            margin-bottom: 1.2rem;
-        }
-        .pruef-config-row {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 0.8rem; margin-bottom: 0.8rem;
-        }
-        .pruef-field { display: flex; flex-direction: column; gap: 0.25rem; }
-        .pruef-field label { font-size: 0.8rem; font-weight: 600; color: var(--text2); }
-        .pruef-field select, .pruef-field input[type=number] {
-            background: var(--surface); border: 1.5px solid var(--border2);
-            border-radius: var(--radius-full); padding: 0.55rem 0.9rem;
-            font-size: 0.9rem; font-family: var(--font); color: var(--text);
-            transition: border-color 0.2s;
-        }
-        .pruef-field select:focus, .pruef-field input[type=number]:focus {
-            border-color: var(--accent2); outline: none;
-        }
-        .pruef-info-box {
-            background: var(--accent-dim); border-radius: var(--radius-md);
-            padding: 0.7rem 1rem; font-size: 0.82rem; color: var(--text2);
-            line-height: 1.6; margin-bottom: 0.8rem;
-        }
-        .pruef-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
+/* ══════════════════════════════════════
+   UNIFIED TAB SYSTEM
+══════════════════════════════════════ */
+.main-tabs{display:flex;gap:.5rem;margin-bottom:1.2rem;background:var(--surface);border-radius:var(--radius-xl);padding:.5rem;box-shadow:var(--shadow-sm);border:1.5px solid var(--border)}
+.main-tab{flex:1;text-align:center;padding:.7rem 1rem;border-radius:var(--radius-lg);cursor:pointer;font-weight:600;font-size:.93rem;transition:.18s;color:var(--text3);border:1.5px solid transparent;font-family:var(--font)}
+.main-tab:hover{background:var(--surface2);color:var(--text)}
+.main-tab.active{background:var(--header-grad);color:white;box-shadow:var(--shadow-md)}
+.section-view{display:none}.section-view.active{display:block}
+/* ── PRÜFUNGSSYSTEM layout wrapper ── */
+#pruef-app{display:flex;min-height:80vh;border:1.5px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;background:var(--surface);box-shadow:var(--shadow-lg)}
+#pruef-sidebar{width:235px;flex-shrink:0;background:var(--surface2);border-right:1.5px solid var(--border);display:flex;flex-direction:column;transition:.3s}
+#pruef-main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+#pruef-header{background:var(--surface);border-bottom:1.5px solid var(--border);padding:0 22px;height:54px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+#pruef-content{flex:1;overflow-y:auto;padding:28px}
+.sidebar-logo{padding:18px 18px 14px;border-bottom:1.5px solid var(--border)}
+.sidebar-logo .brand{font-size:10px;font-family:var(--font-mono);letter-spacing:.11em;color:var(--text3);text-transform:uppercase;margin-bottom:3px}
+.sidebar-logo .app-name{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.2px}
+.sidebar-logo .version{font-size:9px;font-family:var(--font-mono);color:var(--muted);margin-top:2px}
+.sidebar-method-select{margin:7px;padding:7px 11px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg)}
+.sidebar-method-select label{font-size:9px;font-family:var(--font-mono);color:var(--text3);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.08em}
+.sidebar-method-select select{width:100%;background:var(--surface2);border:1.5px solid var(--border2);color:var(--text);font-family:var(--font);font-size:.82rem;padding:5px 8px;border-radius:var(--radius-full);outline:none;cursor:pointer}
+.sidebar-method-select select:focus{border-color:var(--accent2)}
+.sidebar-section{padding:14px 12px 5px;font-size:9px;font-family:var(--font-mono);letter-spacing:.1em;color:var(--text3);text-transform:uppercase}
+.nav-item{display:flex;align-items:center;gap:9px;padding:8px 11px;margin:1px 7px;border-radius:var(--radius-lg);cursor:pointer;transition:.14s;color:var(--muted);font-size:.86rem;font-weight:500;border:1.5px solid transparent}
+.nav-item:hover{background:var(--surface);color:var(--text)}
+.nav-item.active{background:var(--accent-dim);border-color:var(--accent2);color:var(--accent)}
+.nav-item svg{width:15px;height:15px;flex-shrink:0}
+.h-title{font-size:13px;font-weight:600;color:var(--text)}
+.h-method-badge{font-size:11px;font-family:var(--font-mono);padding:2px 8px;background:var(--accent-dim);border:1px solid var(--accent2);border-radius:var(--radius-full);color:var(--accent);letter-spacing:.04em}
+.view{display:none}.view.active{display:block;animation:pfadeIn .2s ease}
+@keyframes pfadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+#pruef-content .card{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:20px;margin-bottom:14px}
+#pruef-content .card-title{font-size:11px;font-weight:600;margin-bottom:13px;display:flex;align-items:center;gap:6px;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+#pruef-content .card-title svg{width:13px;height:13px}
+#pruef-content .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+#pruef-content .stat-card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:14px 18px}
+#pruef-content .stat-card .val{font-size:24px;font-weight:700;font-family:var(--font-mono);line-height:1;color:var(--text)}
+#pruef-content .stat-card .lbl{font-size:10px;color:var(--text3);margin-top:3px;text-transform:uppercase;letter-spacing:.05em;font-family:var(--font-mono)}
+#pruef-content .method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+#pruef-content .method-card{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:18px;cursor:pointer;transition:.18s;position:relative;overflow:hidden}
+#pruef-content .method-card:hover{border-color:var(--accent2);transform:translateY(-1px)}
+#pruef-content .method-card.selected{border-color:var(--accent);background:var(--accent-dim)}
+#pruef-content .method-card .method-code{font-family:var(--font-mono);font-size:20px;font-weight:700;color:var(--accent);margin-bottom:5px}
+#pruef-content .method-card .method-name{font-size:11px;color:var(--text2);line-height:1.4}
+#pruef-content .badge{display:inline-flex;align-items:center;gap:3px;padding:2px 7px;border-radius:var(--radius-full);font-size:10px;font-family:var(--font-mono);font-weight:600}
+#pruef-content .badge-green{background:var(--accent-dim);color:var(--accent);border:1px solid rgba(46,125,50,.35)}
+#pruef-content .badge-red{background:var(--cancelled-bg);color:var(--cancelled-text);border:1px solid rgba(211,47,47,.3)}
+#pruef-content .badge-amber{background:var(--locked-bg);color:var(--locked-text);border:1px solid rgba(245,158,11,.3)}
+#pruef-content .badge-blue{background:#e3f2fd;color:#1565c0;border:1px solid rgba(21,101,192,.3)}
+#pruef-content .badge-gray{background:var(--past-bg);color:var(--past-text);border:1px solid var(--border)}
+body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#64b5f6}
+#pruef-content .form-input{background:var(--surface);border:1.5px solid var(--border2);color:var(--text);font-family:var(--font);font-size:.87rem;padding:7px 11px;border-radius:var(--radius-full);outline:none;transition:.15s;width:100%}
+#pruef-content .form-input:focus{border-color:var(--accent2);box-shadow:0 0 0 3px rgba(76,175,80,.15)}
+#pruef-content .form-input::placeholder{color:var(--muted)}
+#pruef-content select.form-input{cursor:pointer}
+#pruef-content .form-label{font-size:10px;font-family:var(--font-mono);color:var(--text3);text-transform:uppercase;letter-spacing:.07em;display:block;margin-bottom:4px}
+#pruef-content .form-group{display:flex;flex-direction:column;gap:4px}
+#pruef-content .form-row{display:grid;gap:10px;margin-bottom:10px}
+#pruef-content .form-row.col2{grid-template-columns:1fr 1fr}
+#pruef-content .form-row.col3{grid-template-columns:1fr 1fr 1fr}
+#pruef-content .btn{font-family:var(--font);font-size:.87rem;font-weight:600;padding:6px 13px;border-radius:var(--radius-full);cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:5px;border:1.5px solid transparent}
+#pruef-content .btn-primary{background:var(--accent);color:white;border-color:var(--accent)}
+#pruef-content .btn-primary:hover{background:#1e5e22}
+#pruef-content .btn-secondary{background:var(--surface2);border-color:var(--border2);color:var(--text)}
+#pruef-content .btn-secondary:hover{border-color:var(--accent2)}
+#pruef-content .btn-danger{background:var(--cancelled-bg);border-color:var(--cancelled-border);color:var(--cancelled-text)}
+#pruef-content .btn-success{background:var(--accent-dim);border-color:var(--accent2);color:var(--accent)}
+#pruef-content .btn-sm{padding:4px 9px;font-size:.78rem}
+#pruef-content .btn-icon{padding:5px;border-radius:var(--radius-sm)}
+#pruef-content .btn-group{display:flex;gap:6px;flex-wrap:wrap}
+#pruef-content .table-wrap{overflow-x:auto}
+#pruef-content table{width:100%;border-collapse:collapse}
+#pruef-content th{font-size:10px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.07em;color:var(--text2);padding:9px 12px;text-align:left;border-bottom:2px solid var(--border)}
+#pruef-content td{padding:9px 12px;border-bottom:1px solid var(--border);font-size:.85rem;vertical-align:middle;color:var(--text)}
+#pruef-content tr:hover td{background:var(--surface2)}
+#pruef-content .td-mono{font-family:var(--font-mono);font-size:.78rem}
+#pruef-content .participant-item{display:flex;align-items:center;gap:9px;padding:8px 11px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg)}
+#pruef-content .participant-item .p-name{flex:1;font-size:.87rem;font-weight:500}
+#pruef-content .participant-item .p-id{font-family:var(--font-mono);font-size:.75rem;color:var(--text3)}
+#pruef-content .progress{height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+#pruef-content .progress-bar{height:100%;border-radius:3px;transition:width .3s}
+#pruef-content .progress-bar.green{background:var(--accent2)}
+#pruef-content .progress-bar.red{background:#d32f2f}
+#pruef-content .progress-bar.amber{background:#f59e0b}
+#pruef-content .progress-bar.blue{background:var(--accent)}
+#pruef-content .part-result{background:var(--surface2);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:14px;margin-bottom:7px}
+#pruef-content .part-result.pass{border-color:rgba(46,125,50,.45);background:rgba(46,125,50,.05)}
+#pruef-content .part-result.fail{border-color:rgba(211,47,47,.4);background:var(--cancelled-bg)}
+#pruef-content .part-result-score.pass{color:var(--accent)}
+#pruef-content .part-result-score.fail{color:#d32f2f}
+#pruef-content .part-result-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+#pruef-content .part-result-title{font-weight:600;font-size:.87rem}
+#pruef-content .question-block{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:15px;margin-bottom:9px}
+#pruef-content .question-block .q-header{display:flex;align-items:flex-start;gap:9px;margin-bottom:9px}
+#pruef-content .q-num{font-family:var(--font-mono);font-size:9px;color:var(--text3);background:var(--border);padding:2px 5px;border-radius:3px;flex-shrink:0;margin-top:1px}
+#pruef-content .q-text{font-size:.87rem;line-height:1.54;color:var(--text)}
+#pruef-content .q-options{display:flex;flex-direction:column;gap:4px}
+#pruef-content .q-option{display:flex;align-items:flex-start;gap:8px;padding:6px 9px;border-radius:var(--radius-md);cursor:pointer;border:1.5px solid transparent;transition:.12s}
+#pruef-content .q-option:hover{background:var(--surface2);border-color:var(--border2)}
+#pruef-content .q-option.selected{background:var(--accent-dim);border-color:var(--accent2)}
+#pruef-content .q-option.correct{background:rgba(46,125,50,.08);border-color:rgba(46,125,50,.5)}
+#pruef-content .q-option.wrong{background:var(--cancelled-bg);border-color:rgba(211,47,47,.4)}
+#pruef-content .q-option-label{font-family:var(--font-mono);font-size:10px;color:var(--muted);flex-shrink:0;width:15px}
+#pruef-content .q-option-text{font-size:.86rem;color:var(--text)}
+#pruef-content input[type=radio]{display:none}
+#pruef-content .alert{padding:10px 13px;border-radius:var(--radius-md);font-size:.85rem;margin-bottom:12px;display:flex;align-items:flex-start;gap:7px}
+#pruef-content .alert-info{background:var(--accent-dim);border:1px solid rgba(76,175,80,.35);color:var(--text2)}
+#pruef-content .alert-warning{background:var(--locked-bg);border:1px solid rgba(230,81,0,.3);color:var(--text)}
+#pruef-content .tabs{display:flex;gap:0;border-bottom:1.5px solid var(--border);margin-bottom:20px}
+#pruef-content .tab{padding:8px 15px;font-size:.85rem;font-weight:500;cursor:pointer;color:var(--text3);border-bottom:2px solid transparent;transition:.14s;margin-bottom:-1px}
+#pruef-content .tab:hover{color:var(--text)}
+#pruef-content .tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+#pruef-content .separator{border:none;border-top:1.5px solid var(--border);margin:14px 0}
+#pruef-content .empty-state{text-align:center;padding:50px 20px;color:var(--text3)}
+#pruef-content .empty-state .empty-icon{font-size:40px;margin-bottom:10px}
+#pruef-content .page-title{font-size:20px;font-weight:700;margin-bottom:3px;letter-spacing:-.3px;color:var(--text)}
+#pruef-content .page-sub{color:var(--muted);font-size:.85rem;margin-bottom:22px}
+#pruef-content .flex{display:flex}
+#pruef-content .items-center{align-items:center}
+#pruef-content .justify-between{justify-content:space-between}
+#pruef-content .gap8{gap:8px}.#pruef-content .gap12{gap:12px}
+#pruef-content .mb4{margin-bottom:4px}
+#pruef-content .mb8{margin-bottom:8px}
+#pruef-content .mb16{margin-bottom:16px}
+#pruef-content .mb24{margin-bottom:24px}
+#pruef-content .mt8{margin-top:8px}
+#pruef-content .mt16{margin-top:16px}
+#pruef-content .mt24{margin-top:24px}
+#pruef-content .text-sm{font-size:.85rem}
+#pruef-content .text-xs{font-size:.76rem}
+#pruef-content .text-mono{font-family:var(--font-mono)}
+#pruef-content .text-muted{color:var(--text2)}
+#pruef-content .text-dim{color:var(--text3)}
+#pruef-content .text-green{color:var(--accent)}
+#pruef-content .text-red{color:var(--cancelled-text)}
+#pruef-content .text-amber{color:var(--locked-text)}
+#pruef-content .text-accent{color:var(--accent)}
+#pruef-content .font-bold{font-weight:700}
+#pruef-content .font-semi{font-weight:600}
+#pruef-content .w100{width:100%}
+/* Exam mode */
+.exam-progress-bar{height:3px;background:var(--border);position:sticky;top:0;z-index:20}
+.exam-progress-fill{height:100%;background:var(--accent2);transition:width .3s}
+.exam-header{background:var(--surface);border-bottom:1.5px solid var(--border);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:3px;z-index:19}
+.part-nav{display:flex;gap:3px}
+.part-nav-item{padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);font-size:10px;cursor:pointer;border:1.5px solid var(--border2);color:var(--text3);transition:.14s}
+.part-nav-item.active{background:var(--accent);border-color:var(--accent);color:white}
+.part-nav-item.completed{background:var(--accent-dim);border-color:var(--accent2);color:var(--accent)}
+/* Answer grid */
+.answer-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:.8rem}
+.answer-cell{display:flex;flex-direction:column;align-items:center;gap:3px}
+.answer-cell .q-label{font-family:var(--font-mono);font-size:9px;color:var(--text3)}
+.answer-input{width:36px;height:28px;background:var(--surface2);border:1.5px solid var(--border2);border-radius:4px;color:var(--text);font-family:var(--font-mono);font-size:.85rem;text-align:center;outline:none;text-transform:uppercase}
+.answer-input:focus{border-color:var(--accent2)}
+.answer-input.correct{border-color:var(--accent2);background:var(--accent-dim)}
+.answer-input.incorrect{border-color:#ef5350;background:var(--cancelled-bg)}
+/* Modals in pruef context */
+#modal-addParticipant .modal-overlay,#modal-results .modal-overlay{z-index:4500}
+.modal-overlay{z-index:4500}
+.modal{border-radius:var(--radius-xl)}
+/* Pruef toast */
+#pruef-toast{position:fixed;bottom:80px;right:20px;z-index:6000;display:flex;flex-direction:column;gap:7px;pointer-events:none}
+.pruef-toast-item{background:var(--surface);border:1.5px solid var(--border2);border-radius:var(--radius-lg);padding:10px 14px;font-size:.85rem;max-width:300px;animation:slideIn .2s ease;box-shadow:var(--shadow-lg);font-family:var(--font);pointer-events:auto}
+.pruef-toast-item.success{border-color:var(--accent2)}
+.pruef-toast-item.error{border-color:var(--cancelled-border)}
+/* Button in reg-panel to jump to exam */
+.btn-exam-jump{background:var(--accent-dim);border:1.5px solid var(--accent2);border-radius:var(--radius-full);padding:.45rem 1.1rem;font-size:.87rem;font-weight:600;color:var(--accent);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:.18s;font-family:var(--font)}
+.btn-exam-jump:hover{background:var(--accent);color:white}
+/* Print */
+@media print{
+  #pruef-sidebar,.exam-header,.exam-progress-bar,.no-print{display:none!important}
+  #pruef-main{margin:0}#pruef-content{padding:0;overflow:visible}
+  #pruef-content .card{border:1pt solid #ccc;break-inside:avoid}
+  #pruef-content .question-block{break-inside:avoid;border:1pt solid #ccc}
+  .page-break{break-before:page}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
 
-        /* Prüfungs-Teilnehmer-Grid */
-        .pruef-participants-grid {
-            display: grid; gap: 0.5rem; margin-top: 1rem;
-        }
-        .pruef-participant-row {
-            display: flex; align-items: center; gap: 0.8rem;
-            background: var(--surface2); border: 1.5px solid var(--border);
-            border-radius: var(--radius-lg); padding: 0.65rem 1rem;
-            flex-wrap: wrap;
-        }
-        .pruef-participant-row.done { border-color: var(--accent2); }
-        .pruef-participant-row.failed { border-color: #ef5350; background: var(--cancelled-bg); }
-        .pp-name { font-weight: 600; font-size: 0.9rem; flex: 1; min-width: 130px; }
-        .pp-id { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text3); }
-        .pp-new-badge {
-            background: #e3f2fd; color: #1565c0; border-radius: var(--radius-full);
-            padding: 0.15rem 0.55rem; font-size: 0.72rem; font-weight: 700;
-        }
-        body.dark .pp-new-badge { background: #1a2a3a; color: #64b5f6; }
-        .pp-result {
-            font-size: 0.8rem; font-weight: 700; border-radius: var(--radius-full);
-            padding: 0.18rem 0.65rem;
-        }
-        .pp-result.pass { background: var(--accent-dim); color: var(--accent); }
-        .pp-result.fail { background: var(--cancelled-bg); color: var(--cancelled-text); }
-        .pp-result.pending { background: var(--past-bg); color: var(--past-text); }
-
-        /* ── PRÜFUNGS-OVERLAY ── */
-        .exam-overlay {
-            display: none; position: fixed; inset: 0;
-            background: var(--bg); z-index: 3000;
-            overflow-y: auto; padding: 1.2rem 1rem;
-            animation: fadeIn 0.2s ease;
-        }
-        .exam-overlay.open { display: block; }
-        @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-        .exam-overlay-inner { max-width: 860px; margin: 0 auto; }
-        .exam-top-bar {
-            background: var(--header-grad); color: white;
-            border-radius: var(--radius-xl); padding: 1.2rem 1.6rem;
-            display: flex; align-items: center; justify-content: space-between;
-            margin-bottom: 1.2rem; flex-wrap: wrap; gap: 0.7rem;
-            box-shadow: var(--shadow-xl);
-        }
-        .exam-top-bar .etb-left h2 { font-size: 1.25rem; font-weight: 700; }
-        .exam-top-bar .etb-left .sub { font-size: 0.83rem; opacity: 0.8; margin-top: 0.2rem; }
-        .exam-progress-strip {
-            height: 4px; background: rgba(255,255,255,0.2);
-            border-radius: 2px; overflow: hidden; margin-top: 0.8rem;
-        }
-        .exam-progress-fill { height: 100%; background: #69f0ae; transition: width 0.3s ease; }
-
-        .exam-part-tabs { display: flex; gap: 0.4rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
-        .exam-tab {
-            padding: 0.45rem 1.1rem; border-radius: var(--radius-full);
-            font-weight: 600; font-size: 0.85rem; cursor: pointer;
-            border: 1.5px solid var(--border2); color: var(--text2);
-            background: var(--surface); transition: 0.15s;
-        }
-        .exam-tab:hover { border-color: var(--accent2); color: var(--accent); }
-        .exam-tab.active { background: var(--accent); border-color: var(--accent); color: white; }
-        .exam-tab.done { background: var(--accent-dim); border-color: var(--accent2); color: var(--accent); }
-
-        .exam-question-block {
-            background: var(--surface); border: 1.5px solid var(--border);
-            border-radius: var(--radius-xl); padding: 1.2rem 1.3rem;
-            margin-bottom: 0.8rem; transition: border-color 0.15s;
-        }
-        .eq-header { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.9rem; }
-        .eq-num {
-            background: var(--accent-dim); color: var(--accent);
-            border-radius: var(--radius-full); padding: 0.15rem 0.6rem;
-            font-size: 0.72rem; font-weight: 700; white-space: nowrap; flex-shrink: 0; margin-top: 2px;
-        }
-        .eq-text { font-size: 0.95rem; font-weight: 500; color: var(--text); line-height: 1.55; }
-        .eq-options { display: flex; flex-direction: column; gap: 0.45rem; }
-        .eq-option {
-            display: flex; align-items: flex-start; gap: 0.7rem;
-            padding: 0.65rem 0.9rem; border-radius: var(--radius-lg);
-            cursor: pointer; border: 1.5px solid var(--border);
-            background: var(--surface2); transition: 0.12s;
-        }
-        .eq-option:hover { border-color: var(--accent2); background: var(--accent-dim); }
-        .eq-option.selected { border-color: var(--accent2); background: var(--accent-dim); }
-        .eq-option.correct { border-color: #4caf50; background: #e8f5e9; }
-        .eq-option.wrong { border-color: #ef5350; background: var(--cancelled-bg); }
-        body.dark .eq-option.correct { background: #1a2e1a; }
-        body.dark .eq-option.wrong { background: var(--cancelled-bg); }
-        .eq-opt-key { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); flex-shrink: 0; margin-top:1px; width: 18px; }
-        .eq-opt-text { font-size: 0.9rem; color: var(--text); line-height: 1.45; }
-        .eq-result-note { margin-top: 0.6rem; font-size: 0.82rem; font-weight: 600; }
-        .eq-result-note.ok { color: var(--accent); }
-        .eq-result-note.bad { color: #d32f2f; }
-
-        /* Result card */
-        .exam-result-card {
-            background: var(--surface); border: 2px solid var(--border);
-            border-radius: var(--radius-xl); padding: 2rem;
-            text-align: center; margin: 2rem auto; max-width: 600px;
-            box-shadow: var(--shadow-xl);
-        }
-        .exam-result-card.pass { border-color: var(--accent2); }
-        .exam-result-card.fail { border-color: #ef5350; }
-        .result-emoji { font-size: 3.5rem; margin-bottom: 0.8rem; }
-        .result-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .result-title.pass { color: var(--accent); }
-        .result-title.fail { color: #d32f2f; }
-        .result-sub { color: var(--text2); font-size: 0.9rem; margin-bottom: 1.4rem; }
-        .result-parts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.8rem; margin-bottom: 1.6rem; }
-        .result-part {
-            background: var(--surface2); border: 1.5px solid var(--border);
-            border-radius: var(--radius-lg); padding: 0.9rem 0.7rem;
-        }
-        .result-part .rp-label { font-size: 0.75rem; color: var(--text3); margin-bottom: 0.3rem; }
-        .result-part .rp-val { font-size: 1.5rem; font-weight: 700; font-family: var(--font-mono); }
-        .result-part .rp-val.pass { color: var(--accent); }
-        .result-part .rp-val.fail { color: #d32f2f; }
-        .result-part .rp-badge { font-size: 0.72rem; font-weight: 700; margin-top: 0.2rem; }
-        .result-part.pass { border-color: var(--accent2); }
-        .result-part.fail { border-color: #ef5350; }
-
-        /* Ergebnis manuell eintragen */
-        .manual-entry-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 0.5rem; margin-bottom: 0.8rem; }
-        .me-cell { display: flex; flex-direction: column; align-items: center; gap: 3px; }
-        .me-label { font-size: 0.7rem; color: var(--text3); font-family: var(--font-mono); }
-        .me-input {
-            width: 38px; height: 30px; background: var(--surface2);
-            border: 1.5px solid var(--border2); border-radius: var(--radius-sm);
-            color: var(--text); font-family: var(--font-mono); font-size: 0.9rem;
-            text-align: center; text-transform: uppercase; outline: none;
-        }
-        .me-input:focus { border-color: var(--accent2); }
-        .me-input.ok { border-color: var(--accent2); background: var(--accent-dim); }
-        .me-input.bad { border-color: #ef5350; background: var(--cancelled-bg); }
-
-        /* Questions loading indicator */
-        .q-load-note {
-            background: var(--accent-dim); border-radius: var(--radius-md);
-            padding: 0.6rem 1rem; font-size: 0.82rem; color: var(--text2);
-            display: flex; align-items: center; gap: 0.5rem;
-        }
-        .q-load-note.error { background: var(--cancelled-bg); color: var(--cancelled-text); }
-
-        @media (max-width: 600px) {
-            .pruef-config-row { grid-template-columns: 1fr 1fr; }
-            .result-parts-grid { grid-template-columns: 1fr; }
-            .manual-entry-grid { grid-template-columns: repeat(4,1fr); }
-        }
-    </style>
+</style>
 </head>
 <body>
+
     <!-- LOADING -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner"></div>
@@ -717,7 +707,10 @@
                     <label>Branch</label>
                     <input id="cfgBranch" placeholder="main" value="main">
                 </div>
-                <!-- cfgFile removed – filenames are fixed -->
+                <div class="gh-field">
+                    <label>Dateiname</label>
+                    <input id="cfgFile" placeholder="trainings.json" value="trainings.json">
+                </div>
                 <div class="gh-field" style="grid-column: 1 / -1;">
                     <label>Personal Access Token (PAT)</label>
                     <div class="pat-row">
@@ -728,10 +721,6 @@
                 </div>
             </div>
 
-            <div style="background:var(--accent-dim);border-radius:var(--radius-md);padding:0.65rem 1rem;font-size:0.82rem;color:var(--text2);margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap">
-                <i class="fas fa-database"></i>
-                <span>Gespeicherte Dateien im Repository: <strong>trainings.json</strong> (Schulungen &amp; Teilnehmer) &nbsp;&middot;&nbsp; <strong>exam_history.json</strong> (Pr&uuml;fungshistorie &amp; 25%-Tracking)</span>
-            </div>
             <div class="gh-status-bar" id="ghStatusBar">
                 <div class="status-dot" id="ghStatusDot"></div>
                 <span id="ghStatusText">Noch nicht verbunden. Bitte Einstellungen eintragen.</span>
@@ -743,6 +732,17 @@
                 <button class="btn btn-ghost btn-sm" onclick="toggleConfigPanel()">Ausblenden</button>
             </div>
         </div>
+
+        <!-- EXAM TAB BUTTON in reg panel added via JS -->
+
+        <!-- MAIN TABS -->
+        <div class="main-tabs">
+          <div class="main-tab active" id="tab-schulungen" onclick="switchMainTab('schulungen')">📅 Schulungskalender</div>
+          <div class="main-tab" id="tab-pruefungen" onclick="switchMainTab('pruefungen')">🎓 Prüfungssystem</div>
+        </div>
+
+        <!-- ═══ SCHULUNGSKALENDER ═══ -->
+        <div class="section-view active" id="section-schulungen">
 
         <!-- MONTH GRID -->
         <div class="year-grid" id="monthGrid"></div>
@@ -758,6 +758,7 @@
 
             <div style="margin-bottom: 1rem; display:flex; flex-wrap:wrap; gap:0.6rem;">
                 <button class="btn btn-info" onclick="generateAttendancePDF()"><i class="fas fa-file-pdf"></i> Anwesenheitsliste PDF</button>
+                <button class="btn-exam-jump" onclick="openExamFromTraining()"><i class="fas fa-graduation-cap"></i> 🎓 Prüfung starten</button>
             </div>
 
             <div class="required-hint">* Alle Felder sind Pflichtfelder</div>
@@ -783,71 +784,14 @@
                 </div>
                 <div id="listContainer"></div>
             </div>
-
-            <!-- PRÜFUNGS-SEKTION -->
-            <div class="pruef-section" id="pruefSection">
-                <div class="pruef-hdr">
-                    <h3>🎓 Prüfung</h3>
-                    <span class="pruef-method-badge" id="pruefMethodBadge">–</span>
-                </div>
-                <div id="qLoadNote" class="q-load-note" style="margin-bottom:0.9rem">
-                    <span>⏳</span><span>Fragen werden geladen (questions.json)…</span>
-                </div>
-                <div class="pruef-config">
-                    <div class="pruef-config-row">
-                        <div class="pruef-field">
-                            <label>Prüfmethode</label>
-                            <select id="pruefMethod">
-                                <option value="">– Auto –</option>
-                                <option value="ET">ET · Wirbelstromprüfung</option>
-                                <option value="UT">UT · Ultraschallprüfung</option>
-                                <option value="NE">NE · Ätzprüfung / Nitalätzen</option>
-                                <option value="MT">MT · Magnetpulverprüfung</option>
-                                <option value="PT">PT · Eindringprüfung</option>
-                                <option value="BN">BN · Barkhausen Rauschen</option>
-                            </select>
-                        </div>
-                        <div class="pruef-field">
-                            <label>AT-Fragen</label>
-                            <input type="number" id="pruefCountAT" value="20" min="5" max="35">
-                        </div>
-                        <div class="pruef-field">
-                            <label>ST-Fragen</label>
-                            <input type="number" id="pruefCountST" value="15" min="5" max="20">
-                        </div>
-                        <div class="pruef-field">
-                            <label>PR-Fragen</label>
-                            <input type="number" id="pruefCountPR" value="8" min="3" max="10">
-                        </div>
-                    </div>
-                    <div class="pruef-info-box">
-                        ✅ Bestehensschwelle: <strong>80% je Teil</strong> (AT, ST, PR) &nbsp;·&nbsp;
-                        🔄 25%-Neu-Garantie: Jeder Teilnehmer erhält mind. 25% ungesehene Fragen gegenüber seiner letzten Prüfung &nbsp;·&nbsp;
-                        📅 Zeitraum: 4 Jahre (Rezertifizierungszyklus)
-                    </div>
-                    <div class="pruef-actions">
-                        <button class="btn btn-primary" onclick="generateExam()" id="pruefGenBtn">
-                            ⚡ Prüfung generieren
-                        </button>
-                        <button class="btn btn-outline btn-sm" onclick="loadExamHistoryFromGH()">
-                            🔄 Historie neu laden
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Generierte Prüfung – Teilnehmer-Status -->
-                <div id="pruefParticipantsArea" style="display:none">
-                    <div class="list-hdr">
-                        <h3>Prüfungsstatus</h3>
-                        <div style="display:flex;gap:0.5rem">
-                            <button class="btn btn-outline btn-sm" onclick="printAllExamSheets()"><i class="fas fa-print"></i> Alle Bögen drucken</button>
-                            <button class="btn btn-info btn-sm" onclick="exportExamResultsCSV()"><i class="fas fa-file-csv"></i> CSV Export</button>
-                        </div>
-                    </div>
-                    <div class="pruef-participants-grid" id="pruefParticipantsList"></div>
-                </div>
-            </div>
         </div>
+
+        </div><!-- /section-schulungen -->
+
+        <!-- ═══ PRÜFUNGSSYSTEM ═══ -->
+        <div class="section-view" id="section-pruefungen">
+          <div id="pruef-app" style="min-height:80vh"></div>
+        </div><!-- /section-pruefungen -->
 
         <div class="footnote">pro Schulung max. 11 Teilnehmer · alle Felder Pflicht · Änderungen werden automatisch in GitHub gespeichert</div>
     </div>
@@ -856,27 +800,53 @@
 
     <button class="theme-btn" id="themeBtn">🌓</button>
 
-    <!-- ═══════════════════════════════════════════════
-         PRÜFUNGS-OVERLAY (digital exam)
-    ════════════════════════════════════════════════ -->
-    <div class="exam-overlay" id="examOverlay">
-        <div class="exam-overlay-inner">
-            <div class="exam-top-bar">
-                <div class="etb-left">
-                    <h2 id="examOverlayTitle">Digitale Prüfung</h2>
-                    <div class="sub" id="examOverlaySub"></div>
-                    <div class="exam-progress-strip"><div class="exam-progress-fill" id="examProgFill" style="width:0%"></div></div>
-                </div>
-                <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
-                    <button class="btn btn-white btn-sm" onclick="closeExamOverlay()">✕ Abbrechen</button>
-                </div>
-            </div>
-            <div id="examOverlayContent"></div>
-        </div>
-    </div>
+    
 
-    <script>
-    (function() {
+<!-- ═══ PRUEF MODALS ═══ -->
+<div class="modal-overlay" id="modal-addParticipant">
+  <div class="modal">
+    <div class="modal-title">Teilnehmer hinzufügen</div>
+    <div class="modal-sub">Neuen Prüfungsteilnehmer anlegen</div>
+    <div class="form-row col2">
+      <div class="form-group">
+        <label class="form-label">Vollständiger Name *</label>
+        <input class="form-input" id="ap-name" placeholder="Max Mustermann">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Personal-Nr. *</label>
+        <input class="form-input" id="ap-empid" placeholder="12345">
+      </div>
+    </div>
+    <div class="form-group mb16">
+      <label class="form-label">Abteilung</label>
+      <input class="form-input" id="ap-dept" placeholder="WI/SW2-PQT">
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-addParticipant')">Abbrechen</button>
+      <button class="btn btn-primary" onclick="saveParticipant()">Speichern</button>
+    </div>
+  </div>
+</div>
+
+<!-- Results modal -->
+<div class="modal-overlay" id="modal-results">
+  <div class="modal" style="max-width:800px">
+    <div class="modal-title">Ergebnisse erfassen</div>
+    <div class="modal-sub" id="results-modal-sub">Antworten eintragen</div>
+    <div id="results-modal-content"></div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-results')">Abbrechen</button>
+      <button class="btn btn-primary" onclick="saveResults()">Ergebnisse speichern</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pruef toast -->
+<div id="pruef-toast"></div>
+
+<script>
+(function() {
+
         /* ═══════════════════════════════════════════
            CONSTANTS & STATE
         ═══════════════════════════════════════════ */
@@ -885,13 +855,132 @@
         const DURATION = { 'Wirbelstromprüfung':16, 'Ultraschallprüfung':24, 'Magnetpulverprüfung':12, 'Nital-Ätzen':8 };
         const MONTH_NAMES = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
         const GH_CONFIG_KEY = 'zfp_gh_config';
+
+        /* ═══════════════════════════════════════════
+           EXAM FILES CONSTANTS & SHARED STATE
+        ═══════════════════════════════════════════ */
+        const EXAM_SESS_FILE  = 'exam_sessions.json';
+        const EXAM_HIST_FILE  = 'exam_history.json';
+        window.EXAM_SESS_FILE = 'exam_sessions.json';
+        window.EXAM_HIST_FILE = 'exam_history.json';
+        window._pSessions     = [];
+        window._pHistory      = {};
+        window._pParticipants = [];
+        const _xShas = {};
+
+        /* ─── Generic GH file save/load ─── */
+        window.ghSaveFile = async function(filename, data, message) {
+            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            const msg = message || ('ZfP ' + new Date().toLocaleString('de-DE'));
+            async function doSave(sha) {
+                const body = { message: msg, content: encoded, branch: ghConfig.branch };
+                if (sha) body.sha = sha;
+                return fetch('https://api.github.com/repos/' + ghConfig.owner + '/' + ghConfig.repo + '/contents/' + filename,
+                    { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
+            }
+            showSaving(true);
+            try {
+                let res = await doSave(_xShas[filename]);
+                if (res.status === 409 || res.status === 422) {
+                    const r2 = await fetch('https://api.github.com/repos/' + ghConfig.owner + '/' + ghConfig.repo + '/contents/' + filename + '?ref=' + ghConfig.branch + '&t=' + Date.now(), { headers: ghHeaders() });
+                    _xShas[filename] = r2.ok ? (await r2.json()).sha : null;
+                    res = await doSave(_xShas[filename]);
+                }
+                if (!res.ok) { const e = await res.json().catch(()=>{}); throw new Error(e?.message || 'HTTP ' + res.status); }
+                _xShas[filename] = (await res.json()).content?.sha;
+            } finally { showSaving(false); }
+        };
+        window.ghLoadFile = async function(filename) {
+            const url = 'https://api.github.com/repos/' + ghConfig.owner + '/' + ghConfig.repo + '/contents/' + filename + '?ref=' + ghConfig.branch + '&t=' + Date.now();
+            const res = await fetch(url, { headers: ghHeaders() });
+            if (res.status === 404) { _xShas[filename] = null; return null; }
+            if (!res.ok) return null;
+            const json = await res.json();
+            _xShas[filename] = json.sha;
+            return JSON.parse(decodeURIComponent(escape(atob(json.content.replace(/\n/g,'')))));
+        };
+
+        /* ─── Tab switching ─── */
+        window.switchMainTab = function(tab) {
+            document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.section-view').forEach(s => s.classList.remove('active'));
+            document.getElementById('tab-' + tab).classList.add('active');
+            document.getElementById('section-' + tab).classList.add('active');
+            if (tab === 'pruefungen' && typeof renderDashboard === 'function') setTimeout(renderDashboard,50);
+        };
+
+        /* ─── Sync participants ─── */
+        function syncParticipantsFromAttendees() {
+            (trainings||[]).forEach(function(t) {
+                (t.attendees||[]).forEach(function(a) {
+                    if (!a.personalnummer) return;
+                    if (!window._pParticipants.find(function(p){return p.id===a.personalnummer;})) {
+                        window._pParticipants.push({id:a.personalnummer, name:((a.vorname||'')+' '+(a.name||'')).trim(), employeeId:a.personalnummer, department:a.abteilung||'', createdAt:new Date().toISOString()});
+                    }
+                });
+            });
+        }
+
+        /* ─── Load exam data after GH connect ─── */
+        async function loadExamDataFromGH() {
+            try {
+                const [sess, hist] = await Promise.all([window.ghLoadFile(EXAM_SESS_FILE), window.ghLoadFile(EXAM_HIST_FILE)]);
+                window._pSessions = sess || [];
+                window._pHistory  = hist || {};
+                syncParticipantsFromAttendees();
+                if (typeof initPruefSystem === 'function') initPruefSystem();
+            } catch(e) {
+                showToast('\u26a0 Prüfungsdaten: ' + e.message, 'error');
+                if (typeof initPruefSystem === 'function') initPruefSystem();
+            }
+        }
+
+        /* ─── Write exam result back into schulungs attendee ─── */
+        window._updateAttendeeResult = function(participantId, passed) {
+            (trainings||[]).forEach(function(t) {
+                (t.attendees||[]).forEach(function(a) {
+                    if (a.personalnummer === String(participantId)) {
+                        a.pruefungBestanden = passed ? 'ja' : 'nein';
+                        a.pruefungDatum = new Date().toISOString().split('T')[0];
+                    }
+                });
+            });
+            ghSave(trainings, 'Prüfungsergebnis eingetragen').catch(function(){});
+        };
+
+        /* ─── Open exam tab pre-filled from Schulungskalender ─── */
+        window.openExamFromTraining = function() {
+            if (!selectedId) { alert('Bitte zuerst eine Schulung auswählen.'); return; }
+            const t = (trainings||[]).find(function(x){return x.id===selectedId;});
+            if (!t || !(t.attendees||[]).length) { alert('Keine Teilnehmer in dieser Schulung.'); return; }
+            window.switchMainTab('pruefungen');
+            setTimeout(function() {
+                const mmap = {Wirbelstrom:'ET',Ultraschall:'UT',Nital:'NE',Magnetpulver:'MT',Eindring:'PT',Barkhausen:'BN'};
+                let method = '';
+                for (const [k,v] of Object.entries(mmap)) { if ((t.type||'').toLowerCase().indexOf(k.toLowerCase())>=0) { method=v; break; } }
+                const el = function(id){return document.getElementById(id);};
+                if (el('nt-method'))   el('nt-method').value   = method;
+                if (el('nt-date'))     el('nt-date').value     = t.start_date || '';
+                if (el('nt-location')) el('nt-location').value = t.location   || '';
+                if (el('nt-name'))     el('nt-name').value     = t.type + ' – ' + t.date_str;
+                syncParticipantsFromAttendees();
+                if (typeof selectedNTParticipants !== 'undefined') {
+                    selectedNTParticipants = [];
+                    (t.attendees||[]).forEach(function(a) {
+                        const p = window._pParticipants.find(function(pp){return pp.id===a.personalnummer;});
+                        if (p && !selectedNTParticipants.find(function(x){return x.id===p.id;})) selectedNTParticipants.push(p);
+                    });
+                    if (typeof renderNTSelected==='function') renderNTSelected();
+                }
+                if (typeof navPruef==='function') navPruef('newTraining');
+            }, 200);
+        };
+
         const THEME_KEY = 'zfp-theme-preference';
 
         let trainings = [];
         let selectedId = null;
-        let ghConfig = { owner:'', repo:'', branch:'main', token:'' };
-        const TRAININGS_FILE = 'trainings.json';
-        const EXAM_HIST_FILE = 'exam_history.json';
+        let ghConfig = { owner:'', repo:'', branch:'main', file:'trainings.json', token:'' };
         let fileSha = null; // GitHub file SHA for updates
         let configPanelVisible = true;
 
@@ -908,11 +997,11 @@
         }
 
         function ghUrl(path='') {
-            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}${path}`;
+            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.file}${path}`;
         }
 
         async function ghLoad() {
-            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}?ref=${ghConfig.branch}&t=${Date.now()}`;
+            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${ghConfig.file}?ref=${ghConfig.branch}&t=${Date.now()}`;
             const res = await fetch(url, { headers: ghHeaders() });
             if (res.status === 404) {
                 // file doesn't exist yet – return empty array
@@ -929,32 +1018,16 @@
             return JSON.parse(content);
         }
 
-        async function fetchTrainingsSha() {
-            const url = `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${TRAININGS_FILE}?ref=${ghConfig.branch}&t=${Date.now()}`;
-            const res = await fetch(url, { headers: ghHeaders() });
-            if (res.status === 404) { fileSha = null; return null; }
-            if (!res.ok) throw new Error('SHA fetch: HTTP ' + res.status);
-            const json = await res.json();
-            fileSha = json.sha;
-            return json.sha;
-        }
-
         async function ghSave(data, message) {
-            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-            const commitMsg = message || `ZfP Update ${new Date().toLocaleString('de-DE')}`;
+            const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+            const body = { message: message || `ZfP Update ${new Date().toISOString()}`, content, branch: ghConfig.branch };
+            if (fileSha) body.sha = fileSha;
 
-            async function doSave(sha) {
-                const body = { message: commitMsg, content: encoded, branch: ghConfig.branch };
-                if (sha) body.sha = sha;
-                return fetch(ghUrl(), { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
-            }
-
-            let res = await doSave(fileSha);
-            if (res.status === 409 || res.status === 422) {
-                // SHA conflict – fetch fresh SHA and retry once
-                const freshSha = await fetchTrainingsSha();
-                res = await doSave(freshSha);
-            }
+            const res = await fetch(ghUrl(), {
+                method: 'PUT',
+                headers: ghHeaders(),
+                body: JSON.stringify(body)
+            });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
                 throw new Error(err.message || `HTTP ${res.status}`);
@@ -974,6 +1047,7 @@
             document.getElementById('cfgOwner').value  = ghConfig.owner  || '';
             document.getElementById('cfgRepo').value   = ghConfig.repo   || '';
             document.getElementById('cfgBranch').value = ghConfig.branch || 'main';
+            document.getElementById('cfgFile').value   = ghConfig.file   || 'trainings.json';
             document.getElementById('cfgToken').value  = ghConfig.token  || '';
         }
 
@@ -981,6 +1055,7 @@
             ghConfig.owner  = document.getElementById('cfgOwner').value.trim();
             ghConfig.repo   = document.getElementById('cfgRepo').value.trim();
             ghConfig.branch = document.getElementById('cfgBranch').value.trim() || 'main';
+            ghConfig.file   = document.getElementById('cfgFile').value.trim()   || 'trainings.json';
             ghConfig.token  = document.getElementById('cfgToken').value.trim();
         }
 
@@ -1077,12 +1152,12 @@
                     });
                 });
                 buildGrid();
-                setStatus('connected', `✅ Verbunden: ${ghConfig.owner}/${ghConfig.repo}/${ghConfig.branch} · trainings.json + exam_history.json`);
+                setStatus('connected', `✅ Verbunden mit ${ghConfig.owner}/${ghConfig.repo} · Datei: ${ghConfig.file}`);
+                    await loadExamDataFromGH();
                 if (showOverlay) {
                     configPanelVisible = false;
                     document.getElementById('ghConfigPanel').style.display = 'none';
                     showToast('✅ Daten erfolgreich geladen', 'success');
-                    loadExamHistoryFromGH(); // also load exam history
                 }
             } catch(err) {
                 setStatus('error', `❌ Fehler: ${err.message}`);
@@ -1202,19 +1277,6 @@
             const t = findT(id);
             if (!t) return;
             selectedId = id;
-
-            // Reset exam session when a different training is selected
-            if (!currentExamSession || currentExamSession.trainingId !== id) {
-                currentExamSession = null;
-                document.getElementById('pruefParticipantsArea').style.display = 'none';
-            }
-
-            // Auto-detect and display method
-            const detected = detectMethodFromTrainingType(t.type);
-            if (detected) {
-                document.getElementById('pruefMethod').value = detected;
-            }
-            document.getElementById('pruefMethodBadge').textContent = detected || '–';
             const past   = isPast(t.start_date);
             const locked = isLocked(t.start_date);
             const cancel = checkCancel(t);
@@ -1407,7 +1469,6 @@
 
             let rows = '';
             attendees.forEach(a => {
-                const pruefResult = a.pruefungBestanden ? `☒ ja ☐ nein` : `☐ ja ☐ nein`;
                 rows += `<tr>
                     <td>${a.personalnummer||''}</td>
                     <td>${a.name||''}, ${a.vorname||''}</td>
@@ -1415,7 +1476,7 @@
                     <td>${a.geburtsort||''}</td>
                     <td>${a.geburtstag||''}</td>
                     ${Array.from({length:days},()=>'<td>          </td>').join('')}
-                    <td>${pruefResult}</td>
+                    <td>☐ ja ☐ nein</td>
                 </tr>`;
             });
             for (let i=attendees.length;i<11;i++) {
@@ -1506,723 +1567,6 @@
         };
 
         /* ═══════════════════════════════════════════
-           PRÜFUNGS-SYSTEM
-        ═══════════════════════════════════════════ */
-
-        // ── Constants ──
-        const EXAM_PASS_THRESHOLD = 0.8;
-        const EXAM_RECERT_YEARS   = 4;
-        const EXAM_NEW_Q_RATIO    = 0.25;
-        // EXAM_HIST_FILE and TRAININGS_FILE are defined near ghConfig
-        const METHOD_AUTO_MAP = {
-            'Wirbelstromprüfung': 'ET',
-            'Ultraschallprüfung': 'UT',
-            'Nital-Ätzen':        'NE',
-            'Nitalätzen':         'NE',
-            'Magnetpulverprüfung':'MT',
-            'Barkhausen':         'BN',
-            'Eindringprüfung':    'PT',
-        };
-        const PART_LABELS = { AT:'Allgemeiner Teil', ST:'Spezieller Teil', PR:'Praktischer Teil' };
-
-        // ── State ──
-        let examQuestions     = null;   // loaded from questions.json
-        let examHistory       = {};     // keyed "[persnr]:::[method]"
-        let examHistorySha    = null;   // GitHub SHA for exam_history.json
-        let currentExamSession = null;  // { trainingId, method, participants:[{persnr,name,...,questions,answers,scores}] }
-        let examCurrentPIdx   = -1;     // index into currentExamSession.participants
-        let examCurrentPart   = 'AT';
-        let examCurrentAnswers= {};     // { AT:{qId:answer}, ST:{}, PR:{} }
-        let examQuestionsMap  = {};     // qId → question object
-
-        // ── Load questions.json ──
-        async function loadExamQuestions() {
-            const note = document.getElementById('qLoadNote');
-            try {
-                const r = await fetch('questions.json?t=' + Date.now());
-                if (!r.ok) throw new Error('HTTP ' + r.status);
-                examQuestions = await r.json();
-                buildExamQuestionsMap();
-                note.className = 'q-load-note';
-                note.innerHTML = `<span>✅</span><span><strong>${countExamQuestions()} Fragen</strong> geladen aus questions.json</span>`;
-            } catch(e) {
-                note.className = 'q-load-note error';
-                note.innerHTML = `<span>⚠️</span><span>questions.json nicht geladen. Bitte Datei ins gleiche Verzeichnis legen und per Webserver öffnen. (${e.message})</span>`;
-            }
-        }
-
-        function buildExamQuestionsMap() {
-            examQuestionsMap = {};
-            if (!examQuestions) return;
-            (examQuestions.shared?.AT || []).forEach(q => examQuestionsMap[q.id] = q);
-            const methods = examQuestions.methods || {};
-            Object.values(methods).forEach(m => {
-                (m.ST||[]).forEach(q => examQuestionsMap[q.id] = q);
-                (m.PR||[]).forEach(q => examQuestionsMap[q.id] = q);
-            });
-        }
-
-        function countExamQuestions() {
-            if (!examQuestions) return 0;
-            let c = examQuestions.shared?.AT?.length || 0;
-            Object.values(examQuestions.methods||{}).forEach(m => c += (m.ST?.length||0) + (m.PR?.length||0));
-            return c;
-        }
-
-        function getQuestionsForPart(method, part) {
-            if (!examQuestions) return [];
-            if (part === 'AT') return examQuestions.shared?.AT || [];
-            return examQuestions.methods?.[method]?.[part] || [];
-        }
-
-        // ── Load/Save Exam History from GitHub ──
-        function examHistoryUrl() {
-            return `https://api.github.com/repos/${ghConfig.owner}/${ghConfig.repo}/contents/${EXAM_HIST_FILE}`;
-        }
-
-        // Decode GitHub base64 content safely (handles UTF-8)
-        function ghDecodeContent(b64) {
-            return decodeURIComponent(escape(atob(b64.replace(/\n/g,''))));
-        }
-
-        // Fetch the current SHA of exam_history.json from GitHub (used for conflict recovery)
-        async function fetchExamHistorySha() {
-            const url = examHistoryUrl() + `?ref=${ghConfig.branch}&t=${Date.now()}`;
-            const res = await fetch(url, { headers: ghHeaders() });
-            if (res.status === 404) { examHistorySha = null; return null; }
-            if (!res.ok) throw new Error(`SHA-Abruf fehlgeschlagen: HTTP ${res.status}`);
-            const json = await res.json();
-            examHistorySha = json.sha;
-            return json.sha;
-        }
-
-        async function loadExamHistoryFromGH() {
-            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
-                showToast('⚠️ GitHub nicht konfiguriert – Prüfungshistorie nicht geladen', 'error');
-                return;
-            }
-            showSaving(true);
-            try {
-                const url = examHistoryUrl() + `?ref=${ghConfig.branch}&t=${Date.now()}`;
-                const res = await fetch(url, { headers: ghHeaders() });
-                if (res.status === 404) {
-                    // File doesn't exist yet – start fresh, that's fine
-                    examHistory = {};
-                    examHistorySha = null;
-                    showToast('ℹ️ exam_history.json noch nicht vorhanden – wird beim ersten Speichern angelegt', 'success');
-                    return;
-                }
-                if (!res.ok) {
-                    const err = await res.json().catch(() => ({}));
-                    throw new Error(err.message || `HTTP ${res.status}`);
-                }
-                const json = await res.json();
-                examHistorySha = json.sha;
-                examHistory = JSON.parse(ghDecodeContent(json.content));
-                const keys = Object.keys(examHistory).length;
-                showToast(`📚 Prüfungshistorie geladen (${keys} Einträge)`, 'success');
-            } catch(e) {
-                showToast(`❌ Prüfungshistorie: ${e.message}`, 'error');
-                console.error('loadExamHistoryFromGH:', e);
-            } finally {
-                showSaving(false);
-            }
-        }
-
-        // Robust save with SHA-conflict retry (409/422 → refetch SHA → retry once)
-        async function saveExamHistoryToGH() {
-            if (!ghConfig.owner || !ghConfig.repo || !ghConfig.token) {
-                showToast('⚠️ GitHub nicht konfiguriert – Prüfungshistorie NICHT gespeichert!', 'error');
-                return;
-            }
-            const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(examHistory, null, 2))));
-            const commitMsg = `Prüfungshistorie ${new Date().toLocaleString('de-DE')}`;
-
-            async function doSave(sha) {
-                const body = { message: commitMsg, content: encoded, branch: ghConfig.branch };
-                if (sha) body.sha = sha;
-                return fetch(examHistoryUrl(), {
-                    method: 'PUT',
-                    headers: ghHeaders(),
-                    body: JSON.stringify(body)
-                });
-            }
-
-            showSaving(true);
-            try {
-                let res = await doSave(examHistorySha);
-
-                // SHA conflict (file was updated externally) → fetch fresh SHA and retry
-                if (res.status === 409 || res.status === 422) {
-                    showToast('🔄 SHA-Konflikt – lade aktuellen Stand…', 'success');
-                    const freshSha = await fetchExamHistorySha();
-                    res = await doSave(freshSha);
-                }
-
-                if (!res.ok) {
-                    const err = await res.json().catch(() => ({}));
-                    throw new Error(err.message || `HTTP ${res.status}`);
-                }
-
-                const json = await res.json();
-                // GitHub returns the new SHA of the file content
-                examHistorySha = json.content?.sha;
-                showToast('✅ Prüfungshistorie in GitHub gespeichert', 'success');
-            } catch(e) {
-                showToast(`❌ Prüfungshistorie NICHT gespeichert: ${e.message}`, 'error');
-                console.error('saveExamHistoryToGH:', e);
-                throw e; // re-throw so caller knows it failed
-            } finally {
-                showSaving(false);
-            }
-        }
-
-        // ── Helper: auto-detect method from training type ──
-        function detectMethodFromTrainingType(type) {
-            if (!type) return '';
-            for (const [key, val] of Object.entries(METHOD_AUTO_MAP)) {
-                if (type.toLowerCase().includes(key.toLowerCase())) return val;
-            }
-            return '';
-        }
-
-        // ── 25%-New-Guarantee Question Selection ──
-        function selectQuestionsFor(persnr, method, config) {
-            const hkey    = `${persnr}:::${method}`;
-            const hlist   = examHistory[hkey] || [];
-            const cutoff  = new Date();
-            cutoff.setFullYear(cutoff.getFullYear() - EXAM_RECERT_YEARS);
-
-            // Collect all question IDs used in last 4 years
-            const usedIds = new Set();
-            hlist.filter(h => new Date(h.date) >= cutoff).forEach(h => {
-                (h.questionIds || []).forEach(id => usedIds.add(id));
-            });
-
-            const result = {}, newCounts = {};
-            for (const part of ['AT','ST','PR']) {
-                const pool   = getQuestionsForPart(method, part);
-                const needed = config[part] || 10;
-                const minNew = Math.ceil(needed * EXAM_NEW_Q_RATIO);
-                const newQs  = shuffle(pool.filter(q => !usedIds.has(q.id)));
-                const oldQs  = shuffle(pool.filter(q =>  usedIds.has(q.id)));
-
-                let selected;
-                if (newQs.length >= minNew) {
-                    const base = newQs.slice(0, minNew);
-                    const fill = shuffle([...newQs.slice(minNew), ...oldQs]).slice(0, needed - minNew);
-                    selected   = shuffle([...base, ...fill]);
-                } else {
-                    selected = shuffle([...newQs, ...oldQs]).slice(0, needed);
-                }
-                result[part]    = selected.map(q => q.id);
-                newCounts[part] = selected.filter(q => !usedIds.has(q.id)).length;
-            }
-            return { questions: result, newCounts };
-        }
-
-        // ── Generate Exam ──
-        window.generateExam = function() {
-            if (!examQuestions) { alert('Fragen nicht geladen! Bitte questions.json bereitstellen.'); return; }
-            if (!selectedId)    { alert('Bitte zuerst eine Schulung auswählen.'); return; }
-            const t = findT(selectedId);
-            if (!t || !t.attendees || t.attendees.length === 0) {
-                alert('Keine Teilnehmer in dieser Schulung.');
-                return;
-            }
-
-            const manualMethod = document.getElementById('pruefMethod').value;
-            const method = manualMethod || detectMethodFromTrainingType(t.type) || 'ET';
-
-            const config = {
-                AT: parseInt(document.getElementById('pruefCountAT').value) || 20,
-                ST: parseInt(document.getElementById('pruefCountST').value) || 15,
-                PR: parseInt(document.getElementById('pruefCountPR').value) || 8,
-            };
-
-            // Validate pool sizes
-            for (const part of ['AT','ST','PR']) {
-                const pool = getQuestionsForPart(method, part);
-                if (pool.length < config[part]) {
-                    alert(`Nicht genug ${part}-Fragen für ${method}: ${pool.length} verfügbar, ${config[part]} benötigt.`);
-                    return;
-                }
-            }
-
-            // Build exam session participants from training attendees
-            const participants = t.attendees.map(a => {
-                const persnr = a.personalnummer || '';
-                const sel    = selectQuestionsFor(persnr, method, config);
-                return {
-                    persnr,
-                    name:       `${a.vorname} ${a.name}`,
-                    abteilung:  a.abteilung,
-                    questions:  sel.questions,
-                    newCounts:  sel.newCounts,
-                    answers:    {},
-                    scores:     null,
-                    passed:     null,
-                    completedAt:null,
-                };
-            });
-
-            currentExamSession = { trainingId: selectedId, method, config, date: t.date_str||new Date().toISOString().split('T')[0], participants };
-            document.getElementById('pruefMethodBadge').textContent = method;
-
-            // Store session in training for persistence
-            if (!t.examSessions) t.examSessions = [];
-            t.examSessions.push({ generatedAt: new Date().toISOString(), method, config });
-
-            renderExamParticipantsStatus();
-            showToast(`✅ Prüfung für ${participants.length} Teilnehmer generiert!`, 'success');
-        };
-
-        // ── Render participant rows in reg panel ──
-        function renderExamParticipantsStatus() {
-            if (!currentExamSession) return;
-            const area = document.getElementById('pruefParticipantsArea');
-            const list = document.getElementById('pruefParticipantsList');
-            area.style.display = 'block';
-
-            list.innerHTML = currentExamSession.participants.map((p, idx) => {
-                const nc      = p.newCounts || {};
-                const done    = p.completedAt;
-                const passed  = p.passed;
-                let statusHtml = done
-                    ? `<span class="pp-result ${passed?'pass':'fail'}">${passed?'✓ Bestanden':'✗ Nicht bestanden'}</span>`
-                    : `<span class="pp-result pending">Ausstehend</span>`;
-
-                const scores = p.scores;
-                const scoreHtml = scores
-                    ? `<span style="font-size:0.75rem;color:var(--text3);font-family:var(--font-mono)">AT ${scores.AT?.percent||0}% · ST ${scores.ST?.percent||0}% · PR ${scores.PR?.percent||0}%</span>`
-                    : '';
-
-                return `<div class="pruef-participant-row${done?(passed?' done':' failed'):''}">
-                    <div class="pp-name">${p.name}</div>
-                    <div class="pp-id">${p.persnr}</div>
-                    <div class="pp-new-badge" title="Neue Fragen je Teil">
-                        AT: ${nc.AT||0} · ST: ${nc.ST||0} · PR: ${nc.PR||0} neu
-                    </div>
-                    ${scoreHtml}
-                    ${statusHtml}
-                    <div style="display:flex;gap:0.4rem;margin-left:auto;flex-wrap:wrap">
-                        <button class="btn btn-outline btn-sm" onclick="startDigitalExamForParticipant(${idx})">
-                            ${done ? '📊 Ergebnis' : '▶ Digital'}
-                        </button>
-                        <button class="btn btn-ghost btn-sm" onclick="openManualEntry(${idx})">✏️ Manuell</button>
-                        <button class="btn btn-ghost btn-sm" onclick="printSingleExamSheet(${idx})">🖨 Drucken</button>
-                    </div>
-                </div>`;
-            }).join('');
-        }
-
-        // ── Update method badge on training select ──
-        function updatePruefMethodBadge() {
-            if (!selectedId) return;
-            const t = findT(selectedId);
-            if (!t) return;
-            const manualMethod = document.getElementById('pruefMethod').value;
-            const detected = detectMethodFromTrainingType(t.type);
-            const method = manualMethod || detected || '–';
-            document.getElementById('pruefMethodBadge').textContent = method;
-        }
-
-        // ── Digital Exam Overlay ──
-        window.startDigitalExamForParticipant = function(pIdx) {
-            if (!currentExamSession) return;
-            const p = currentExamSession.participants[pIdx];
-            if (p.completedAt) {
-                showExamResult(pIdx);
-                return;
-            }
-            examCurrentPIdx    = pIdx;
-            examCurrentPart    = 'AT';
-            examCurrentAnswers = { AT:{}, ST:{}, PR:{} };
-            document.getElementById('examOverlay').classList.add('open');
-            renderExamInterface();
-        };
-
-        window.closeExamOverlay = function() {
-            document.getElementById('examOverlay').classList.remove('open');
-        };
-
-        function renderExamInterface() {
-            const p   = currentExamSession.participants[examCurrentPIdx];
-            const method = currentExamSession.method;
-            document.getElementById('examOverlayTitle').textContent = `${p.name}`;
-            document.getElementById('examOverlaySub').textContent   = `${method} · Prüfung`;
-
-            const parts = ['AT','ST','PR'];
-            const answeredTotal = parts.reduce((s, pt) => s + Object.keys(examCurrentAnswers[pt]||{}).length, 0);
-            const totalQs       = parts.reduce((s, pt) => s + (p.questions[pt]||[]).length, 0);
-            document.getElementById('examProgFill').style.width = (answeredTotal / (totalQs||1) * 100) + '%';
-
-            const tabsHtml = parts.map(pt => {
-                const done = Object.keys(examCurrentAnswers[pt]||{}).length === (p.questions[pt]||[]).length;
-                return `<div class="exam-tab${pt===examCurrentPart?' active':''}${done?' done':''}" onclick="switchExamPart('${pt}')">
-                    ${PART_LABELS[pt]} (${(p.questions[pt]||[]).length})
-                </div>`;
-            }).join('');
-
-            const qIds   = p.questions[examCurrentPart] || [];
-            const qHtml  = qIds.map((qId, qi) => {
-                const q   = examQuestionsMap[qId];
-                if (!q) return '';
-                const ans = (examCurrentAnswers[examCurrentPart]||{})[qId];
-                return `<div class="exam-question-block">
-                    <div class="eq-header">
-                        <span class="eq-num">${examCurrentPart}-${qi+1}</span>
-                        <div class="eq-text">${q.text}</div>
-                    </div>
-                    <div class="eq-options">
-                        ${Object.entries(q.options).map(([k,v]) =>
-                            `<div class="eq-option${ans===k?' selected':''}" onclick="selectExamAnswer('${examCurrentPart}','${qId}','${k}',${examCurrentPIdx})">
-                                <span class="eq-opt-key">${k})</span>
-                                <span class="eq-opt-text">${v}</span>
-                            </div>`
-                        ).join('')}
-                    </div>
-                </div>`;
-            }).join('');
-
-            const pIdx = parts.indexOf(examCurrentPart);
-            const navHtml = `<div style="display:flex;justify-content:space-between;margin-top:1.2rem;margin-bottom:2rem">
-                ${pIdx > 0 ? `<button class="btn btn-outline" onclick="switchExamPart('${parts[pIdx-1]}')">← ${PART_LABELS[parts[pIdx-1]]}</button>` : '<div></div>'}
-                ${pIdx < parts.length-1
-                    ? `<button class="btn btn-primary" onclick="switchExamPart('${parts[pIdx+1]}')">Weiter: ${PART_LABELS[parts[pIdx+1]]} →</button>`
-                    : `<button class="btn btn-primary" style="background:#2e7d32" onclick="submitDigitalExam(${examCurrentPIdx})">✓ Prüfung abgeben</button>`
-                }
-            </div>`;
-
-            document.getElementById('examOverlayContent').innerHTML = `
-                <div class="exam-part-tabs">${tabsHtml}</div>
-                <div id="examQuestionsContainer">${qHtml}</div>
-                ${navHtml}`;
-        }
-
-        window.switchExamPart = function(part) {
-            examCurrentPart = part;
-            renderExamInterface();
-            document.getElementById('examOverlay').scrollTo(0, 0);
-        };
-
-        window.selectExamAnswer = function(part, qId, answer, pIdx) {
-            if (!examCurrentAnswers[part]) examCurrentAnswers[part] = {};
-            examCurrentAnswers[part][qId] = answer;
-            renderExamInterface();
-        };
-
-        window.submitDigitalExam = async function(pIdx) {
-            const p = currentExamSession.participants[pIdx];
-            const allParts = ['AT','ST','PR'];
-            const allAnswered = allParts.every(part => {
-                return Object.keys(examCurrentAnswers[part]||{}).length === (p.questions[part]||[]).length;
-            });
-            if (!allAnswered && !confirm('Nicht alle Fragen beantwortet. Trotzdem abgeben?')) return;
-
-            // Compute scores
-            const scores = {};
-            allParts.forEach(part => {
-                const qIds   = p.questions[part] || [];
-                let correct  = 0;
-                qIds.forEach(qId => {
-                    const ans = (examCurrentAnswers[part]||{})[qId];
-                    const q   = examQuestionsMap[qId];
-                    if (ans && q && ans === q.answer) correct++;
-                });
-                const total = qIds.length;
-                scores[part] = { correct, total, percent: total ? Math.round(correct/total*100) : 0, passed: total > 0 && correct/total >= EXAM_PASS_THRESHOLD };
-            });
-
-            p.answers     = JSON.parse(JSON.stringify(examCurrentAnswers));
-            p.scores      = scores;
-            p.passed      = allParts.every(pt => scores[pt].passed);
-            p.completedAt = new Date().toISOString();
-
-            // Show saving spinner in overlay while GitHub saves
-            document.getElementById('examOverlayContent').innerHTML =
-                `<div style="text-align:center;padding:4rem 2rem">
-                    <div class="spinner" style="margin:0 auto 1rem"></div>
-                    <div style="color:var(--text3);font-size:0.95rem">Wird in GitHub gespeichert…</div>
-                </div>`;
-
-            await saveExamResult(pIdx);
-            showExamResult(pIdx);
-        };
-
-        function showExamResult(pIdx) {
-            const p      = currentExamSession.participants[pIdx];
-            const parts  = ['AT','ST','PR'];
-            const passed = p.passed;
-            document.getElementById('examOverlayContent').innerHTML = `
-                <div class="exam-result-card ${passed?'pass':'fail'}">
-                    <div class="result-emoji">${passed?'🎉':'😔'}</div>
-                    <div class="result-title ${passed?'pass':'fail'}">${passed?'Bestanden!':'Nicht bestanden'}</div>
-                    <div class="result-sub">${p.name} · ${currentExamSession.method}</div>
-                    <div class="result-parts-grid">
-                        ${parts.map(pt => {
-                            const s = p.scores?.[pt] || {percent:0, correct:0, total:0, passed:false};
-                            return `<div class="result-part ${s.passed?'pass':'fail'}">
-                                <div class="rp-label">${PART_LABELS[pt]}</div>
-                                <div class="rp-val ${s.passed?'pass':'fail'}">${s.percent}%</div>
-                                <div style="font-size:0.75rem;color:var(--text3)">${s.correct}/${s.total} richtig</div>
-                                <div class="rp-badge" style="color:${s.passed?'var(--accent)':'#d32f2f'}">${s.passed?'✓ Bestanden':'✗ Nicht bestanden'}</div>
-                            </div>`;
-                        }).join('')}
-                    </div>
-                    <div style="display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap">
-                        ${examCurrentPIdx < currentExamSession.participants.length - 1
-                            ? `<button class="btn btn-primary" onclick="goNextExamParticipant()">Nächster Teilnehmer →</button>`
-                            : '<span class="btn btn-ghost">Alle Teilnehmer abgeschlossen 🏁</span>'
-                        }
-                        <button class="btn btn-outline" onclick="closeExamOverlay()">Zurück zur Übersicht</button>
-                    </div>
-                </div>`;
-            renderExamParticipantsStatus();
-        }
-
-        window.goNextExamParticipant = function() {
-            const next = currentExamSession.participants.findIndex((p,i) => i > examCurrentPIdx && !p.completedAt);
-            if (next !== -1) {
-                examCurrentPIdx    = next;
-                examCurrentPart    = 'AT';
-                examCurrentAnswers = { AT:{}, ST:{}, PR:{} };
-                renderExamInterface();
-            } else {
-                closeExamOverlay();
-            }
-        };
-
-        // ── Save result to history ──
-        async function saveExamResult(pIdx) {
-            const sess = currentExamSession;
-            const p    = sess.participants[pIdx];
-
-            // 1. Write into in-memory history
-            const hkey = `${p.persnr}:::${sess.method}`;
-            if (!examHistory[hkey]) examHistory[hkey] = [];
-            const allQIds = ['AT','ST','PR'].flatMap(part => p.questions[part] || []);
-            examHistory[hkey].push({
-                date:        new Date().toISOString().split('T')[0],
-                trainingId:  sess.trainingId,
-                questionIds: allQIds,
-                scores:      p.scores,
-                passed:      p.passed
-            });
-
-            // 2. Write pass/fail back into the training's attendee record (for PDF etc.)
-            const t = findT(sess.trainingId);
-            if (t && t.attendees) {
-                const att = t.attendees.find(a => a.personalnummer === p.persnr);
-                if (att) {
-                    att.pruefungBestanden = p.passed ? 'ja' : 'nein';
-                    att.pruefungDatum     = new Date().toISOString().split('T')[0];
-                }
-            }
-
-            // 3. Save BOTH files to GitHub sequentially (not fire-and-forget!)
-            //    exam_history.json first, then trainings.json
-            let historyOk = false;
-            let trainingsOk = false;
-            try {
-                await saveExamHistoryToGH();
-                historyOk = true;
-            } catch(e) {
-                // Error already toasted inside saveExamHistoryToGH
-            }
-            try {
-                await saveTrainings(`Prüfungsergebnis: ${p.name} (${p.passed ? 'bestanden' : 'nicht bestanden'})`);
-                trainingsOk = true;
-            } catch(e) {
-                // Error already toasted inside saveTrainings
-            }
-
-            if (!historyOk || !trainingsOk) {
-                showToast(
-                    `⚠️ Speichern unvollständig:${!historyOk?' exam_history.json FEHLER':''}${!trainingsOk?' trainings.json FEHLER':''}`,
-                    'error'
-                );
-            }
-        }
-
-        // ── Manual result entry ──
-        window.openManualEntry = function(pIdx) {
-            if (!currentExamSession) return;
-            const p = currentExamSession.participants[pIdx];
-            examCurrentPIdx = pIdx;
-            const parts = ['AT','ST','PR'];
-
-            const gridHtml = parts.map(part => {
-                const qIds = p.questions[part] || [];
-                return `<div style="margin-bottom:1rem">
-                    <div style="font-weight:700;font-size:0.88rem;color:var(--text2);margin-bottom:0.6rem">${PART_LABELS[part]} (${qIds.length} Fragen)</div>
-                    <div class="manual-entry-grid">
-                        ${qIds.map((qId, qi) => {
-                            const q   = examQuestionsMap[qId];
-                            const ans = (p.answers?.[part]||{})[qId] || '';
-                            return `<div class="me-cell">
-                                <div class="me-label">${part}-${qi+1}</div>
-                                <input class="me-input" data-part="${part}" data-qid="${qId}" data-correct="${q?.answer||''}"
-                                    maxlength="1" value="${ans}"
-                                    oninput="this.value=this.value.toLowerCase().replace(/[^abcd]/g,'');validateMeInput(this)">
-                            </div>`;
-                        }).join('')}
-                    </div>
-                </div>`;
-            }).join('');
-
-            document.getElementById('examOverlayTitle').textContent = `Manuelle Eingabe · ${p.name}`;
-            document.getElementById('examOverlaySub').textContent   = currentExamSession.method;
-            document.getElementById('examProgFill').style.width = '100%';
-            document.getElementById('examOverlay').classList.add('open');
-            document.getElementById('examOverlayContent').innerHTML = `
-                <div style="background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:1.4rem">
-                    <p style="font-size:0.85rem;color:var(--text2);margin-bottom:1rem">Antwort-Buchstaben eingeben (a, b, c oder d). Felder werden automatisch farbig ausgewertet.</p>
-                    ${gridHtml}
-                    <div style="display:flex;gap:0.7rem;margin-top:1rem">
-                        <button class="btn btn-primary" onclick="submitManualEntry(${pIdx})">✓ Auswerten &amp; Speichern</button>
-                        <button class="btn btn-outline" onclick="closeExamOverlay()">Abbrechen</button>
-                    </div>
-                </div>`;
-        };
-
-        window.validateMeInput = function(el) {
-            const c = el.dataset.correct;
-            el.classList.remove('ok','bad');
-            if (el.value && c) { el.classList.add(el.value === c ? 'ok' : 'bad'); }
-        };
-
-        window.submitManualEntry = async function(pIdx) {
-            const p     = currentExamSession.participants[pIdx];
-            const parts = ['AT','ST','PR'];
-            const answers = {};
-            const scores  = {};
-
-            document.querySelectorAll('.me-input').forEach(inp => {
-                const part = inp.dataset.part;
-                const qId  = inp.dataset.qid;
-                if (!answers[part]) answers[part] = {};
-                if (inp.value) answers[part][qId] = inp.value;
-            });
-
-            parts.forEach(part => {
-                const qIds = p.questions[part] || [];
-                let correct = 0;
-                qIds.forEach(qId => {
-                    const a = (answers[part]||{})[qId];
-                    const q = examQuestionsMap[qId];
-                    if (a && q && a === q.answer) correct++;
-                });
-                const total = qIds.length;
-                scores[part] = { correct, total, percent: total ? Math.round(correct/total*100) : 0, passed: total > 0 && correct/total >= EXAM_PASS_THRESHOLD };
-            });
-
-            p.answers     = answers;
-            p.scores      = scores;
-            p.passed      = parts.every(pt => scores[pt].passed);
-            p.completedAt = new Date().toISOString();
-
-            // Show saving state
-            document.getElementById('examOverlayContent').innerHTML =
-                `<div style="text-align:center;padding:4rem 2rem">
-                    <div class="spinner" style="margin:0 auto 1rem"></div>
-                    <div style="color:var(--text3);font-size:0.95rem">Wird in GitHub gespeichert…</div>
-                </div>`;
-
-            await saveExamResult(pIdx);
-            showExamResult(pIdx);
-        };
-
-        // ── Print exam sheet (single participant) ──
-        window.printSingleExamSheet = function(pIdx) {
-            if (!currentExamSession) return;
-            const p      = currentExamSession.participants[pIdx];
-            const sess   = currentExamSession;
-            const t      = findT(sess.trainingId);
-            printExamSheet(p, sess, t);
-        };
-
-        window.printAllExamSheets = function() {
-            if (!currentExamSession) return;
-            const sess = currentExamSession;
-            const t    = findT(sess.trainingId);
-            currentExamSession.participants.forEach((p, i) => printExamSheet(p, sess, t, i));
-        };
-
-        function printExamSheet(p, sess, t, pageIdx=0) {
-            const pw = window.open('','_blank');
-            if (!pw) { alert('Bitte Pop-ups erlauben'); return; }
-            let html = `<h2>ZfP Prüfungsbogen · ${sess.method}</h2>
-                <p><b>Teilnehmer:</b> ${p.name} (${p.persnr}) &nbsp;|&nbsp; <b>Abteilung:</b> ${p.abteilung||'–'} &nbsp;|&nbsp; <b>Datum:</b> ${t?.date_str||''} &nbsp;|&nbsp; <b>Ort:</b> ${t?.location||'–'}</p>
-                <p><em>Bestehensschwelle: 80% je Teil. Bitte nur eine Antwort ankreuzen.</em></p><hr>`;
-            for (const [part, label] of Object.entries(PART_LABELS)) {
-                const qIds = p.questions[part] || [];
-                html += `<h3>${label} (${qIds.length} Fragen)</h3>`;
-                qIds.forEach((qId, qi) => {
-                    const q = examQuestionsMap[qId];
-                    if (!q) return;
-                    const ans = (p.answers?.[part]||{})[qId];
-                    html += `<div style="margin-bottom:11px;padding:9px;border:1pt solid #ccc">
-                        <p style="font-weight:600;margin-bottom:5px">${qi+1}. ${q.text}</p>
-                        ${Object.entries(q.options).map(([k,v]) => {
-                            let style = '';
-                            if (ans) style = k===q.answer ? 'background:#c8e6c9' : k===ans ? 'background:#ffcdd2' : '';
-                            return `<p style="margin:2px 0;padding-left:14px;${style}">☐ ${k}) ${v}</p>`;
-                        }).join('')}
-                        ${ans ? `<p style="font-size:9pt;color:${ans===q.answer?'green':'red'};margin-top:3px">${ans===q.answer?'✓ Richtig':'✗ Falsch (Richtig: '+q.answer+')'}</p>` : ''}
-                    </div>`;
-                });
-            }
-            if (p.scores) {
-                html += `<h3>Ergebnis</h3><table border=1 cellpadding=6 style="border-collapse:collapse">
-                    <tr><th>Teil</th><th>Richtig</th><th>%</th><th>Bestanden</th></tr>
-                    ${Object.entries(PART_LABELS).map(([pt, lbl]) => {
-                        const s = p.scores[pt] || {};
-                        return `<tr><td>${lbl}</td><td>${s.correct}/${s.total}</td><td>${s.percent}%</td><td>${s.passed?'✓ JA':'✗ NEIN'}</td></tr>`;
-                    }).join('')}
-                    <tr style="font-weight:bold"><td colspan=3>Gesamtergebnis</td><td>${p.passed?'✓ BESTANDEN':'✗ NICHT BESTANDEN'}</td></tr>
-                </table>`;
-            }
-            pw.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8">
-                <style>body{font-family:Arial,sans-serif;font-size:10pt;margin:18mm}h2{font-size:14pt}h3{font-size:11pt;margin:12pt 0 5pt}hr{margin:8pt 0}@media print{body{margin:5mm}}</style>
-                </head><body>${html}</body></html>`);
-            pw.document.close();
-            if (pageIdx === 0) { pw.focus(); pw.print(); }
-        }
-
-        // ── Export exam results as CSV ──
-        window.exportExamResultsCSV = function() {
-            if (!currentExamSession) return;
-            const rows = [['Name','Personal-Nr.','Abteilung','AT%','AT bestanden','ST%','ST bestanden','PR%','PR bestanden','Gesamt']];
-            currentExamSession.participants.forEach(p => {
-                const s = p.scores;
-                rows.push([
-                    p.name, p.persnr, p.abteilung||'',
-                    s?.AT?.percent||'', s?.AT?.passed?'JA':'NEIN',
-                    s?.ST?.percent||'', s?.ST?.passed?'JA':'NEIN',
-                    s?.PR?.percent||'', s?.PR?.passed?'JA':'NEIN',
-                    p.passed?'BESTANDEN':'NICHT BESTANDEN',
-                ]);
-            });
-            const csv  = rows.map(r => r.join(';')).join('\n');
-            const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
-            const a    = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = `pruefung_${currentExamSession.method}_${new Date().toISOString().split('T')[0]}.csv`;
-            a.click();
-        };
-
-        // ── Shuffle ──
-        function shuffle(arr) {
-            const a = [...arr];
-            for (let i = a.length-1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i+1));
-                [a[i],a[j]] = [a[j],a[i]];
-            }
-            return a;
-        }
-
-        /* ═══════════════════════════════════════════
            THEME
         ═══════════════════════════════════════════ */
         function initTheme() {
@@ -2240,13 +1584,10 @@
         function init() {
             initTheme();
             loadGhConfig();
-            loadExamQuestions(); // load questions.json on startup
 
             // Auto-connect if config already saved
             if (ghConfig.owner && ghConfig.repo && ghConfig.token) {
-                loadTrainings(true).then(() => {
-                    loadExamHistoryFromGH(); // load exam history after connected
-                });
+                loadTrainings(true);
             } else {
                 // Show empty grid and hide loading
                 buildGrid();
@@ -2260,7 +1601,1531 @@
         } else {
             init();
         }
-    })();
-    </script>
+    
+})();
+</script>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   PRÜFUNGSSYSTEM JS  (GitHub-backed, all functions from index.html)
+══════════════════════════════════════════════════════════════ */
+
+// ===== STATE =====
+let questions = null;
+let currentMethod = '';
+let selectedNTParticipants = [];
+let currentTrainingId = null;
+let currentExamParticipantIndex = 0;
+let currentExamPart = 'AT';
+let currentExamAnswers = {};
+let pendingResultsData = null;
+
+const METHOD_NAMES = {
+  ET:'Wirbelstromprüfung', UT:'Ultraschallprüfung',
+  NE:'Ätzprüfung', MT:'Magnetpulverprüfung',
+  PT:'Eindringprüfung', BN:'Barkhausen Rauschen'
+};
+const PART_NAMES = {AT:'Allgemeiner Teil', ST:'Spezieller Teil', PR:'Praktischer Teil'};
+const PASS_THRESHOLD = 0.8;
+const RECERT_YEARS = 4;
+const NEW_Q_MIN_RATIO = 0.25;
+
+// ===== STORAGE (GitHub-backed) =====
+// _pSessions, _pHistory, _pParticipants are set by the unified init
+const getParticipants = () => window._pParticipants || [];
+const getTrainings    = () => window._pSessions    || [];   // exam sessions
+const getHistory      = () => window._pHistory     || {};
+
+const saveParticipants = v => { window._pParticipants = v; };
+const saveTrainings    = v => {
+    window._pSessions = v;
+    if (window.ghSaveFile) window.ghSaveFile(window.EXAM_SESS_FILE, v, 'Prüfungs-Update').catch(e => showPruefToast('❌ Sessions: '+e.message,'error'));
+};
+const saveHistory = v => {
+    window._pHistory = v;
+    if (window.ghSaveFile) window.ghSaveFile(window.EXAM_HIST_FILE, v, 'Historien-Update').catch(e => showPruefToast('❌ Historie: '+e.message,'error'));
+};
+
+// ===== QUESTION LOADING =====
+async function loadQuestions() {
+  try {
+    const r = await fetch('questions.json');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    questions = await r.json();
+    document.getElementById('totalQCount').textContent = countQuestions();
+    document.getElementById('lastSync').textContent = new Date().toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'});
+    renderSettings();
+  } catch (e) {
+    showToast('Fragen konnten nicht geladen werden. Bitte einen lokalen Webserver verwenden (z.B. python -m http.server).', 'error', 6000);
+    document.getElementById('totalQCount').textContent = 'Fehler';
+  }
+}
+
+function countQuestions() {
+  if (!questions) return 0;
+  let c = (questions.shared?.AT?.length || 0);
+  if (questions.methods) {
+    for (const m of Object.values(questions.methods)) {
+      c += (m.ST?.length || 0) + (m.PR?.length || 0);
+    }
+  }
+  return c;
+}
+
+function getQuestionsForMethod(method, part) {
+  if (!questions) return [];
+  if (part === 'AT') return questions.shared?.AT || [];
+  return questions.methods?.[method]?.[part === 'PR' ? 'PR' : 'ST'] || [];
+}
+
+// ===== NAVIGATION =====
+function navPruef(view, title) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const v = document.getElementById('view-' + view);
+  if (v) v.classList.add('active');
+  document.querySelector(`[data-view="${view}"]`)?.classList.add('active');
+  const titles = {
+    dashboard:'Dashboard', participants:'Teilnehmerverwaltung',
+    newTraining:'Neue Schulung', trainings:'Schulungen',
+    history:'Verlauf & Archiv', settings:'Einstellungen',
+    trainingDetail: title || 'Schulungsdetail', examMode: 'Prüfung'
+  };
+  document.getElementById('headerTitle').textContent = titles[view] || '';
+  if (view === 'dashboard') renderDashboard();
+  if (view === 'participants') renderParticipants();
+  if (view === 'trainings') renderTrainings();
+  if (view === 'history') renderHistory();
+  if (view === 'settings') renderSettings();
+  if (view === 'newTraining') initNewTraining();
+}
+
+function setGlobalMethod(m) {
+  currentMethod = m;
+  const badge = document.getElementById('headerMethod');
+  if (m) { badge.textContent = m + ' · ' + (METHOD_NAMES[m] || ''); badge.style.display = ''; }
+  else badge.style.display = 'none';
+}
+
+// ===== DASHBOARD =====
+function renderDashboard() {
+  const trainings = getTrainings();
+  const participants = getParticipants();
+  const now = new Date();
+  const fourYearsAgo = new Date(now); fourYearsAgo.setFullYear(fourYearsAgo.getFullYear() - RECERT_YEARS);
+
+  // Stats
+  const completed = trainings.filter(t => t.status === 'completed');
+  const passCount = completed.reduce((a, t) => a + (t.participants?.filter(p => p.overallPassed).length || 0), 0);
+  const totalExaminees = completed.reduce((a, t) => a + (t.participants?.length || 0), 0);
+  const passRate = totalExaminees ? Math.round(passCount / totalExaminees * 100) : 0;
+
+  document.getElementById('dashStats').innerHTML = `
+    <div class="stat-card"><div class="val">${trainings.length}</div><div class="lbl">Schulungen gesamt</div></div>
+    <div class="stat-card"><div class="val">${participants.length}</div><div class="lbl">Teilnehmer</div></div>
+    <div class="stat-card"><div class="val">${totalExaminees}</div><div class="lbl">Prüfungsabnahmen</div></div>
+    <div class="stat-card"><div class="val" style="color:${passRate>=80?'var(--green)':'var(--red)'}">${passRate}%</div><div class="lbl">Bestehensquote</div></div>
+  `;
+
+  // Recent trainings
+  const recent = [...trainings].sort((a,b) => new Date(b.date)-new Date(a.date)).slice(0,5);
+  document.getElementById('dashTrainings').innerHTML = recent.length ? `
+    <div class="table-wrap"><table>
+      <thead><tr><th>Datum</th><th>Methode</th><th>Bezeichnung</th><th>Teiln.</th><th>Status</th><th></th></tr></thead>
+      <tbody>${recent.map(t => `
+        <tr>
+          <td class="td-mono">${fmtDate(t.date)}</td>
+          <td><span class="badge badge-blue">${t.method}</span></td>
+          <td>${t.name || '—'}</td>
+          <td>${t.participants?.length || 0}</td>
+          <td>${t.status === 'completed' ? '<span class="badge badge-green">Abgeschlossen</span>' : '<span class="badge badge-amber">Offen</span>'}</td>
+          <td><button class="btn btn-secondary btn-sm" onclick="openTrainingDetail('${t.id}')">Details</button></td>
+        </tr>`).join('')}
+      </tbody>
+    </table></div>
+  ` : '<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Schulungen angelegt</p><button class="btn btn-primary" onclick="nav(\'newTraining\')">Erste Schulung anlegen</button></div>';
+
+  // Method pass rates
+  const methodStats = {};
+  completed.forEach(t => {
+    if (!methodStats[t.method]) methodStats[t.method] = {pass:0,total:0};
+    (t.participants||[]).forEach(p => {
+      methodStats[t.method].total++;
+      if (p.overallPassed) methodStats[t.method].pass++;
+    });
+  });
+  document.getElementById('dashStats2').innerHTML = Object.entries(methodStats).map(([m,s]) => {
+    const r = s.total ? Math.round(s.pass/s.total*100) : 0;
+    return `<div class="mb8">
+      <div class="flex justify-between mb4"><span class="text-sm font-semi">${m}</span><span class="text-sm text-mono" style="color:${r>=80?'var(--green)':'var(--red)'}">${r}%</span></div>
+      <div class="progress"><div class="progress-bar ${r>=80?'green':'red'}" style="width:${r}%"></div></div>
+    </div>`;
+  }).join('') || '<div class="text-sm text-muted">Noch keine Daten</div>';
+
+  // Recertification due
+  const history = getHistory();
+  const recertDue = [];
+  participants.forEach(p => {
+    Object.keys(METHOD_NAMES).forEach(m => {
+      const hkey = `${p.id}:::${m}`;
+      const hlist = history[hkey] || [];
+      const last = hlist.filter(h => h.passed).sort((a,b) => new Date(b.date)-new Date(a.date))[0];
+      if (last) {
+        const due = new Date(last.date); due.setFullYear(due.getFullYear() + RECERT_YEARS);
+        const daysLeft = Math.ceil((due - now) / 86400000);
+        if (daysLeft <= 180) recertDue.push({p, m, due, daysLeft, last});
+      }
+    });
+  });
+  recertDue.sort((a,b) => a.daysLeft - b.daysLeft);
+  document.getElementById('dashRecert').innerHTML = recertDue.slice(0,5).map(r => `
+    <div class="flex justify-between items-center mb8">
+      <div>
+        <div class="text-sm font-semi">${r.p.name}</div>
+        <div class="text-xs text-dim">${r.m} · fällig ${fmtDate(r.due.toISOString().split('T')[0])}</div>
+      </div>
+      <span class="badge ${r.daysLeft < 60 ? 'badge-red' : r.daysLeft < 120 ? 'badge-amber' : 'badge-gray'}">${r.daysLeft}d</span>
+    </div>
+  `).join('') || '<div class="text-sm text-muted">Keine Rezertifizierungen in 6 Monaten fällig</div>';
+}
+
+// ===== PARTICIPANTS =====
+function renderParticipants(search = '') {
+  const ps = getParticipants().filter(p =>
+    !search || p.name.toLowerCase().includes(search.toLowerCase()) || p.employeeId?.includes(search)
+  );
+  const history = getHistory();
+  const now = new Date();
+  document.getElementById('participantsTable').innerHTML = ps.length ? ps.map(p => {
+    const lastExam = getLastExamInfo(p.id, history);
+    const recertDue = lastExam ? (() => { const d = new Date(lastExam.date); d.setFullYear(d.getFullYear()+RECERT_YEARS); return d; })() : null;
+    const daysLeft = recertDue ? Math.ceil((recertDue - now) / 86400000) : null;
+    return `<tr>
+      <td><strong>${p.name}</strong></td>
+      <td class="td-mono">${p.employeeId || '—'}</td>
+      <td class="text-muted">${p.department || '—'}</td>
+      <td class="td-mono">${lastExam ? fmtDate(lastExam.date) + ' · ' + lastExam.method : '—'}</td>
+      <td>${recertDue ? `<span class="badge ${daysLeft<60?'badge-red':daysLeft<180?'badge-amber':'badge-green'}">${fmtDate(recertDue.toISOString().split('T')[0])}</span>` : '—'}</td>
+      <td><div class="btn-group">
+        <button class="btn btn-secondary btn-sm" onclick="viewParticipantHistory('${p.id}')">Verlauf</button>
+        <button class="btn btn-icon btn-secondary btn-sm" onclick="deleteParticipant('${p.id}')" title="Löschen">✕</button>
+      </div></td>
+    </tr>`;
+  }).join('') : '<tr><td colspan="6" class="text-muted" style="text-align:center;padding:32px">Keine Teilnehmer gefunden</td></tr>';
+}
+
+function getLastExamInfo(participantId, history) {
+  let last = null;
+  Object.keys(history).forEach(key => {
+    if (!key.startsWith(participantId + ':::')) return;
+    const method = key.split(':::')[1];
+    (history[key] || []).forEach(h => {
+      if (!last || new Date(h.date) > new Date(last.date)) last = { ...h, method };
+    });
+  });
+  return last;
+}
+
+function openAddParticipant() { openModal('modal-addParticipant'); }
+
+function saveParticipant() {
+  const name = document.getElementById('ap-name').value.trim();
+  const empId = document.getElementById('ap-empid').value.trim();
+  const dept = document.getElementById('ap-dept').value.trim();
+  if (!name || !empId) { showToast('Name und Personal-Nr. erforderlich', 'error'); return; }
+  const ps = getParticipants();
+  if (ps.find(p => p.employeeId === empId)) { showToast('Personal-Nr. bereits vorhanden', 'error'); return; }
+  ps.push({ id: uid(), name, employeeId: empId, department: dept, createdAt: now_iso() });
+  saveParticipants(ps);
+  closeModal('modal-addParticipant');
+  renderParticipants();
+  showToast(`${name} hinzugefügt`, 'success');
+  ['ap-name','ap-empid','ap-dept'].forEach(id => document.getElementById(id).value = '');
+}
+
+function deleteParticipant(id) {
+  if (!confirm('Teilnehmer wirklich löschen? Die Prüfungshistorie bleibt erhalten.')) return;
+  saveParticipants(getParticipants().filter(p => p.id !== id));
+  renderParticipants();
+  showToast('Teilnehmer gelöscht', 'success');
+}
+
+function viewParticipantHistory(id) {
+  const p = getParticipants().find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('history-search-name').value = p.name;
+  navPruef('history');
+  renderHistory();
+}
+
+// ===== NEW TRAINING =====
+function initNewTraining() {
+  selectedNTParticipants = [];
+  document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
+  renderNTSearch('');
+  renderNTSelected();
+}
+
+function updateNTMethod() {
+  const m = document.getElementById('nt-method').value;
+  if (m) setGlobalMethod(m);
+}
+
+function renderNTSearch(search) {
+  const ps = getParticipants().filter(p =>
+    (!search || p.name.toLowerCase().includes(search.toLowerCase()) || p.employeeId?.includes(search)) &&
+    !selectedNTParticipants.find(s => s.id === p.id)
+  );
+  document.getElementById('nt-search-results').innerHTML = ps.slice(0, 20).map(p => `
+    <div class="participant-item" style="cursor:pointer;margin-bottom:4px" onclick="addNTParticipant('${p.id}')">
+      <div class="p-name">${p.name}</div>
+      <div class="p-id">${p.employeeId || '—'}</div>
+      <button class="btn btn-secondary btn-sm">+</button>
+    </div>
+  `).join('') || '<div class="text-sm text-muted" style="padding:8px">Keine Ergebnisse</div>';
+}
+
+function addNTParticipant(id) {
+  const p = getParticipants().find(x => x.id === id);
+  if (!p || selectedNTParticipants.find(x => x.id === id)) return;
+  selectedNTParticipants.push(p);
+  renderNTSelected();
+  renderNTSearch(document.getElementById('nt-search').value);
+}
+
+function removeNTParticipant(id) {
+  selectedNTParticipants = selectedNTParticipants.filter(p => p.id !== id);
+  renderNTSelected();
+  renderNTSearch(document.getElementById('nt-search').value);
+}
+
+function addAllParticipants() {
+  getParticipants().forEach(p => { if (!selectedNTParticipants.find(x => x.id === p.id)) selectedNTParticipants.push(p); });
+  renderNTSelected();
+  renderNTSearch(document.getElementById('nt-search').value);
+}
+
+function renderNTSelected() {
+  document.getElementById('nt-selected-count').textContent = selectedNTParticipants.length;
+  document.getElementById('nt-selected-list').innerHTML = selectedNTParticipants.map(p => `
+    <div class="participant-item" style="margin-bottom:4px">
+      <div class="p-name">${p.name}</div>
+      <div class="p-id">${p.employeeId || '—'}</div>
+      <button class="btn btn-danger btn-sm btn-icon" onclick="removeNTParticipant('${p.id}')">✕</button>
+    </div>
+  `).join('') || '<div class="text-sm text-muted" style="padding:8px">Noch keine Teilnehmer ausgewählt</div>';
+}
+
+function addNewParticipantFromNT() {
+  const name = document.getElementById('nt-np-name').value.trim();
+  const empId = document.getElementById('nt-np-id').value.trim();
+  const dept = document.getElementById('nt-np-dept').value.trim();
+  if (!name || !empId) { showToast('Name und Personal-Nr. erforderlich', 'error'); return; }
+  const ps = getParticipants();
+  if (ps.find(p => p.employeeId === empId)) { showToast('Personal-Nr. bereits vorhanden', 'error'); return; }
+  const p = { id: uid(), name, employeeId: empId, department: dept, createdAt: now_iso() };
+  ps.push(p);
+  saveParticipants(ps);
+  selectedNTParticipants.push(p);
+  renderNTSelected();
+  ['nt-np-name','nt-np-id','nt-np-dept'].forEach(id => document.getElementById(id).value = '');
+  showToast(`${name} angelegt und hinzugefügt`, 'success');
+}
+
+function resetNewTraining() {
+  ['nt-method','nt-location','nt-trainer','nt-name'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('nt-count-at').value = 20;
+  document.getElementById('nt-count-st').value = 15;
+  document.getElementById('nt-count-pr').value = 8;
+  selectedNTParticipants = [];
+  renderNTSelected();
+  renderNTSearch('');
+}
+
+// ===== QUESTION SELECTION (25% NEW GUARANTEE) =====
+function selectQuestionsForParticipant(participantId, method, config) {
+  const history = getHistory();
+  const hkey = `${participantId}:::${method}`;
+  const hlist = history[hkey] || [];
+  const fourYearsAgo = new Date(); fourYearsAgo.setFullYear(fourYearsAgo.getFullYear() - RECERT_YEARS);
+  
+  // Collect all question IDs used in last 4 years
+  const usedIds = new Set();
+  hlist.filter(h => new Date(h.date) >= fourYearsAgo).forEach(h => {
+    (h.questionIds || []).forEach(id => usedIds.add(id));
+  });
+
+  const result = {};
+  const newCounts = {};
+
+  for (const part of ['AT', 'ST', 'PR']) {
+    const pool = getQuestionsForMethod(method, part);
+    const needed = config[part] || 10;
+    const minNew = Math.ceil(needed * NEW_Q_MIN_RATIO);
+
+    const newQs = shuffle(pool.filter(q => !usedIds.has(q.id)));
+    const oldQs = shuffle(pool.filter(q => usedIds.has(q.id)));
+
+    let selected = [];
+
+    if (newQs.length >= minNew) {
+      // Take at least minNew from new
+      selected = [...newQs.slice(0, minNew)];
+      // Fill rest from remaining pool (prefer more new if available)
+      const remaining = needed - selected.length;
+      const fillPool = shuffle([...newQs.slice(minNew), ...oldQs]);
+      selected = shuffle([...selected, ...fillPool.slice(0, remaining)]);
+    } else {
+      // Not enough new questions — take all new, fill with old
+      selected = shuffle([...newQs, ...oldQs].slice(0, needed));
+    }
+
+    result[part] = selected.map(q => q.id);
+    newCounts[part] = selected.filter(q => !usedIds.has(q.id)).length;
+  }
+
+  return { questions: result, newCounts, usedCount: usedIds.size };
+}
+
+// ===== GENERATE TRAINING =====
+async function generateTraining() {
+  if (!questions) { showToast('Fragen noch nicht geladen!', 'error'); return; }
+  const method = document.getElementById('nt-method').value;
+  const date = document.getElementById('nt-date').value;
+  const location = document.getElementById('nt-location').value.trim();
+  const trainer = document.getElementById('nt-trainer').value.trim();
+  const name = document.getElementById('nt-name').value.trim();
+
+  if (!method) { showToast('Bitte Prüfmethode wählen', 'error'); return; }
+  if (!date) { showToast('Bitte Datum angeben', 'error'); return; }
+  if (selectedNTParticipants.length === 0) { showToast('Bitte mindestens einen Teilnehmer hinzufügen', 'error'); return; }
+
+  const countAT = parseInt(document.getElementById('nt-count-at').value) || 20;
+  const countST = parseInt(document.getElementById('nt-count-st').value) || 15;
+  const countPR = parseInt(document.getElementById('nt-count-pr').value) || 8;
+
+  // Validate pool sizes
+  const atPool = getQuestionsForMethod(method, 'AT');
+  const stPool = getQuestionsForMethod(method, 'ST');
+  const prPool = getQuestionsForMethod(method, 'PR');
+  if (atPool.length < countAT) { showToast(`Nicht genug AT-Fragen: ${atPool.length} verfügbar, ${countAT} benötigt`, 'error'); return; }
+  if (stPool.length < countST) { showToast(`Nicht genug ST-Fragen: ${stPool.length} verfügbar, ${countST} benötigt`, 'error'); return; }
+  if (prPool.length < countPR) { showToast(`Nicht genug PR-Fragen: ${prPool.length} verfügbar, ${countPR} benötigt`, 'error'); return; }
+
+  const trainingId = uid();
+  const config = { AT: countAT, ST: countST, PR: countPR };
+
+  const participants = selectedNTParticipants.map(p => {
+    const sel = selectQuestionsForParticipant(p.id, method, config);
+    return {
+      participantId: p.id,
+      name: p.name,
+      employeeId: p.employeeId,
+      department: p.department,
+      questions: sel.questions,
+      newCounts: sel.newCounts,
+      answers: {},
+      scores: null,
+      overallPassed: null,
+      completedAt: null
+    };
+  });
+
+  const training = {
+    id: trainingId, method, date, location, trainer,
+    name: name || `${method} · ${fmtDate(date)}`,
+    config, status: 'prepared', createdAt: now_iso(), participants
+  };
+
+  const trainings = getTrainings();
+  trainings.push(training);
+  window._pSessions = trainings;
+  if (window.ghSaveFile) await window.ghSaveFile(window.EXAM_SESS_FILE, trainings, `Neue Prüfung: ${training.name}`).catch(e=>showPruefToast("❌ "+e.message,"error"));
+  showPruefToast(`Schulung "${training.name}" mit ${participants.length} Teilnehmern generiert!`, 'success');
+  resetNewTraining();
+  openTrainingDetail(trainingId);
+}
+
+// ===== TRAINING DETAIL =====
+function openTrainingDetail(id) {
+  currentTrainingId = id;
+  navPruef('trainingDetail', 'Schulungsdetail');
+  renderTrainingDetail(id);
+}
+
+function renderTrainingDetail(id) {
+  const training = getTrainings().find(t => t.id === id);
+  if (!training) return;
+
+  const allDone = training.participants.every(p => p.completedAt);
+  const passCount = training.participants.filter(p => p.overallPassed).length;
+
+  document.getElementById('training-detail-content').innerHTML = `
+    <div class="flex justify-between items-center mb24">
+      <div>
+        <div class="page-title">${training.name}</div>
+        <div class="page-sub">
+          <span class="badge badge-blue">${training.method}</span>
+          &nbsp;${fmtDate(training.date)}
+          ${training.location ? ' · ' + training.location : ''}
+          ${training.trainer ? ' · Prüfer: ' + training.trainer : ''}
+        </div>
+      </div>
+      <div class="btn-group no-print">
+        ${training.status === 'prepared' ? `
+          <button class="btn btn-primary" onclick="startDigitalExam('${id}')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Digitale Prüfung starten
+          </button>
+          <button class="btn btn-secondary" onclick="printExam('${id}')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Druckversion
+          </button>
+        ` : ''}
+        ${allDone ? `<button class="btn btn-secondary" onclick="exportTrainingResults('${id}')">Ergebnisse exportieren</button>` : ''}
+      </div>
+    </div>
+
+    ${training.status === 'completed' ? `
+      <div class="stats-row" style="grid-template-columns:repeat(4,1fr);margin-bottom:24px">
+        <div class="stat-card"><div class="val">${training.participants.length}</div><div class="lbl">Teilnehmer</div></div>
+        <div class="stat-card"><div class="val text-green">${passCount}</div><div class="lbl">Bestanden</div></div>
+        <div class="stat-card"><div class="val text-red">${training.participants.length - passCount}</div><div class="lbl">Nicht bestanden</div></div>
+        <div class="stat-card"><div class="val" style="color:${passCount/training.participants.length>=0.8?'var(--green)':'var(--red)'}">${Math.round(passCount/training.participants.length*100)}%</div><div class="lbl">Bestehensquote</div></div>
+      </div>
+    ` : ''}
+
+    <div class="card">
+      <div class="card-title">Teilnehmer & Prüfungsstatus</div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>Name</th><th>Personal-Nr.</th><th>AT Neu</th><th>ST Neu</th><th>PR Neu</th>
+            ${training.status !== 'prepared' || true ? '<th>AT</th><th>ST</th><th>PR</th><th>Gesamt</th>' : ''}
+            <th>Aktionen</th>
+          </tr></thead>
+          <tbody>${training.participants.map((p, idx) => {
+            const nc = p.newCounts || {};
+            const s = p.scores;
+            return `<tr>
+              <td><strong>${p.name}</strong></td>
+              <td class="td-mono">${p.employeeId || '—'}</td>
+              <td class="td-mono"><span class="badge badge-blue">${nc.AT || 0}/${training.config.AT}</span></td>
+              <td class="td-mono"><span class="badge badge-blue">${nc.ST || 0}/${training.config.ST}</span></td>
+              <td class="td-mono"><span class="badge badge-blue">${nc.PR || 0}/${training.config.PR}</span></td>
+              ${s ? `
+                <td>${scoreCell(s.AT)}</td>
+                <td>${scoreCell(s.ST)}</td>
+                <td>${scoreCell(s.PR)}</td>
+                <td>${p.overallPassed ? '<span class="badge badge-green">✓ Bestanden</span>' : '<span class="badge badge-red">✗ Nicht bestanden</span>'}</td>
+              ` : '<td colspan="4" class="text-muted text-sm">Noch nicht abgenommen</td>'}
+              <td><div class="btn-group">
+                <button class="btn btn-secondary btn-sm" onclick="openResultsModal('${id}',${idx})">
+                  ${p.completedAt ? 'Ergebnis' : 'Ergebnis eintragen'}
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="showExamSheet('${id}',${idx})">Fragebogen</button>
+              </div></td>
+            </tr>`;
+          }).join('')}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function scoreCell(s) {
+  if (!s) return '<span class="text-muted">—</span>';
+  const pct = Math.round(s.correct / s.total * 100);
+  const pass = pct >= 80;
+  return `<span class="badge ${pass ? 'badge-green' : 'badge-red'}">${s.correct}/${s.total} (${pct}%)</span>`;
+}
+
+// ===== SHOW EXAM SHEET (for one participant) =====
+function showExamSheet(trainingId, pIdx) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  if (!training) return;
+  const p = training.participants[pIdx];
+  const allQ = getAllQuestionsMap();
+
+  let html = `
+    <div class="print-only" style="margin-bottom:20px">
+      <h2>ZfP Prüfungsbogen – ${training.method} · ${METHOD_NAMES[training.method]}</h2>
+      <p>Teilnehmer: <strong>${p.name}</strong> (${p.employeeId || '—'}) | Datum: ${fmtDate(training.date)} | Ort: ${training.location || '—'}</p>
+      <p>Bestehensgrenze: 80% je Teil</p><hr>
+    </div>
+  `;
+
+  for (const [partKey, partLabel] of Object.entries(PART_NAMES)) {
+    const qIds = p.questions[partKey] || [];
+    html += `<div class="card"><div class="card-title" style="font-size:15px;margin-bottom:20px">${partLabel} (${qIds.length} Fragen)</div>`;
+    qIds.forEach((qId, qi) => {
+      const q = allQ[qId];
+      if (!q) return;
+      const ans = p.answers?.[partKey]?.[qId];
+      html += `<div class="question-block">
+        <div class="q-header">
+          <span class="q-num">${partKey}-${qi+1}</span>
+          <div class="q-text">${q.text}</div>
+        </div>
+        <div class="q-options">
+          ${Object.entries(q.options).map(([k, v]) => {
+            let cls = '';
+            if (ans) { if (k === q.answer) cls = 'correct'; else if (k === ans) cls = 'wrong'; }
+            return `<div class="q-option ${cls}">
+              <span class="q-option-label">${k})</span>
+              <span class="q-option-text">${v}</span>
+            </div>`;
+          }).join('')}
+        </div>
+        ${ans ? `<div class="mt8 text-sm" style="color:${ans===q.answer?'var(--green)':'var(--red)'}">${ans===q.answer?'✓ Richtig':'✗ Falsch (Richtig: '+q.answer+')'}</div>` : ''}
+      </div>`;
+    });
+    html += '</div>';
+  }
+
+  document.getElementById('training-detail-content').innerHTML = `
+    <div class="flex gap8 mb24 no-print">
+      <button class="btn btn-secondary" onclick="renderTrainingDetail('${trainingId}')">← Zurück</button>
+      <button class="btn btn-secondary" onclick="window.print()">Drucken</button>
+    </div>
+    <div class="print-only"><h3 style="margin-bottom:16px">ZfP Prüfungsbogen</h3></div>
+    ${html}
+  `;
+}
+
+// ===== RESULTS MODAL =====
+function openResultsModal(trainingId, pIdx) {
+  pendingResultsData = { trainingId, pIdx };
+  const training = getTrainings().find(t => t.id === trainingId);
+  const p = training.participants[pIdx];
+  const allQ = getAllQuestionsMap();
+  document.getElementById('results-modal-sub').textContent = `Teilnehmer: ${p.name} · ${training.method}`;
+
+  let html = '';
+  for (const [partKey, partLabel] of Object.entries(PART_NAMES)) {
+    const qIds = p.questions[partKey] || [];
+    html += `<div class="mb16">
+      <div style="font-size:13px;font-weight:600;margin-bottom:10px;color:var(--text2)">${partLabel} (${qIds.length} Fragen)</div>
+      <div class="answer-grid">
+        ${qIds.map((qId, qi) => {
+          const q = allQ[qId];
+          const existing = p.answers?.[partKey]?.[qId] || '';
+          return `<div class="answer-cell">
+            <div class="q-label">${partKey}-${qi+1}</div>
+            <input class="answer-input" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}"
+              maxlength="1" value="${existing}" oninput="validateAnswerInput(this)" placeholder="?">
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }
+  document.getElementById('results-modal-content').innerHTML = html;
+  openModal('modal-results');
+}
+
+function validateAnswerInput(el) {
+  el.value = el.value.toLowerCase().replace(/[^abcd]/g,'');
+  const correct = el.dataset.correct;
+  if (el.value && correct) {
+    el.classList.toggle('correct', el.value === correct);
+    el.classList.toggle('incorrect', el.value !== correct);
+  } else { el.classList.remove('correct','incorrect'); }
+}
+
+async function saveResults() {
+  const { trainingId, pIdx } = pendingResultsData;
+  const trainings = getTrainings();
+  const training = trainings.find(t => t.id === trainingId);
+  const p = training.participants[pIdx];
+  const allQ = getAllQuestionsMap();
+
+  const inputs = document.querySelectorAll('#results-modal-content .answer-input');
+  const answers = {};
+  const scores = {};
+
+  for (const [partKey] of Object.entries(PART_NAMES)) {
+    answers[partKey] = {};
+    let correct = 0, total = 0;
+    inputs.forEach(inp => {
+      if (inp.dataset.part !== partKey) return;
+      const qId = inp.dataset.qid;
+      const val = inp.value.trim().toLowerCase();
+      if (val) answers[partKey][qId] = val;
+      const q = allQ[qId];
+      if (q && val) { total++; if (val === q.answer) correct++; }
+    });
+    scores[partKey] = { correct, total, percent: total ? Math.round(correct/total*100) : 0, passed: total > 0 && correct/total >= PASS_THRESHOLD };
+  }
+
+  p.answers = answers;
+  p.scores = scores;
+  p.overallPassed = Object.values(scores).every(s => s.passed);
+  p.completedAt = now_iso();
+
+  // Update training status
+  if (training.participants.every(x => x.completedAt)) training.status = 'completed';
+  window._pSessions = trainings;
+
+  // Update history
+  const history = getHistory();
+  const hkey = `${p.participantId}:::${training.method}`;
+  if (!history[hkey]) history[hkey] = [];
+  const allQIds = [...(p.questions.AT||[]), ...(p.questions.ST||[]), ...(p.questions.PR||[])];
+  history[hkey].push({ trainingId, date: training.date, questionIds: allQIds, scores, passed: p.overallPassed });
+  window._pHistory = history;
+  showSaving(true);
+  try {
+    await window.ghSaveFile(window.EXAM_SESS_FILE, window._pSessions, `Ergebnis: ${p.name}`);
+    await window.ghSaveFile(window.EXAM_HIST_FILE, window._pHistory,  `Ergebnis: ${p.name}`);
+    // Also update schulungs attendee pruefungBestanden flag
+    window._updateAttendeeResult && window._updateAttendeeResult(p.participantId, p.overallPassed);
+  } catch(e) { showPruefToast('❌ GH-Speichern: '+e.message,'error'); }
+  finally { showSaving(false); }
+
+  closeModal('modal-results');
+  showToast(`Ergebnisse für ${p.name} gespeichert: ${p.overallPassed ? '✓ Bestanden' : '✗ Nicht bestanden'}`, p.overallPassed ? 'success' : 'error');
+  renderTrainingDetail(trainingId);
+}
+
+// ===== DIGITAL EXAM MODE =====
+function startDigitalExam(trainingId) {
+  currentTrainingId = trainingId;
+  currentExamParticipantIndex = 0;
+  navPruef('examMode', 'Digitale Prüfung');
+  renderExamParticipantSelect(trainingId);
+}
+
+function renderExamParticipantSelect(trainingId) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  document.getElementById('exam-mode-content').innerHTML = `
+    <div class="page-title mb8">Digitale Prüfung · ${training.name}</div>
+    <div class="page-sub mb24">Teilnehmer für die Prüfung auswählen</div>
+    <div class="card" style="max-width:600px">
+      <div class="card-title">Teilnehmer</div>
+      ${training.participants.map((p, idx) => `
+        <div class="participant-item mb8" style="cursor:${p.completedAt?'default':'pointer'}" ${p.completedAt?'':'onclick="startExamForParticipant(\''+trainingId+'\','+idx+')"'}>
+          <div class="p-name">${p.name}</div>
+          <div class="p-id">${p.employeeId||'—'}</div>
+          <div>${p.completedAt ? '<span class="badge badge-green">Abgeschlossen</span>' : '<button class="btn btn-primary btn-sm">Prüfung starten</button>'}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="btn-group mt16">
+      <button class="btn btn-secondary" onclick="openTrainingDetail('${trainingId}')">← Zurück zur Übersicht</button>
+    </div>
+  `;
+}
+
+function startExamForParticipant(trainingId, pIdx) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  const p = training.participants[pIdx];
+  currentExamParticipantIndex = pIdx;
+  currentExamAnswers = {};
+  currentExamPart = 'AT';
+  renderExamInterface(trainingId, pIdx, 'AT');
+}
+
+function renderExamInterface(trainingId, pIdx, part) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  const p = training.participants[pIdx];
+  const allQ = getAllQuestionsMap();
+  const qIds = p.questions[part] || [];
+  const parts = Object.keys(PART_NAMES);
+
+  document.getElementById('exam-mode-content').innerHTML = `
+    <div class="exam-progress-bar"><div class="exam-progress-fill" id="exam-prog" style="width:0%"></div></div>
+    <div class="exam-header no-print">
+      <div>
+        <div style="font-weight:700;font-size:15px">${p.name}</div>
+        <div class="text-sm text-muted">${training.method} · ${training.name}</div>
+      </div>
+      <div class="part-nav">
+        ${parts.map(pt => `<div class="part-nav-item ${pt===part?'active':''} ${(currentExamAnswers[pt]&&Object.keys(currentExamAnswers[pt]).length>=(p.questions[pt]||[]).length)?'completed':''}" onclick="">${PART_NAMES[pt].split(' ')[0]} Teil</div>`).join('')}
+      </div>
+    </div>
+    <div style="max-width:800px;margin:24px auto;padding:0 16px">
+      <div style="font-size:18px;font-weight:700;margin-bottom:4px">${PART_NAMES[part]}</div>
+      <div class="text-sm text-muted mb24">${qIds.length} Fragen · Bestehensschwelle 80%</div>
+      <div id="exam-questions">
+        ${qIds.map((qId, qi) => {
+          const q = allQ[qId];
+          if (!q) return '';
+          const partAns = currentExamAnswers[part] || {};
+          const ans = partAns[qId];
+          return `<div class="question-block" id="qb-${qId}">
+            <div class="q-header">
+              <span class="q-num">${part}-${qi+1}</span>
+              <div class="q-text">${q.text}</div>
+            </div>
+            <div class="q-options">
+              ${Object.entries(q.options).map(([k,v]) => `
+                <div class="q-option ${ans===k?'selected':''}" onclick="selectAnswer('${part}','${qId}','${k}','${trainingId}',${pIdx})">
+                  <span class="q-option-label">${k})</span>
+                  <span class="q-option-text">${v}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="flex justify-between mt24 mb24">
+        ${parts.indexOf(part) > 0 ? `<button class="btn btn-secondary" onclick="navExamPart('${trainingId}',${pIdx},'${parts[parts.indexOf(part)-1]}')">← Vorheriger Teil</button>` : '<div></div>'}
+        ${parts.indexOf(part) < parts.length - 1 ?
+          `<button class="btn btn-primary" onclick="navExamPart('${trainingId}',${pIdx},'${parts[parts.indexOf(part)+1]}')">Weiter: ${PART_NAMES[parts[parts.indexOf(part)+1]]} →</button>` :
+          `<button class="btn btn-success" onclick="submitDigitalExam('${trainingId}',${pIdx})">✓ Prüfung abgeben</button>`
+        }
+      </div>
+    </div>
+  `;
+  updateExamProgress(part, pIdx, training);
+}
+
+function selectAnswer(part, qId, answer, trainingId, pIdx) {
+  if (!currentExamAnswers[part]) currentExamAnswers[part] = {};
+  currentExamAnswers[part][qId] = answer;
+  document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el => el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  const training = getTrainings().find(t => t.id === trainingId);
+  updateExamProgress(part, pIdx, training);
+}
+
+function updateExamProgress(part, pIdx, training) {
+  const p = training.participants[pIdx];
+  const total = (p.questions[part]||[]).length;
+  const answered = Object.keys(currentExamAnswers[part]||{}).length;
+  const pct = total ? Math.round(answered/total*100) : 0;
+  const bar = document.getElementById('exam-prog');
+  if (bar) bar.style.width = pct + '%';
+}
+
+function navExamPart(trainingId, pIdx, newPart) {
+  currentExamPart = newPart;
+  renderExamInterface(trainingId, pIdx, newPart);
+}
+
+async function submitDigitalExam(trainingId, pIdx) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  const p = training.participants[pIdx];
+  const allAnswered = Object.keys(PART_NAMES).every(part => {
+    const needed = (p.questions[part]||[]).length;
+    const answered = Object.keys(currentExamAnswers[part]||{}).length;
+    return answered === needed;
+  });
+  if (!allAnswered) {
+    if (!confirm('Nicht alle Fragen beantwortet. Trotzdem abgeben?')) return;
+  }
+  // Auto-save results
+  pendingResultsData = { trainingId, pIdx };
+  const allQ = getAllQuestionsMap();
+  const trainings = getTrainings();
+  const t2 = trainings.find(x => x.id === trainingId);
+  const p2 = t2.participants[pIdx];
+
+  const answers = {};
+  const scores = {};
+  for (const [partKey] of Object.entries(PART_NAMES)) {
+    answers[partKey] = currentExamAnswers[partKey] || {};
+    const qIds = p2.questions[partKey] || [];
+    let correct = 0, total = qIds.length;
+    qIds.forEach(qId => {
+      const a = answers[partKey][qId];
+      const q = allQ[qId];
+      if (a && q && a === q.answer) correct++;
+    });
+    scores[partKey] = { correct, total, percent: total ? Math.round(correct/total*100) : 0, passed: total > 0 && correct/total >= PASS_THRESHOLD };
+  }
+
+  p2.answers = answers;
+  p2.scores = scores;
+  p2.overallPassed = Object.values(scores).every(s => s.passed);
+  p2.completedAt = now_iso();
+  if (t2.participants.every(x => x.completedAt)) t2.status = 'completed';
+  window._pSessions = trainings;
+
+  const history = getHistory();
+  const hkey = `${p2.participantId}:::${t2.method}`;
+  if (!history[hkey]) history[hkey] = [];
+  const allQIds = [...(p2.questions.AT||[]), ...(p2.questions.ST||[]), ...(p2.questions.PR||[])];
+  history[hkey].push({ trainingId, date: t2.date, questionIds: allQIds, scores, passed: p2.overallPassed });
+  window._pHistory = history;
+  showSaving(true);
+  try {
+    await window.ghSaveFile(window.EXAM_SESS_FILE, window._pSessions, `Digital-Prüfung: ${p2.name}`);
+    await window.ghSaveFile(window.EXAM_HIST_FILE, window._pHistory,  `Digital-Prüfung: ${p2.name}`);
+    window._updateAttendeeResult && window._updateAttendeeResult(p2.participantId, p2.overallPassed);
+  } catch(e) { showPruefToast('❌ GH-Speichern: '+e.message,'error'); }
+  finally { showSaving(false); }
+
+  // Show result
+  showExamResult(trainingId, pIdx, scores, p2.overallPassed);
+}
+
+function showExamResult(trainingId, pIdx, scores, overallPassed) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  const p = training.participants[pIdx];
+  document.getElementById('exam-mode-content').innerHTML = `
+    <div style="max-width:600px;margin:60px auto;text-align:center">
+      <div style="font-size:64px;margin-bottom:16px">${overallPassed ? '🎉' : '😔'}</div>
+      <div class="page-title" style="color:${overallPassed?'var(--green)':'var(--red)'}">${overallPassed ? 'Bestanden!' : 'Nicht bestanden'}</div>
+      <div class="page-sub">${p.name} · ${training.method}</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0">
+        ${Object.entries(PART_NAMES).map(([k,l]) => {
+          const s = scores[k]; const pct = s.percent;
+          return `<div class="card" style="text-align:center">
+            <div class="text-xs text-dim mb4">${l}</div>
+            <div style="font-size:28px;font-weight:700;font-family:var(--mono);color:${s.passed?'var(--green)':'var(--red)'}">${pct}%</div>
+            <div class="text-xs text-muted">${s.correct}/${s.total} richtig</div>
+            <span class="badge mt8 ${s.passed?'badge-green':'badge-red'}">${s.passed?'Bestanden':'Nicht bestanden'}</span>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="btn-group" style="justify-content:center">
+        <button class="btn btn-primary" onclick="renderExamParticipantSelect('${trainingId}')">Nächster Teilnehmer</button>
+        <button class="btn btn-secondary" onclick="openTrainingDetail('${trainingId}')">Zur Übersicht</button>
+      </div>
+    </div>
+  `;
+}
+
+// ===== TRAININGS LIST =====
+function renderTrainings() {
+  const trainings = getTrainings().sort((a,b) => new Date(b.date)-new Date(a.date));
+  const methodFilter = currentMethod;
+
+  const filtered = methodFilter ? trainings.filter(t => t.method === methodFilter) : trainings;
+
+  document.getElementById('trainings-list').innerHTML = filtered.length ? `
+    <div class="btn-group mb16 no-print">
+      <select class="form-input" style="width:200px" onchange="filterTrainings(this.value)" id="training-method-filter">
+        <option value="">Alle Methoden</option>
+        ${Object.entries(METHOD_NAMES).map(([k,v]) => `<option value="${k}" ${methodFilter===k?'selected':''}>${k} · ${v}</option>`).join('')}
+      </select>
+    </div>
+    ${filtered.map(t => {
+      const done = t.participants?.filter(p => p.completedAt).length || 0;
+      const total = t.participants?.length || 0;
+      const pass = t.participants?.filter(p => p.overallPassed).length || 0;
+      return `<div class="card" style="cursor:pointer" onclick="openTrainingDetail('${t.id}')">
+        <div class="flex justify-between items-center">
+          <div>
+            <div style="font-weight:600;font-size:15px;margin-bottom:4px">${t.name}</div>
+            <div class="text-sm text-muted">
+              <span class="badge badge-blue">${t.method}</span>
+              &nbsp;${fmtDate(t.date)}
+              ${t.location ? ' · ' + t.location : ''}
+              ${t.trainer ? ' · Prüfer: ' + t.trainer : ''}
+            </div>
+          </div>
+          <div class="flex gap8 items-center">
+            <div class="text-sm text-mono text-muted">${done}/${total} abgenommen</div>
+            ${t.status === 'completed' ? `<span class="badge badge-green">Abgeschlossen · ${pass}/${total} bestanden</span>` : `<span class="badge badge-amber">Offen</span>`}
+            <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();openTrainingDetail('${t.id}')">Details →</button>
+          </div>
+        </div>
+      </div>`;
+    }).join('')}
+  ` : `<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Schulungen angelegt</p><button class="btn btn-primary" onclick="navPruef('newTraining')">Erste Schulung anlegen</button></div>`;
+}
+
+function filterTrainings(method) {
+  currentMethod = method;
+  renderTrainings();
+}
+
+// ===== HISTORY =====
+function renderHistory() {
+  const nameSearch = document.getElementById('history-search-name')?.value?.toLowerCase() || '';
+  const methodFilter = document.getElementById('history-method')?.value || '';
+  const history = getHistory();
+  const participants = getParticipants();
+  const now = new Date();
+  const fourYearsAgo = new Date(); fourYearsAgo.setFullYear(fourYearsAgo.getFullYear() - RECERT_YEARS);
+
+  let rows = [];
+  Object.entries(history).forEach(([key, hlist]) => {
+    const [pid, method] = key.split(':::');
+    if (methodFilter && method !== methodFilter) return;
+    const p = participants.find(x => x.id === pid);
+    const name = p?.name || pid;
+    if (nameSearch && !name.toLowerCase().includes(nameSearch)) return;
+    hlist.filter(h => new Date(h.date) >= fourYearsAgo).forEach(h => {
+      rows.push({ name, employeeId: p?.employeeId, method, ...h });
+    });
+  });
+
+  rows.sort((a,b) => new Date(b.date)-new Date(a.date));
+
+  document.getElementById('history-content').innerHTML = rows.length ? `
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead><tr>
+            <th>Datum</th><th>Teilnehmer</th><th>Personal-Nr.</th><th>Methode</th>
+            <th>AT</th><th>ST</th><th>PR</th><th>Gesamt</th><th>Fragen gesamt</th>
+          </tr></thead>
+          <tbody>${rows.map(r => `<tr>
+            <td class="td-mono">${fmtDate(r.date)}</td>
+            <td>${r.name}</td>
+            <td class="td-mono">${r.employeeId||'—'}</td>
+            <td><span class="badge badge-blue">${r.method}</span></td>
+            <td>${scoreCell(r.scores?.AT)}</td>
+            <td>${scoreCell(r.scores?.ST)}</td>
+            <td>${scoreCell(r.scores?.PR)}</td>
+            <td>${r.passed ? '<span class="badge badge-green">✓ Bestanden</span>' : '<span class="badge badge-red">✗ Nicht bestanden</span>'}</td>
+            <td class="td-mono">${r.questionIds?.length || '—'}</td>
+          </tr>`).join('')}</tbody>
+        </table>
+      </div>
+    </div>
+  ` : '<div class="empty-state"><div class="empty-icon">📊</div><p>Keine Verlaufsdaten vorhanden</p></div>';
+}
+
+// ===== SETTINGS =====
+function renderSettings() {
+  if (!questions) return;
+  let info = '';
+  const atCount = questions.shared?.AT?.length || 0;
+  info += `<div class="mb8">Allg. Teil (AT, gemeinsam): <strong>${atCount}</strong> Fragen</div>`;
+  if (questions.methods) {
+    Object.entries(questions.methods).forEach(([m, mq]) => {
+      const st = mq.ST?.length || 0;
+      const pr = mq.PR?.length || 0;
+      info += `<div class="mb4"><span class="badge badge-blue mb4">${m}</span> ST: <strong>${st}</strong> · PR: <strong>${pr}</strong></div>`;
+    });
+  }
+  document.getElementById('question-db-info').innerHTML = info;
+}
+
+// ===== PRINT EXAM =====
+function printExam(trainingId) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  const allQ = getAllQuestionsMap();
+
+  let printContent = training.participants.map((p, idx) => {
+    let html = `<div class="${idx>0?'page-break':''}">
+      <h2 style="margin-bottom:8px">ZfP Prüfungsbogen – ${training.method} · ${METHOD_NAMES[training.method]}</h2>
+      <p style="margin-bottom:4px"><strong>Teilnehmer:</strong> ${p.name} (${p.employeeId||'—'}) | <strong>Datum:</strong> ${fmtDate(training.date)} | <strong>Ort:</strong> ${training.location||'—'}</p>
+      <p style="margin-bottom:16px"><em>Bestehensgrenze: 80% je Teil · Bitte nur EINE Antwort je Frage ankreuzen</em></p>
+    `;
+    for (const [partKey, partLabel] of Object.entries(PART_NAMES)) {
+      const qIds = p.questions[partKey] || [];
+      html += `<h3 style="margin:16px 0 8px">${partLabel} (${qIds.length} Fragen)</h3>`;
+      qIds.forEach((qId, qi) => {
+        const q = allQ[qId];
+        if (!q) return;
+        html += `<div style="margin-bottom:12px;padding:10px;border:1pt solid #ddd;border-radius:4px">
+          <p style="font-weight:600;margin-bottom:6px">${qi+1}. ${q.text}</p>
+          ${Object.entries(q.options).map(([k,v]) => `<p style="margin:2px 0;padding-left:16px">☐ ${k}) ${v}</p>`).join('')}
+        </div>`;
+      });
+    }
+    html += '</div>';
+    return html;
+  }).join('');
+
+  const win = window.open('','_blank');
+  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Prüfungsbogen · ${training.name}</title>
+    <style>body{font-family:Arial,sans-serif;font-size:11pt;margin:20mm}.page-break{break-before:page}h2{font-size:14pt}h3{font-size:12pt}</style>
+  </head><body>${printContent}</body></html>`);
+  win.document.close();
+  win.print();
+}
+
+// ===== EXPORT/IMPORT =====
+function exportData() {
+  const data = {
+    version: '2.0',
+    exportedAt: now_iso(),
+    examParticipants: getParticipants(),
+    examSessions: getTrainings(),
+    examHistory: getHistory()
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `zfp_system_backup_${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  showToast('Daten exportiert', 'success');
+}
+
+function importData(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.examParticipants) window._pParticipants=data.examParticipants;
+      if (data.examSessions) window._pSessions=data.examSessions;
+      if (data.examHistory) window._pHistory=data.examHistory;
+      showToast('Daten importiert!', 'success');
+      renderDashboard();
+    } catch { showToast('Import-Fehler: Ungültiges Format', 'error'); }
+  };
+  reader.readAsText(file);
+  input.value = '';
+}
+
+function exportTrainingResults(trainingId) {
+  const training = getTrainings().find(t => t.id === trainingId);
+  const rows = [['Name','Personal-Nr.','Abteilung','AT %','AT Bestanden','ST %','ST Bestanden','PR %','PR Bestanden','Gesamt']];
+  training.participants.forEach(p => {
+    const s = p.scores;
+    rows.push([
+      p.name, p.employeeId||'', p.department||'',
+      s?.AT?.percent||'', s?.AT?.passed?'JA':'NEIN',
+      s?.ST?.percent||'', s?.ST?.passed?'JA':'NEIN',
+      s?.PR?.percent||'', s?.PR?.passed?'JA':'NEIN',
+      p.overallPassed?'BESTANDEN':'NICHT BESTANDEN'
+    ]);
+  });
+  const csv = rows.map(r => r.join(';')).join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `ergebnisse_${training.method}_${training.date}.csv`;
+  a.click();
+  showToast('Ergebnisse als CSV exportiert', 'success');
+}
+
+function clearAllData() {
+  if (!confirm('ACHTUNG: Alle Teilnehmer, Schulungen und Historien werden gelöscht. Bitte vorher sichern!')) return;
+  window._pSessions=[]; window._pHistory={}; window._pParticipants=[];
+  showToast('Alle Daten gelöscht', 'success');
+  renderDashboard();
+}
+
+function reloadQuestions() { loadQuestions(); showToast('Fragen werden neu geladen...', 'success'); }
+
+// ===== HELPERS =====
+function getAllQuestionsMap() {
+  const map = {};
+  if (!questions) return map;
+  (questions.shared?.AT||[]).forEach(q => map[q.id] = q);
+  if (questions.methods) {
+    Object.values(questions.methods).forEach(m => {
+      (m.ST||[]).forEach(q => map[q.id] = q);
+      (m.PR||[]).forEach(q => map[q.id] = q);
+    });
+  }
+  return map;
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i+1));
+    [a[i],a[j]] = [a[j],a[i]];
+  }
+  return a;
+}
+
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2); }
+function now_iso() { return new Date().toISOString(); }
+function fmtDate(d) {
+  if (!d) return '—';
+  const [y,m,day] = (d.split('T')[0] || d).split('-');
+  return `${day}.${m}.${y}`;
+}
+
+function openModal(id) { document.getElementById(id)?.classList.add('open'); }
+function closeModal(id) { document.getElementById(id)?.classList.remove('open'); }
+
+function showPruefToast(msg, type='success') {
+  const container = document.getElementById('pruef-toast');
+  if (!container) { showToast(msg, type==='success'?'success':'error'); return; }
+  const el = document.createElement('div');
+  el.className = 'pruef-toast-item ' + type;
+  el.textContent = msg;
+  container.appendChild(el);
+  setTimeout(() => el.remove(), 3500);
+}
+// Alias so pruef code calling showToast still works
+const _pruefShowToastOrig = typeof showToast !== 'undefined' ? showToast : null;
+function showToast(msg, type='success', dur=3500) { showPruefToast(msg, type); }
+
+function importParticipantsCSV() {
+  const input = document.createElement('input');
+  input.type = 'file'; input.accept = '.csv';
+  input.onchange = e => {
+    const file = e.target.files[0]; if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const lines = ev.target.result.split('\n').filter(l => l.trim());
+      const ps = getParticipants();
+      let added = 0;
+      lines.slice(1).forEach(line => {
+        const parts = line.split(';').map(s => s.trim().replace(/"/g,''));
+        const [name, empId, dept] = parts;
+        if (!name || !empId || ps.find(p => p.employeeId === empId)) return;
+        ps.push({ id: uid(), name, employeeId: empId, department: dept||'', createdAt: now_iso() });
+        added++;
+      });
+      saveParticipants(ps);
+      renderParticipants();
+      showToast(`${added} Teilnehmer importiert`, 'success');
+    };
+    reader.readAsText(file, 'utf-8');
+  };
+  input.click();
+}
+
+// ===== INIT (called by unified init) =====
+function initPruefSystem() {
+  loadQuestions();
+  renderDashboard();
+}
+
+</script>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   INJECT PRÜFUNGSSYSTEM HTML INTO #pruef-app
+══════════════════════════════════════════════════════════════ */
+
+(function() {
+  var SIDEBAR = `<nav id="pruef-sidebar">
+  <div class="sidebar-logo">
+    <div class="brand">Schaeffler · ZfP</div>
+    <div class="app-name">Prüfungssystem</div>
+    <div class="version">v2.0 · DGZfP konform</div>
+  </div>
+
+  <div class="sidebar-method-select">
+    <label>Aktive Prüfmethode</label>
+    <select id="globalMethod" onchange="setGlobalMethod(this.value)">
+      <option value="">— Methode wählen —</option>
+      <option value="ET">ET · Wirbelstromprüfung</option>
+      <option value="UT">UT · Ultraschallprüfung</option>
+      <option value="NE">NE · Ätzprüfung</option>
+      <option value="MT">MT · Magnetpulverprüfung</option>
+      <option value="PT">PT · Eindringprüfung</option>
+      <option value="BN">BN · Barkhausen Rauschen</option>
+    </select>
+  </div>
+
+  <div class="sidebar-section">Navigation</div>
+  <div class="nav-item active" onclick="nav('dashboard')" data-view="dashboard">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    Dashboard
+  </div>
+  <div class="nav-item" onclick="nav('participants')" data-view="participants">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Teilnehmer
+  </div>
+  <div class="nav-item" onclick="nav('newTraining')" data-view="newTraining">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+    Neue Schulung
+  </div>
+  <div class="nav-item" onclick="nav('trainings')" data-view="trainings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    Schulungen
+  </div>
+  <div class="nav-item" onclick="nav('history')" data-view="history">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    Verlauf & Archiv
+  </div>
+
+  <div class="sidebar-section">System</div>
+  <div class="nav-item" onclick="nav('settings')" data-view="settings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 12 2a10 10 0 0 0-7.07 2.93"/><path d="M2.93 19.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93"/><path d="M2.93 4.93l18.14 14.14"/></svg>
+    Einstellungen
+  </div>
+
+  <div style="margin-top:auto;padding:12px 8px;border-top:1px solid var(--border)">
+    <div style="font-size:10px;font-family:var(--mono);color:var(--text3);padding:0 8px;line-height:1.6">
+      Fragen ges.: <span id="totalQCount" class="text-accent">—</span><br>
+      Letzte Sync: <span id="lastSync">—</span>
+    </div>
+  </div>
+</nav>`;
+  var MAIN    = `<div id="pruef-main">
+  <div id="pruef-header">
+    <div class="flex items-center gap8">
+      <div class="h-title" id="headerTitle">Dashboard</div>
+      <div class="h-method-badge" id="headerMethod" style="display:none"></div>
+    </div>
+    <div class="flex gap8">
+      <button class="btn btn-secondary btn-sm no-print" onclick="exportData()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Export
+      </button>
+      <button class="btn btn-secondary btn-sm no-print" onclick="document.getElementById('importFile').click()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Import
+      </button>
+      <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
+    </div>
+  </div>
+
+  <div id="pruef-content">
+
+    <!-- DASHBOARD -->
+    <div id="view-dashboard" class="view active">
+      <div class="page-title">Prüfungssystem · ZfP</div>
+      <div class="page-sub">Übersicht und Schnellzugriff</div>
+
+      <div class="stats-row" id="dashStats"></div>
+
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:16px">
+        <div>
+          <div class="card">
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+              Aktuelle Schulungen
+            </div>
+            <div id="dashTrainings"></div>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              Bestehensquoten
+            </div>
+            <div id="dashStats2"></div>
+          </div>
+          <div class="card" style="margin-top:0">
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Rezertifizierung fällig
+            </div>
+            <div id="dashRecert"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTICIPANTS -->
+    <div id="view-participants" class="view">
+      <div class="page-title">Teilnehmerverwaltung</div>
+      <div class="page-sub">Mitarbeiterdatenbank für ZfP-Prüfungen</div>
+      <div class="btn-group mb24">
+        <button class="btn btn-primary" onclick="openAddParticipant()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Teilnehmer hinzufügen
+        </button>
+        <button class="btn btn-secondary" onclick="importParticipantsCSV()">CSV importieren</button>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+          <input class="form-input" style="flex:1" placeholder="Suchen nach Name oder Personal-Nr." oninput="renderParticipants(this.value)" id="participantSearch">
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th>Name</th><th>Personal-Nr.</th><th>Abteilung</th><th>Letzte Prüfung</th><th>Rezertifiz. fällig</th><th></th>
+            </tr></thead>
+            <tbody id="participantsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW TRAINING -->
+    <div id="view-newTraining" class="view">
+      <div class="page-title">Neue Schulung anlegen</div>
+      <div class="page-sub">Schulungsprüfung konfigurieren und Fragen generieren</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div>
+          <div class="card">
+            <div class="card-title">Schulungsdaten</div>
+            <div class="form-row col2">
+              <div class="form-group">
+                <label class="form-label">Prüfmethode *</label>
+                <select class="form-input" id="nt-method" onchange="updateNTMethod()">
+                  <option value="">— wählen —</option>
+                  <option value="ET">ET · Wirbelstromprüfung</option>
+                  <option value="UT">UT · Ultraschallprüfung</option>
+                  <option value="NE">NE · Ätzprüfung</option>
+                  <option value="MT">MT · Magnetpulverprüfung</option>
+                  <option value="PT">PT · Eindringprüfung</option>
+                  <option value="BN">BN · Barkhausen Rauschen</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Prüfdatum *</label>
+                <input class="form-input" type="date" id="nt-date">
+              </div>
+            </div>
+            <div class="form-row col2">
+              <div class="form-group">
+                <label class="form-label">Schulungsort</label>
+                <input class="form-input" type="text" id="nt-location" placeholder="z.B. Schweinfurt Werk 1">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Prüfer / Ausbilder</label>
+                <input class="form-input" type="text" id="nt-trainer" placeholder="Name des Prüfers">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Schulungs-Bezeichnung</label>
+              <input class="form-input" type="text" id="nt-name" placeholder="z.B. ET Level 1 Grundkurs 2026">
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">Fragenanzahl pro Teil</div>
+            <div class="form-row col3">
+              <div class="form-group">
+                <label class="form-label">Allg. Teil (AT)</label>
+                <input class="form-input" type="number" id="nt-count-at" value="20" min="5" max="35">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Spez. Teil (ST)</label>
+                <input class="form-input" type="number" id="nt-count-st" value="15" min="5" max="20">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Prakt. Teil (PR)</label>
+                <input class="form-input" type="number" id="nt-count-pr" value="8" min="3" max="10">
+              </div>
+            </div>
+            <div class="alert alert-info" style="margin-top:8px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8"/></svg>
+              <span>Bestehensbedingung: ≥ 80% je Teil. 25%-Neu-Garantie wird automatisch sichergestellt.</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="card-title">Teilnehmerliste</div>
+            <div class="flex gap8 mb16">
+              <input class="form-input" style="flex:1" placeholder="Name oder Personal-Nr. suchen" id="nt-search" oninput="renderNTSearch(this.value)">
+              <button class="btn btn-secondary btn-sm" onclick="addAllParticipants()">Alle hinzufügen</button>
+            </div>
+            <div id="nt-search-results" style="max-height:200px;overflow-y:auto;margin-bottom:12px"></div>
+            <div class="separator"></div>
+            <div style="font-size:11px;font-family:var(--mono);color:var(--text3);margin-bottom:8px">AUSGEWÄHLT (<span id="nt-selected-count">0</span>)</div>
+            <div id="nt-selected-list" style="max-height:200px;overflow-y:auto"></div>
+          </div>
+
+          <div class="card" id="nt-new-participant-card">
+            <div class="card-title">Neuen Teilnehmer anlegen</div>
+            <div class="form-row col2">
+              <div class="form-group">
+                <label class="form-label">Vollständiger Name</label>
+                <input class="form-input" type="text" id="nt-np-name" placeholder="Max Mustermann">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Personal-Nr.</label>
+                <input class="form-input" type="text" id="nt-np-id" placeholder="12345">
+              </div>
+            </div>
+            <div class="form-group mb16">
+              <label class="form-label">Abteilung</label>
+              <input class="form-input" type="text" id="nt-np-dept" placeholder="WI/SW2-PQT">
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="addNewParticipantFromNT()">Anlegen &amp; hinzufügen</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap8 mt16 no-print">
+        <button class="btn btn-primary" onclick="generateTraining()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Prüfung generieren
+        </button>
+        <button class="btn btn-secondary" onclick="resetNewTraining()">Zurücksetzen</button>
+      </div>
+    </div>
+
+    <!-- TRAININGS LIST -->
+    <div id="view-trainings" class="view">
+      <div class="page-title">Schulungen</div>
+      <div class="page-sub">Alle angelegten Prüfungseinheiten</div>
+      <div id="trainings-list"></div>
+    </div>
+
+    <!-- HISTORY -->
+    <div id="view-history" class="view">
+      <div class="page-title">Verlauf &amp; Archiv</div>
+      <div class="page-sub">Prüfungshistorie der letzten 4 Jahre (Rezertifizierungszeitraum)</div>
+      <div class="form-row col2" style="max-width:600px;margin-bottom:24px">
+        <div class="form-group">
+          <label class="form-label">Teilnehmer filtern</label>
+          <input class="form-input" id="history-search-name" placeholder="Name..." oninput="renderHistory()">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Methode</label>
+          <select class="form-input" id="history-method" onchange="renderHistory()">
+            <option value="">Alle Methoden</option>
+            <option value="ET">ET · Wirbelstromprüfung</option>
+            <option value="UT">UT · Ultraschallprüfung</option>
+            <option value="NE">NE · Ätzprüfung</option>
+            <option value="MT">MT · Magnetpulverprüfung</option>
+            <option value="PT">PT · Eindringprüfung</option>
+            <option value="BN">BN · Barkhausen Rauschen</option>
+          </select>
+        </div>
+      </div>
+      <div id="history-content"></div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="view-settings" class="view">
+      <div class="page-title">Einstellungen</div>
+      <div class="page-sub">Systemkonfiguration</div>
+      <div class="card" style="max-width:560px">
+        <div class="card-title">Fragen-Datenbank</div>
+        <div id="question-db-info" class="mb16"></div>
+        <button class="btn btn-secondary" onclick="reloadQuestions()">Fragen neu laden</button>
+      </div>
+      <div class="card" style="max-width:560px">
+        <div class="card-title">Datenverwaltung</div>
+        <div class="alert alert-warning mb16">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12" y2="17"/></svg>
+          Alle gespeicherten Daten aus dem Browser-Cache löschen.
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-danger" onclick="clearAllData()">Alle Daten löschen</button>
+          <button class="btn btn-secondary" onclick="exportData()">Daten sichern</button>
+        </div>
+      </div>
+      <div class="card" style="max-width:560px">
+        <div class="card-title">Über das System</div>
+        <div class="text-sm text-muted" style="line-height:2">
+          <b>ZfP Prüfungssystem v2.0</b><br>
+          Norm: DIN EN ISO 9712 · Bestehensschwelle: 80% je Teil<br>
+          Rezertifizierungszeitraum: 4 Jahre<br>
+          25%-Neu-Fragen-Garantie: Automatisch sichergestellt<br>
+          Datenspeicherung: Browser LocalStorage<br>
+          <span class="text-dim">Schaeffler Technologies AG &amp; Co. KG · WI/SW2-PQT</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRAINING DETAIL (dynamic) -->
+    <div id="view-trainingDetail" class="view">
+      <div id="training-detail-content"></div>
+    </div>
+
+    <!-- EXAM MODE (digital) -->
+    <div id="view-examMode" class="view">
+      <div id="exam-mode-content"></div>
+    </div>
+
+  </div>
+</div>
+</div>`;
+
+  function injectPruef() {
+    var app = document.getElementById('pruef-app');
+    if (!app) return;
+    app.innerHTML = SIDEBAR + MAIN;
+    // Patch nav() -> navPruef() in injected onclick handlers
+    app.querySelectorAll('[onclick]').forEach(function(el) {
+      var oc = el.getAttribute('onclick') || '';
+      if (/\bnav\(/.test(oc)) el.setAttribute('onclick', oc.replace(/\bnav\(/g, 'navPruef('));
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', injectPruef);
+  else injectPruef();
+})();
+
+</script>
 </body>
 </html>
