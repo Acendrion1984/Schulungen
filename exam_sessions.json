@@ -75,10 +75,79 @@
           "ST": 15,
           "PR": 8
         },
-        "answers": {},
-        "scores": null,
-        "overallPassed": null,
-        "completedAt": null
+        "answers": {
+          "AT": {
+            "AT-033": "b",
+            "AT-002": "a",
+            "AT-014": "d",
+            "AT-009": "b",
+            "AT-012": "d",
+            "AT-007": "b",
+            "AT-018": "c",
+            "AT-035": "b",
+            "AT-013": "a",
+            "AT-023": "c",
+            "AT-034": "b",
+            "AT-028": "c",
+            "AT-019": "a",
+            "AT-027": "b",
+            "AT-016": "d",
+            "AT-020": "a",
+            "AT-032": "b",
+            "AT-005": "b",
+            "AT-022": "d",
+            "AT-004": "d"
+          },
+          "ST": {
+            "ET-ST-006": "b",
+            "ET-ST-011": "a",
+            "ET-ST-017": "b",
+            "ET-ST-015": "b",
+            "ET-ST-019": "b",
+            "ET-ST-003": "c",
+            "ET-ST-005": "b",
+            "ET-ST-016": "b",
+            "ET-ST-008": "b",
+            "ET-ST-014": "a",
+            "ET-ST-020": "d",
+            "ET-ST-010": "b",
+            "ET-ST-004": "b",
+            "ET-ST-002": "a",
+            "ET-ST-012": "b"
+          },
+          "PR": {
+            "ET-PR-001": "a",
+            "ET-PR-005": "b",
+            "ET-PR-004": "a",
+            "ET-PR-002": "a",
+            "ET-PR-003": "a",
+            "ET-PR-007": "b",
+            "ET-PR-008": "b",
+            "ET-PR-006": "b"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 20,
+            "total": 20,
+            "percent": 100,
+            "passed": true
+          },
+          "ST": {
+            "correct": 14,
+            "total": 15,
+            "percent": 93,
+            "passed": true
+          },
+          "PR": {
+            "correct": 7,
+            "total": 8,
+            "percent": 88,
+            "passed": true
+          }
+        },
+        "overallPassed": true,
+        "completedAt": "2026-03-17T03:26:10.861Z"
       },
       {
         "participantId": "60834",
@@ -668,6 +737,89 @@
           "AT": 20,
           "ST": 15,
           "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
+  },
+  {
+    "id": "mmu1y1v9lgvzevzjs1",
+    "method": "ET",
+    "date": "2026-05-11",
+    "location": "Bau 50, Raum Silber",
+    "trainer": "",
+    "name": "Wirbelstromprüfung – 11.05.–12.05.2026",
+    "config": {
+      "AT": 20,
+      "ST": 15,
+      "PR": 8
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-17T03:27:55.126Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "AT-019",
+            "AT-024",
+            "AT-025",
+            "AT-003",
+            "AT-023",
+            "AT-002",
+            "AT-013",
+            "AT-009",
+            "AT-029",
+            "AT-026",
+            "AT-011",
+            "AT-035",
+            "AT-021",
+            "AT-032",
+            "AT-030",
+            "AT-012",
+            "AT-028",
+            "AT-015",
+            "AT-010",
+            "AT-008"
+          ],
+          "ST": [
+            "ET-ST-003",
+            "ET-ST-004",
+            "ET-ST-018",
+            "ET-ST-006",
+            "ET-ST-016",
+            "ET-ST-015",
+            "ET-ST-005",
+            "ET-ST-017",
+            "ET-ST-012",
+            "ET-ST-020",
+            "ET-ST-001",
+            "ET-ST-009",
+            "ET-ST-013",
+            "ET-ST-002",
+            "ET-ST-010"
+          ],
+          "PR": [
+            "ET-PR-008",
+            "ET-PR-004",
+            "ET-PR-002",
+            "ET-PR-003",
+            "ET-PR-001",
+            "ET-PR-006",
+            "ET-PR-007",
+            "ET-PR-005"
+          ]
+        },
+        "newCounts": {
+          "AT": 11,
+          "ST": 4,
+          "PR": 0
         },
         "answers": {},
         "scores": null,
