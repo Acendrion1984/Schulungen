@@ -457,10 +457,10 @@
 .sidebar-logo .brand{font-size:10px;font-family:var(--font-mono);letter-spacing:.11em;color:var(--text3);text-transform:uppercase;margin-bottom:3px}
 .sidebar-logo .app-name{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.2px}
 .sidebar-logo .version{font-size:9px;font-family:var(--font-mono);color:var(--muted);margin-top:2px}
-.sidebar-method-select{margin:7px;padding:7px 11px;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius-lg)}
-.sidebar-method-select label{font-size:9px;font-family:var(--font-mono);color:var(--text3);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.08em}
-.sidebar-method-select select{width:100%;background:var(--surface2);border:1.5px solid var(--border2);color:var(--text);font-family:var(--font);font-size:.82rem;padding:5px 8px;border-radius:var(--radius-full);outline:none;cursor:pointer}
-.sidebar-method-select select:focus{border-color:var(--accent2)}
+
+/* sidebar-method-select removed as requested */
+/* .sidebar-method-select {...} */
+
 .sidebar-section{padding:14px 12px 5px;font-size:9px;font-family:var(--font-mono);letter-spacing:.1em;color:var(--text3);text-transform:uppercase}
 .nav-item{display:flex;align-items:center;gap:9px;padding:8px 11px;margin:1px 7px;border-radius:var(--radius-lg);cursor:pointer;transition:.14s;color:var(--muted);font-size:.86rem;font-weight:500;border:1.5px solid transparent}
 .nav-item:hover{background:var(--surface);color:var(--text)}
@@ -1838,19 +1838,22 @@ async function loadQuestions() {
 
 function countQuestions() {
   if (!questions) return 0;
-  let c = (questions.shared?.AT?.length || 0);
+  let c = 0;
+  if (questions.shared) {
+      // Alter shared-Bereich ignorieren – jetzt prozedurenbezogen
+  }
   if (questions.methods) {
     for (const m of Object.values(questions.methods)) {
-      c += (m.ST?.length || 0) + (m.PR?.length || 0);
+      c += (m.AT?.length || 0) + (m.ST?.length || 0) + (m.PR?.length || 0);
     }
   }
   return c;
 }
 
 function getQuestionsForMethod(method, part) {
-  if (!questions) return [];
-  if (part === 'AT') return questions.shared?.AT || [];
-  return questions.methods?.[method]?.[part === 'PR' ? 'PR' : 'ST'] || [];
+  if (!questions || !method) return [];
+  // Holen aus dem methoden-spezifischen Objekt – auch für AT
+  return questions.methods?.[method]?.[part] || [];
 }
 
 // ===== NAVIGATION =====
@@ -2819,13 +2822,12 @@ function renderHistory() {
 function renderSettings() {
   if (!questions) return;
   let info = '';
-  const atCount = questions.shared?.AT?.length || 0;
-  info += `<div class="mb8">Allg. Teil (AT, gemeinsam): <strong>${atCount}</strong> Fragen</div>`;
   if (questions.methods) {
     Object.entries(questions.methods).forEach(([m, mq]) => {
+      const at = mq.AT?.length || 0;
       const st = mq.ST?.length || 0;
       const pr = mq.PR?.length || 0;
-      info += `<div class="mb4"><span class="badge badge-blue mb4">${m}</span> ST: <strong>${st}</strong> · PR: <strong>${pr}</strong></div>`;
+      info += `<div class="mb4"><span class="badge badge-blue mb4">${m}</span> AT: <strong>${at}</strong> · ST: <strong>${st}</strong> · PR: <strong>${pr}</strong></div>`;
     });
   }
   document.getElementById('question-db-info').innerHTML = info;
@@ -2936,9 +2938,9 @@ function reloadQuestions() { loadQuestions(); showToast('Fragen werden neu gelad
 function getAllQuestionsMap() {
   const map = {};
   if (!questions) return map;
-  (questions.shared?.AT||[]).forEach(q => map[q.id] = q);
   if (questions.methods) {
     Object.values(questions.methods).forEach(m => {
+      (m.AT||[]).forEach(q => map[q.id] = q);
       (m.ST||[]).forEach(q => map[q.id] = q);
       (m.PR||[]).forEach(q => map[q.id] = q);
     });
@@ -3026,18 +3028,7 @@ function initPruefSystem() {
     <div class="version">v2.0 · DGZfP konform</div>
   </div>
 
-  <div class="sidebar-method-select">
-    <label>Aktive Prüfmethode</label>
-    <select id="globalMethod" onchange="setGlobalMethod(this.value)">
-      <option value="">— Methode wählen —</option>
-      <option value="ET">ET · Wirbelstromprüfung</option>
-      <option value="UT">UT · Ultraschallprüfung</option>
-      <option value="NE">NE · Ätzprüfung</option>
-      <option value="MT">MT · Magnetpulverprüfung</option>
-      <option value="PT">PT · Eindringprüfung</option>
-      <option value="BN">BN · Barkhausen Rauschen</option>
-    </select>
-  </div>
+  <!-- Dropdown entfernt – wie gewünscht -->
 
   <div class="sidebar-section">Navigation</div>
   <div class="nav-item active" onclick="nav('dashboard')" data-view="dashboard">
