@@ -1,6 +1,6 @@
 {
-  "version": "1.0",
-  "lastUpdated": "2026-03-16",
+  "version": "2.0",
+  "lastUpdated": "2026-03-17",
   "methodNames": {
     "ET": "Wirbelstromprüfung",
     "UT": "Ultraschallprüfung",
@@ -14,397 +14,395 @@
     "ST": "Spezieller Teil",
     "PR": "Praktischer Teil"
   },
-  "shared": {
-    "AT": [
-      {
-        "id": "AT-001",
-        "text": "In welchen Gitterstrukturen kann Eisen auftreten?",
-        "options": {
-          "a": "hexagonal dichtest gepackt",
-          "b": "kubisch flächenzentriert",
-          "c": "kubisch raumzentriert",
-          "d": "Die Antworten b) und c) sind richtig"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-002",
-        "text": "Was sind interstitielle Fremdatome?",
-        "options": {
-          "a": "Atome einer anderen Sorte auf Zwischengitterplätzen",
-          "b": "Atome einer anderen Sorte auf regulären Gitterplätzen",
-          "c": "Ansammlungen von Versetzungen",
-          "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-003",
-        "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?",
-        "options": {
-          "a": "eine feste Lösung",
-          "b": "ein Mischkristall",
-          "c": "ein Kristallgemisch",
-          "d": "eine Suspension"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-004",
-        "text": "Wie lässt sich eine ausgeprägte Textur einstellen?",
-        "options": {
-          "a": "durch einige Kaltumformprozesse wie z. B. Walzen",
-          "b": "durch gerichtete Erstarrung",
-          "c": "durch zusätzliche Magnetfelder während des Sinterns",
-          "d": "Alle Antworten treffen zu"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-005",
-        "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?",
-        "options": {
-          "a": "je größer die Korngröße desto höher der Schwefelgehalt",
-          "b": "je größer die Korngröße desto schlechter die Zähigkeit",
-          "c": "je größer die Korngröße desto höher die Festigkeit",
-          "d": "Die Antworten b) und c) treffen zu"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-006",
-        "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?",
-        "options": {
-          "a": "Silizium, Aluminium, Mangan",
-          "b": "Silizium, Kohlenstoff, Chrom",
-          "c": "Aluminium, Kalzium, Phosphor",
-          "d": "Nickel, Wolfram, Mangan"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-007",
-        "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?",
-        "options": {
-          "a": "beim unberuhigten Blockguss",
-          "b": "beim doppelt beruhigten Blockguss",
-          "c": "beim Strangguss",
-          "d": "beim Schleuderguss"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-008",
-        "text": "Wie sind Blockseigerungen zu bewerten?",
-        "options": {
-          "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.",
-          "b": "Sie müssen ausgeschliffen werden.",
-          "c": "Sie verbessern die Zähigkeit des Werkstoffes.",
-          "d": "Sie stellen einen unzulässigen Fehler dar."
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-009",
-        "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?",
-        "options": {
-          "a": "Kaltrisse",
-          "b": "Warmrisse",
-          "c": "Kernstützen",
-          "d": "Einschlüsse"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-010",
-        "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?",
-        "options": {
-          "a": "Grauguss mit Lamellengrafit",
-          "b": "Grauguss mit Kugelgrafit",
-          "c": "Stahlguss",
-          "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-011",
-        "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?",
-        "options": {
-          "a": "45,00%",
-          "b": "4,50%",
-          "c": "0,45%",
-          "d": "0,045%"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-012",
-        "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?",
-        "options": {
-          "a": "Lunker",
-          "b": "Poren",
-          "c": "Dendriten",
-          "d": "Sandeinschlüsse"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-013",
-        "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?",
-        "options": {
-          "a": "freies Fließen des Werkstoffes",
-          "b": "Warmformen in einer Hohlform",
-          "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C",
-          "d": "Herstellen eines Blockes"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-014",
-        "text": "Welche Inhomogenitäten entstehen beim Walzen?",
-        "options": {
-          "a": "ausgewalzte Bindefehler",
-          "b": "ausgewalzte Kernstützen",
-          "c": "ausgewalzte Mangansulfide",
-          "d": "ausgewalzte Dopplungen"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-015",
-        "text": "Was sollte durch den Schmiedeprozess verursacht werden?",
-        "options": {
-          "a": "ein grobes Verformungsgefüge",
-          "b": "ein feines Verformungsgefüge",
-          "c": "eine Verformung des gesamten Volumens",
-          "d": "Die Antworten b) und c) treffen zu."
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-016",
-        "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?",
-        "options": {
-          "a": "atomar gelöster Wasserstoff",
-          "b": "molekular eingelagerter Wasserstoff",
-          "c": "Flocken",
-          "d": "alles genannte"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-017",
-        "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?",
-        "options": {
-          "a": "gute Zähigkeit",
-          "b": "innere Kerbwirkung",
-          "c": "gutes Dämpfungsverhalten",
-          "d": "Die Antworten b) und c) sind richtig."
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-018",
-        "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?",
-        "options": {
-          "a": "Chrom",
-          "b": "Nickel",
-          "c": "Kohlenstoff",
-          "d": "Vanadium"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-019",
-        "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?",
-        "options": {
-          "a": "durch eine ausgeprägte Zeilenstruktur",
-          "b": "durch eine isotrope Gefügestruktur",
-          "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes",
-          "d": "durch feuchte Schweißelektroden"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-020",
-        "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?",
-        "options": {
-          "a": "Lichtbogenhandschweißen",
-          "b": "WIG",
-          "c": "MAG",
-          "d": "Pressschweißen"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-021",
-        "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?",
-        "options": {
-          "a": "Sie wird nicht beeinflusst.",
-          "b": "Sie wird vergrößert.",
-          "c": "Sie wird verkleinert.",
-          "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert."
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-022",
-        "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?",
-        "options": {
-          "a": "Durch die zulässige Randverzerrung",
-          "b": "Durch die zulässige Schwärzung",
-          "c": "Durch die erreichte Bildgütezahl",
-          "d": "a) oder b) können ausschlaggebend sein"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-023",
-        "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?",
-        "options": {
-          "a": "die größte Dehnung bis zum Bruch",
-          "b": "die Spannung bei Einschnürung",
-          "c": "der Übergang von der elastischen zur plastischen Verformung",
-          "d": "die maximale Kaltverfestigung"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-024",
-        "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?",
-        "options": {
-          "a": "die Wöhlerlinie",
-          "b": "die Hooke'sche Gerade (E-Modul)",
-          "c": "das KV-T-Diagramm",
-          "d": "die Übergangstemperatur"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-025",
-        "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?",
-        "options": {
-          "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).",
-          "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).",
-          "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.",
-          "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)."
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-026",
-        "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?",
-        "options": {
-          "a": "bei dem Wöhlerversuch",
-          "b": "bei dem Hook-Versuch",
-          "c": "bei dem Kerbschlagbiegeversuch (Hochlage)",
-          "d": "bei dem Kerbschlagbiegeversuch (Tieflage)"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-027",
-        "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?",
-        "options": {
-          "a": "bei Werkstoffen niedriger Festigkeit",
-          "b": "bei höherfesten Werkstoffen",
-          "c": "bei duktilen Werkstoffen",
-          "d": "bei Werkstoffen mit hoher Zähigkeit"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-028",
-        "text": "Was versteht man unter Spannungsrisskorrosion?",
-        "options": {
-          "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium",
-          "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung",
-          "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium",
-          "d": "Korrosionsschutz durch Druckspannungen"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-029",
-        "text": "Was ist Martensit?",
-        "options": {
-          "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm",
-          "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen",
-          "c": "eine Ausscheidungsphase bei langsamer Abkühlung",
-          "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-030",
-        "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?",
-        "options": {
-          "a": "Normalisieren",
-          "b": "Anlassen",
-          "c": "Glühen",
-          "d": "Aufkohlen"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-031",
-        "text": "Was versteht man unter dem Perlitgefüge?",
-        "options": {
-          "a": "reines Eisenkarbid (Fe3C)",
-          "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C",
-          "c": "kubisch-flächenzentriertes Eisen",
-          "d": "Mischkristall mit über 2% Kohlenstoff"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-032",
-        "text": "Was kennzeichnet einen austenitischen Stahl?",
-        "options": {
-          "a": "kubisch-raumzentriertes Gitter, ferromagnetisch",
-          "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch",
-          "c": "hexagonales Gitter, paramagnetisch",
-          "d": "orthorhombisches Gitter, antiferromagnetisch"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-033",
-        "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?",
-        "options": {
-          "a": "hohe Festigkeit bei niedriger Dehnung",
-          "b": "hohes Produkt aus Festigkeit und Bruchdehnung",
-          "c": "ausschließlich elastische Verformung",
-          "d": "niedriger E-Modul"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-034",
-        "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?",
-        "options": {
-          "a": "Spannungen durch äußere Belastung",
-          "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung",
-          "c": "Spannungen an der Bauteiloberfläche durch Korrosion",
-          "d": "Thermisch induzierte Spannungen bei Raumtemperatur"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-035",
-        "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?",
-        "options": {
-          "a": "Vickers (HV)",
-          "b": "Brinell (HB)",
-          "c": "Rockwell (HRC)",
-          "d": "Shore (HS)"
-        },
-        "answer": "b"
-      }
-    ]
-  },
   "methods": {
     "ET": {
+      "AT": [
+        {
+          "id": "ET-AT-001",
+          "text": "In welchen Gitterstrukturen kann Eisen auftreten?",
+          "options": {
+            "a": "hexagonal dichtest gepackt",
+            "b": "kubisch flächenzentriert",
+            "c": "kubisch raumzentriert",
+            "d": "Die Antworten b) und c) sind richtig"
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-002",
+          "text": "Was sind interstitielle Fremdatome?",
+          "options": {
+            "a": "Atome einer anderen Sorte auf Zwischengitterplätzen",
+            "b": "Atome einer anderen Sorte auf regulären Gitterplätzen",
+            "c": "Ansammlungen von Versetzungen",
+            "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern"
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-003",
+          "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?",
+          "options": {
+            "a": "eine feste Lösung",
+            "b": "ein Mischkristall",
+            "c": "ein Kristallgemisch",
+            "d": "eine Suspension"
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-004",
+          "text": "Wie lässt sich eine ausgeprägte Textur einstellen?",
+          "options": {
+            "a": "durch einige Kaltumformprozesse wie z. B. Walzen",
+            "b": "durch gerichtete Erstarrung",
+            "c": "durch zusätzliche Magnetfelder während des Sinterns",
+            "d": "Alle Antworten treffen zu"
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-005",
+          "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?",
+          "options": {
+            "a": "je größer die Korngröße desto höher der Schwefelgehalt",
+            "b": "je größer die Korngröße desto schlechter die Zähigkeit",
+            "c": "je größer die Korngröße desto höher die Festigkeit",
+            "d": "Die Antworten b) und c) treffen zu"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-006",
+          "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?",
+          "options": {
+            "a": "Silizium, Aluminium, Mangan",
+            "b": "Silizium, Kohlenstoff, Chrom",
+            "c": "Aluminium, Kalzium, Phosphor",
+            "d": "Nickel, Wolfram, Mangan"
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-007",
+          "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?",
+          "options": {
+            "a": "beim unberuhigten Blockguss",
+            "b": "beim doppelt beruhigten Blockguss",
+            "c": "beim Strangguss",
+            "d": "beim Schleuderguss"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-008",
+          "text": "Wie sind Blockseigerungen zu bewerten?",
+          "options": {
+            "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.",
+            "b": "Sie müssen ausgeschliffen werden.",
+            "c": "Sie verbessern die Zähigkeit des Werkstoffes.",
+            "d": "Sie stellen einen unzulässigen Fehler dar."
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-009",
+          "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?",
+          "options": {
+            "a": "Kaltrisse",
+            "b": "Warmrisse",
+            "c": "Kernstützen",
+            "d": "Einschlüsse"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-010",
+          "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?",
+          "options": {
+            "a": "Grauguss mit Lamellengrafit",
+            "b": "Grauguss mit Kugelgrafit",
+            "c": "Stahlguss",
+            "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab"
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-011",
+          "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?",
+          "options": {
+            "a": "45,00%",
+            "b": "4,50%",
+            "c": "0,45%",
+            "d": "0,045%"
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-012",
+          "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?",
+          "options": {
+            "a": "Lunker",
+            "b": "Poren",
+            "c": "Dendriten",
+            "d": "Sandeinschlüsse"
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-013",
+          "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?",
+          "options": {
+            "a": "freies Fließen des Werkstoffes",
+            "b": "Warmformen in einer Hohlform",
+            "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C",
+            "d": "Herstellen eines Blockes"
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-014",
+          "text": "Welche Inhomogenitäten entstehen beim Walzen?",
+          "options": {
+            "a": "ausgewalzte Bindefehler",
+            "b": "ausgewalzte Kernstützen",
+            "c": "ausgewalzte Mangansulfide",
+            "d": "ausgewalzte Dopplungen"
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-015",
+          "text": "Was sollte durch den Schmiedeprozess verursacht werden?",
+          "options": {
+            "a": "ein grobes Verformungsgefüge",
+            "b": "ein feines Verformungsgefüge",
+            "c": "eine Verformung des gesamten Volumens",
+            "d": "Die Antworten b) und c) treffen zu."
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-016",
+          "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?",
+          "options": {
+            "a": "atomar gelöster Wasserstoff",
+            "b": "molekular eingelagerter Wasserstoff",
+            "c": "Flocken",
+            "d": "alles genannte"
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-017",
+          "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?",
+          "options": {
+            "a": "gute Zähigkeit",
+            "b": "innere Kerbwirkung",
+            "c": "gutes Dämpfungsverhalten",
+            "d": "Die Antworten b) und c) sind richtig."
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-018",
+          "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?",
+          "options": {
+            "a": "Chrom",
+            "b": "Nickel",
+            "c": "Kohlenstoff",
+            "d": "Vanadium"
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-019",
+          "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?",
+          "options": {
+            "a": "durch eine ausgeprägte Zeilenstruktur",
+            "b": "durch eine isotrope Gefügestruktur",
+            "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes",
+            "d": "durch feuchte Schweißelektroden"
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-020",
+          "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?",
+          "options": {
+            "a": "Lichtbogenhandschweißen",
+            "b": "WIG",
+            "c": "MAG",
+            "d": "Pressschweißen"
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-021",
+          "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?",
+          "options": {
+            "a": "Sie wird nicht beeinflusst.",
+            "b": "Sie wird vergrößert.",
+            "c": "Sie wird verkleinert.",
+            "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert."
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-022",
+          "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?",
+          "options": {
+            "a": "Durch die zulässige Randverzerrung",
+            "b": "Durch die zulässige Schwärzung",
+            "c": "Durch die erreichte Bildgütezahl",
+            "d": "a) oder b) können ausschlaggebend sein"
+          },
+          "answer": "d"
+        },
+        {
+          "id": "ET-AT-023",
+          "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?",
+          "options": {
+            "a": "die größte Dehnung bis zum Bruch",
+            "b": "die Spannung bei Einschnürung",
+            "c": "der Übergang von der elastischen zur plastischen Verformung",
+            "d": "die maximale Kaltverfestigung"
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-024",
+          "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?",
+          "options": {
+            "a": "die Wöhlerlinie",
+            "b": "die Hooke'sche Gerade (E-Modul)",
+            "c": "das KV-T-Diagramm",
+            "d": "die Übergangstemperatur"
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-025",
+          "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?",
+          "options": {
+            "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).",
+            "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).",
+            "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.",
+            "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)."
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-026",
+          "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?",
+          "options": {
+            "a": "bei dem Wöhlerversuch",
+            "b": "bei dem Hook-Versuch",
+            "c": "bei dem Kerbschlagbiegeversuch (Hochlage)",
+            "d": "bei dem Kerbschlagbiegeversuch (Tieflage)"
+          },
+          "answer": "a"
+        },
+        {
+          "id": "ET-AT-027",
+          "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?",
+          "options": {
+            "a": "bei Werkstoffen niedriger Festigkeit",
+            "b": "bei höherfesten Werkstoffen",
+            "c": "bei duktilen Werkstoffen",
+            "d": "bei Werkstoffen mit hoher Zähigkeit"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-028",
+          "text": "Was versteht man unter Spannungsrisskorrosion?",
+          "options": {
+            "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium",
+            "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung",
+            "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium",
+            "d": "Korrosionsschutz durch Druckspannungen"
+          },
+          "answer": "c"
+        },
+        {
+          "id": "ET-AT-029",
+          "text": "Was ist Martensit?",
+          "options": {
+            "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm",
+            "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen",
+            "c": "eine Ausscheidungsphase bei langsamer Abkühlung",
+            "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-030",
+          "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?",
+          "options": {
+            "a": "Normalisieren",
+            "b": "Anlassen",
+            "c": "Glühen",
+            "d": "Aufkohlen"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-031",
+          "text": "Was versteht man unter dem Perlitgefüge?",
+          "options": {
+            "a": "reines Eisenkarbid (Fe3C)",
+            "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C",
+            "c": "kubisch-flächenzentriertes Eisen",
+            "d": "Mischkristall mit über 2% Kohlenstoff"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-032",
+          "text": "Was kennzeichnet einen austenitischen Stahl?",
+          "options": {
+            "a": "kubisch-raumzentriertes Gitter, ferromagnetisch",
+            "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch",
+            "c": "hexagonales Gitter, paramagnetisch",
+            "d": "orthorhombisches Gitter, antiferromagnetisch"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-033",
+          "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?",
+          "options": {
+            "a": "hohe Festigkeit bei niedriger Dehnung",
+            "b": "hohes Produkt aus Festigkeit und Bruchdehnung",
+            "c": "ausschließlich elastische Verformung",
+            "d": "niedriger E-Modul"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-034",
+          "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?",
+          "options": {
+            "a": "Spannungen durch äußere Belastung",
+            "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung",
+            "c": "Spannungen an der Bauteiloberfläche durch Korrosion",
+            "d": "Thermisch induzierte Spannungen bei Raumtemperatur"
+          },
+          "answer": "b"
+        },
+        {
+          "id": "ET-AT-035",
+          "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?",
+          "options": {
+            "a": "Vickers (HV)",
+            "b": "Brinell (HB)",
+            "c": "Rockwell (HRC)",
+            "d": "Shore (HS)"
+          },
+          "answer": "b"
+        }
+      ],
       "ST": [
         {
           "id": "ET-ST-001",
@@ -719,6 +717,43 @@
       ]
     },
     "UT": {
+      "AT": [
+        { "id": "UT-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
+        { "id": "UT-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
+        { "id": "UT-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
+        { "id": "UT-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
+        { "id": "UT-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
+        { "id": "UT-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
+        { "id": "UT-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
+        { "id": "UT-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
+        { "id": "UT-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
+        { "id": "UT-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
+        { "id": "UT-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
+        { "id": "UT-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
+        { "id": "UT-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
+        { "id": "UT-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
+        { "id": "UT-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
+        { "id": "UT-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
+        { "id": "UT-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
+        { "id": "UT-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
+        { "id": "UT-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
+        { "id": "UT-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
+        { "id": "UT-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
+        { "id": "UT-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
+        { "id": "UT-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
+        { "id": "UT-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
+        { "id": "UT-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
+        { "id": "UT-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
+        { "id": "UT-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
+        { "id": "UT-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
+        { "id": "UT-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
+        { "id": "UT-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
+        { "id": "UT-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
+        { "id": "UT-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
+        { "id": "UT-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
+        { "id": "UT-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
+        { "id": "UT-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
+      ],
       "ST": [
         {
           "id": "UT-ST-001",
@@ -868,6 +903,43 @@
       ]
     },
     "NE": {
+      "AT": [
+        { "id": "NE-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
+        { "id": "NE-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
+        { "id": "NE-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
+        { "id": "NE-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
+        { "id": "NE-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
+        { "id": "NE-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
+        { "id": "NE-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
+        { "id": "NE-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
+        { "id": "NE-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
+        { "id": "NE-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
+        { "id": "NE-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
+        { "id": "NE-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
+        { "id": "NE-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
+        { "id": "NE-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
+        { "id": "NE-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
+        { "id": "NE-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
+        { "id": "NE-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
+        { "id": "NE-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
+        { "id": "NE-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
+        { "id": "NE-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
+        { "id": "NE-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
+        { "id": "NE-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
+        { "id": "NE-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
+        { "id": "NE-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
+        { "id": "NE-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
+        { "id": "NE-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
+        { "id": "NE-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
+        { "id": "NE-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
+        { "id": "NE-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
+        { "id": "NE-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
+        { "id": "NE-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
+        { "id": "NE-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
+        { "id": "NE-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
+        { "id": "NE-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
+        { "id": "NE-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
+      ],
       "ST": [
         {
           "id": "NE-ST-001",
@@ -1017,6 +1089,43 @@
       ]
     },
     "MT": {
+      "AT": [
+        { "id": "MT-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
+        { "id": "MT-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
+        { "id": "MT-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
+        { "id": "MT-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
+        { "id": "MT-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
+        { "id": "MT-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
+        { "id": "MT-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
+        { "id": "MT-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
+        { "id": "MT-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
+        { "id": "MT-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
+        { "id": "MT-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
+        { "id": "MT-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
+        { "id": "MT-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
+        { "id": "MT-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
+        { "id": "MT-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
+        { "id": "MT-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
+        { "id": "MT-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
+        { "id": "MT-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
+        { "id": "MT-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
+        { "id": "MT-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
+        { "id": "MT-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
+        { "id": "MT-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
+        { "id": "MT-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
+        { "id": "MT-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
+        { "id": "MT-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
+        { "id": "MT-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
+        { "id": "MT-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
+        { "id": "MT-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
+        { "id": "MT-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
+        { "id": "MT-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
+        { "id": "MT-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
+        { "id": "MT-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
+        { "id": "MT-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
+        { "id": "MT-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
+        { "id": "MT-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
+      ],
       "ST": [
         {
           "id": "MT-ST-001",
@@ -1177,6 +1286,43 @@
       ]
     },
     "PT": {
+      "AT": [
+        { "id": "PT-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
+        { "id": "PT-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
+        { "id": "PT-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
+        { "id": "PT-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
+        { "id": "PT-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
+        { "id": "PT-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
+        { "id": "PT-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
+        { "id": "PT-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
+        { "id": "PT-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
+        { "id": "PT-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
+        { "id": "PT-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
+        { "id": "PT-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
+        { "id": "PT-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
+        { "id": "PT-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
+        { "id": "PT-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
+        { "id": "PT-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
+        { "id": "PT-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
+        { "id": "PT-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
+        { "id": "PT-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
+        { "id": "PT-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
+        { "id": "PT-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
+        { "id": "PT-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
+        { "id": "PT-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
+        { "id": "PT-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
+        { "id": "PT-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
+        { "id": "PT-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
+        { "id": "PT-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
+        { "id": "PT-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
+        { "id": "PT-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
+        { "id": "PT-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
+        { "id": "PT-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
+        { "id": "PT-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
+        { "id": "PT-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
+        { "id": "PT-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
+        { "id": "PT-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
+      ],
       "ST": [
         {
           "id": "PT-ST-001",
@@ -1304,6 +1450,43 @@
       ]
     },
     "BN": {
+      "AT": [
+        { "id": "BN-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
+        { "id": "BN-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
+        { "id": "BN-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
+        { "id": "BN-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
+        { "id": "BN-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
+        { "id": "BN-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
+        { "id": "BN-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
+        { "id": "BN-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
+        { "id": "BN-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
+        { "id": "BN-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
+        { "id": "BN-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
+        { "id": "BN-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
+        { "id": "BN-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
+        { "id": "BN-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
+        { "id": "BN-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
+        { "id": "BN-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
+        { "id": "BN-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
+        { "id": "BN-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
+        { "id": "BN-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
+        { "id": "BN-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
+        { "id": "BN-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
+        { "id": "BN-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
+        { "id": "BN-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
+        { "id": "BN-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
+        { "id": "BN-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
+        { "id": "BN-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
+        { "id": "BN-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
+        { "id": "BN-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
+        { "id": "BN-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
+        { "id": "BN-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
+        { "id": "BN-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
+        { "id": "BN-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
+        { "id": "BN-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
+        { "id": "BN-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
+        { "id": "BN-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
+      ],
       "ST": [
         {
           "id": "BN-ST-001",
