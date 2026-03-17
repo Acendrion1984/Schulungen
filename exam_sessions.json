@@ -1,0 +1,467 @@
+[
+  {
+    "id": "mmv56130l40nebrbw5e",
+    "method": "NE",
+    "date": "2026-02-02",
+    "location": "Bau 50, Raum Silber",
+    "trainer": "",
+    "name": "Nital-Ätzen – 02.02.2026",
+    "config": {
+      "AT": 20,
+      "ST": 10,
+      "PR": 3
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-17T21:45:52.382Z",
+    "participants": [
+      {
+        "participantId": "02003504",
+        "name": "Markus Elzenbeck",
+        "employeeId": "02003504",
+        "department": "WI/SW2-P112",
+        "questions": {
+          "AT": [
+            "NE-AT-028",
+            "NE-AT-002",
+            "NE-AT-013",
+            "NE-AT-018",
+            "NE-AT-015",
+            "NE-AT-006",
+            "NE-AT-024",
+            "NE-AT-005",
+            "NE-AT-034",
+            "NE-AT-020",
+            "NE-AT-033",
+            "NE-AT-004",
+            "NE-AT-022",
+            "NE-AT-009",
+            "NE-AT-026",
+            "NE-AT-023",
+            "NE-AT-019",
+            "NE-AT-031",
+            "NE-AT-029",
+            "NE-AT-007"
+          ],
+          "ST": [
+            "NE-ST-003",
+            "NE-ST-005",
+            "NE-ST-008",
+            "NE-ST-009",
+            "NE-ST-007",
+            "NE-ST-001",
+            "NE-ST-010",
+            "NE-ST-006",
+            "NE-ST-002",
+            "NE-ST-004"
+          ],
+          "PR": [
+            "NE-PR-002",
+            "NE-PR-003",
+            "NE-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02002964",
+        "name": "Julian Jauernig",
+        "employeeId": "02002964",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "NE-AT-031",
+            "NE-AT-025",
+            "NE-AT-034",
+            "NE-AT-014",
+            "NE-AT-032",
+            "NE-AT-035",
+            "NE-AT-001",
+            "NE-AT-007",
+            "NE-AT-022",
+            "NE-AT-012",
+            "NE-AT-021",
+            "NE-AT-008",
+            "NE-AT-015",
+            "NE-AT-019",
+            "NE-AT-028",
+            "NE-AT-016",
+            "NE-AT-024",
+            "NE-AT-006",
+            "NE-AT-033",
+            "NE-AT-030"
+          ],
+          "ST": [
+            "NE-ST-004",
+            "NE-ST-006",
+            "NE-ST-009",
+            "NE-ST-001",
+            "NE-ST-003",
+            "NE-ST-008",
+            "NE-ST-010",
+            "NE-ST-007",
+            "NE-ST-005",
+            "NE-ST-002"
+          ],
+          "PR": [
+            "NE-PR-003",
+            "NE-PR-001",
+            "NE-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02012471",
+        "name": "Christopher Pflaum",
+        "employeeId": "02012471",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "NE-AT-007",
+            "NE-AT-021",
+            "NE-AT-010",
+            "NE-AT-023",
+            "NE-AT-005",
+            "NE-AT-015",
+            "NE-AT-020",
+            "NE-AT-013",
+            "NE-AT-011",
+            "NE-AT-031",
+            "NE-AT-001",
+            "NE-AT-027",
+            "NE-AT-004",
+            "NE-AT-032",
+            "NE-AT-028",
+            "NE-AT-034",
+            "NE-AT-029",
+            "NE-AT-022",
+            "NE-AT-035",
+            "NE-AT-009"
+          ],
+          "ST": [
+            "NE-ST-003",
+            "NE-ST-008",
+            "NE-ST-010",
+            "NE-ST-002",
+            "NE-ST-009",
+            "NE-ST-007",
+            "NE-ST-005",
+            "NE-ST-006",
+            "NE-ST-001",
+            "NE-ST-004"
+          ],
+          "PR": [
+            "NE-PR-002",
+            "NE-PR-003",
+            "NE-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02008789",
+        "name": "Leon Nagel",
+        "employeeId": "02008789",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "NE-AT-023",
+            "NE-AT-005",
+            "NE-AT-007",
+            "NE-AT-010",
+            "NE-AT-032",
+            "NE-AT-014",
+            "NE-AT-015",
+            "NE-AT-030",
+            "NE-AT-006",
+            "NE-AT-031",
+            "NE-AT-029",
+            "NE-AT-009",
+            "NE-AT-028",
+            "NE-AT-011",
+            "NE-AT-034",
+            "NE-AT-024",
+            "NE-AT-035",
+            "NE-AT-022",
+            "NE-AT-002",
+            "NE-AT-013"
+          ],
+          "ST": [
+            "NE-ST-006",
+            "NE-ST-005",
+            "NE-ST-009",
+            "NE-ST-004",
+            "NE-ST-007",
+            "NE-ST-010",
+            "NE-ST-002",
+            "NE-ST-003",
+            "NE-ST-001",
+            "NE-ST-008"
+          ],
+          "PR": [
+            "NE-PR-003",
+            "NE-PR-002",
+            "NE-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02006619",
+        "name": "Celina Frank",
+        "employeeId": "02006619",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "NE-AT-024",
+            "NE-AT-002",
+            "NE-AT-005",
+            "NE-AT-027",
+            "NE-AT-022",
+            "NE-AT-021",
+            "NE-AT-015",
+            "NE-AT-034",
+            "NE-AT-028",
+            "NE-AT-029",
+            "NE-AT-018",
+            "NE-AT-008",
+            "NE-AT-013",
+            "NE-AT-009",
+            "NE-AT-003",
+            "NE-AT-026",
+            "NE-AT-012",
+            "NE-AT-030",
+            "NE-AT-014",
+            "NE-AT-025"
+          ],
+          "ST": [
+            "NE-ST-010",
+            "NE-ST-004",
+            "NE-ST-007",
+            "NE-ST-005",
+            "NE-ST-002",
+            "NE-ST-009",
+            "NE-ST-006",
+            "NE-ST-003",
+            "NE-ST-001",
+            "NE-ST-008"
+          ],
+          "PR": [
+            "NE-PR-002",
+            "NE-PR-003",
+            "NE-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02006667",
+        "name": "Oliver Tschubanow",
+        "employeeId": "02006667",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "NE-AT-013",
+            "NE-AT-006",
+            "NE-AT-002",
+            "NE-AT-023",
+            "NE-AT-017",
+            "NE-AT-003",
+            "NE-AT-019",
+            "NE-AT-011",
+            "NE-AT-034",
+            "NE-AT-016",
+            "NE-AT-009",
+            "NE-AT-022",
+            "NE-AT-020",
+            "NE-AT-024",
+            "NE-AT-015",
+            "NE-AT-030",
+            "NE-AT-008",
+            "NE-AT-027",
+            "NE-AT-004",
+            "NE-AT-028"
+          ],
+          "ST": [
+            "NE-ST-010",
+            "NE-ST-003",
+            "NE-ST-008",
+            "NE-ST-001",
+            "NE-ST-009",
+            "NE-ST-004",
+            "NE-ST-005",
+            "NE-ST-007",
+            "NE-ST-002",
+            "NE-ST-006"
+          ],
+          "PR": [
+            "NE-PR-003",
+            "NE-PR-002",
+            "NE-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "0208365",
+        "name": "Yusuf Emen",
+        "employeeId": "0208365",
+        "department": "WI/SW2-P12Q",
+        "questions": {
+          "AT": [
+            "NE-AT-033",
+            "NE-AT-020",
+            "NE-AT-030",
+            "NE-AT-018",
+            "NE-AT-031",
+            "NE-AT-035",
+            "NE-AT-019",
+            "NE-AT-003",
+            "NE-AT-001",
+            "NE-AT-023",
+            "NE-AT-017",
+            "NE-AT-024",
+            "NE-AT-032",
+            "NE-AT-021",
+            "NE-AT-029",
+            "NE-AT-028",
+            "NE-AT-016",
+            "NE-AT-010",
+            "NE-AT-022",
+            "NE-AT-007"
+          ],
+          "ST": [
+            "NE-ST-008",
+            "NE-ST-005",
+            "NE-ST-002",
+            "NE-ST-001",
+            "NE-ST-007",
+            "NE-ST-006",
+            "NE-ST-009",
+            "NE-ST-003",
+            "NE-ST-010",
+            "NE-ST-004"
+          ],
+          "PR": [
+            "NE-PR-003",
+            "NE-PR-001",
+            "NE-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02087906",
+        "name": "Marco Heinickel",
+        "employeeId": "02087906",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "NE-AT-009",
+            "NE-AT-007",
+            "NE-AT-028",
+            "NE-AT-035",
+            "NE-AT-011",
+            "NE-AT-015",
+            "NE-AT-034",
+            "NE-AT-013",
+            "NE-AT-016",
+            "NE-AT-027",
+            "NE-AT-020",
+            "NE-AT-017",
+            "NE-AT-012",
+            "NE-AT-002",
+            "NE-AT-003",
+            "NE-AT-025",
+            "NE-AT-014",
+            "NE-AT-018",
+            "NE-AT-033",
+            "NE-AT-022"
+          ],
+          "ST": [
+            "NE-ST-001",
+            "NE-ST-006",
+            "NE-ST-009",
+            "NE-ST-007",
+            "NE-ST-005",
+            "NE-ST-002",
+            "NE-ST-003",
+            "NE-ST-008",
+            "NE-ST-004",
+            "NE-ST-010"
+          ],
+          "PR": [
+            "NE-PR-002",
+            "NE-PR-001",
+            "NE-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 10,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
+  }
+]
