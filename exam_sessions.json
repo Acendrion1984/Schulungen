@@ -827,5 +827,342 @@
         "completedAt": null
       }
     ]
+  },
+  {
+    "id": "mmusj4peozzw3xxus8s",
+    "method": "BN",
+    "date": "2026-02-02",
+    "location": "Bau 50, Raum Silber",
+    "trainer": "",
+    "name": "Nital-Ätzen – 02.02.2026",
+    "config": {
+      "AT": 9,
+      "ST": 5,
+      "PR": 3
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-17T15:52:08.600Z",
+    "participants": [
+      {
+        "participantId": "02003504",
+        "name": "Markus Elzenbeck",
+        "employeeId": "02003504",
+        "department": "WI/SW2-P112",
+        "questions": {
+          "AT": [
+            "AT-012",
+            "AT-002",
+            "AT-017",
+            "AT-006",
+            "AT-013",
+            "AT-003",
+            "AT-024",
+            "AT-022",
+            "AT-009"
+          ],
+          "ST": [
+            "BN-ST-003",
+            "BN-ST-009",
+            "BN-ST-006",
+            "BN-ST-005",
+            "BN-ST-008"
+          ],
+          "PR": [
+            "BN-PR-003",
+            "BN-PR-002",
+            "BN-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02002964",
+        "name": "Julian Jauernig",
+        "employeeId": "02002964",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-030",
+            "AT-025",
+            "AT-019",
+            "AT-021",
+            "AT-034",
+            "AT-032",
+            "AT-006",
+            "AT-018",
+            "AT-001"
+          ],
+          "ST": [
+            "BN-ST-006",
+            "BN-ST-007",
+            "BN-ST-003",
+            "BN-ST-004",
+            "BN-ST-001"
+          ],
+          "PR": [
+            "BN-PR-003",
+            "BN-PR-001",
+            "BN-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02012471",
+        "name": "Christopher Pflaum",
+        "employeeId": "02012471",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-006",
+            "AT-031",
+            "AT-019",
+            "AT-013",
+            "AT-018",
+            "AT-017",
+            "AT-033",
+            "AT-015",
+            "AT-001"
+          ],
+          "ST": [
+            "BN-ST-007",
+            "BN-ST-002",
+            "BN-ST-009",
+            "BN-ST-008",
+            "BN-ST-006"
+          ],
+          "PR": [
+            "BN-PR-002",
+            "BN-PR-003",
+            "BN-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02008789",
+        "name": "Leon Nagel",
+        "employeeId": "02008789",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-027",
+            "AT-014",
+            "AT-018",
+            "AT-029",
+            "AT-015",
+            "AT-026",
+            "AT-010",
+            "AT-035",
+            "AT-021"
+          ],
+          "ST": [
+            "BN-ST-009",
+            "BN-ST-007",
+            "BN-ST-004",
+            "BN-ST-010",
+            "BN-ST-005"
+          ],
+          "PR": [
+            "BN-PR-002",
+            "BN-PR-001",
+            "BN-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02006619",
+        "name": "Celina Frank",
+        "employeeId": "02006619",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "AT-004",
+            "AT-013",
+            "AT-011",
+            "AT-014",
+            "AT-035",
+            "AT-001",
+            "AT-030",
+            "AT-019",
+            "AT-026"
+          ],
+          "ST": [
+            "BN-ST-002",
+            "BN-ST-006",
+            "BN-ST-007",
+            "BN-ST-009",
+            "BN-ST-004"
+          ],
+          "PR": [
+            "BN-PR-001",
+            "BN-PR-002",
+            "BN-PR-003"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02006667",
+        "name": "Oliver Tschubanow",
+        "employeeId": "02006667",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "AT-022",
+            "AT-018",
+            "AT-015",
+            "AT-006",
+            "AT-031",
+            "AT-001",
+            "AT-016",
+            "AT-009",
+            "AT-012"
+          ],
+          "ST": [
+            "BN-ST-006",
+            "BN-ST-008",
+            "BN-ST-010",
+            "BN-ST-004",
+            "BN-ST-007"
+          ],
+          "PR": [
+            "BN-PR-002",
+            "BN-PR-003",
+            "BN-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "0208365",
+        "name": "Yusuf Emen",
+        "employeeId": "0208365",
+        "department": "WI/SW2-P12Q",
+        "questions": {
+          "AT": [
+            "AT-009",
+            "AT-007",
+            "AT-022",
+            "AT-015",
+            "AT-011",
+            "AT-019",
+            "AT-033",
+            "AT-035",
+            "AT-017"
+          ],
+          "ST": [
+            "BN-ST-002",
+            "BN-ST-004",
+            "BN-ST-007",
+            "BN-ST-003",
+            "BN-ST-010"
+          ],
+          "PR": [
+            "BN-PR-001",
+            "BN-PR-003",
+            "BN-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02087906",
+        "name": "Marco Heinickel",
+        "employeeId": "02087906",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "AT-001",
+            "AT-012",
+            "AT-023",
+            "AT-016",
+            "AT-007",
+            "AT-021",
+            "AT-013",
+            "AT-029",
+            "AT-024"
+          ],
+          "ST": [
+            "BN-ST-006",
+            "BN-ST-009",
+            "BN-ST-003",
+            "BN-ST-005",
+            "BN-ST-010"
+          ],
+          "PR": [
+            "BN-PR-003",
+            "BN-PR-001",
+            "BN-PR-002"
+          ]
+        },
+        "newCounts": {
+          "AT": 9,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
   }
 ]
