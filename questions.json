@@ -1,1456 +1,2708 @@
 {
-  "version": "1.0",
-  "lastUpdated": "2026-03-16",
-  "methodNames": {
-    "ET": "Wirbelstromprüfung",
-    "UT": "Ultraschallprüfung",
-    "NE": "Ätzprüfung",
-    "MT": "Magnetpulverprüfung",
-    "PT": "Eindringprüfung",
-    "BN": "Barkhausen Rauschen"
-  },
-  "partNames": {
-    "AT": "Allgemeiner Teil",
-    "ST": "Spezieller Teil",
-    "PR": "Praktischer Teil"
-  },
-  "shared": {
-    "AT": [
-      {
-        "id": "AT-001",
-        "text": "In welchen Gitterstrukturen kann Eisen auftreten?",
-        "options": {
-          "a": "hexagonal dichtest gepackt",
-          "b": "kubisch flächenzentriert",
-          "c": "kubisch raumzentriert",
-          "d": "Die Antworten b) und c) sind richtig"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-002",
-        "text": "Was sind interstitielle Fremdatome?",
-        "options": {
-          "a": "Atome einer anderen Sorte auf Zwischengitterplätzen",
-          "b": "Atome einer anderen Sorte auf regulären Gitterplätzen",
-          "c": "Ansammlungen von Versetzungen",
-          "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-003",
-        "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?",
-        "options": {
-          "a": "eine feste Lösung",
-          "b": "ein Mischkristall",
-          "c": "ein Kristallgemisch",
-          "d": "eine Suspension"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-004",
-        "text": "Wie lässt sich eine ausgeprägte Textur einstellen?",
-        "options": {
-          "a": "durch einige Kaltumformprozesse wie z. B. Walzen",
-          "b": "durch gerichtete Erstarrung",
-          "c": "durch zusätzliche Magnetfelder während des Sinterns",
-          "d": "Alle Antworten treffen zu"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-005",
-        "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?",
-        "options": {
-          "a": "je größer die Korngröße desto höher der Schwefelgehalt",
-          "b": "je größer die Korngröße desto schlechter die Zähigkeit",
-          "c": "je größer die Korngröße desto höher die Festigkeit",
-          "d": "Die Antworten b) und c) treffen zu"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-006",
-        "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?",
-        "options": {
-          "a": "Silizium, Aluminium, Mangan",
-          "b": "Silizium, Kohlenstoff, Chrom",
-          "c": "Aluminium, Kalzium, Phosphor",
-          "d": "Nickel, Wolfram, Mangan"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-007",
-        "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?",
-        "options": {
-          "a": "beim unberuhigten Blockguss",
-          "b": "beim doppelt beruhigten Blockguss",
-          "c": "beim Strangguss",
-          "d": "beim Schleuderguss"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-008",
-        "text": "Wie sind Blockseigerungen zu bewerten?",
-        "options": {
-          "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.",
-          "b": "Sie müssen ausgeschliffen werden.",
-          "c": "Sie verbessern die Zähigkeit des Werkstoffes.",
-          "d": "Sie stellen einen unzulässigen Fehler dar."
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-009",
-        "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?",
-        "options": {
-          "a": "Kaltrisse",
-          "b": "Warmrisse",
-          "c": "Kernstützen",
-          "d": "Einschlüsse"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-010",
-        "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?",
-        "options": {
-          "a": "Grauguss mit Lamellengrafit",
-          "b": "Grauguss mit Kugelgrafit",
-          "c": "Stahlguss",
-          "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-011",
-        "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?",
-        "options": {
-          "a": "45,00%",
-          "b": "4,50%",
-          "c": "0,45%",
-          "d": "0,045%"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-012",
-        "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?",
-        "options": {
-          "a": "Lunker",
-          "b": "Poren",
-          "c": "Dendriten",
-          "d": "Sandeinschlüsse"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-013",
-        "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?",
-        "options": {
-          "a": "freies Fließen des Werkstoffes",
-          "b": "Warmformen in einer Hohlform",
-          "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C",
-          "d": "Herstellen eines Blockes"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-014",
-        "text": "Welche Inhomogenitäten entstehen beim Walzen?",
-        "options": {
-          "a": "ausgewalzte Bindefehler",
-          "b": "ausgewalzte Kernstützen",
-          "c": "ausgewalzte Mangansulfide",
-          "d": "ausgewalzte Dopplungen"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-015",
-        "text": "Was sollte durch den Schmiedeprozess verursacht werden?",
-        "options": {
-          "a": "ein grobes Verformungsgefüge",
-          "b": "ein feines Verformungsgefüge",
-          "c": "eine Verformung des gesamten Volumens",
-          "d": "Die Antworten b) und c) treffen zu."
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-016",
-        "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?",
-        "options": {
-          "a": "atomar gelöster Wasserstoff",
-          "b": "molekular eingelagerter Wasserstoff",
-          "c": "Flocken",
-          "d": "alles genannte"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-017",
-        "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?",
-        "options": {
-          "a": "gute Zähigkeit",
-          "b": "innere Kerbwirkung",
-          "c": "gutes Dämpfungsverhalten",
-          "d": "Die Antworten b) und c) sind richtig."
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-018",
-        "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?",
-        "options": {
-          "a": "Chrom",
-          "b": "Nickel",
-          "c": "Kohlenstoff",
-          "d": "Vanadium"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-019",
-        "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?",
-        "options": {
-          "a": "durch eine ausgeprägte Zeilenstruktur",
-          "b": "durch eine isotrope Gefügestruktur",
-          "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes",
-          "d": "durch feuchte Schweißelektroden"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-020",
-        "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?",
-        "options": {
-          "a": "Lichtbogenhandschweißen",
-          "b": "WIG",
-          "c": "MAG",
-          "d": "Pressschweißen"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-021",
-        "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?",
-        "options": {
-          "a": "Sie wird nicht beeinflusst.",
-          "b": "Sie wird vergrößert.",
-          "c": "Sie wird verkleinert.",
-          "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert."
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-022",
-        "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?",
-        "options": {
-          "a": "Durch die zulässige Randverzerrung",
-          "b": "Durch die zulässige Schwärzung",
-          "c": "Durch die erreichte Bildgütezahl",
-          "d": "a) oder b) können ausschlaggebend sein"
-        },
-        "answer": "d"
-      },
-      {
-        "id": "AT-023",
-        "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?",
-        "options": {
-          "a": "die größte Dehnung bis zum Bruch",
-          "b": "die Spannung bei Einschnürung",
-          "c": "der Übergang von der elastischen zur plastischen Verformung",
-          "d": "die maximale Kaltverfestigung"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-024",
-        "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?",
-        "options": {
-          "a": "die Wöhlerlinie",
-          "b": "die Hooke'sche Gerade (E-Modul)",
-          "c": "das KV-T-Diagramm",
-          "d": "die Übergangstemperatur"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-025",
-        "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?",
-        "options": {
-          "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).",
-          "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).",
-          "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.",
-          "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)."
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-026",
-        "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?",
-        "options": {
-          "a": "bei dem Wöhlerversuch",
-          "b": "bei dem Hook-Versuch",
-          "c": "bei dem Kerbschlagbiegeversuch (Hochlage)",
-          "d": "bei dem Kerbschlagbiegeversuch (Tieflage)"
-        },
-        "answer": "a"
-      },
-      {
-        "id": "AT-027",
-        "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?",
-        "options": {
-          "a": "bei Werkstoffen niedriger Festigkeit",
-          "b": "bei höherfesten Werkstoffen",
-          "c": "bei duktilen Werkstoffen",
-          "d": "bei Werkstoffen mit hoher Zähigkeit"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-028",
-        "text": "Was versteht man unter Spannungsrisskorrosion?",
-        "options": {
-          "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium",
-          "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung",
-          "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium",
-          "d": "Korrosionsschutz durch Druckspannungen"
-        },
-        "answer": "c"
-      },
-      {
-        "id": "AT-029",
-        "text": "Was ist Martensit?",
-        "options": {
-          "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm",
-          "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen",
-          "c": "eine Ausscheidungsphase bei langsamer Abkühlung",
-          "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-030",
-        "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?",
-        "options": {
-          "a": "Normalisieren",
-          "b": "Anlassen",
-          "c": "Glühen",
-          "d": "Aufkohlen"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-031",
-        "text": "Was versteht man unter dem Perlitgefüge?",
-        "options": {
-          "a": "reines Eisenkarbid (Fe3C)",
-          "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C",
-          "c": "kubisch-flächenzentriertes Eisen",
-          "d": "Mischkristall mit über 2% Kohlenstoff"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-032",
-        "text": "Was kennzeichnet einen austenitischen Stahl?",
-        "options": {
-          "a": "kubisch-raumzentriertes Gitter, ferromagnetisch",
-          "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch",
-          "c": "hexagonales Gitter, paramagnetisch",
-          "d": "orthorhombisches Gitter, antiferromagnetisch"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-033",
-        "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?",
-        "options": {
-          "a": "hohe Festigkeit bei niedriger Dehnung",
-          "b": "hohes Produkt aus Festigkeit und Bruchdehnung",
-          "c": "ausschließlich elastische Verformung",
-          "d": "niedriger E-Modul"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-034",
-        "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?",
-        "options": {
-          "a": "Spannungen durch äußere Belastung",
-          "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung",
-          "c": "Spannungen an der Bauteiloberfläche durch Korrosion",
-          "d": "Thermisch induzierte Spannungen bei Raumtemperatur"
-        },
-        "answer": "b"
-      },
-      {
-        "id": "AT-035",
-        "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?",
-        "options": {
-          "a": "Vickers (HV)",
-          "b": "Brinell (HB)",
-          "c": "Rockwell (HRC)",
-          "d": "Shore (HS)"
-        },
-        "answer": "b"
-      }
-    ]
-  },
-  "methods": {
-    "ET": {
-      "ST": [
+  "procedures": [
+    {
+      "procedure_code": "ET_Riss",
+      "procedure_name": "Wirbelstrom-Rissprüfung",
+      "questions": [
         {
-          "id": "ET-ST-001",
-          "text": "Auf welchem physikalischen Prinzip basiert die Wirbelstromprüfung?",
-          "options": {
-            "a": "Piezoelektrischer Effekt",
-            "b": "Elektromagnetische Induktion",
-            "c": "Fotoelektrischer Effekt",
-            "d": "Thermoelektrischer Effekt"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 1,
+          "question_text": "Die elektrische Leitfähigkeit ist",
+          "options": [
+            "abhängig von der Temperatur",
+            "unabhängig vom Material",
+            "für die Wirbelstromprüfung unwichtig"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-002",
-          "text": "Was ist die Eindringtiefe (Standardeindringtiefe δ) bei der Wirbelstromprüfung?",
-          "options": {
-            "a": "Die Tiefe, bei der die Wirbelstromdichte auf 1/e (≈37%) des Oberflächenwertes abgefallen ist",
-            "b": "Die maximale Prüftiefe bei optimaler Frequenz",
-            "c": "Die Tiefe, bei der kein Wirbelstrom mehr fließt",
-            "d": "Die Tiefe des zu prüfenden Bauteils"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 2,
+          "question_text": "Welches Bild zeigt die korrekte Darstellung des Feldlinienverlaufs einer stromdurchflossenen Spule?",
+          "options": [
+            "Bild 1",
+            "Bild 2",
+            "Bild 3"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-003",
-          "text": "Wie beeinflusst eine Erhöhung der Prüffrequenz die Eindringtiefe?",
-          "options": {
-            "a": "Die Eindringtiefe nimmt zu",
-            "b": "Die Eindringtiefe bleibt gleich",
-            "c": "Die Eindringtiefe nimmt ab",
-            "d": "Es gibt keinen Zusammenhang"
-          },
-          "answer": "c"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 3,
+          "question_text": "Wie heisst die Regel für die Ermittlung des Zusammenhangs zwischen Strom- und Feldrichtung?",
+          "options": [
+            "Ohm'sches Gesetz",
+            "Linke Hand Regel",
+            "Rechte Hand Regel"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-004",
-          "text": "Welche Werkstoffe können mit der Wirbelstromprüfung untersucht werden?",
-          "options": {
-            "a": "nur ferromagnetische Werkstoffe",
-            "b": "nur austenitische Stähle",
-            "c": "alle elektrisch leitfähigen Werkstoffe",
-            "d": "nur Werkstoffe mit hoher magnetischer Permeabilität"
-          },
-          "answer": "c"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 4,
+          "question_text": "Die Feldlinien um einen geraden, stromdurchflossenen Leiter verlaufen wie bei Nr.",
+          "options": [
+            "1",
+            "2",
+            "3"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-005",
-          "text": "Was ist der 'Lift-off'-Effekt bei der Wirbelstromprüfung?",
-          "options": {
-            "a": "Das Abheben des Prüfkopfes durch Ultraschall",
-            "b": "Die Änderung des Prüfsignals durch variierenden Abstand zwischen Spule und Bauteil",
-            "c": "Die Verringerung der Eindringtiefe bei hohen Frequenzen",
-            "d": "Der Phasenversatz zwischen Erreger- und Messsignal"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 5,
+          "question_text": "Welche Eigenschaft besitzt Eisen im magnetischen Feld?",
+          "options": [
+            "Eisen verhält sich neutral",
+            "Eisen verdrängt die magnetischen Feldlinien",
+            "Eisen sammelt die magnetischen Feldlinien"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-006",
-          "text": "Was versteht man unter dem Füllfaktor (η) bei Durchlaufspulen?",
-          "options": {
-            "a": "Die Anzahl der Windungen der Prüfspule",
-            "b": "Das Verhältnis des Querschnitts des Prüflings zum Innenquerschnitt der Spule",
-            "c": "Die elektrische Leitfähigkeit des Prüflings",
-            "d": "Das Verhältnis von Induktivität zu Widerstand"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 6,
+          "question_text": "Die magnetische Permeabilität ist",
+          "options": [
+            "von der Temperatur unabhängig",
+            "von der Termperatur abhängig",
+            "immer konstant"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-007",
-          "text": "Welche Fehlerarten können mit der Wirbelstromprüfung zuverlässig nachgewiesen werden?",
-          "options": {
-            "a": "Volumendefekte wie Poren und Lunker",
-            "b": "Oberflächennahe Risse und Inhomogenitäten",
-            "c": "Einschlüsse tief im Werkstück",
-            "d": "Fehler in nicht leitfähigen Beschichtungen"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 7,
+          "question_text": "Je breiter die Hysteresekurve eines Werkstoffs ist, desto",
+          "options": [
+            "einfacher lässt sich das Material magnetisieren",
+            "desto schwieriger lässt sich das Material magnetisieren",
+            "die Magnetisierbarkeit des Materials ist unabhängig von der Hysteresekurve"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-008",
-          "text": "Wie wirkt sich die elektrische Leitfähigkeit des Prüflings auf die Prüfung aus?",
-          "options": {
-            "a": "Höhere Leitfähigkeit vergrößert die Eindringtiefe",
-            "b": "Höhere Leitfähigkeit verringert die Eindringtiefe",
-            "c": "Die Leitfähigkeit hat keinen Einfluss auf die Eindringtiefe",
-            "d": "Höhere Leitfähigkeit erhöht die Prüffrequenz automatisch"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 8,
+          "question_text": "Um jeden stromdurchflossenen Leiter bildet sich",
+          "options": [
+            "ein Widerstand",
+            "ein Magnetfeld",
+            "ein Spannungsfeld"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-009",
-          "text": "Was ist das Impedanzdiagramm (Ortskurvendiagramm) bei der Wirbelstromprüfung?",
-          "options": {
-            "a": "Ein Zeit-Amplituden-Diagramm der Prüfsignale",
-            "b": "Die grafische Darstellung der normierten Spulenimpedanz in der komplexen Ebene",
-            "c": "Das Frequenzspektrum des Prüfsignals",
-            "d": "Die Magnetisierungskurve des Prüflings"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 9,
+          "question_text": "Die Richtung des Magnetfelds hängt ab von",
+          "options": [
+            "Material",
+            "Stromrichtung",
+            "Feldstärke"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-010",
-          "text": "Welche Kenngröße beschreibt das Verhältnis aus Induktionsreaktanz zu Wirkwiderstand einer Wirbelstromspule?",
-          "options": {
-            "a": "Füllfaktor",
-            "b": "Gütefaktor (Q-Faktor)",
-            "c": "Eindringtiefe",
-            "d": "Phasenwinkel"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 10,
+          "question_text": "Was bedeutet Sättigung bei einem magnetisierbaren Material?",
+          "options": [
+            "Alle Elementarmagnete sind ausgerichtet.",
+            "Die Mehrzahl aller Elementarmagnete ist ausgerichtet.",
+            "Die Elementarmagnete sind vollständig unregelmäßig angeordnet."
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-ST-011",
-          "text": "Was versteht man unter 'Phasendiskriminierung' bei der Wirbelstromprüfung?",
-          "options": {
-            "a": "Die Unterscheidung von Fehlertypen anhand des Phasenwinkels des Messsignals",
-            "b": "Die Frequenzfilterung des Eingangssignals",
-            "c": "Die Amplitudenauswertung des Ausgangssignals",
-            "d": "Die Kalibrierung der Prüfanlage"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 11,
+          "question_text": "Die Wirbelstromdichte beträgt bei der Standardeindringtiefe noch des Oberflächenwertes.",
+          "options": [
+            "12 %",
+            "23 %",
+            "37 %"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-012",
-          "text": "Bei welchem Bauteil eignet sich die Wirbelstromprüfung besonders gut?",
-          "options": {
-            "a": "Massive Gussteile mit Wandstärken über 100mm",
-            "b": "Rohre, Stangen und Drähte aus leitfähigen Werkstoffen",
-            "c": "Faserverbundwerkstoffe",
-            "d": "Holzkonstruktionen"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 12,
+          "question_text": "Die Wirbelstromprüfung ist",
+          "options": [
+            "ein absolutes Prüfverfahren",
+            "ein vergleichendes Prüfverfahren",
+            "beides"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-013",
-          "text": "Was ist der 'Nullpunktabgleich' bei der Wirbelstromprüfung?",
-          "options": {
-            "a": "Die Kalibrierung mit einem fehlerfreien Referenzkörper",
-            "b": "Das Nullsetzen des Geräteanzeigezeigers",
-            "c": "Die Einstellung der Prüffrequenz",
-            "d": "Das Einstellen des Verstärkungsfaktors"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 13,
+          "question_text": "Die eigentlichen Messgrößen bei einer Wirbelstromprüfung sind:",
+          "options": [
+            "Durchmesser und Länge des Prüflings",
+            "Amplitude und Phase eines Wechselstroms in der Empfängerwicklung",
+            "HV und HRC"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-014",
-          "text": "Welche Aussage zur Magnetpermeabilität bei der Wirbelstromprüfung ist korrekt?",
-          "options": {
-            "a": "Ferromagnetische Werkstoffe erschweren die Auswertung durch Streuung der Permeabilität",
-            "b": "Hohe Permeabilität verbessert immer die Prüfbarkeit",
-            "c": "Permeabilität hat keinen Einfluss auf das Messsignal",
-            "d": "Paramagnetische Werkstoffe können nicht geprüft werden"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 14,
+          "question_text": "Welche Eigenschaften lassen sich mit Wirbelstrom ermitteln?",
+          "options": [
+            "Radioaktivität",
+            "Wärmekapazität",
+            "Oberflächenfehler, z.B. Risse"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-015",
-          "text": "Was ist eine Tandem-Wirbelstromspulenanordnung?",
-          "options": {
-            "a": "Zwei hintereinander geschaltete Erregerspulen",
-            "b": "Eine Erreger- und eine Aufnehmerspule räumlich getrennt",
-            "c": "Zwei identische Differenzspulen",
-            "d": "Eine kombinierte Sende-Empfangs-Anordnung für größere Prüftiefen"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 15,
+          "question_text": "Welche Werkstoffe können mit dem Wirbelstromverfahren geprüft werden?",
+          "options": [
+            "Kunststoffe",
+            "Metalle",
+            "Holz"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-016",
-          "text": "Wie wird bei der Wirbelstromprüfung der Schleifbrand an Wälzlagerkomponenten detektiert?",
-          "options": {
-            "a": "Durch Messung der Oberflächentemperatur",
-            "b": "Durch Leitfähigkeitsänderungen im geschädigten Bereich infolge Gefügeveränderungen",
-            "c": "Durch Messung der Rauheit",
-            "d": "Durch Änderung der magnetischen Sättigung"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 16,
+          "question_text": "Welche der folgenden Prüfaufgaben können bei metallischen Teilen mit dem Wirbelstromverfahren durchgeführt werden?",
+          "options": [
+            "Kontrolle auf Materialverwechslung",
+            "Erkennung von Oberflächenrissen",
+            "Messung der genauen Einhärtetiefe"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-017",
-          "text": "Welche Normreferenz gilt für die Wirbelstromprüfung bei Wälzlagern nach Schaeffler-Standard?",
-          "options": {
-            "a": "DIN EN ISO 9712",
-            "b": "S285066 (Referenzfehler 28 µm)",
-            "c": "EN 4050",
-            "d": "ISO 15549"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 17,
+          "question_text": "Welche Prüffrequenz würde bei jeweils gleichem Prüfmaterial zur größten Eindringtiefe führen?",
+          "options": [
+            "2 kHz",
+            "300 Hz",
+            "500 kHz"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-018",
-          "text": "Was ist ein charakteristisches Merkmal des Pseudo-Befunds bei der ET-Prüfung?",
-          "options": {
-            "a": "Ein Signal, das durch einen realen Fehler hervorgerufen wird",
-            "b": "Ein Anzeigesignal, das nicht durch eine materialrelevante Unregelmäßigkeit erzeugt wird",
-            "c": "Ein fehlendes Signal bei vorhandenem Defekt",
-            "d": "Eine Überempfindlichkeit gegenüber Rissen"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 18,
+          "question_text": "Prüfgeräte, Einstellteile und zu prüfende Teile müssen während der Prüfung wie folgt eingesetzt werden:",
+          "options": [
+            "an einem sauberen, ebenen Arbeitsplatz, in ausreichendem Abstand von metallischen Teilen oder von einem Magnetfeld",
+            "an einem sauberen, ebenen Arbeitsplatz, direkt neben oder auf metallischen Teilen",
+            "an einem sauberen, ebenen Arbeitsplatz, neben einem Magnetfeld"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-019",
-          "text": "Welche Aussage zur Prüfgeschwindigkeit bei der Wirbelstromprüfung ist richtig?",
-          "options": {
-            "a": "Höhere Prüfgeschwindigkeit verbessert die Fehlerauflösung",
-            "b": "Höhere Prüfgeschwindigkeit kann zur Verschlechterung der Fehlerauflösung führen",
-            "c": "Die Prüfgeschwindigkeit hat keinen Einfluss auf die Prüfqualität",
-            "d": "Sehr niedrige Prüfgeschwindigkeit erhöht die Fehlerquote"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 19,
+          "question_text": "Die Prüfkörper dürfen bei der Wirbelstromprüfung einen gewissen Restmagnetismus nicht überschreiten, weil dieser",
+          "options": [
+            "zu Pseudoausschuss führen würde",
+            "die Prüfsonde schädigen könnte",
+            "zu falscher i.O./n.i.O.-Sortierung der Prüflinge führen könnte"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-ST-020",
-          "text": "Was ist der Unterschied zwischen Absolut- und Differenzspule?",
-          "options": {
-            "a": "Absolutspulen messen die absolute Impedanz; Differenzspulen vergleichen zwei Messpunkte",
-            "b": "Absolutspulen sind für Rohre, Differenzspulen nur für Platten geeignet",
-            "c": "Differenzspulen haben keine Empfindlichkeit für langsame Leitfähigkeitsänderungen",
-            "d": "Sowohl a) als auch c) sind richtig"
-          },
-          "answer": "d"
-        }
-      ],
-      "PR": [
-        {
-          "id": "ET-PR-001",
-          "text": "Wie wird bei der Wirbelstromprüfung die Empfindlichkeit überprüft?",
-          "options": {
-            "a": "Mit einem Kalibrierkörper mit definierten Referenzfehlern",
-            "b": "Durch Messung der Umgebungstemperatur",
-            "c": "Durch visuelle Inspektion der Prüfspule",
-            "d": "Durch Vergleich mit einem Ultraschallprüfergebnis"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 20,
+          "question_text": "Die Ergebnisse der Wirbelstromprüfung",
+          "options": [
+            "sind immer absolute Werte",
+            "geben genau Auskunft, worauf Abweichungen vom Gut-Fall zurückgeführt werden können",
+            "müssen mit Referenzmethoden überprüft werden"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-PR-002",
-          "text": "Welche Schritte sind vor Beginn einer Wirbelstromprüfung durchzuführen?",
-          "options": {
-            "a": "Gerätewarmstart, Nullabgleich, Empfindlichkeitseinstellung, Kalibrierung",
-            "b": "Nur visuelle Vorkontrolle des Prüflings",
-            "c": "Reinigung, Lackierung, Prüfung",
-            "d": "Magnetisierung des Prüflings"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 21,
+          "question_text": "Zur Wirbelstromprüfung wird das Prüfteil ausgesetzt",
+          "options": [
+            "einem magnetischen Gleichfeld",
+            "einem magnetischen Wechselfeld",
+            "magnetischen Gleich- und Wechselfeldern"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-PR-003",
-          "text": "Was ist bei der Dokumentation einer Wirbelstromprüfung mindestens anzugeben?",
-          "options": {
-            "a": "Prüfdatum, Prüfling, Gerät, Prüffrequenz, Empfindlichkeit, Ergebnis, Prüfer",
-            "b": "Nur das Prüfergebnis (bestanden/nicht bestanden)",
-            "c": "Name des Prüfers und Datum",
-            "d": "Bauteilgewicht und Maße"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 22,
+          "question_text": "Um messbare Wirbelströme in einem Material zu erzeugen, muss dieses sein",
+          "options": [
+            "gehärtet",
+            "elektrisch isolierend",
+            "elektrisch leitfähig"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-PR-004",
-          "text": "Wie ist bei der ET-Prüfung mit einem Befund umzugehen, der die Ausschussgrenze überschreitet?",
-          "options": {
-            "a": "Bauteil sofort freigeben und weiterproduzieren",
-            "b": "Bauteil kennzeichnen, sperren und gemäß Verfahrensanweisung eskalieren",
-            "c": "Befund ignorieren, wenn er nur knapp über der Grenze liegt",
-            "d": "Bauteil ohne Dokumentation aussortieren"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 23,
+          "question_text": "Welche der folgenden Prüfaufgaben sind mit Wirbelstromverfahren lösbar?",
+          "options": [
+            "Suche nach Oberflächenrissen in Glasstäben",
+            "Detektion von Rissen an Wälzlagern aus Stahl",
+            "Erkennung von Fehlern in Kunststoffteilen"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-PR-005",
-          "text": "Was ist bei der Auswahl der Prüffrequenz für einen unbekannten Prüfling zu beachten?",
-          "options": {
-            "a": "Immer die maximale Gerätefrequenz verwenden",
-            "b": "Frequenz anhand der gewünschten Eindringtiefe und Materialeigenschaften auswählen",
-            "c": "Die niedrigste verfügbare Frequenz verwenden",
-            "d": "Die Frequenz hat keinen Einfluss auf die Prüfbarkeit"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 24,
+          "question_text": "Ein Wirbelstrom",
+          "options": [
+            "entsteht in Luft, wenn ein Magnetfeld vorhanden ist",
+            "entsteht, wenn Strom ungleichmäßig in einem Material fließt",
+            "fließt auf einer Kreisbahn"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "ET-PR-006",
-          "text": "Wie lassen sich Pseudo-Befunde bei der ET-Prüfung von realen Fehlern unterscheiden?",
-          "options": {
-            "a": "Pseudo-Befunde haben immer eine größere Amplitude",
-            "b": "Durch Phasenauswertung, Reproduzierbarkeit und Vergleich mit Referenzkörper",
-            "c": "Pseudo-Befunde treten nur bei ferromagnetischen Materialien auf",
-            "d": "Eine Unterscheidung ist grundsätzlich nicht möglich"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 25,
+          "question_text": "Jeder Magnet",
+          "options": [
+            "hat 2 Pole",
+            "kann zu- und abgeschaltet werden",
+            "produziert ein Magnetfeld"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-PR-007",
-          "text": "Welche persönliche Schutzausrüstung ist bei der ET-Prüfung typischerweise erforderlich?",
-          "options": {
-            "a": "Strahlenschutzausrüstung",
-            "b": "Handschuhe und Schutzbrille bei Verwendung von Reinigungsmitteln",
-            "c": "Atemschutzmaske der Klasse P3",
-            "d": "Vollschutzanzug"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 26,
+          "question_text": "Eisen wird im Magnetfeld",
+          "options": [
+            "elektrisch aufgeladen",
+            "magnetisiert",
+            "nicht verändert"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "ET-PR-008",
-          "text": "Was ist nach einer ET-Prüfung in Bezug auf den Prüfling zu tun?",
-          "options": {
-            "a": "Prüfling grundsätzlich verwerfen",
-            "b": "Prüfling gemäß Ergebnis kennzeichnen (i.O. / n.i.O.) und dokumentieren",
-            "c": "Prüfling unmarkiert weiterleiten",
-            "d": "Prüfling nochmals manuell visuell prüfen"
-          },
-          "answer": "b"
-        }
-      ]
-    },
-    "UT": {
-      "ST": [
-        {
-          "id": "UT-ST-001",
-          "text": "Auf welchem Prinzip basiert die Ultraschallprüfung?",
-          "options": {
-            "a": "Elektromagnetische Induktion",
-            "b": "Piezoelektrischer Effekt und Schallwellenreflexion",
-            "c": "Röntgenabsorption",
-            "d": "Thermische Ausdehnung"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 27,
+          "question_text": "Der durch die Spule induzierte Wirbelstrom",
+          "options": [
+            "ist im Inneren des Materials am größten",
+            "ist unabhängig von der Tiefe überall im Material gleich groß",
+            "ist an der Oberfläche des Materials am größten"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-ST-002",
-          "text": "Welcher Frequenzbereich wird bei der Ultraschallprüfung typischerweise eingesetzt?",
-          "options": {
-            "a": "0,1 – 1 kHz",
-            "b": "100 – 500 kHz",
-            "c": "0,5 – 25 MHz",
-            "d": "1 – 100 GHz"
-          },
-          "answer": "c"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 28,
+          "question_text": "Bei der Rissprüfung können alle Risse exakt vermessen werden. Diese Aussage ist",
+          "options": [
+            "richtig",
+            "falsch",
+            "bedingt richtig"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "UT-ST-003",
-          "text": "Was ist das Impuls-Echo-Verfahren bei der Ultraschallprüfung?",
-          "options": {
-            "a": "Ein Prüfkopf sendet und empfängt; Reflektoren werden durch Laufzeit erkannt",
-            "b": "Sender und Empfänger sind getrennte Einheiten auf gegenüberliegenden Seiten",
-            "c": "Mehrere Prüfköpfe senden gleichzeitig",
-            "d": "Das Bauteil wird kontinuierlich beschallt"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 29,
+          "question_text": "In welcher physikalischen Einheit wird die Frequenz angegeben?",
+          "options": [
+            "s",
+            "Hz",
+            "m"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "UT-ST-004",
-          "text": "Was versteht man unter der Schallschwächung beim Ultraschall?",
-          "options": {
-            "a": "Die Zunahme der Schallintensität mit der Wegstrecke",
-            "b": "Die Abnahme der Schallintensität durch Absorption und Streuung",
-            "c": "Die Reflexion des Schalls an Grenzflächen",
-            "d": "Die Brechung des Schalls beim Übergang zwischen Medien"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 30,
+          "question_text": "Magnetische Feldlinien",
+          "options": [
+            "kreuzen sich",
+            "sind immer geschlossen",
+            "kreuzen sich nie"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "UT-ST-005",
-          "text": "Was ist der Hauptunterschied zwischen Längsund Transversalwellen beim Ultraschall?",
-          "options": {
-            "a": "Longitudinalwellen schwingen quer zur Ausbreitungsrichtung, Transversalwellen längs",
-            "b": "Longitudinalwellen schwingen längs zur Ausbreitungsrichtung, Transversalwellen quer",
-            "c": "Longitudinalwellen sind schneller als Transversalwellen im gleichen Medium",
-            "d": "Sowohl b) als auch c) sind richtig"
-          },
-          "answer": "d"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 31,
+          "question_text": "Was bewirkt der Skineffekt?",
+          "options": [
+            "gleichmäßige Verteilung der Wirbelströme auf den kompletten Bauteilquerschnitt",
+            "Verdrängung der Wirbelströme in die Bauteilrandzone",
+            "Der Skineffekt ist für die Wirbelstromprüfung unerheblich."
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-ST-006",
-          "text": "Welche Koppelmittel werden bei der Kontakttechnik verwendet?",
-          "options": {
-            "a": "Öl, Wasser, Gel oder Paste",
-            "b": "Luft",
-            "c": "Stickstoff",
-            "d": "Metallische Folien"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "1Fragenummer",
+          "question_number": 32,
+          "question_text": "Welche der nachfolgend genannten Behauptungen für die Wirbelstromprüfung ist/sind falsch?",
+          "options": [
+            "es sind hohe Prüfgeschwindigkeiten möglich",
+            "es kann auf kleine Fehler mit hoher Empfindlichkeit geprüft werden",
+            "es ist die sichere Prüfung auf kleine Fehler bis in eine Tiefe von 15 mm möglich"
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 1,
+          "question_text": "Um Risse sicher zu erkennen,",
+          "options": [
+            "muss die Steigung der Bewegung größer sein als die Spurbreite der Sonde",
+            "müssen Bewegung und Sonde aufeinander angepasst sein",
+            "muss die Steigung der Bewegung kleiner sein als die Spurbreite der Sonde"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-ST-007",
-          "text": "Was gibt der Prüfkopf-Vorlaufkeil bei der Winkelprüfung an?",
-          "options": {
-            "a": "Die Amplitude des Empfangssignals",
-            "b": "Den Einschallwinkel des Schallbündels in das Prüfstück",
-            "c": "Die Prüffrequenz",
-            "d": "Die Schallgeschwindigkeit"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 2,
+          "question_text": "Wozu werden Spulen in Differenzschaltung vor allem verwendet?",
+          "options": [
+            "Messung der Schichtdicke von Beschichtungen",
+            "Bei der Fehlerprüfung, insbesondere wenn kleine Risse detektiert werden müssen.",
+            "zur Wärmebehandlungsüberwachung (Hart-Weich-Trennung)"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-ST-008",
-          "text": "Wofür wird beim Ultraschall der AVG-Vergleich genutzt?",
-          "options": {
-            "a": "Zur Abstandsmessung von Reflektoren",
-            "b": "Zur Bewertung von Reflektoren durch Vergleich mit einem Bezugsreflektor",
-            "c": "Zur Einstellung der Prüffrequenz",
-            "d": "Zur Bestimmung der Wanddicke"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 3,
+          "question_text": "Bei welchem Sensortyp ist für die Rissprüfung die Abtastrichtung zu beachten?",
+          "options": [
+            "Differenzsonde",
+            "Absolutsonde",
+            "Die Abtastrichtung muss bei keinem Sensortyp beachtet werden."
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-ST-009",
-          "text": "Was ist die Nahfeldlänge (N) bei einem Ultraschallprüfkopf?",
-          "options": {
-            "a": "Der Bereich direkt am Prüfkopf mit unregelmäßigem Schalldruckverlauf",
-            "b": "Der Abstand zum ersten Rückwandecho",
-            "c": "Die minimale Prüftiefe",
-            "d": "Die Wellenlänge des Ultraschalls"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 4,
+          "question_text": "Welche Eigenschaften sollte ein Kalibrierkörper/Vergleichskörper zur Empfindlichkeitseinstellung aufweisen?",
+          "options": [
+            "Er sollte aus dem gleichen Material sein wie der Prüfgegenstand.",
+            "Er sollte die gleiche Wärmebehandlung haben wie der Prüfgegenstand",
+            "Er sollte den geforderten Kalibrierfehler aufweisen."
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-ST-010",
-          "text": "Mit welchem Verfahren lässt sich die Wanddicke eines Bauteils mit Ultraschall messen?",
-          "options": {
-            "a": "Impuls-Echo-Verfahren mit Laufzeitmessung",
-            "b": "Durchschallungsverfahren mit Amplitudenmessung",
-            "c": "Resonanzverfahren",
-            "d": "Sowohl a) als auch c) sind geeignet"
-          },
-          "answer": "d"
-        }
-      ],
-      "PR": [
-        {
-          "id": "UT-PR-001",
-          "text": "Wie wird ein Ultraschallprüfgerät kalibriert?",
-          "options": {
-            "a": "Mit Referenzblöcken bekannter Geometrie und Schallgeschwindigkeit",
-            "b": "Durch Vergleich mit einem Röntgenbild",
-            "c": "Durch Sichtprüfung des Prüfkopfes",
-            "d": "Mit einem magnetischen Kalibriergerät"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 5,
+          "question_text": "Durch welche(s) Referenzverfahren können/kann die/das Ergebnis(se) der Wirbelstromprüfung bestätigt werden?",
+          "options": [
+            "Ultraschalllprüfung",
+            "metallographische Untersuchungen",
+            "Röntgen"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-PR-002",
-          "text": "Welche Information enthält ein korrekt ausgefülltes UT-Prüfprotokoll mindestens?",
-          "options": {
-            "a": "Prüfling, Prüfkopf, Frequenz, Koppelmittel, Empfindlichkeit, Befunde, Prüfer, Datum",
-            "b": "Nur das Gesamtergebnis",
-            "c": "Name des Betriebsleiters",
-            "d": "Stückgewicht des Prüflings"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 6,
+          "question_text": "Wie ist zu verfahren, wenn Risse detektiert wurden?",
+          "options": [
+            "es kann mit den bisherigen Maschineneinstellungen weiter produziert werden, wenn zukünftig mehr Stichprobenprüfungen durchgeführt werden",
+            "die Ursache im Fertigungsprozess ist zu ermitteln, zu beseitigen und zu dokumentieren",
+            "alle Teile, die seit der letzten i.O. Prüfung produziert wurden, sind zu sperren"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "UT-PR-003",
-          "text": "Was ist zu tun, wenn bei der UT-Prüfung ein Anzeigebefund festgestellt wird?",
-          "options": {
-            "a": "Befund ignorieren und Prüfung fortsetzen",
-            "b": "Befund lokalisieren, dokumentieren und gemäß Bewertungsvorschrift beurteilen",
-            "c": "Bauteil sofort verschrotten",
-            "d": "Befund mit roter Farbe markieren und freigeben"
-          },
-          "answer": "b"
-        }
-      ]
-    },
-    "NE": {
-      "ST": [
-        {
-          "id": "NE-ST-001",
-          "text": "Was ist der Zweck der Nitalätzung (Ätzprüfung)?",
-          "options": {
-            "a": "Messung der Oberflächenhärte",
-            "b": "Sichtbarmachung von Gefügeveränderungen insbesondere Schleifbrand",
-            "c": "Erhöhung der Korrosionsbeständigkeit",
-            "d": "Verbesserung der Maßhaltigkeit"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 7,
+          "question_text": "Welche Störgrößen beeinflussen die Ergebnisse der Wirbelstromprüfung negativ?",
+          "options": [
+            "schwankende Bauteiltemperaturen",
+            "Restmagnetismus",
+            "Verkippen der Prüfsonde"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-002",
-          "text": "Welche Ätzlösung wird bei der Nitalätzung verwendet?",
-          "options": {
-            "a": "Salzsäure (HCl) in Wasser",
-            "b": "Salpetersäure (HNO3) in Alkohol (Ethanol oder Methanol)",
-            "c": "Schwefelsäure (H2SO4) in Wasser",
-            "d": "Natronlauge (NaOH) in Wasser"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 8,
+          "question_text": "Bei zunehmender Frequenz",
+          "options": [
+            "erhöht sich die Eindringtiefe",
+            "bleibt die Eindringtiefe gleich",
+            "verringert sich die Eindringtiefe"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-003",
-          "text": "Welche typische Konzentration hat die Nitalätzlösung (Nital 2%)?",
-          "options": {
-            "a": "2% HNO3 in Alkohol",
-            "b": "2% HCl in Wasser",
-            "c": "2% NaOH in Wasser",
-            "d": "2% H2SO4 in Alkohol"
-          },
-          "answer": "a"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 9,
+          "question_text": "Bei der Rissprüfung mit Wirbelstrom",
+          "options": [
+            "sollten möglichst niedrige Frequenzen eingesetzt werden",
+            "sollten möglichst hohe Frequenzen eingesetzt werden",
+            "können hohe oder niedrige Frequenzen eingesetzt werden"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-004",
-          "text": "Wie zeigt sich Schleifbrand nach der Nitalätzung?",
-          "options": {
-            "a": "Als glänzende Stelle auf der Bauteiloberfläche",
-            "b": "Als dunkle (braune/schwarze) oder helle Verfärbung je nach Art des Schleifbrandes",
-            "c": "Als Rissanzeige",
-            "d": "Als metallische Ablösung"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 10,
+          "question_text": "Zur Erkennung eines Oberflächenfehlers (Riss)",
+          "options": [
+            "reicht es aus, wenn der Taster in der Nähe des Risses über das Material geführt wird",
+            "muss der Taster über den Riss hinweggeführt werden",
+            "muss der Taster genau über dem Riss stabil positioniert sein"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-005",
-          "text": "Was ist verdeckter Schleifbrand?",
-          "options": {
-            "a": "Schleifbrand, der durch eine Schutzschicht verdeckt ist",
-            "b": "Schleifbrand in einer Tiefe, die durch nachfolgende Bearbeitungsschritte überdeckt wird",
-            "c": "Schleifbrand unter einer Beschichtung",
-            "d": "Schleifbrand bei verchromten Teilen"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 11,
+          "question_text": "Um die gesamte Oberfläche des Prüflings auf Rissfreiheit zu überprüfen, muss",
+          "options": [
+            "der Taster über die Oberfläche bewegt werden",
+            "die Steigung der Bewegung größer als die erwartete Risslänge sein",
+            "die Steigung der Bewegung kleiner als die erwartete Risslänge sein"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-006",
-          "text": "Welche Schutzmaßnahmen sind bei der Nitalätzung zwingend erforderlich?",
-          "options": {
-            "a": "Keine besonderen Schutzmaßnahmen erforderlich",
-            "b": "Chemikalienschutzhandschuhe, Schutzbrille, Säureschutzschürze, Abzug",
-            "c": "Nur Handschuhe",
-            "d": "Atemschutzmaske ausreichend"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 12,
+          "question_text": "Bei einer Differenzsonde",
+          "options": [
+            "ist die Größe des gemessenen Signals unabhängig vom Winkel zwischen dem Riss und der Achse der Sondenwicklungen",
+            "ist die Größe des gemessenen Signals abhängig vom Winkel zwischen dem Riss und der Achse der Sondenwicklungen",
+            "hängt die Größe des gemessenen Signals nur vom Abstand der Sonde zum Material ab"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-007",
-          "text": "Welche Vorbereitung der Bauteiloberfläche ist vor der Nitalätzung notwendig?",
-          "options": {
-            "a": "Oberfläche muss lackiert werden",
-            "b": "Oberfläche muss entfettet und metallisch blank sein",
-            "c": "Oberfläche muss sandgestrahlt werden",
-            "d": "Keine Vorbereitung erforderlich"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 13,
+          "question_text": "Bei einer Differenzsonde sollte",
+          "options": [
+            "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 0 sein",
+            "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 45 ° sein",
+            "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 90° sein"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-008",
-          "text": "Wie ist nach der Nitalätzung vorzugehen?",
-          "options": {
-            "a": "Bauteil trocknen lassen",
-            "b": "Ätzlösung mit Wasser abspülen, dann mit Alkohol neutralisieren/trocknen",
-            "c": "Ätzlösung mit Lappen abwischen",
-            "d": "Bauteil in frische Säure tauchen"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 14,
+          "question_text": "Eine Rissprüfung wird mit einem Testfehler so eingestellt, dass dieser 90° zur Bewegungsrichtung der Sonde liegt. Bei der Prüfung hat ein Prüfling einen gleich großen Fehler, der aber 60° zur Bewegungsrichtung liegt. Deshalb wird die angezeigte Fehleramplitude",
+          "options": [
+            "kleiner",
+            "größer",
+            "gleich bleiben"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-009",
-          "text": "Was sind typische Ursachen für Schleifbrand?",
-          "options": {
-            "a": "Zu langsames Schleifen",
-            "b": "Übermäßige Wärmeentwicklung beim Schleifen durch zu hohe Schnitttiefe, Vorschub oder stumpfe Scheibe",
-            "c": "Falsches Kühlmittel beim Drehen",
-            "d": "Schlechte Korrosionsschutzmaßnahmen"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 15,
+          "question_text": "Welche der folgenden Aussagen ist richtig?",
+          "options": [
+            "Absolutsonden haben eine größere Empfindlichkeit als Differenzsonden",
+            "Absolutsonden haben nur eine Messspule",
+            "Absolutsonden sind richtungsunabhängig"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-ST-010",
-          "text": "Welche Norm regelt die Bewertung von Schleifbrand bei Wälzlagern?",
-          "options": {
-            "a": "DIN EN ISO 9712",
-            "b": "Schaeffler-Standard S285066 / EN ISO 14104",
-            "c": "ASTM E1444",
-            "d": "DIN 54130"
-          },
-          "answer": "b"
-        }
-      ],
-      "PR": [
-        {
-          "id": "NE-PR-001",
-          "text": "Wie wird die Nitalätzlösung fachgerecht entsorgt?",
-          "options": {
-            "a": "In den normalen Abfall",
-            "b": "Als Sondermüll / Gefahrstoff gemäß betrieblicher Entsorgungsvorschrift",
-            "c": "In den Ausguss mit viel Wasser",
-            "d": "Wiederverwendung unbegrenzt möglich"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 16,
+          "question_text": "Durch welche der folgenden Maßnahmen kann das Signal/Rauschverhältnis verbessert werden?",
+          "options": [
+            "Filterung",
+            "Wahl einer höheren Verstärkung",
+            "Verringerung des Abstandes Prüfteil - Sonde"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-PR-002",
-          "text": "Wie wird das Ergebnis der Nitalätzprüfung dokumentiert?",
-          "options": {
-            "a": "Nur mündlich dem Vorgesetzten melden",
-            "b": "Schriftlich im Prüfprotokoll mit Bauteilkennzeichnung, Ätzparametern und Befundbeschreibung",
-            "c": "Nur bei negativem Befund",
-            "d": "Stempelabdruck auf dem Bauteil genügt"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 17,
+          "question_text": "Bei der Wahl der Schwelle",
+          "options": [
+            "kommt es auf die eingestellte Verstärkung nicht an",
+            "ist die Phasenlage des Signals unwichtig",
+            "muss das Fehlersignal des Risses die Schwelle überschreiten"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "NE-PR-003",
-          "text": "Welche Einwirkzeit gilt typischerweise für Nital 2% bei der Schleifbrandprüfung?",
-          "options": {
-            "a": "1 Sekunde",
-            "b": "Gemäß Verfahrensanweisung, typisch 30–60 Sekunden",
-            "c": "Mindestens 10 Minuten",
-            "d": "24 Stunden"
-          },
-          "answer": "b"
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 18,
+          "question_text": "Differenzsonden sind für die Rissprüfung vorteilhaft, weil",
+          "options": [
+            "sie bei fester Risstiefe ein höheres Signal liefern als vergleichbare Absolutsonden",
+            "sie den Einfluss langsam veränderlicher Teileeigenschaften unterdrücken",
+            "sie mit höheren Prüffrequenzen betrieben werden können als Absolutsonden"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 19,
+          "question_text": "Um eine maximale Prüfempfindlichkeit zu erreichen, sollte die Prüfsonde zum Prüfteil stehen",
+          "options": [
+            "in einem Winkel von 60°",
+            "senkrecht",
+            "in einem Winkel von 30 °"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "2Fragenummer",
+          "question_number": 20,
+          "question_text": "Welcher Sondentyp eignet sich grundsätzlich am besten, um kleine Risse an der Oberfläche nachzuweisen?",
+          "options": [
+            "Absolutsonde",
+            "Differenzsonde",
+            "beide eignen sich gleich gut"
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 1,
+          "question_text": "Das untenstehende Bild 1 zeigt eine",
+          "options": [
+            "y-Komponenten-Auswertung",
+            "Amplituden-Auswertung",
+            "Phasen-Amplituden-Auswertung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 2,
+          "question_text": "Das untenstehende Bild 2  zeigt eine",
+          "options": [
+            "y-Komponenten-Auswertung",
+            "Amplituden-Auswertung",
+            "Phasen-Amplituden-Auswertung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 3,
+          "question_text": "Das untenstehende Bild 3 zeigt eine",
+          "options": [
+            "y-Komponenten-Auswertung",
+            "Amplituden-Auswertung",
+            "Phasen-Amplituden-Auswertung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 4,
+          "question_text": "In der x/y-Darstellung bringt man den Leuchtpunkt in die Bildschirmmitte mittels",
+          "options": [
+            "Kompensationstaste",
+            "Median-Taste",
+            "Phasensteller"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 5,
+          "question_text": "Im untenstehenden Bild 1 werden als Fehlersignal erkannt",
+          "options": [
+            "Anzeige 1, 2 und 3",
+            "nur Anzeige 1 und 2",
+            "nur Anzeige 2 und 3"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 6,
+          "question_text": "Im untenstehenden Bild 2 werden als Fehlersignal erkannt",
+          "options": [
+            "Anzeige 1, 2 und 3",
+            "nur Anzeige 1 und 2",
+            "nur Anzeige 2 und 3"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 7,
+          "question_text": "Im untenstehenden Bild 3 werden als Fehlersignal erkannt",
+          "options": [
+            "Anzeige 1, 2 und 3",
+            "nur Anzeige 2 und 3",
+            "nur Anzeige 3"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 8,
+          "question_text": "Der Abhebeeffekt soll bei der Geräteeinstellung",
+          "options": [
+            "parallel zur x-Achse liegen",
+            "parallel zur y-Achse liegen",
+            "kann beliebig erfolgen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 9,
+          "question_text": "Die Vorverstärkung des Wirbelstromprüfgeräts ist so einzustellen, dass",
+          "options": [
+            "die rote LED \"Overload\" ständig leuchtet",
+            "die rote LED \"Overload\" gerade nicht leuchtet",
+            "der Leuchtpunkt in der Mitte steht"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 10,
+          "question_text": "In den Abbildungen a-c sehen Sie einen Riss in verschiedenen Positionen unterhalb einer Differenzsonde (die beiden Kreise stellen die Empfängerwicklungen dar). In welcher Testposition kann die höchste Fehleramplitude gemessen werden?",
+          "options": [
+            "a",
+            "b",
+            "c"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 11,
+          "question_text": "Welche Darstellungsart gibt es?",
+          "options": [
+            "Dichte-Auswertung",
+            "Amplitudenauswertung",
+            "y-Komponenten-Auswertung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 12,
+          "question_text": "Bei der Darstellung von Verstärkungen in dB entsprechen 6 dB",
+          "options": [
+            "einer vierfachen Verstärkung",
+            "einer dreifachen Verstärkung",
+            "einer zweifachen Verstärkung"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 13,
+          "question_text": "Bei der Darstellung von Verstärkungen in dB entsprechen 20 dB",
+          "options": [
+            "einer 50-fachen Verstärkung",
+            "einer 10-fachen Verstärkung",
+            "einer 5-fachen Verstärkung"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 14,
+          "question_text": "Ein Hochpassfilter",
+          "options": [
+            "lässt nur niedrige Frequenzen passieren",
+            "lässt nur hohe Frequenzen passieren",
+            "lässt hohe und niedrige Frequenzen passieren"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 15,
+          "question_text": "Ein Tiefpassfilter",
+          "options": [
+            "lässt nur niedrige Frequenzen passieren",
+            "lässt nur hohe Frequenzen passieren",
+            "lässt niedrige und hohe Frequenzen passieren"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 16,
+          "question_text": "Bei vielen Rissprüfgeräten wird nur die Höhe der y-Komponente bewertet. Deshalb",
+          "options": [
+            "muss beim Einrichten das Signal so in seiner Phase gedreht werden, dass sein größter Ausschlag möglichst parallel zur x-Achse liegt",
+            "muss beim Einrichten das Signal so in seiner Phase gedreht werden, dass sein größter Ausschlag möglichst parallel zur y-Achse liegt",
+            "ist es nicht notwendig, das Signal beim Einrichten in seiner Phase zu drehen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 17,
+          "question_text": "Filterfrequenzen",
+          "options": [
+            "brauchen nur ungefähr eingestellt werden, da sie das Signal nur unwesentlich beeinflussen",
+            "müssen sorgfältig eingestellt werden, da bei falscher Einstellung der Durchschlupf rissbehafteter Teile möglich ist",
+            "können für verschiedene Prüflingstypen variieren"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 18,
+          "question_text": "Bei einer Hochpasseinstellung von 1 kHz",
+          "options": [
+            "wird ein 200 Hz Signal durchgelassen",
+            "wird ein 5 kHz Störsignal ausgeblendet",
+            "keines von beiden"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 19,
+          "question_text": "Bei einer Tiefpasseinstellung von 1 kHz",
+          "options": [
+            "wird ein 200 Hz Signal durchgelassen",
+            "wird ein 5kHz Störsignal ausgeblendet",
+            "keines von beiden"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 20,
+          "question_text": "Die Tiefe bis zu welcher Fehler nachweisbar sind, ist abhängig von:",
+          "options": [
+            "Material des Prüflings",
+            "Prüfgerät",
+            "Prüffrequenz"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 21,
+          "question_text": "Wo erfolgt die Kompensation (Nullabgleich) des Wirbelstromprüfgerätes im Regelfall?",
+          "options": [
+            "in der Luft",
+            "auf dem Prüfgegenstand auf einer fehlerbehafteten Fläche",
+            "auf dem Prüfgegenstand auf einer fehlerfreien Fläche"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 22,
+          "question_text": "Welche Position ergibt für ein Differenzsystem einen Signalwert von Null?",
+          "options": [
+            "Bild 1,3,4",
+            "Bild 2,3",
+            "nur Bild 2"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 23,
+          "question_text": "Was versteht man unter \"Drift\"?",
+          "options": [
+            "ein zu großes Signal-Rausch-Verhältnis",
+            "die Phasendrehung des Signals",
+            "Verschiebung des Nullpunktes durch z. B. Temperaturänderung"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 24,
+          "question_text": "Wie nennt man die Anzeige, die man bei Annäherung des Sensors an die Bauteilkante erhält?",
+          "options": [
+            "Kanteneffekt",
+            "Permeabilitätsanzeige",
+            "Abhebeeffekt"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "ET_Riss",
+          "section": "3Fragenummer",
+          "question_number": 25,
+          "question_text": "Welche Darstellung zeigt für ein Differenzsystem die zum maximal möglichen Ausgangssignal gehörende Risslänge?",
+          "options": [
+            "Bild 3",
+            "Bild 2",
+            "Bild 1+4"
+          ],
+          "topic_type": "verfahren"
         }
       ]
     },
-    "MT": {
-      "ST": [
+    {
+      "procedure_code": "MPI",
+      "procedure_name": "Magnetpulverprüfung",
+      "questions": [
         {
-          "id": "MT-ST-001",
-          "text": "Auf welchem Prinzip basiert die Magnetpulverprüfung?",
-          "options": {
-            "a": "Elektromagnetische Induktion in leitfähigen Werkstoffen",
-            "b": "Streufluss an Fehlern magnetisierter ferromagnetischer Bauteile",
-            "c": "Schallreflexion an Grenzflächen",
-            "d": "Kapillarwirkung von Flüssigkeiten"
-          },
-          "answer": "b"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 1,
+          "question_text": "Wie heisst die Regel für die Ermittlung des Zusammenhangs zwischen Strom- und Feldrichtung?",
+          "options": [
+            "Ohm'sches Gesetz",
+            "Linke Hand Regel",
+            "Rechte Hand Regel"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-002",
-          "text": "Welche Werkstoffe können mit der Magnetpulverprüfung untersucht werden?",
-          "options": {
-            "a": "Alle metallischen Werkstoffe",
-            "b": "Nur ferromagnetische Werkstoffe",
-            "c": "Nur austenitische Stähle",
-            "d": "Nur Aluminium und seine Legierungen"
-          },
-          "answer": "b"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 2,
+          "question_text": "Die Feldlinien um einen geraden, stromdurchflossenen Leiter verlaufen wie bei Nr.",
+          "options": [
+            "1",
+            "2",
+            "3"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-003",
-          "text": "Was ist eine Tangentialfeldstärkemessung bei der Magnetpulverprüfung?",
-          "options": {
-            "a": "Messung der Magnetfeldstärke an der Bauteiloberfläche mit einem Teslameter",
-            "b": "Berechnung der erforderlichen Magnetisierung",
-            "c": "Messung des Streuflusses über einem Fehler",
-            "d": "Kalibrierung des Gleichstromgenerators"
-          },
-          "answer": "a"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 4,
+          "question_text": "Folgende Aussagen sind richtig:",
+          "options": [
+            "Magnetischer Nordpol und Südpol ziehen sich an",
+            "Magnetischer Südpol und Südpol ziehen sich an",
+            "Magnetischer Nordpol und Nordpol stoßen sich ab"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-004",
-          "text": "Welche Magnetisierungsrichtungen müssen für eine vollständige Prüfung berücksichtigt werden?",
-          "options": {
-            "a": "Nur längs zur Bauteilachse",
-            "b": "Nur quer zur Bauteilachse",
-            "c": "Längs und quer (mindestens zwei senkrechte Richtungen)",
-            "d": "Die Richtung spielt keine Rolle"
-          },
-          "answer": "c"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 5,
+          "question_text": "In welcher Einheit wird die Magnetfeldstärke angegeben?",
+          "options": [
+            "µW / cm2",
+            "Tesla",
+            "A / cm"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "MT-ST-005",
-          "text": "Was ist der Unterschied zwischen Nass- und Trockenverfahren bei der Magnetpulverprüfung?",
-          "options": {
-            "a": "Beim Nassverfahren wird das Pulver in einer Trägerflüssigkeit suspendiert",
-            "b": "Beim Trockenverfahren werden magnetische Flüssigkeiten verwendet",
-            "c": "Beim Nassverfahren wird das Bauteil erhitzt",
-            "d": "Es gibt keinen praktischen Unterschied"
-          },
-          "answer": "a"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 6,
+          "question_text": "Folgende Aussagen sind richtig:",
+          "options": [
+            "Magnetische Feldlinien kreuzen sich nie.",
+            "Magnetische Feldlinien sind kreisförmig angeordnet.",
+            "Magnetische Feldlinien können sich in bestimmten Fällen überschneiden"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-006",
-          "text": "Welchen Vorteil bietet fluoreszierendes Magnetpulver?",
-          "options": {
-            "a": "Höhere Magnetisierungsstärke",
-            "b": "Bessere Sichtbarkeit kleiner Anzeigen unter UV-Licht",
-            "c": "Geringere Kosten",
-            "d": "Keine Notwendigkeit zur Entmagnetisierung"
-          },
-          "answer": "b"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 7,
+          "question_text": "Welchen Vorteil bietet die zerstörungsfreie Prüfung?",
+          "options": [
+            "die Bauteile können schneller geprüft werden",
+            "die Prüfung erfolgt automatisch",
+            "die Bauteile werden nicht zerstört"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-007",
-          "text": "Für welche Fehlerorientierung ist die Magnetpulverprüfung am empfindlichsten?",
-          "options": {
-            "a": "Fehler parallel zur Magnetisierungsrichtung",
-            "b": "Fehler senkrecht zur Magnetisierungsrichtung",
-            "c": "Fehler in 45° zur Magnetisierungsrichtung",
-            "d": "Die Empfindlichkeit ist richtungsunabhängig"
-          },
-          "answer": "b"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 8,
+          "question_text": "Das Ergebnis der Prüfung ist abhängig von",
+          "options": [
+            "der Qualifikation des Prüfers",
+            "der Sorgfalt der Durchführung",
+            "dem Zustand der Anlage"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-008",
-          "text": "Was versteht man unter der Remanenz bei ferromagnetischen Werkstoffen?",
-          "options": {
-            "a": "Die maximale Magnetisierungsstärke",
-            "b": "Die verbleibende Magnetisierung nach Abschalten des äußeren Feldes",
-            "c": "Den Magnetisierungswiderstand",
-            "d": "Die Schmelztemperatur des Eisens"
-          },
-          "answer": "b"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 9,
+          "question_text": "Wie bezeichnet man Stabmagnete und Hufeisenmagnete?",
+          "options": [
+            "Einfachmagnete",
+            "Elektromagnete",
+            "Dauer- oder Permanentmagnete"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-009",
-          "text": "Welche Mindestfeldstärke (Tangentialkomponente) ist für eine zuverlässige MT-Prüfung erforderlich?",
-          "options": {
-            "a": "Mindestens 1 A/m",
-            "b": "Mindestens 2000 A/m gemäß DIN EN ISO 9934",
-            "c": "Maximal 500 A/m",
-            "d": "Die Feldstärke ist nicht normiert"
-          },
-          "answer": "b"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 10,
+          "question_text": "Welche Aussage ist richtig?",
+          "options": [
+            "ungleiche Pole stoßen sich ab",
+            "gleiche Pole stoßen sich ab",
+            "ungleiche Pole ziehen sich an"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-ST-010",
-          "text": "Was ist Entmagnetisierung und wann ist sie erforderlich?",
-          "options": {
-            "a": "Beseitigung der Remanenzmagnetisierung; erforderlich wenn Restmagnetismus Funktion oder Weiterverarbeitung stört",
-            "b": "Aufhebung der Magnetisierung nur bei Nirostastahl",
-            "c": "Nur bei Bauteilen über 100 kg notwendig",
-            "d": "Entmagnetisierung ist nach Norm nie erforderlich"
-          },
-          "answer": "a"
-        }
-      ],
-      "PR": [
-        {
-          "id": "MT-PR-001",
-          "text": "Wie wird die Empfindlichkeit einer MT-Prüfanlage überprüft?",
-          "options": {
-            "a": "Mit dem Magnetpulver-Testindikator (Berthold-Streifen oder QQI)",
-            "b": "Durch Sichtprüfung der Magnetspule",
-            "c": "Durch Messen der Stromstärke",
-            "d": "Durch Wiegen des Magnetpulvers"
-          },
-          "answer": "a"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 11,
+          "question_text": "Der Energieaufwand zum Entmagnetisieren eines Materials mit schmaler Hysteresekurve",
+          "options": [
+            "ist gering",
+            "ist hoch",
+            "ist unabhängig von der Fläche der Hysteresekurve"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-PR-002",
-          "text": "Welche Angaben müssen im MT-Prüfprotokoll enthalten sein?",
-          "options": {
-            "a": "Prüfling, Magnetisierungsverfahren, Feldstärke, Prüfmittel, Befunde, Prüfer, Datum, Norm",
-            "b": "Nur Bauteilnummer und Ergebnis",
-            "c": "Name des Qualitätsleiters",
-            "d": "Maschinenführer und Produktionszeit"
-          },
-          "answer": "a"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 12,
+          "question_text": "Was bedeutet Sättigung bei einem magnetisierbaren Material?",
+          "options": [
+            "Alle Elementarmagnete sind ausgerichtet.",
+            "Die Mehrzahl aller Elementarmagnete ist ausgerichtet.",
+            "Die Elementarmagnete sind vollständig unregelmäßig angeordnet."
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-PR-003",
-          "text": "Was ist bei der Bewertung von MT-Anzeigen zu beachten?",
-          "options": {
-            "a": "Alle Anzeigen sind automatisch als Fehler zu bewerten",
-            "b": "Unterscheidung zwischen echten Fehleranzeigen und Scheinanzeigen; Bewertung nach Norm/Zeichnung",
-            "c": "Nur Anzeigen über 10mm Länge bewerten",
-            "d": "Anzeigen erst nach 24 Stunden auswerten"
-          },
-          "answer": "b"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 13,
+          "question_text": "Welche Eigenschaft besitzt Eisen im magnetischen Feld?",
+          "options": [
+            "Eisen verhält sich neutral",
+            "Eisen verdrängt Feldlinien",
+            "Eisen sammelt Feldlinien"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "MT-PR-004",
-          "text": "Was ist ein Handjoch und wann wird es bei der MT-Prüfung eingesetzt?",
-          "options": {
-            "a": "Ein Elektromagnet für lokale Magnetisierung, eingesetzt bei Schweißnähten und lokalen Bereichen",
-            "b": "Ein Permanentmagnet für die Durchlaufmagnetisierung",
-            "c": "Ein Spulensystem für die Zirkularmagnetisierung",
-            "d": "Ein Messgerät für die Feldstärkemessung"
-          },
-          "answer": "a"
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 14,
+          "question_text": "Um jeden stromdurchflossenen Leiter bildet sich",
+          "options": [
+            "ein Widerstand",
+            "ein Magnetfeld",
+            "ein Spannungsfeld"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 15,
+          "question_text": "Die Richtung des Magnetfelds hängt ab von",
+          "options": [
+            "Material",
+            "Stromrichtung",
+            "Feldstärke"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 16,
+          "question_text": "Bewegt man einen Magneten in einer Spule wird eine Spannung erzeugt. Es gilt:",
+          "options": [
+            "Je schneller die Bewegung, je größer die induzierte Spannung",
+            "je schneller die Bewegung, je kleiner die induzierte Spannung",
+            "die Bewegungsgeschwindigkeit spielt keine Rolle"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 17,
+          "question_text": "Bei welcher Stromart ist die Eindringtiefe des Magnetfeldes am größten?",
+          "options": [
+            "Gleichstrom",
+            "Wechselstrom",
+            "Die Eindringtiefe ist unabhängig von der Stromart."
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 18,
+          "question_text": "In einer Spule ist",
+          "options": [
+            "das Magnetfeld an jeder Stelle gleich",
+            "das Magnetfeld am Anfang der Spule stärker als am Ende",
+            "kein Magnetfeld vorhanden"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 19,
+          "question_text": "Die magnetische Permeabilität ist",
+          "options": [
+            "von der Temperatur unabhängig",
+            "von der Temperatur abhängig",
+            "immer konstant"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 20,
+          "question_text": "Die Magnetisierung von ferromagnetischen Materialien wird beschrieben durch",
+          "options": [
+            "die Leitfähigkeitskurve",
+            "die Frequenzkurve",
+            "die Hysteresekurve"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 21,
+          "question_text": "Je breiter die Hysteresekurve eines Werkstoffs ist, desto",
+          "options": [
+            "einfacher lässt sich das Material magnetisieren",
+            "desto schwieriger lässt sich das Material magnetisieren",
+            "die Magnetisierbarkeit des Materials ist unabhängig von der Hysteresekurve"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 22,
+          "question_text": "Welche Werkstoffe können mit der magnetischen Streuflussprüfung geprüft werden?",
+          "options": [
+            "alle Werkstoffe",
+            "magnetisierbare Werkstoffe",
+            "nicht magnetisierbare Werkstoffe"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 23,
+          "question_text": "Welches Bild zeigt die korrekte Darstellung des Feldlinienverlaufs einer stromdurchflossenen Spule?",
+          "options": [
+            "Bild 1",
+            "Bild 2",
+            "Bild 3"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 24,
+          "question_text": "Jeder Magnet",
+          "options": [
+            "hat 2 Pole",
+            "kann zu- und abgeschaltet werden",
+            "produziert ein Magnetfeld"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 25,
+          "question_text": "Eisen wird im Magnetfeld",
+          "options": [
+            "elektrisch aufgeladen",
+            "magnetisiert",
+            "nicht verändert"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 26,
+          "question_text": "Kann sich um einen elektrischen Leiter ein magnetisches Feld bilden?",
+          "options": [
+            "Ja, aber nur bei Wechselstrom.",
+            "Ja, aber nur bei Gleichstrom.",
+            "Ja, unabhängig von der Art des Stromes"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 27,
+          "question_text": "Wie verlaufen die magnetischen Feldlinien im Innern einer stromdurchflossenen Spule?",
+          "options": [
+            "kreisförmig",
+            "linienförmig",
+            "im Innern einer stromdurchflossenen Spule gibt es keine magnetischen Feldlinien"
+          ],
+          "topic_type": "allgemein"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 28,
+          "question_text": "Welcher magnetische Zustand liegt vor, wenn ein äußeres Magnetfeld abgeschalten wird?",
+          "options": [
+            "Sättigung",
+            "Koerzitivfeldstärke",
+            "Remanenz (Restmagnetismus)"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 29,
+          "question_text": "Die Magnetpulverprüfung ist nicht geeignet zum Auffinden von:",
+          "options": [
+            "Rissen",
+            "tief liegenden Hohlstellen",
+            "Hart-Weich-Vermischungen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "1Fragenummer",
+          "question_number": 30,
+          "question_text": "Die Elementarmagnete in einem Permanentmagneten sind",
+          "options": [
+            "in entgegengesetzten Richtungen fest ausgerichtet, so dass sich die magnetischen Wirkungen gegenseitig aufheben",
+            "in eine Richtung ausgerichtet",
+            "ungeordnete ausgerichtet, damit sie magnetische Materialien anziehen"
+          ],
+          "topic_type": "allgemein"
+        },
+
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 1,
+          "question_text": "Welche magnetischen Eigenschaften muss das zu prüfende Bauteil haben?",
+          "options": [
+            "paramagnetisch",
+            "diamagnetisch",
+            "ferromagnetisch"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 2,
+          "question_text": "Welche magnetischen Eigenschaften sollte das Magnetpulver aufweisen?",
+          "options": [
+            "hohe Permeabilität und geringe Remanenz",
+            "niedrige Permeabilität und hohe Remanenz",
+            "hohe Permeabilität und hohe Remanenz"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 3,
+          "question_text": "Sie sind Brillenträger. Dürfen Sie Ihre Brille bei der Fluxprüfung tragen?",
+          "options": [
+            "ja",
+            "nein",
+            "ich muss eine Spezialbrille aufsetzen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 4,
+          "question_text": "Wie verlaufen die magnetischen Feldlinien in einem rissbehafteten Ring, der durch einen durchgesteckten Leiter magnetisiert wurde?",
+          "options": [
+            "Die Feldlinien verlaufen umlaufend (kreisförmig) und es kommt zum Streufluss am Riss",
+            "Die Feldlinien verlaufen axial und es kommt zum Streufluss am Riss",
+            "Die Magnetisierung erfolgt in beiden Richtungen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 5,
+          "question_text": "Bei welchem Winkel zwischen Magnetfeldlinien und Rissrichtung ist der Nachweis des Risses möglich?",
+          "options": [
+            "0 °",
+            "30°",
+            "90°"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 6,
+          "question_text": "Sie verwenden eine Fluxanlage für die Anwendung des Verfahrens Induktionsdurchflutung. Welche Stromart muss verwendet werden?",
+          "options": [
+            "Gleichstrom",
+            "Wechselstrom",
+            "es können beide Stromarten verwendet werden"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 7,
+          "question_text": "Um alle Risslagen in einem Ring nachweisen zu können sind wieviele Magnetisierungsrichtungen notwendig?",
+          "options": [
+            "eine",
+            "zwei",
+            "drei"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 8,
+          "question_text": "Welcher Fehler kann bei der Fluxprüfung auf keinen Fall nachgewiesen werden?",
+          "options": [
+            "a",
+            "b",
+            "c"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 9,
+          "question_text": "Welche Risse können in dem skizzierten Teil festgestellt werden, wenn es mit Hilfe eines Kupferdorns magnetisiert wird (Durchgesteckter Leiter)",
+          "options": [
+            "A, B und C",
+            "A und C",
+            "B und C"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 10,
+          "question_text": "Welche Risse können in dem skizzierten Teil festgestellt werden, wenn es mit Hilfe eines Kupferdorns magnetisiert wird (Durchgesteckter Leiter)?",
+          "options": [
+            "D, E, F",
+            "E, F, G",
+            "D, E, F, G"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 11,
+          "question_text": "Sie wenden gleichzeitig die beiden Verfahren Hilfsdurchflutung mit durchgestecktem Leiter und Induktionsdurchflutung an. Welchen Dorn müssen Sie verwenden?",
+          "options": [
+            "Aluminiumdorn",
+            "Kupferdorn",
+            "lamellierten Eisendorn"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 12,
+          "question_text": "Mit welchen Hilfsmitteln wird die Wirksamkeit der Prüfflüssigkeit überprüft?",
+          "options": [
+            "MTU-Testkörper Nr. 3",
+            "UV-Intensitätsmessgerät",
+            "ASTM-Schleuderglas"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 13,
+          "question_text": "Wenn bei der Fluxprüfung die Teile erst aufmagnetisiert werden und hinterher mit Prüfmittel benetzt",
+          "options": [
+            "handelt es sich um eine Prüfung in Sättigung",
+            "handelt es sich um eine Prüfung in Remanenz",
+            "wird die Fluxprüfung nicht korrekt durchgeführt."
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 14,
+          "question_text": "Wie kann die ausreichende Magnetisierung bei der Prüfung nach dem Magnetpulverprüfverfahren kontrolliert werden?",
+          "options": [
+            "eine Kontrolle ist nur möglich, wenn Risse vorhanden sind",
+            "mit einem Feldstärkemessgerät",
+            "mit dem MTU Testkörper Nr. 3"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 15,
+          "question_text": "Welche Risse an einem Stab können bei der Magnetisierung mit Hilfe der axialen Stromdurchflutung gefunden werden?",
+          "options": [
+            "A",
+            "B",
+            "C"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 16,
+          "question_text": "Wenn die Wahlmöglichkeit besteht, sollte in Sättigung oder in Remanenz geprüft werden?",
+          "options": [
+            "Remanenz",
+            "Sättigung",
+            "spielt keine Rolle"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 17,
+          "question_text": "Weshalb weichen magnetische Feldlinien einem Riss aus?",
+          "options": [
+            "aufgrund der unterschiedlichen Permeabilität von Luft und Stahl",
+            "aufgrund des großen Dichteunterschiedes von Luft und Stahl",
+            "aufgrund der unterschiedlichen Leitfähigkeit von Luft und Stahl"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 18,
+          "question_text": "Bei welchem Verlauf der magnetischen Feldlinien erfolgt eine optimale Fehleranzeige?",
+          "options": [
+            "parallel zur Fehlerrichtung",
+            "senkrecht zur Fehlerrichtung",
+            "die Richtung zur Fehlerrichtung ist unwichtig"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 19,
+          "question_text": "Um sicherzustellen, dass das Prüfmittel gut funktioniert muss",
+          "options": [
+            "nur seine Konzentration",
+            "nur seine Wirksamkeit",
+            "seine Konzentration und Wirksamkeit"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 20,
+          "question_text": "Mit welchem Hilfsmittel wird die Konzentration der Prüfflüssigkeit überprüft?",
+          "options": [
+            "ASTM-Schleuderglas",
+            "MTU Testkörper Nr. 3",
+            "Feldstärkemessgerät"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 21,
+          "question_text": "Zunder und Rost auf der Teileoberfläche",
+          "options": [
+            "müssen vor dem Fluxen entfernt werden",
+            "stören beim Fluxen nicht",
+            "sind beim Fluxen vorteilhaft, weil durch sie das Feld besser ins Teil eindringen kann"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 22,
+          "question_text": "Zur Anwendung des Verfahrens Hilfsdurchflutung mit durchgestecktem Leiter kann eingesetzt werden",
+          "options": [
+            "ein lamellierter Eisendorn",
+            "ein Kupferdorn",
+            "ausschließlich ein Kombidorn"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 23,
+          "question_text": "Wozu dient der MTU-Testkörper Nr. 3?",
+          "options": [
+            "zur Messung der magnetischen Feldstärke am Prüfteil",
+            "zur Festellung der Magnetfeldrichtung am Prüfteil",
+            "zur Überprüfung des Magnetpulvers"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 24,
+          "question_text": "Was kann mit der Magnetpulverprüfung gefunden werden?",
+          "options": [
+            "Materialtrennung in der Oberfläche",
+            "Fehlstellen im Inneren des Bauteils",
+            "Fehler im oberflächennahen Bereich"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 25,
+          "question_text": "Welche der folgenden Stromarten können bei der Magnetpulverprüfung eingesetzt werden?",
+          "options": [
+            "Wechselstrom",
+            "Gleichstrom",
+            "beide Stromarten"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 26,
+          "question_text": "Welchen Nachteil bietet eine Gleichstrommagnetisierung gegenüber einer Wechselstrommagnetisierung?",
+          "options": [
+            "Gleichstrom ist teurer in der Herstellung",
+            "Die Feldlinien verlaufen bei Gleichstrom an der Oberfläche",
+            "nicht alle Magnetisierungsarten sind möglich"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 27,
+          "question_text": "Weshalb können Teile, die mit Gleichstrom magnetisiert wurden, schlechter entmagnetisiert werden als solche, die mit Wechselstrom magnetisiert wurden?",
+          "options": [
+            "Gleichstrom ist stärker als Wechselstrom",
+            "die aufgebrachte Feldstärke ist bei Gleichstrom wesentlich höher",
+            "bei Gleichstrom wird das Teil viel tiefer magnetisiert"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 28,
+          "question_text": "Bei einer Felddurchflutung",
+          "options": [
+            "fließt durch den Prüfling kein Strom",
+            "wird der Prüfling nicht magnetisiert",
+            "wird der Prüfling direkt vom Strom durchflossen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 29,
+          "question_text": "Welches Verfahren ist keine Felddurchflutung?",
+          "options": [
+            "Durchgesteckter Leiter",
+            "Jochmagnetisierung",
+            "Stromdurchflutung mit Aufsatzelektoden"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "2Fragenummer",
+          "question_number": 30,
+          "question_text": "Von zwei gleichartigen Bauteilen wurde eines mit Wechselfeld, das andere mit Gleichfeld magnetisiert. Welches lässt sich schneller und leichter entmagnetisieren?",
+          "options": [
+            "Das mit Gleichfeld magnetisierte, weil es gleichmäßig magnetisiert ist.",
+            "Das mit Wechselfeld magnetisierte.",
+            "Es gibt keine wesentlichen Unterschiede, wenn beide Teile baugleich sind."
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 1,
+          "question_text": "In welcher Reihenfolge müssen bei der fluoreszierenden Prüfung die Bespülung und der Magnetisierungsstrom abgeschaltet werden?",
+          "options": [
+            "die Bespülung vor dem Magnetisierungsstrom",
+            "der Strom vor dem Ende der Bespülung",
+            "zur gleichen Zeit"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 2,
+          "question_text": "Sie lösen einen Kollegen beim Fluxen ab und betreten die Fluxkabine. Wann dürfen Sie mit einer Prüfung beginnen?",
+          "options": [
+            "sofort",
+            "nach 15 Minuten",
+            "wenn sich die Augen an die Dunkelheit gewöhnt haben"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 3,
+          "question_text": "Wie hoch ist die Richtfeldstärke am zu prüfendenTeil für beide Magnetisierungsrichtungen?",
+          "options": [
+            "200 - 600 A/cm",
+            "0,2 - 0,6 A cm",
+            "20 - 60 A/cm"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 4,
+          "question_text": "Bei der Überprüfung der Prüfflüssigkeit mit dem ASTM-Schleuderglas wird für das Prüfmittel 0,5 abgelesen. Welche Konzentration liegt vor?",
+          "options": [
+            "50 %",
+            "5 %",
+            "0,5 %"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 5,
+          "question_text": "Was tun Sie, wenn die Konzentration der Prüfflüssigkeit in Ordnung ist, Sie bei Verwendung des Testkörpers MTU Nr. 3 aber trotzdem eine unzureichende Empfindlichkeit feststellen?",
+          "options": [
+            "Prüfmittel zugeben",
+            "nichts, da Konzentration in Ordnung",
+            "Prüfflüssigkeit wechseln"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 6,
+          "question_text": "Für ein fertig bearbeitetes Teil, das durch Direktdurchflutung magnetisiert wurde, haben Sie die falsche Stromstärke gewählt und dadurch Brandstellen verursacht. Was müssen Sie tun?",
+          "options": [
+            "die Kontrolle fortsetzen",
+            "das Teil verschrotten",
+            "das Teil nochmals prüfen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 7,
+          "question_text": "Welche Art von Fluxpulver sollte bei der Prüfung dunkler Teile verwendet werden?",
+          "options": [
+            "schwarzes Fluxpulver",
+            "die Art des Pulvers spielt keine Rolle",
+            "fluoreszierendes Fluxpulver"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 8,
+          "question_text": "Welches Magnetisierungsverfahren wird eingesetzt, um Fehler in Umfangsrichtung bei kleinen Lagerringen nachzuweisen?",
+          "options": [
+            "Durchgesteckter Leiter",
+            "Induktionsdurchflutung",
+            "Feste Spule"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 9,
+          "question_text": "Welches  Magnetisierungsverfahren wird eingesetzt, um axiale Fehler bei kleinen Lagerringen nachzuweisen?",
+          "options": [
+            "Durchgesteckter Leiter",
+            "Feste Spule",
+            "Axiale Stromdurchflutung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 10,
+          "question_text": "Welches Magnetisierungsverfahren wird eingesetzt, um Fehler in Umfangsrichtung bei Rollen nachzuweisen?",
+          "options": [
+            "Jochmagnetisierung",
+            "Durchgesteckter Leiter",
+            "Induktionsdurchflutung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 11,
+          "question_text": "Welches Magnetisierungsverfahren wird eingesetzt, um axiale Fehler bei Rollen nachzuweisen?",
+          "options": [
+            "Induktionsdurchflutung",
+            "Durchgesteckter Leiter",
+            "Axiale Stromdurchflutung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 12,
+          "question_text": "Wie oft muss die Wirksamkeit des Prüfmittels überprüft werden?",
+          "options": [
+            "täglich",
+            "monatlich",
+            "halbjährlich"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 13,
+          "question_text": "Die UV-Beleuchtungsstärke muss einen Mindestwert übersteigen. Dieser liegt bei",
+          "options": [
+            "600 µW/cm2",
+            "1600 µW/cm2",
+            "3600 µW/cm2"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 14,
+          "question_text": "Was muss bei der Verwendung des MTU-Testkörpers beachtet werden?",
+          "options": [
+            "er ist dauerhaft magnetisiert",
+            "er muss nach Benutzung sofort entmagnetisiert werden",
+            "er ist nach Benutzung zu reinigen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 15,
+          "question_text": "Warum werden bei Aufsatzelektroden (Stromdurchflutung) große, weiche Kontaktflächen, wie z. B. Kupferkissen, verwendet?",
+          "options": [
+            "um die Kontaktfläche zu vergrößern und das Auftreten von Zündstellen möglichst zu vermeiden",
+            "weil dadurch das Metall erwärmt wird und die magnetische Induktion leichter erfolgen kann",
+            "wegen ihres niedrigen Schmelzpunktes"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 16,
+          "question_text": "Wie groß darf der Fremdlichteinfluss bei der Prüfung in abgedunkelter Kabine maximal sein?",
+          "options": [
+            "20 lux",
+            "50 lux",
+            "100 lux"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 17,
+          "question_text": "Mit welcher Magnetisierung lassen sich die Fehler 1+2 nachweisen?",
+          "options": [
+            "Jochmagnetisierung",
+            "beide Fehler lassen sich nicht mit einer Magnetisierungsrichtung nachweisen",
+            "Durchgesteckter Leiter"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 18,
+          "question_text": "Mit welcher Magnetisierung lässt sich die Fehler 1 nachweisen?",
+          "options": [
+            "Induktionsdurchflutung",
+            "Durchgesteckter Leiter",
+            "Axiale Stromdurchflutung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 19,
+          "question_text": "Mit welcher Magnetisierung lassen sich die Fehler 2+3 nachweisen?",
+          "options": [
+            "Induktionsdurchflutung",
+            "Jochmagnetisierung",
+            "Durchgesteckter Leiter"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 20,
+          "question_text": "Mittels Stromdurchflutung soll der eingezeichnete Querfehler gefunden werden. Welche ist die optimale Anordnung der Aufsetzelektroden",
+          "options": [
+            "Bild 1",
+            "Bild 2+3",
+            "Bild 3+4"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "MPI",
+          "section": "3Fragenummer",
+          "question_number": 21,
+          "question_text": "Ein Kollege bittet Sie, einen Messingkäfig mittels Magnetpulverprüfung auf Risse in Umfangsrichtung zu testen.",
+          "options": [
+            "Das macht keinen Sinn.",
+            "Das geht nur mit Wechselstrom und kombiniertem Dorn.",
+            "Das geht mit Hilfsdurchflutung."
+          ],
+          "topic_type": "verfahren"
         }
       ]
     },
-    "PT": {
-      "ST": [
+    {
+      "procedure_code": "NE",
+      "procedure_name": "HNO3-Schleifbrandätzung",
+      "questions": [
         {
-          "id": "PT-ST-001",
-          "text": "Auf welchem Prinzip basiert die Eindringprüfung?",
-          "options": {
-            "a": "Elektromagnetische Streufelder",
-            "b": "Kapillareffekt: Eindringen von Flüssigkeit in offene Oberflächenrisse",
-            "c": "Röntgenstrahlung",
-            "d": "Magnetische Anziehung"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 2,
+          "question_text": "Welches Personal darf die Schleifbrandätzung durchführen und die geätzten Teile begutachten?",
+          "options": [
+            "nur das Bedienpersonal der Schleifmaschinen",
+            "jeder",
+            "qualifizierte Prüfwerker"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "PT-ST-002",
-          "text": "Welche Werkstoffe können mit der Eindringprüfung untersucht werden?",
-          "options": {
-            "a": "Nur ferromagnetische Stähle",
-            "b": "Alle nicht-porösen Werkstoffe mit geschlossener Oberfläche",
-            "c": "Nur Aluminium",
-            "d": "Nur Kunststoffe"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 3,
+          "question_text": "Welcher Bearbeitungszustand muss für die Schleifbrandätzung vorliegen?",
+          "options": [
+            "weich vorgedrehte Teile",
+            "geschliffene Oberflächen",
+            "nach dem Kugelstrahlen"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "PT-ST-003",
-          "text": "Welche Schritte umfasst das Standard-PT-Verfahren in der richtigen Reihenfolge?",
-          "options": {
-            "a": "Entwickeln → Eindringen → Zwischenreinigung → Auswerten",
-            "b": "Vorbehandlung → Eindringmittel aufbringen → Eindringzeit → Zwischenreinigung → Entwickler → Auswertung → Nachbehandlung",
-            "c": "Magnetisieren → Auftragen → Auswerten",
-            "d": "Vorbehandlung → Auswerten → Eindringen → Entwickeln"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 4,
+          "question_text": "Was ist Schleifbrand?",
+          "options": [
+            "thermische Schädigung der Bauteilrandzone",
+            "unerwünschte Verformung der Bauteilrandzone",
+            "Randentkohlung eines Bauteils"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "PT-ST-004",
-          "text": "Was ist die Eindringzeit (Penetrationszeit)?",
-          "options": {
-            "a": "Die Zeit, die das Entwicklermittel benötigt",
-            "b": "Die Mindestzeit, die das Eindringmittel auf der Oberfläche verbleiben muss",
-            "c": "Die Prüfzeit nach dem Auftragen des Entwicklers",
-            "d": "Die Trockenzeit des Zwischenreinigers"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 5,
+          "question_text": "Wer ist für die Vermeidung von Schleifbrand verantwortlich?",
+          "options": [
+            "nur die QS",
+            "jeder",
+            "nur das Bedienpersonal der Schleifmaschinen"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "PT-ST-005",
-          "text": "Welche Arten von Entwicklern werden bei der Eindringprüfung eingesetzt?",
-          "options": {
-            "a": "Nur Trockenentwickler",
-            "b": "Trocken-, Nass- (wässrig oder lösemittelhaltig) und Folienentwickler",
-            "c": "Nur wässrige Nassent­wickler",
-            "d": "Nur Folienentwickler"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 6,
+          "question_text": "Was sind die Aufgaben eines Mitarbeiters der als \"Level 2\" für die Schleifbrandätzung qualifziert ist?",
+          "options": [
+            "Schulung der Prüfwerker am eigenen Standort",
+            "Schulung der Prüfwerker werksübergreifend",
+            "Ansprechpartner für das Kernteam"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "PT-ST-006",
-          "text": "Was ist der Unterschied zwischen fluoreszierender und farbiger Eindringprüfung?",
-          "options": {
-            "a": "Fluoreszierende PT wird unter UV-Licht ausgewertet; farbige PT im sichtbaren Licht",
-            "b": "Farbige PT ist empfindlicher als fluoreszierende PT",
-            "c": "Beide Verfahren haben identische Empfindlichkeit",
-            "d": "Fluoreszierende PT ist nur für Stahl geeignet"
-          },
-          "answer": "a"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 7,
+          "question_text": "Was sind die Aufgaben eines Prüfwerkers (für die Schleifbrandätzung)?",
+          "options": [
+            "Ausfüllen von Protokollen",
+            "Erstellen von Prüfanweisungen",
+            "Durchführung der Ätzprüfung"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "PT-ST-007",
-          "text": "Welche Mindest-Beleuchtungsstärke ist bei der Auswertung mit sichtbaren Eindringmitteln erforderlich?",
-          "options": {
-            "a": "Mindestens 500 lx",
-            "b": "Mindestens 100 lx",
-            "c": "Mindestens 1000 lx gemäß EN ISO 3059",
-            "d": "Keine Anforderung"
-          },
-          "answer": "c"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 8,
+          "question_text": "Wie setzt sich die Ausbildung des Prüfwerker zusammen?",
+          "options": [
+            "Einweisung durch den Schleiftechnologen",
+            "theoretische und praktische Unterweisung durch den Level 2",
+            "theoretische Unterweisung durch den Level 2"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "PT-ST-008",
-          "text": "Welche Fehlerart kann mit der Eindringprüfung NICHT gefunden werden?",
-          "options": {
-            "a": "Oberflächenrisse",
-            "b": "Geschlossene Volumendefekte unter der Oberfläche",
-            "c": "Offene Poren an der Oberfläche",
-            "d": "Falten und Überlappungen"
-          },
-          "answer": "b"
-        }
-      ],
-      "PR": [
-        {
-          "id": "PT-PR-001",
-          "text": "Was muss vor der Eindringprüfung an der Bauteiloberfläche sichergestellt sein?",
-          "options": {
-            "a": "Oberfläche muss lackiert sein",
-            "b": "Oberfläche muss frei von Öl, Fett, Rost und anderen Verunreinigungen sein",
-            "c": "Oberfläche muss angeraut werden",
-            "d": "Oberfläche muss magnetisiert werden"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 9,
+          "question_text": "Die Schleifbrandätzung beruht",
+          "options": [
+            "auf einem unterschiedlichen Ätzangriff für die einzelnen Gefügebestandteile an der Oberfläche",
+            "auf dem Eigenspannungszustand auf der Oberfläche",
+            "auf der Carbidverteilung im Randbereich"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "PT-PR-002",
-          "text": "Wie wird das Eindringmittel nach der Eindringzeit entfernt?",
-          "options": {
-            "a": "Mit einem trockenen Tuch abwischen",
-            "b": "Gemäß Herstellerangaben: wasserabwaschbar mit Wasser, lösemittelbasiert mit Lösemitteltuch",
-            "c": "Mit Schmirgelpapier abschleifen",
-            "d": "Eindringmittel muss nicht entfernt werden"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "1Fragenummer",
+          "question_number": 10,
+          "question_text": "Durch Schleifbrand werden u. a. folgende Eigenschaften an der Bauteiloberfläche beeinflusst:",
+          "options": [
+            "Härte",
+            "Eigenspannungen",
+            "Kohlenstoffgehalt"
+          ],
+          "topic_type": "allgemein"
+        },
+
+        {
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 1,
+          "question_text": "Das Verfahren der HNO3-Ätzung ist beschrieben in",
+          "options": [
+            "QV 5.120A",
+            "S245013-1",
+            "QN 5.11-1"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "PT-PR-003",
-          "text": "Welche Anforderungen gelten für die UV-Leuchte bei fluoreszierender PT?",
-          "options": {
-            "a": "Mindestbestrahlungsstärke 10 W/m² bei 365 nm, Dunkelheit oder Halbdunkel",
-            "b": "Normale Taschenlampe ausreichend",
-            "c": "UV-Leuchte muss grünes Licht aussenden",
-            "d": "Bestrahlungsstärke spielt keine Rolle"
-          },
-          "answer": "a"
-        }
-      ]
-    },
-    "BN": {
-      "ST": [
-        {
-          "id": "BN-ST-001",
-          "text": "Was ist das Barkhausen-Rauschen (BN)?",
-          "options": {
-            "a": "Ein akustisches Rauschen bei der Ultraschallprüfung",
-            "b": "Sprunghafte Änderungen der Magnetisierung durch Verschiebung von Weiss'schen Bezirken",
-            "c": "Elektrisches Rauschen im Wirbelstrommessgerät",
-            "d": "Ein optisches Phänomen bei der Ätzprüfung"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 2,
+          "question_text": "Wann ist die Schleifbrandätzung durchzuführen?",
+          "options": [
+            "nur nach dem Fertigschleifen",
+            "nach dem Honen",
+            "nach jedem Schleifvorgang"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-ST-002",
-          "text": "Welche Eigenschaft des Barkhausen-Rauschens wird für die Schleifbranderkennung genutzt?",
-          "options": {
-            "a": "Die Amplitude des Rauschsignals ändert sich mit Gefügezustand und Eigenspannungen",
-            "b": "Die Frequenz des Rauschens ist konstant",
-            "c": "Das Rauschen tritt nur bei Rissen auf",
-            "d": "Das Rauschen ist temperaturunabhängig"
-          },
-          "answer": "a"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 3,
+          "question_text": "Welche Bauteilschädigungen sind typisch für Schleifbrand?",
+          "options": [
+            "maßliche Änderung",
+            "Entkohlung",
+            "Härteabfall an der Oberfläche"
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "BN-ST-003",
-          "text": "Welche Werkstoffe können mit der Barkhausen-Rauschen-Methode geprüft werden?",
-          "options": {
-            "a": "Alle metallischen Werkstoffe",
-            "b": "Ausschließlich ferromagnetische Werkstoffe",
-            "c": "Nur austenitische Stähle",
-            "d": "Nur Aluminiumlegierungen"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 4,
+          "question_text": "Welche Schädigung(en) kann/können mit der HNO3-Ätzung nicht gefunden werden?",
+          "options": [
+            "Anlasszonen",
+            "Eigenspannungen",
+            "Neuhärtezonen"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-ST-004",
-          "text": "Wie wirken sich Druckeigenspannungen auf das Barkhausen-Rauschsignal aus?",
-          "options": {
-            "a": "Druckeigenspannungen erhöhen das BN-Signal",
-            "b": "Druckeigenspannungen erniedrigen das BN-Signal",
-            "c": "Eigenspannungen haben keinen Einfluss auf das BN-Signal",
-            "d": "Der Effekt hängt nur von der Temperatur ab"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 5,
+          "question_text": "Welche Bauteilfärbung ist bei der Schleifbrandätzung anzustreben?",
+          "options": [
+            "mausgrau",
+            "schwarz",
+            "egal"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-ST-005",
-          "text": "Was ist der Vorteil der Barkhausen-Rausch-Methode gegenüber der Nitalätzprüfung?",
-          "options": {
-            "a": "Keine Vorbereitung der Oberfläche nötig",
-            "b": "Zerstörungsfreie und chemikalienfreie Prüfung, automatisierbar",
-            "c": "Höhere Empfindlichkeit bei groben Schäden",
-            "d": "Prüfung von Nichteisenmetallen möglich"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 6,
+          "question_text": "Wann muss die Schleifbrandätzung durchgeführt werden?",
+          "options": [
+            "bei Wechsel der Schleifscheibe",
+            "bei Wechsel der Schleifscheibenspezifikation",
+            "bei Schichtwechsel"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-ST-006",
-          "text": "Was sind Weisssche Bezirke?",
-          "options": {
-            "a": "Elektrisch isolierte Bereiche im Metall",
-            "b": "Magnetisch gleichmäßig ausgerichtete Bereiche in ferromagnetischen Werkstoffen",
-            "c": "Korrosionszonen an der Oberfläche",
-            "d": "Martensitische Bereiche nach Schleifbrand"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 7,
+          "question_text": "Wie macht sich Schleifbrand im Anwendungsfall bemerkbar?",
+          "options": [
+            "Das Verschleißverhalten bei Wälzbeanspruchung verschlechtert sich drastisch.",
+            "Die Lebensdauer des Bauteils nimmt ab.",
+            "Das Bauteil wird anfällig für Korrosion."
+          ],
+          "topic_type": "allgemein"
         },
         {
-          "id": "BN-ST-007",
-          "text": "Welchen Einfluss hat Schleifbrand auf das Barkhausen-Rauschsignal?",
-          "options": {
-            "a": "Schleifbrand erzeugt ein erhöhtes BN-Signal durch Zugspannungen und Gefügeveränderungen",
-            "b": "Schleifbrand hat keinen Einfluss auf das BN-Signal",
-            "c": "Schleifbrand verringert das BN-Signal auf null",
-            "d": "Nur Kaltrisse verändern das BN-Signal"
-          },
-          "answer": "a"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 8,
+          "question_text": "Nach S245013-1 geätzte Teile",
+          "options": [
+            "sind freizugeben, wenn keine Ätzanzeige vorliegt",
+            "sind zu verschrotten",
+            "sind nachzuarbeiten"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-ST-008",
-          "text": "In welchem Tiefenbereich ist das Barkhausen-Rauschen empfindlich?",
-          "options": {
-            "a": "Bis zu mehreren Millimetern Tiefe",
-            "b": "Oberflächennah, typisch 0,01 – 0,3 mm je nach Material und Frequenz",
-            "c": "Nur an der Oberfläche (0 mm)",
-            "d": "Ab 5 mm Tiefe aufwärts"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 9,
+          "question_text": "Die S245013-1 gilt",
+          "options": [
+            "einheitlich für die Schaeffler Gruppe weltweit",
+            "wird für jeden Geschäftsbereich neu definiert",
+            "nicht in Asien"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-ST-009",
-          "text": "Was ist der Magnetoelastische Parameter (MAP) beim Barkhausen-Rauschen?",
-          "options": {
-            "a": "Ein Maß für die Amplitude des BN-Signals in einem definierten Feldstärkebereich",
-            "b": "Die Prüffrequenz des Magnetisierungsfeldes",
-            "c": "Die Eindringtiefe des Magnetfeldes",
-            "d": "Die Anzahl der Weissschen Bezirke"
-          },
-          "answer": "a"
+          "procedure_code": "NE",
+          "section": "2Fragenummer",
+          "question_number": 10,
+          "question_text": "Bei der HNO3-Ätzung gemäß S245013-1 handelt es sich um eine",
+          "options": [
+            "zerstörende Prüfung",
+            "zerstörungsfreie Prüfung",
+            "eine Prüfung, die absolute Messwerte liefert"
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 1,
+          "question_text": "Mit wieviel Volumen-% wässriger Salpetersäure wird die Schleifbrandätzung durchgeführt?",
+          "options": [
+            "mind. 5%",
+            "max. 3%",
+            "max. 1%"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-ST-010",
-          "text": "Was ist beim Barkhausen-Rauschen-Verfahren als Referenz notwendig?",
-          "options": {
-            "a": "Ein Referenzkörper mit bekanntem Gefügezustand (schleifbrandfrei und mit Schleifbrand)",
-            "b": "Ein Eisenkalibrierblock",
-            "c": "Eine Nitalätzprobe",
-            "d": "Kein Referenzkörper notwendig"
-          },
-          "answer": "a"
-        }
-      ],
-      "PR": [
-        {
-          "id": "BN-PR-001",
-          "text": "Wie wird ein Barkhausen-Rausch-Messgerät kalibriert?",
-          "options": {
-            "a": "Mit bekannten Referenzproben (schleifbrandfrei / mit Schleifbrand) und Einstellung der Schwellwerte",
-            "b": "Mit einem Multimeter",
-            "c": "Durch Vergleich mit der Ätzprüfung",
-            "d": "Kalibrierung ist nicht notwendig"
-          },
-          "answer": "a"
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 2,
+          "question_text": "Mit welchem Medium werden die geätzten Teile neutralisiert?",
+          "options": [
+            "Ammoniak",
+            "Natriumcarbonat (Soda)",
+            "alkalischer Reiniger"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-PR-002",
-          "text": "Welche Faktoren können das Barkhausen-Rauschsignal neben Schleifbrand beeinflussen?",
-          "options": {
-            "a": "Materialhärte, Gefügezustand, Eigenspannungen, Oberflächenbeschaffenheit, Temperatur",
-            "b": "Nur die Oberflächenrauheit",
-            "c": "Nur die Bauteiltemperatur",
-            "d": "Der BN-Wert ist ausschließlich fehlerabhängig"
-          },
-          "answer": "a"
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 3,
+          "question_text": "HNO3-geätzte Teile sind",
+          "options": [
+            "ohne Nacharbeit verwendbar",
+            "nach dem Honen verwendbar",
+            "nur komplett überschliffen verwendbar"
+          ],
+          "topic_type": "verfahren"
         },
         {
-          "id": "BN-PR-003",
-          "text": "Was ist bei der BN-Prüfung bezüglich der Anpressung des Sensors zu beachten?",
-          "options": {
-            "a": "Anpressung spielt keine Rolle",
-            "b": "Definierter und reproduzierbarer Anpressdruck gemäß Prüfanweisung erforderlich",
-            "c": "So fest wie möglich anpressen",
-            "d": "Sensor darf Oberfläche nicht berühren"
-          },
-          "answer": "b"
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 4,
+          "question_text": "Vor dem Ätzen müssen die Bauteile",
+          "options": [
+            "gehont werden",
+            "nicht entfettet und gereinigt werden, da die Säuren Fett und Verunreinigungen entfernen",
+            "gründlich entfettet und gereinigt werden, um ein gleichmäßiges Ätzen der gesamten Oberfläche zu ermöglichen und ein optimales Ätzbild zu erhalten"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 5,
+          "question_text": "Wann wird die Beurteilung der geätzten Teile durchgeführt?",
+          "options": [
+            "sofort nach dem Eintauchen in das Ätzbad",
+            "nach dem Konservieren",
+            "nach dem Trocknen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 6,
+          "question_text": "Wer ist für die Erstellung des Prüfplanes vor Ort verantwortlich?",
+          "options": [
+            "der Prüfwerker",
+            "der Fertigungsleiter",
+            "die Qualtitätssicherung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 7,
+          "question_text": "Nach der Schleifbrandprüfung erscheint auf dem mausgrau gefärbten Teil ein heller Bereich, der von einem dunklen Rand umgeben ist. Es handelt sich hierbei um:",
+          "options": [
+            "nichts besonderes",
+            "vermutlich eine schlechte Probenvorbehandlung",
+            "wahrscheinlich um Schleifbrand bestehend aus Anlass- und Neuhärtezonen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 8,
+          "question_text": "Die Vorbehandlung/Reinigung kann erfolgen mit",
+          "options": [
+            "mit einem wässrig alkalischen Reiniger",
+            "Ultraschallbad",
+            "mit reinem Wasser"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 9,
+          "question_text": "Die Ätzzeit hängt ab von",
+          "options": [
+            "der Säurekonzentration",
+            "Bauteilgröße",
+            "Werkstoff"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "3Fragenummer",
+          "question_number": 10,
+          "question_text": "Bei Verschmutzung des Ätzbades",
+          "options": [
+            "ist Wasser hinzuzufügen",
+            "ist die Säurekonzentration zu erhöhen",
+            "das Ätzbad zu wechseln"
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 1,
+          "question_text": "HNO3 hat folgende Eigenschaften (verdünnt)",
+          "options": [
+            "gesundheitsgefährdend",
+            "brennbar",
+            "ätzend"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 2,
+          "question_text": "Die Aufbewahrung der Salpetersäure erfolgt",
+          "options": [
+            "in offenen Behältnerr, z. B. Eimern",
+            "in Plastikbehältern aus PVC mit Verschluss",
+            "in Glasflaschen (Laborflaschen)"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 3,
+          "question_text": "Die Kennzeichnung der Behälter für HNO3 ist",
+          "options": [
+            "explosiver Stoff",
+            "ätzender Stoff",
+            "leicht entflammbar"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 4,
+          "question_text": "Welche Schutzkleidung ist beim Ansetzen des Ätzbades notwendig?",
+          "options": [
+            "keine",
+            "Handschuhe und Labormantel",
+            "Schutzbrille"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 5,
+          "question_text": "Natriumcarbonat (Soda) ist",
+          "options": [
+            "reizend",
+            "unbedenklich",
+            "konservierend"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 6,
+          "question_text": "Welche Warnschilder sind im Ätzraum anzubringen?",
+          "options": [
+            "leicht entflammbar",
+            "ätzend",
+            "reizend"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 7,
+          "question_text": "Das Bild bedeuet:",
+          "options": [
+            "brennbar",
+            "ätzend",
+            "reizend"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 8,
+          "question_text": "Das Bild bedeutet",
+          "options": [
+            "reizend",
+            "ätzend",
+            "brennbar"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 9,
+          "question_text": "Die chemische Bezeichnung für Soda ist",
+          "options": [
+            "H2SO4",
+            "NaCO3",
+            "CaO"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "4Fragenummer",
+          "question_number": 10,
+          "question_text": "Bei dem nachfolgenden Schild handelt es sich um ein",
+          "options": [
+            "Gefahrenschild",
+            "Gebotsschild",
+            "Hinweisschild"
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 1,
+          "question_text": "Wann ist das Ätzbad zu ersetzen?",
+          "options": [
+            "vor jedem Audit",
+            "wenn keine gleichmäßige Bauteilätzung erzielbar ist",
+            "wenn eine übermäßige Verschmutzung vorliegt"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 2,
+          "question_text": "Womit kann das Neutralisationsbad überwacht werden?",
+          "options": [
+            "pH-Meter",
+            "pH-Papier",
+            "Feinfilter"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 3,
+          "question_text": "Wann ist das Neutralisationsbad zu ersetzen?",
+          "options": [
+            "wenn die Teile nach der Schleifbrandätzung rosten",
+            "wenn ein pH-Wert kleiner gleich 9 vorliegt",
+            "wenn ein pH-Wert größer  gleich 9 vorliegt"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 4,
+          "question_text": "Warum werden die Teile nach dem Neutralisieren konserviert?",
+          "options": [
+            "um einen Korrosionsschutz zu gewährleisten",
+            "um Rückstellmuster für die Produktionschargen zu erhalten",
+            "um die Oberflächenrauhigkeit zu verringern"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 5,
+          "question_text": "Für die Badentsorgung ist verantwortlich",
+          "options": [
+            "das chemische Labor vor Ort",
+            "das Zentrallabor in Herzogenaurach",
+            "der Umweltschutzbeauftragte vor Ort"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 6,
+          "question_text": "Die Konzentration von HNO3 darf maximal 3 Volumen-% betragen. Warum?",
+          "options": [
+            "eine höhere Konzentration ist unwirtschaftlich",
+            "die Schleifbrandätzung ist nicht mehr kontrollierbar.",
+            "aus gesundheitlichen Gründen (Bildung von nitrosen Gasen)"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 7,
+          "question_text": "Natriumcarbonat ist für das Neutralisationsbad in flüssiger Form vorzuziehen, weil",
+          "options": [
+            "die Kosten für den Badansatz sinken",
+            "Ausflockungen beim Badansatz vermieden werden",
+            "die Konservierung der Teile verbesssert wird"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 8,
+          "question_text": "Der Einsatz von pH-Papier macht beim Ätzbad keinen Sinn, weil",
+          "options": [
+            "der pH-Wert auch durch die Badverschmutzung beeinflusst wird",
+            "der Zustand des Ätzbades nicht nur vom Säuregehalt abhängig ist",
+            "der Einsatz von pH-Papier zu kompliziert ist"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 9,
+          "question_text": "Ist am Standort ein chemisches Labor eingerichtet, so unterstützt dieses",
+          "options": [
+            "beim Wechsel des Ätzbades",
+            "bei der Badkontrolle",
+            "bei der Badentsorgung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "5Fragenummer",
+          "question_number": 10,
+          "question_text": "Bei der Bewertung von Schleifbrandanzeigen ist im Zweifelsfall heranzuziehen",
+          "options": [
+            "der ausgebildete Level 2 Mitarbeiter vor Ort",
+            "das Werkstofflabor",
+            "der Schleiftechnologe"
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 1,
+          "question_text": "Mit welchem(n) Prüfverfahren lassen sich Anlass- und Neuhärtungszonen nachweisen?",
+          "options": [
+            "mikroskopischer Querschliff",
+            "Magnetpulverprüfung",
+            "Wirbelstromprüfung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 2,
+          "question_text": "Bei einem Innenring mit einem Außendurchmesser von 200mm wurde Schleifbrand festgestellt. Welche Maßnahme(n) ist/sind laut Reaktionsplan zulässig?",
+          "options": [
+            "Nacharbeit",
+            "Sonderfreigabe",
+            "Verschrotten"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 3,
+          "question_text": "Welche Referenzverfahren werden vorzugsweise bei Ätzanzeigen eingesetzt?",
+          "options": [
+            "Photothermik",
+            "HCL-Ätzen",
+            "röntgenographische Eigenspannungsuntersuchung"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 4,
+          "question_text": "Welche Voraussetzungen sind/ist zu erfüllen, wenn ein Bauteil mit Ätzanzeige der Sonderfreigabe zugeführt werden soll?",
+          "options": [
+            "Losgröße <50",
+            "kein Vorliegen von Rissen",
+            "Lageraußendurchmesser >480 mm"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 5,
+          "question_text": "Sind Ätzanzeigen an Funktionsflächen zulässig?",
+          "options": [
+            "punktuelle Verfärbungen werden toleriert",
+            "grundsätzlich nein",
+            "hängt von der Bauteilbelastung ab"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 6,
+          "question_text": "Wann wird eine Nacharbeit der Teile durchgeführt?",
+          "options": [
+            "immer",
+            "wenn noch Fertigungskapazität vorhanden ist",
+            "wenn die Nacharbeit wirtschaftlich und technologisch Sinn macht"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 7,
+          "question_text": "Was ist bei Ätzanzeigen zu veranlassen?",
+          "options": [
+            "das betroffene Los ist zu sperren",
+            "der Kunde ist unverzüglich zu informieren",
+            "die Fertigungsleitung ist unverzüglich zu informieren"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 8,
+          "question_text": "Was geschieht mit nachbearbeiteten Teilen?",
+          "options": [
+            "werden bei erneutem Schleifbrand verschrottet, wenn keine weitere Nacharbeit mehr möglich",
+            "sie sind erneut auf Schleifbrand zu überprüfen",
+            "sie können sofort ausgeliefert werden."
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 9,
+          "question_text": "Was geschieht, wenn Schleifbrand aufgetreten ist?",
+          "options": [
+            "es kann mit den bisherigen Maschineneinstellungen weiter produziert werden, wenn zukünftig mehr Schleifbrandprüfungen durchgeführt werden.",
+            "die Ursache im Fertigungsprozess ist zu ermitteln, zu beseitigen und zu dokumentieren.",
+            "alle Teile, die seit der letzten i.O.Prüfung produziert wurden, sind zu sperren."
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "6Fragenummer",
+          "question_number": 10,
+          "question_text": "Wer ist bei der Entscheidung, ob für eine Komponente mit Ätzanzeige die Sonderfreigabe möglich ist, einzubinden?",
+          "options": [
+            "Anwendungstechnik",
+            "Qualitätssicherung",
+            "Produktlinienleiter"
+          ],
+          "topic_type": "verfahren"
+        },
+
+        {
+          "procedure_code": "NE",
+          "section": "7Fragenummer",
+          "question_number": 1,
+          "question_text": "Die Mindestinformationen des Prüfprotokolls sind u. a. :",
+          "options": [
+            "Unterschrift des Prüfers",
+            "Datum",
+            "Stichprobenumfang"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "7Fragenummer",
+          "question_number": 2,
+          "question_text": "Die endgültige Entscheidung, ob ein Prüflos freigegeben werden darf, ist vom",
+          "options": [
+            "Prüfwerker",
+            "Level 2",
+            "Werkstofflabor"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "7Fragenummer",
+          "question_number": 3,
+          "question_text": "Die Protokolle der Badüberwachung sind zu aufzubewahren",
+          "options": [
+            "im zentralen Werkstofflabor",
+            "beim Qualitätsleiter des Segmentes",
+            "im Ätzraum"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "7Fragenummer",
+          "question_number": 4,
+          "question_text": "Wann ist die Ätzanlage auf Undichtigkeit zu prüfen?",
+          "options": [
+            "nur bei der Erstinbetriebnahme",
+            "täglich",
+            "jährlich"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "7Fragenummer",
+          "question_number": 5,
+          "question_text": "Warum sollte die Dusche regelmäßig gespült werden?",
+          "options": [
+            "um ihre einwandfreie Funktion zu überprüfen",
+            "um den Ätzraumboden zu reinigen",
+            "um Säurereste zu entfernen"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "7Fragenummer",
+          "question_number": 6,
+          "question_text": "Wer prüft die Ätzanlage auf Undichtigkeit?",
+          "options": [
+            "der Prüfwerker",
+            "der Level 2",
+            "der Segmentleiter"
+          ],
+          "topic_type": "verfahren"
+        },
+        {
+          "procedure_code": "NE",
+          "section": "7Fragenummer",
+          "question_number": 7,
+          "question_text": "Wie hoch muss die Nennbeleuchtungsstärke am Prüfobjekt mindestens sein?",
+          "options": [
+            "2000 Lux",
+            "500 Lux",
+            "1000 Lux"
+          ],
+          "topic_type": "verfahren"
         }
       ]
     }
-  }
+  ]
 }
