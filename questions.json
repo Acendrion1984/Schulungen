@@ -1,3 +1,43 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-03-16",
+  "methodNames": {
+    "ET": "Wirbelstromprüfung",
+    "UT": "Ultraschallprüfung",
+    "NE": "Ätzprüfung",
+    "MT": "Magnetpulverprüfung",
+    "PT": "Eindringprüfung",
+    "BN": "Barkhausen Rauschen"
+  },
+  "partNames": {
+    "AT": "Allgemeiner Teil",
+    "ST": "Spezieller Teil",
+    "PR": "Praktischer Teil"
+  },
+  "shared": {
+    "AT": [
+      {
+        "id": "AT-001",
+        "text": "In welchen Gitterstrukturen kann Eisen auftreten?",
+        "options": {
+          "a": "hexagonal dichtest gepackt",
+          "b": "kubisch flächenzentriert",
+          "c": "kubisch raumzentriert",
+          "d": "Die Antworten b) und c) sind richtig"
+        },
+        "answer": "d"
+      },
+      {
+        "id": "AT-002",
+        "text": "Was sind interstitielle Fremdatome?",
+        "options": {
+          "a": "Atome einer anderen Sorte auf Zwischengitterplätzen",
+          "b": "Atome einer anderen Sorte auf regulären Gitterplätzen",
+          "c": "Ansammlungen von Versetzungen",
+          "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern"
+        },
+        "answer": "a"
+      },
       {
         "id": "AT-003",
         "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?",
