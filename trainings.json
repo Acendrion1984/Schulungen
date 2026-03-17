@@ -284,6 +284,14 @@
         "abteilung": "",
         "geburtstag": "",
         "geburtsort": ""
+      },
+      {
+        "vorname": "Wüstenhöfer",
+        "name": "Jürgen",
+        "personalnummer": "45785",
+        "abteilung": "WI/SW2-P11Q",
+        "geburtstag": "01.01.1900",
+        "geburtsort": "Haßfurt"
       }
     ]
   },
