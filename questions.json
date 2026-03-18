@@ -1,1639 +1,802 @@
+
 {
-  "version": "2.0",
-  "lastUpdated": "2026-03-17",
+  "version": "1.0",
+  "lastUpdated": "2026-03-16",
   "methodNames": {
     "ET": "Wirbelstromprüfung",
-    "UT": "Ultraschallprüfung",
-    "NE": "Ätzprüfung",
     "MT": "Magnetpulverprüfung",
-    "PT": "Eindringprüfung",
-    "BN": "Barkhausen Rauschen"
+    "NE": "Ätzprüfung"
   },
   "partNames": {
     "AT": "Allgemeiner Teil",
     "ST": "Spezieller Teil",
     "PR": "Praktischer Teil"
   },
+  "shared": {
+    "AT": [],
+    "ST": [],
+    "PR": []
+  },
   "methods": {
     "ET": {
       "AT": [
         {
-          "id": "ET-AT-001",
-          "text": "In welchen Gitterstrukturen kann Eisen auftreten?",
+          "id": "AT-001",
+          "text": "Die elektrische Leitfähigkeit ist",
           "options": {
-            "a": "hexagonal dichtest gepackt",
-            "b": "kubisch flächenzentriert",
-            "c": "kubisch raumzentriert",
-            "d": "Die Antworten b) und c) sind richtig"
+            "a": "abhängig von der Temperatur",
+            "b": "unabhängig vom Material",
+            "c": "für die Wirbelstromprüfung unwichtig"
           },
-          "answer": "d"
+          "answer": null
         },
         {
-          "id": "ET-AT-002",
-          "text": "Was sind interstitielle Fremdatome?",
+          "id": "AT-002",
+          "text": "Welches Bild zeigt die korrekte Darstellung des Feldlinienverlaufs einer stromdurchflossenen Spule?",
           "options": {
-            "a": "Atome einer anderen Sorte auf Zwischengitterplätzen",
-            "b": "Atome einer anderen Sorte auf regulären Gitterplätzen",
-            "c": "Ansammlungen von Versetzungen",
-            "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern"
+            "a": "Bild 1",
+            "b": "Bild 2",
+            "c": "Bild 3"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-AT-003",
-          "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?",
+          "id": "AT-003",
+          "text": "Wie heisst die Regel für die Ermittlung des Zusammenhangs zwischen Strom- und Feldrichtung?",
           "options": {
-            "a": "eine feste Lösung",
-            "b": "ein Mischkristall",
-            "c": "ein Kristallgemisch",
-            "d": "eine Suspension"
+            "a": "Ohm'sches Gesetz",
+            "b": "Linke Hand Regel",
+            "c": "Rechte Hand Regel"
           },
-          "answer": "c"
+          "answer": null
         },
         {
-          "id": "ET-AT-004",
-          "text": "Wie lässt sich eine ausgeprägte Textur einstellen?",
+          "id": "AT-004",
+          "text": "Die Feldlinien um einen geraden, stromdurchflossenen Leiter verlaufen wie bei Nr.",
           "options": {
-            "a": "durch einige Kaltumformprozesse wie z. B. Walzen",
-            "b": "durch gerichtete Erstarrung",
-            "c": "durch zusätzliche Magnetfelder während des Sinterns",
-            "d": "Alle Antworten treffen zu"
+            "a": "1",
+            "b": "2",
+            "c": "3"
           },
-          "answer": "d"
+          "answer": null
         },
         {
-          "id": "ET-AT-005",
-          "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?",
+          "id": "AT-005",
+          "text": "Welche Eigenschaft besitzt Eisen im magnetischen Feld?",
           "options": {
-            "a": "je größer die Korngröße desto höher der Schwefelgehalt",
-            "b": "je größer die Korngröße desto schlechter die Zähigkeit",
-            "c": "je größer die Korngröße desto höher die Festigkeit",
-            "d": "Die Antworten b) und c) treffen zu"
+            "a": "Eisen verhält sich neutral",
+            "b": "Eisen verdrängt die magnetischen Feldlinien",
+            "c": "Eisen sammelt die magnetischen Feldlinien"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-AT-006",
-          "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?",
+          "id": "AT-006",
+          "text": "Die magnetische Permeabilität ist",
           "options": {
-            "a": "Silizium, Aluminium, Mangan",
-            "b": "Silizium, Kohlenstoff, Chrom",
-            "c": "Aluminium, Kalzium, Phosphor",
-            "d": "Nickel, Wolfram, Mangan"
+            "a": "von der Temperatur unabhängig",
+            "b": "von der Termperatur abhängig",
+            "c": "immer konstant"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-AT-007",
-          "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?",
+          "id": "AT-007",
+          "text": "Je breiter die Hysteresekurve eines Werkstoffs ist, desto",
           "options": {
-            "a": "beim unberuhigten Blockguss",
-            "b": "beim doppelt beruhigten Blockguss",
-            "c": "beim Strangguss",
-            "d": "beim Schleuderguss"
+            "a": "einfacher lässt sich das Material magnetisieren",
+            "b": "desto schwieriger lässt sich das Material magnetisieren",
+            "c": "die Magnetisierbarkeit des Materials ist unabhängig von der Hysteresekurve"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-AT-008",
-          "text": "Wie sind Blockseigerungen zu bewerten?",
+          "id": "AT-008",
+          "text": "Um jeden stromdurchflossenen Leiter bildet sich",
           "options": {
-            "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.",
-            "b": "Sie müssen ausgeschliffen werden.",
-            "c": "Sie verbessern die Zähigkeit des Werkstoffes.",
-            "d": "Sie stellen einen unzulässigen Fehler dar."
+            "a": "ein Widerstand",
+            "b": "ein Magnetfeld",
+            "c": "ein Spannungsfeld"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-AT-009",
-          "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?",
+          "id": "AT-009",
+          "text": "Die Richtung des Magnetfelds hängt ab von",
           "options": {
-            "a": "Kaltrisse",
-            "b": "Warmrisse",
-            "c": "Kernstützen",
-            "d": "Einschlüsse"
+            "a": "Material",
+            "b": "Stromrichtung",
+            "c": "Feldstärke"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-AT-010",
-          "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?",
+          "id": "AT-010",
+          "text": "Was bedeutet Sättigung bei einem magnetisierbaren Material?",
           "options": {
-            "a": "Grauguss mit Lamellengrafit",
-            "b": "Grauguss mit Kugelgrafit",
-            "c": "Stahlguss",
-            "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab"
+            "a": "Alle Elementarmagnete sind ausgerichtet.",
+            "b": "Die Mehrzahl aller Elementarmagnete ist ausgerichtet.",
+            "c": "Die Elementarmagnete sind vollständig unregelmäßig angeordnet."
           },
-          "answer": "c"
+          "answer": null
         },
         {
-          "id": "ET-AT-011",
-          "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?",
+          "id": "AT-025",
+          "text": "Jeder Magnet",
           "options": {
-            "a": "45,00%",
-            "b": "4,50%",
-            "c": "0,45%",
-            "d": "0,045%"
+            "a": "hat 2 Pole",
+            "b": "kann zu- und abgeschaltet werden",
+            "c": "produziert ein Magnetfeld"
           },
-          "answer": "c"
+          "answer": null
         },
         {
-          "id": "ET-AT-012",
-          "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?",
+          "id": "AT-026",
+          "text": "Eisen wird im Magnetfeld",
           "options": {
-            "a": "Lunker",
-            "b": "Poren",
-            "c": "Dendriten",
-            "d": "Sandeinschlüsse"
+            "a": "elektrisch aufgeladen",
+            "b": "magnetisiert",
+            "c": "nicht verändert"
           },
-          "answer": "d"
+          "answer": null
         },
         {
-          "id": "ET-AT-013",
-          "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?",
+          "id": "AT-028",
+          "text": "Bei der Rissprüfung können alle Risse exakt vermessen werden. Diese Aussage ist",
           "options": {
-            "a": "freies Fließen des Werkstoffes",
-            "b": "Warmformen in einer Hohlform",
-            "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C",
-            "d": "Herstellen eines Blockes"
+            "a": "richtig",
+            "b": "falsch",
+            "c": "bedingt richtig"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-AT-014",
-          "text": "Welche Inhomogenitäten entstehen beim Walzen?",
+          "id": "AT-029",
+          "text": "In welcher physikalischen Einheit wird die Frequenz angegeben?",
           "options": {
-            "a": "ausgewalzte Bindefehler",
-            "b": "ausgewalzte Kernstützen",
-            "c": "ausgewalzte Mangansulfide",
-            "d": "ausgewalzte Dopplungen"
+            "a": "s",
+            "b": "Hz",
+            "c": "m"
           },
-          "answer": "d"
+          "answer": null
         },
         {
-          "id": "ET-AT-015",
-          "text": "Was sollte durch den Schmiedeprozess verursacht werden?",
+          "id": "AT-030",
+          "text": "Magnetische Feldlinien",
           "options": {
-            "a": "ein grobes Verformungsgefüge",
-            "b": "ein feines Verformungsgefüge",
-            "c": "eine Verformung des gesamten Volumens",
-            "d": "Die Antworten b) und c) treffen zu."
+            "a": "kreuzen sich",
+            "b": "sind immer geschlossen",
+            "c": "kreuzen sich nie"
           },
-          "answer": "d"
+          "answer": null
         },
         {
-          "id": "ET-AT-016",
-          "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?",
+          "id": "AT-012",
+          "text": "Bei der Darstellung von Verstärkungen in dB entsprechen 6 dB",
           "options": {
-            "a": "atomar gelöster Wasserstoff",
-            "b": "molekular eingelagerter Wasserstoff",
-            "c": "Flocken",
-            "d": "alles genannte"
+            "a": "einer vierfachen Verstärkung",
+            "b": "einer dreifachen Verstärkung",
+            "c": "einer zweifachen Verstärkung"
           },
-          "answer": "d"
+          "answer": null
         },
         {
-          "id": "ET-AT-017",
-          "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?",
+          "id": "AT-013",
+          "text": "Bei der Darstellung von Verstärkungen in dB entsprechen 20 dB",
           "options": {
-            "a": "gute Zähigkeit",
-            "b": "innere Kerbwirkung",
-            "c": "gutes Dämpfungsverhalten",
-            "d": "Die Antworten b) und c) sind richtig."
+            "a": "einer 50-fachen Verstärkung",
+            "b": "einer 10-fachen Verstärkung",
+            "c": "einer 5-fachen Verstärkung"
           },
-          "answer": "d"
+          "answer": null
         },
         {
-          "id": "ET-AT-018",
-          "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?",
+          "id": "AT-014",
+          "text": "Ein Hochpassfilter",
           "options": {
-            "a": "Chrom",
-            "b": "Nickel",
-            "c": "Kohlenstoff",
-            "d": "Vanadium"
+            "a": "lässt nur niedrige Frequenzen passieren",
+            "b": "lässt nur hohe Frequenzen passieren",
+            "c": "lässt hohe und niedrige Frequenzen passieren"
           },
-          "answer": "c"
+          "answer": null
         },
         {
-          "id": "ET-AT-019",
-          "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?",
+          "id": "AT-015",
+          "text": "Ein Tiefpassfilter",
           "options": {
-            "a": "durch eine ausgeprägte Zeilenstruktur",
-            "b": "durch eine isotrope Gefügestruktur",
-            "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes",
-            "d": "durch feuchte Schweißelektroden"
+            "a": "lässt nur niedrige Frequenzen passieren",
+            "b": "lässt nur hohe Frequenzen passieren",
+            "c": "lässt niedrige und hohe Frequenzen passieren"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-AT-020",
-          "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?",
+          "id": "AT-018",
+          "text": "Bei einer Hochpasseinstellung von 1 kHz",
           "options": {
-            "a": "Lichtbogenhandschweißen",
-            "b": "WIG",
-            "c": "MAG",
-            "d": "Pressschweißen"
+            "a": "wird ein 200 Hz Signal durchgelassen",
+            "b": "wird ein 5 kHz Störsignal ausgeblendet",
+            "c": "keines von beiden"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-AT-021",
-          "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?",
+          "id": "AT-019",
+          "text": "Bei einer Tiefpasseinstellung von 1 kHz",
           "options": {
-            "a": "Sie wird nicht beeinflusst.",
-            "b": "Sie wird vergrößert.",
-            "c": "Sie wird verkleinert.",
-            "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert."
+            "a": "wird ein 200 Hz Signal durchgelassen",
+            "b": "wird ein 5kHz Störsignal ausgeblendet",
+            "c": "keines von beiden"
           },
-          "answer": "c"
+          "answer": null
         },
         {
-          "id": "ET-AT-022",
-          "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?",
+          "id": "AT-023",
+          "text": "Was versteht man unter \"Drift\"?",
           "options": {
-            "a": "Durch die zulässige Randverzerrung",
-            "b": "Durch die zulässige Schwärzung",
-            "c": "Durch die erreichte Bildgütezahl",
-            "d": "a) oder b) können ausschlaggebend sein"
+            "a": "ein zu großes Signal-Rausch-Verhältnis",
+            "b": "die Phasendrehung des Signals",
+            "c": "Verschiebung des Nullpunktes durch z. B. Temperaturänderung"
           },
-          "answer": "d"
-        },
-        {
-          "id": "ET-AT-023",
-          "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?",
-          "options": {
-            "a": "die größte Dehnung bis zum Bruch",
-            "b": "die Spannung bei Einschnürung",
-            "c": "der Übergang von der elastischen zur plastischen Verformung",
-            "d": "die maximale Kaltverfestigung"
-          },
-          "answer": "c"
-        },
-        {
-          "id": "ET-AT-024",
-          "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?",
-          "options": {
-            "a": "die Wöhlerlinie",
-            "b": "die Hooke'sche Gerade (E-Modul)",
-            "c": "das KV-T-Diagramm",
-            "d": "die Übergangstemperatur"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "ET-AT-025",
-          "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?",
-          "options": {
-            "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).",
-            "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).",
-            "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.",
-            "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)."
-          },
-          "answer": "c"
-        },
-        {
-          "id": "ET-AT-026",
-          "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?",
-          "options": {
-            "a": "bei dem Wöhlerversuch",
-            "b": "bei dem Hook-Versuch",
-            "c": "bei dem Kerbschlagbiegeversuch (Hochlage)",
-            "d": "bei dem Kerbschlagbiegeversuch (Tieflage)"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "ET-AT-027",
-          "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?",
-          "options": {
-            "a": "bei Werkstoffen niedriger Festigkeit",
-            "b": "bei höherfesten Werkstoffen",
-            "c": "bei duktilen Werkstoffen",
-            "d": "bei Werkstoffen mit hoher Zähigkeit"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "ET-AT-028",
-          "text": "Was versteht man unter Spannungsrisskorrosion?",
-          "options": {
-            "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium",
-            "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung",
-            "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium",
-            "d": "Korrosionsschutz durch Druckspannungen"
-          },
-          "answer": "c"
-        },
-        {
-          "id": "ET-AT-029",
-          "text": "Was ist Martensit?",
-          "options": {
-            "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm",
-            "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen",
-            "c": "eine Ausscheidungsphase bei langsamer Abkühlung",
-            "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "ET-AT-030",
-          "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?",
-          "options": {
-            "a": "Normalisieren",
-            "b": "Anlassen",
-            "c": "Glühen",
-            "d": "Aufkohlen"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "ET-AT-031",
-          "text": "Was versteht man unter dem Perlitgefüge?",
-          "options": {
-            "a": "reines Eisenkarbid (Fe3C)",
-            "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C",
-            "c": "kubisch-flächenzentriertes Eisen",
-            "d": "Mischkristall mit über 2% Kohlenstoff"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "ET-AT-032",
-          "text": "Was kennzeichnet einen austenitischen Stahl?",
-          "options": {
-            "a": "kubisch-raumzentriertes Gitter, ferromagnetisch",
-            "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch",
-            "c": "hexagonales Gitter, paramagnetisch",
-            "d": "orthorhombisches Gitter, antiferromagnetisch"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "ET-AT-033",
-          "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?",
-          "options": {
-            "a": "hohe Festigkeit bei niedriger Dehnung",
-            "b": "hohes Produkt aus Festigkeit und Bruchdehnung",
-            "c": "ausschließlich elastische Verformung",
-            "d": "niedriger E-Modul"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "ET-AT-034",
-          "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?",
-          "options": {
-            "a": "Spannungen durch äußere Belastung",
-            "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung",
-            "c": "Spannungen an der Bauteiloberfläche durch Korrosion",
-            "d": "Thermisch induzierte Spannungen bei Raumtemperatur"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "ET-AT-035",
-          "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?",
-          "options": {
-            "a": "Vickers (HV)",
-            "b": "Brinell (HB)",
-            "c": "Rockwell (HRC)",
-            "d": "Shore (HS)"
-          },
-          "answer": "b"
+          "answer": null
         }
       ],
       "ST": [
         {
-          "id": "ET-ST-001",
-          "text": "Auf welchem physikalischen Prinzip basiert die Wirbelstromprüfung?",
+          "id": "ST-011",
+          "text": "Die Wirbelstromdichte beträgt bei der Standardeindringtiefe noch des Oberflächenwertes.",
           "options": {
-            "a": "Piezoelektrischer Effekt",
-            "b": "Elektromagnetische Induktion",
-            "c": "Fotoelektrischer Effekt",
-            "d": "Thermoelektrischer Effekt"
+            "a": "12 %",
+            "b": "23 %",
+            "c": "37 %"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-002",
-          "text": "Was ist die Eindringtiefe (Standardeindringtiefe δ) bei der Wirbelstromprüfung?",
+          "id": "ST-012",
+          "text": "Die Wirbelstromprüfung ist",
           "options": {
-            "a": "Die Tiefe, bei der die Wirbelstromdichte auf 1/e (≈37%) des Oberflächenwertes abgefallen ist",
-            "b": "Die maximale Prüftiefe bei optimaler Frequenz",
-            "c": "Die Tiefe, bei der kein Wirbelstrom mehr fließt",
-            "d": "Die Tiefe des zu prüfenden Bauteils"
+            "a": "ein absolutes Prüfverfahren",
+            "b": "ein vergleichendes Prüfverfahren",
+            "c": "beides"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-ST-003",
-          "text": "Wie beeinflusst eine Erhöhung der Prüffrequenz die Eindringtiefe?",
+          "id": "ST-013",
+          "text": "Die eigentlichen Messgrößen bei einer Wirbelstromprüfung sind:",
           "options": {
-            "a": "Die Eindringtiefe nimmt zu",
-            "b": "Die Eindringtiefe bleibt gleich",
-            "c": "Die Eindringtiefe nimmt ab",
-            "d": "Es gibt keinen Zusammenhang"
+            "a": "Durchmesser und Länge des Prüflings",
+            "b": "Amplitude und Phase eines Wechselstroms in der Empfängerwicklung",
+            "c": "HV und HRC"
           },
-          "answer": "c"
+          "answer": null
         },
         {
-          "id": "ET-ST-004",
-          "text": "Welche Werkstoffe können mit der Wirbelstromprüfung untersucht werden?",
+          "id": "ST-014",
+          "text": "Welche Eigenschaften lassen sich mit Wirbelstrom ermitteln?",
           "options": {
-            "a": "nur ferromagnetische Werkstoffe",
-            "b": "nur austenitische Stähle",
-            "c": "alle elektrisch leitfähigen Werkstoffe",
-            "d": "nur Werkstoffe mit hoher magnetischer Permeabilität"
+            "a": "Radioaktivität",
+            "b": "Wärmekapazität",
+            "c": "Oberflächenfehler, z.B. Risse"
           },
-          "answer": "c"
+          "answer": null
         },
         {
-          "id": "ET-ST-005",
-          "text": "Was ist der 'Lift-off'-Effekt bei der Wirbelstromprüfung?",
+          "id": "ST-015",
+          "text": "Welche Werkstoffe können mit dem Wirbelstromverfahren geprüft werden?",
           "options": {
-            "a": "Das Abheben des Prüfkopfes durch Ultraschall",
-            "b": "Die Änderung des Prüfsignals durch variierenden Abstand zwischen Spule und Bauteil",
-            "c": "Die Verringerung der Eindringtiefe bei hohen Frequenzen",
-            "d": "Der Phasenversatz zwischen Erreger- und Messsignal"
+            "a": "Kunststoffe",
+            "b": "Metalle",
+            "c": "Holz"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-006",
-          "text": "Was versteht man unter dem Füllfaktor (η) bei Durchlaufspulen?",
+          "id": "ST-016",
+          "text": "Welche der folgenden Prüfaufgaben können bei metallischen Teilen mit dem Wirbelstromverfahren durchgeführt werden?",
           "options": {
-            "a": "Die Anzahl der Windungen der Prüfspule",
-            "b": "Das Verhältnis des Querschnitts des Prüflings zum Innenquerschnitt der Spule",
-            "c": "Die elektrische Leitfähigkeit des Prüflings",
-            "d": "Das Verhältnis von Induktivität zu Widerstand"
+            "a": "Kontrolle auf Materialverwechslung",
+            "b": "Erkennung von Oberflächenrissen",
+            "c": "Messung der genauen Einhärtetiefe"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-007",
-          "text": "Welche Fehlerarten können mit der Wirbelstromprüfung zuverlässig nachgewiesen werden?",
+          "id": "ST-017",
+          "text": "Welche Prüffrequenz würde bei jeweils gleichem Prüfmaterial zur größten Eindringtiefe führen?",
           "options": {
-            "a": "Volumendefekte wie Poren und Lunker",
-            "b": "Oberflächennahe Risse und Inhomogenitäten",
-            "c": "Einschlüsse tief im Werkstück",
-            "d": "Fehler in nicht leitfähigen Beschichtungen"
+            "a": "2 kHz",
+            "b": "300 Hz",
+            "c": "500 kHz"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-008",
-          "text": "Wie wirkt sich die elektrische Leitfähigkeit des Prüflings auf die Prüfung aus?",
+          "id": "ST-018",
+          "text": "Prüfgeräte, Einstellteile und zu prüfende Teile müssen während der Prüfung wie folgt eingesetzt werden:",
           "options": {
-            "a": "Höhere Leitfähigkeit vergrößert die Eindringtiefe",
-            "b": "Höhere Leitfähigkeit verringert die Eindringtiefe",
-            "c": "Die Leitfähigkeit hat keinen Einfluss auf die Eindringtiefe",
-            "d": "Höhere Leitfähigkeit erhöht die Prüffrequenz automatisch"
+            "a": "an einem sauberen, ebenen Arbeitsplatz, in ausreichendem Abstand von metallischen Teilen oder von einem Magnetfeld",
+            "b": "an einem sauberen, ebenen Arbeitsplatz, direkt neben oder auf metallischen Teilen",
+            "c": "an einem sauberen, ebenen Arbeitsplatz, neben einem Magnetfeld"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-009",
-          "text": "Was ist das Impedanzdiagramm (Ortskurvendiagramm) bei der Wirbelstromprüfung?",
+          "id": "ST-019",
+          "text": "Die Prüfkörper dürfen bei der Wirbelstromprüfung einen gewissen Restmagnetismus nicht überschreiten, weil dieser",
           "options": {
-            "a": "Ein Zeit-Amplituden-Diagramm der Prüfsignale",
-            "b": "Die grafische Darstellung der normierten Spulenimpedanz in der komplexen Ebene",
-            "c": "Das Frequenzspektrum des Prüfsignals",
-            "d": "Die Magnetisierungskurve des Prüflings"
+            "a": "zu Pseudoausschuss führen würde",
+            "b": "die Prüfsonde schädigen könnte",
+            "c": "zu falscher i.O./n.i.O.-Sortierung der Prüflinge führen könnte"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-010",
-          "text": "Welche Kenngröße beschreibt das Verhältnis aus Induktionsreaktanz zu Wirkwiderstand einer Wirbelstromspule?",
+          "id": "ST-020",
+          "text": "Die Ergebnisse der Wirbelstromprüfung",
           "options": {
-            "a": "Füllfaktor",
-            "b": "Gütefaktor (Q-Faktor)",
-            "c": "Eindringtiefe",
-            "d": "Phasenwinkel"
+            "a": "sind immer absolute Werte",
+            "b": "geben genau Auskunft, worauf Abweichungen vom Gut-Fall zurückgeführt werden können",
+            "c": "müssen mit Referenzmethoden überprüft werden"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-011",
-          "text": "Was versteht man unter 'Phasendiskriminierung' bei der Wirbelstromprüfung?",
+          "id": "ST-021",
+          "text": "Zur Wirbelstromprüfung wird das Prüfteil ausgesetzt",
           "options": {
-            "a": "Die Unterscheidung von Fehlertypen anhand des Phasenwinkels des Messsignals",
-            "b": "Die Frequenzfilterung des Eingangssignals",
-            "c": "Die Amplitudenauswertung des Ausgangssignals",
-            "d": "Die Kalibrierung der Prüfanlage"
+            "a": "einem magnetischen Gleichfeld",
+            "b": "einem magnetischen Wechselfeld",
+            "c": "magnetischen Gleich- und Wechselfeldern"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-ST-012",
-          "text": "Bei welchem Bauteil eignet sich die Wirbelstromprüfung besonders gut?",
+          "id": "ST-022",
+          "text": "Um messbare Wirbelströme in einem Material zu erzeugen, muss dieses sein",
           "options": {
-            "a": "Massive Gussteile mit Wandstärken über 100mm",
-            "b": "Rohre, Stangen und Drähte aus leitfähigen Werkstoffen",
-            "c": "Faserverbundwerkstoffe",
-            "d": "Holzkonstruktionen"
+            "a": "gehärtet",
+            "b": "elektrisch isolierend",
+            "c": "elektrisch leitfähig"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-013",
-          "text": "Was ist der 'Nullpunktabgleich' bei der Wirbelstromprüfung?",
+          "id": "ST-023",
+          "text": "Welche der folgenden Prüfaufgaben sind mit Wirbelstromverfahren lösbar?",
           "options": {
-            "a": "Die Kalibrierung mit einem fehlerfreien Referenzkörper",
-            "b": "Das Nullsetzen des Geräteanzeigezeigers",
-            "c": "Die Einstellung der Prüffrequenz",
-            "d": "Das Einstellen des Verstärkungsfaktors"
+            "a": "Suche nach Oberflächenrissen in Glasstäben",
+            "b": "Detektion von Rissen an Wälzlagern aus Stahl",
+            "c": "Erkennung von Fehlern in Kunststoffteilen"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-ST-014",
-          "text": "Welche Aussage zur Magnetpermeabilität bei der Wirbelstromprüfung ist korrekt?",
+          "id": "ST-024",
+          "text": "Ein Wirbelstrom",
           "options": {
-            "a": "Ferromagnetische Werkstoffe erschweren die Auswertung durch Streuung der Permeabilität",
-            "b": "Hohe Permeabilität verbessert immer die Prüfbarkeit",
-            "c": "Permeabilität hat keinen Einfluss auf das Messsignal",
-            "d": "Paramagnetische Werkstoffe können nicht geprüft werden"
+            "a": "entsteht in Luft, wenn ein Magnetfeld vorhanden ist",
+            "b": "entsteht, wenn Strom ungleichmäßig in einem Material fließt",
+            "c": "fließt auf einer Kreisbahn"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-ST-015",
-          "text": "Was ist eine Tandem-Wirbelstromspulenanordnung?",
+          "id": "ST-027",
+          "text": "Der durch die Spule induzierte Wirbelstrom",
           "options": {
-            "a": "Zwei hintereinander geschaltete Erregerspulen",
-            "b": "Eine Erreger- und eine Aufnehmerspule räumlich getrennt",
-            "c": "Zwei identische Differenzspulen",
-            "d": "Eine kombinierte Sende-Empfangs-Anordnung für größere Prüftiefen"
+            "a": "ist im Inneren des Materials am größten",
+            "b": "ist unabhängig von der Tiefe überall im Material gleich groß",
+            "c": "ist an der Oberfläche des Materials am größten"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-016",
-          "text": "Wie wird bei der Wirbelstromprüfung der Schleifbrand an Wälzlagerkomponenten detektiert?",
+          "id": "ST-031",
+          "text": "Was bewirkt der Skineffekt?",
           "options": {
-            "a": "Durch Messung der Oberflächentemperatur",
-            "b": "Durch Leitfähigkeitsänderungen im geschädigten Bereich infolge Gefügeveränderungen",
-            "c": "Durch Messung der Rauheit",
-            "d": "Durch Änderung der magnetischen Sättigung"
+            "a": "gleichmäßige Verteilung der Wirbelströme auf den kompletten Bauteilquerschnitt",
+            "b": "Verdrängung der Wirbelströme in die Bauteilrandzone",
+            "c": "Der Skineffekt ist für die Wirbelstromprüfung unerheblich."
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-017",
-          "text": "Welche Normreferenz gilt für die Wirbelstromprüfung bei Wälzlagern nach Schaeffler-Standard?",
+          "id": "ST-032",
+          "text": "Welche der nachfolgend genannten Behauptungen für die Wirbelstromprüfung ist/sind falsch?",
           "options": {
-            "a": "DIN EN ISO 9712",
-            "b": "S285066 (Referenzfehler 28 µm)",
-            "c": "EN 4050",
-            "d": "ISO 15549"
+            "a": "es sind hohe Prüfgeschwindigkeiten möglich",
+            "b": "es kann auf kleine Fehler mit hoher Empfindlichkeit geprüft werden",
+            "c": "es ist die sichere Prüfung auf kleine Fehler bis in eine Tiefe von 15 mm möglich"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-018",
-          "text": "Was ist ein charakteristisches Merkmal des Pseudo-Befunds bei der ET-Prüfung?",
+          "id": "ST-001",
+          "text": "Um Risse sicher zu erkennen,",
           "options": {
-            "a": "Ein Signal, das durch einen realen Fehler hervorgerufen wird",
-            "b": "Ein Anzeigesignal, das nicht durch eine materialrelevante Unregelmäßigkeit erzeugt wird",
-            "c": "Ein fehlendes Signal bei vorhandenem Defekt",
-            "d": "Eine Überempfindlichkeit gegenüber Rissen"
+            "a": "muss die Steigung der Bewegung größer sein als die Spurbreite der Sonde",
+            "b": "müssen Bewegung und Sonde aufeinander angepasst sein",
+            "c": "muss die Steigung der Bewegung kleiner sein als die Spurbreite der Sonde"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-019",
-          "text": "Welche Aussage zur Prüfgeschwindigkeit bei der Wirbelstromprüfung ist richtig?",
+          "id": "ST-002",
+          "text": "Wozu werden Spulen in Differenzschaltung vor allem verwendet?",
           "options": {
-            "a": "Höhere Prüfgeschwindigkeit verbessert die Fehlerauflösung",
-            "b": "Höhere Prüfgeschwindigkeit kann zur Verschlechterung der Fehlerauflösung führen",
-            "c": "Die Prüfgeschwindigkeit hat keinen Einfluss auf die Prüfqualität",
-            "d": "Sehr niedrige Prüfgeschwindigkeit erhöht die Fehlerquote"
+            "a": "Messung der Schichtdicke von Beschichtungen",
+            "b": "Bei der Fehlerprüfung, insbesondere wenn kleine Risse detektiert werden müssen.",
+            "c": "zur Wärmebehandlungsüberwachung (Hart-Weich-Trennung)"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-ST-020",
-          "text": "Was ist der Unterschied zwischen Absolut- und Differenzspule?",
+          "id": "ST-003",
+          "text": "Bei welchem Sensortyp ist für die Rissprüfung die Abtastrichtung zu beachten?",
           "options": {
-            "a": "Absolutspulen messen die absolute Impedanz; Differenzspulen vergleichen zwei Messpunkte",
-            "b": "Absolutspulen sind für Rohre, Differenzspulen nur für Platten geeignet",
-            "c": "Differenzspulen haben keine Empfindlichkeit für langsame Leitfähigkeitsänderungen",
-            "d": "Sowohl a) als auch c) sind richtig"
+            "a": "Differenzsonde",
+            "b": "Absolutsonde",
+            "c": "Die Abtastrichtung muss bei keinem Sensortyp beachtet werden."
           },
-          "answer": "d"
+          "answer": null
+        },
+        {
+          "id": "ST-004",
+          "text": "Welche Eigenschaften sollte ein Kalibrierkörper/Vergleichskörper zur Empfindlichkeitseinstellung aufweisen?",
+          "options": {
+            "a": "Er sollte aus dem gleichen Material sein wie der Prüfgegenstand.",
+            "b": "Er sollte die gleiche Wärmebehandlung haben wie der Prüfgegenstand",
+            "c": "Er sollte den geforderten Kalibrierfehler aufweisen."
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-005",
+          "text": "Durch welche(s) Referenzverfahren können/kann die/das Ergebnis(se) der Wirbelstromprüfung bestätigt werden?",
+          "options": {
+            "a": "Ultraschalllprüfung",
+            "b": "metallographische Untersuchungen",
+            "c": "Röntgen"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-006",
+          "text": "Wie ist zu verfahren, wenn Risse detektiert wurden?",
+          "options": {
+            "a": "es kann mit den bisherigen Maschineneinstellungen weiter produziert werden, wenn zukünftig mehr Stichprobenprüfungen durchgeführt werden",
+            "b": "die Ursache im Fertigungsprozess ist zu ermitteln, zu beseitigen und zu dokumentieren",
+            "c": "alle Teile, die seit der letzten i.O. Prüfung produziert wurden, sind zu sperren"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-007",
+          "text": "Welche Störgrößen beeinflussen die Ergebnisse der Wirbelstromprüfung negativ?",
+          "options": {
+            "a": "schwankende Bauteiltemperaturen",
+            "b": "Restmagnetismus",
+            "c": "Verkippen der Prüfsonde"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-008",
+          "text": "Bei zunehmender Frequenz",
+          "options": {
+            "a": "erhöht sich die Eindringtiefe",
+            "b": "bleibt die Eindringtiefe gleich",
+            "c": "verringert sich die Eindringtiefe"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-009",
+          "text": "Bei der Rissprüfung mit Wirbelstrom",
+          "options": {
+            "a": "sollten möglichst niedrige Frequenzen eingesetzt werden",
+            "b": "sollten möglichst hohe Frequenzen eingesetzt werden",
+            "c": "können hohe oder niedrige Frequenzen eingesetzt werden"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-010",
+          "text": "Zur Erkennung eines Oberflächenfehlers (Riss)",
+          "options": {
+            "a": "reicht es aus, wenn der Taster in der Nähe des Risses über das Material geführt wird",
+            "b": "muss der Taster über den Riss hinweggeführt werden",
+            "c": "muss der Taster genau über dem Riss stabil positioniert sein"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-011",
+          "text": "Um die gesamte Oberfläche des Prüflings auf Rissfreiheit zu überprüfen, muss",
+          "options": {
+            "a": "der Taster über die Oberfläche bewegt werden",
+            "b": "die Steigung der Bewegung größer als die erwartete Risslänge sein",
+            "c": "die Steigung der Bewegung kleiner als die erwartete Risslänge sein"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-012",
+          "text": "Bei einer Differenzsonde",
+          "options": {
+            "a": "ist die Größe des gemessenen Signals unabhängig vom Winkel zwischen dem Riss und der Achse der Sondenwicklungen",
+            "b": "ist die Größe des gemessenen Signals abhängig vom Winkel zwischen dem Riss und der Achse der Sondenwicklungen",
+            "c": "hängt die Größe des gemessenen Signals nur vom Abstand der Sonde zum Material ab"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-013",
+          "text": "Bei einer Differenzsonde sollte",
+          "options": {
+            "a": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 0 sein",
+            "b": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 45 ° sein",
+            "c": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 90° sein"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-014",
+          "text": "Eine Rissprüfung wird mit einem Testfehler so eingestellt, dass dieser 90° zur Bewegungsrichtung der Sonde liegt. Bei der Prüfung hat ein Prüfling einen gleich großen Fehler, der aber 60° zur Bewegungsrichtung liegt. Deshalb wird die angezeigte Fehleramplitude",
+          "options": {
+            "a": "kleiner",
+            "b": "größer",
+            "c": "gleich bleiben"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-015",
+          "text": "Welche der folgenden Aussagen ist richtig?",
+          "options": {
+            "a": "Absolutsonden haben eine größere Empfindlichkeit als Differenzsonden",
+            "b": "Absolutsonden haben nur eine Messspule",
+            "c": "Absolutsonden sind richtungsunabhängig"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-016",
+          "text": "Durch welche der folgenden Maßnahmen kann das Signal/Rauschverhältnis verbessert werden?",
+          "options": {
+            "a": "Filterung",
+            "b": "Wahl einer höheren Verstärkung",
+            "c": "Verringerung des Abstandes Prüfteil - Sonde"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-017",
+          "text": "Bei der Wahl der Schwelle",
+          "options": {
+            "a": "kommt es auf die eingestellte Verstärkung nicht an",
+            "b": "ist die Phasenlage des Signals unwichtig",
+            "c": "muss das Fehlersignal des Risses die Schwelle überschreiten"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-018",
+          "text": "Differenzsonden sind für die Rissprüfung vorteilhaft, weil",
+          "options": {
+            "a": "sie bei fester Risstiefe ein höheres Signal liefern als vergleichbare Absolutsonden",
+            "b": "sie den Einfluss langsam veränderlicher Teileeigenschaften unterdrücken",
+            "c": "sie mit höheren Prüffrequenzen betrieben werden können als Absolutsonden"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-019",
+          "text": "Um eine maximale Prüfempfindlichkeit zu erreichen, sollte die Prüfsonde zum Prüfteil stehen",
+          "options": {
+            "a": "in einem Winkel von 60°",
+            "b": "senkrecht",
+            "c": "in einem Winkel von 30 °"
+          },
+          "answer": null
+        },
+        {
+          "id": "ST-020",
+          "text": "Welcher Sondentyp eignet sich grundsätzlich am besten, um kleine Risse an der Oberfläche nachzuweisen?",
+          "options": {
+            "a": "Absolutsonde",
+            "b": "Differenzsonde",
+            "c": "beide eignen sich gleich gut"
+          },
+          "answer": null
         }
       ],
       "PR": [
         {
-          "id": "ET-PR-001",
-          "text": "Wie wird bei der Wirbelstromprüfung die Empfindlichkeit überprüft?",
+          "id": "PR-001",
+          "text": "Das untenstehende Bild 1 zeigt eine",
           "options": {
-            "a": "Mit einem Kalibrierkörper mit definierten Referenzfehlern",
-            "b": "Durch Messung der Umgebungstemperatur",
-            "c": "Durch visuelle Inspektion der Prüfspule",
-            "d": "Durch Vergleich mit einem Ultraschallprüfergebnis"
+            "a": "y-Komponenten-Auswertung",
+            "b": "Amplituden-Auswertung",
+            "c": "Phasen-Amplituden-Auswertung"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-PR-002",
-          "text": "Welche Schritte sind vor Beginn einer Wirbelstromprüfung durchzuführen?",
+          "id": "PR-002",
+          "text": "Das untenstehende Bild 2  zeigt eine",
           "options": {
-            "a": "Gerätewarmstart, Nullabgleich, Empfindlichkeitseinstellung, Kalibrierung",
-            "b": "Nur visuelle Vorkontrolle des Prüflings",
-            "c": "Reinigung, Lackierung, Prüfung",
-            "d": "Magnetisierung des Prüflings"
+            "a": "y-Komponenten-Auswertung",
+            "b": "Amplituden-Auswertung",
+            "c": "Phasen-Amplituden-Auswertung"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-PR-003",
-          "text": "Was ist bei der Dokumentation einer Wirbelstromprüfung mindestens anzugeben?",
+          "id": "PR-003",
+          "text": "Das untenstehende Bild 3 zeigt eine",
           "options": {
-            "a": "Prüfdatum, Prüfling, Gerät, Prüffrequenz, Empfindlichkeit, Ergebnis, Prüfer",
-            "b": "Nur das Prüfergebnis (bestanden/nicht bestanden)",
-            "c": "Name des Prüfers und Datum",
-            "d": "Bauteilgewicht und Maße"
+            "a": "y-Komponenten-Auswertung",
+            "b": "Amplituden-Auswertung",
+            "c": "Phasen-Amplituden-Auswertung"
           },
-          "answer": "a"
+          "answer": null
         },
         {
-          "id": "ET-PR-004",
-          "text": "Wie ist bei der ET-Prüfung mit einem Befund umzugehen, der die Ausschussgrenze überschreitet?",
+          "id": "PR-004",
+          "text": "In der x/y-Darstellung bringt man den Leuchtpunkt in die Bildschirmmitte mittels",
           "options": {
-            "a": "Bauteil sofort freigeben und weiterproduzieren",
-            "b": "Bauteil kennzeichnen, sperren und gemäß Verfahrensanweisung eskalieren",
-            "c": "Befund ignorieren, wenn er nur knapp über der Grenze liegt",
-            "d": "Bauteil ohne Dokumentation aussortieren"
+            "a": "Kompensationstaste",
+            "b": "Median-Taste",
+            "c": "Phasensteller"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-PR-005",
-          "text": "Was ist bei der Auswahl der Prüffrequenz für einen unbekannten Prüfling zu beachten?",
+          "id": "PR-005",
+          "text": "Im untenstehenden Bild 1 werden als Fehlersignal erkannt",
           "options": {
-            "a": "Immer die maximale Gerätefrequenz verwenden",
-            "b": "Frequenz anhand der gewünschten Eindringtiefe und Materialeigenschaften auswählen",
-            "c": "Die niedrigste verfügbare Frequenz verwenden",
-            "d": "Die Frequenz hat keinen Einfluss auf die Prüfbarkeit"
+            "a": "Anzeige 1, 2 und 3",
+            "b": "nur Anzeige 1 und 2",
+            "c": "nur Anzeige 2 und 3"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-PR-006",
-          "text": "Wie lassen sich Pseudo-Befunde bei der ET-Prüfung von realen Fehlern unterscheiden?",
+          "id": "PR-006",
+          "text": "Im untenstehenden Bild 2 werden als Fehlersignal erkannt",
           "options": {
-            "a": "Pseudo-Befunde haben immer eine größere Amplitude",
-            "b": "Durch Phasenauswertung, Reproduzierbarkeit und Vergleich mit Referenzkörper",
-            "c": "Pseudo-Befunde treten nur bei ferromagnetischen Materialien auf",
-            "d": "Eine Unterscheidung ist grundsätzlich nicht möglich"
+            "a": "Anzeige 1, 2 und 3",
+            "b": "nur Anzeige 1 und 2",
+            "c": "nur Anzeige 2 und 3"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-PR-007",
-          "text": "Welche persönliche Schutzausrüstung ist bei der ET-Prüfung typischerweise erforderlich?",
+          "id": "PR-007",
+          "text": "Im untenstehenden Bild 3 werden als Fehlersignal erkannt",
           "options": {
-            "a": "Strahlenschutzausrüstung",
-            "b": "Handschuhe und Schutzbrille bei Verwendung von Reinigungsmitteln",
-            "c": "Atemschutzmaske der Klasse P3",
-            "d": "Vollschutzanzug"
+            "a": "Anzeige 1, 2 und 3",
+            "b": "nur Anzeige 2 und 3",
+            "c": "nur Anzeige 3"
           },
-          "answer": "b"
+          "answer": null
         },
         {
-          "id": "ET-PR-008",
-          "text": "Was ist nach einer ET-Prüfung in Bezug auf den Prüfling zu tun?",
+          "id": "PR-008",
+          "text": "Der Abhebeeffekt soll bei der Geräteeinstellung",
           "options": {
-            "a": "Prüfling grundsätzlich verwerfen",
-            "b": "Prüfling gemäß Ergebnis kennzeichnen (i.O. / n.i.O.) und dokumentieren",
-            "c": "Prüfling unmarkiert weiterleiten",
-            "d": "Prüfling nochmals manuell visuell prüfen"
+            "a": "parallel zur x-Achse liegen",
+            "b": "parallel zur y-Achse liegen",
+            "c": "kann beliebig erfolgen"
           },
-          "answer": "b"
+          "answer": null
+        },
+        {
+          "id": "PR-009",
+          "text": "Die Vorverstärkung des Wirbelstromprüfgeräts ist so einzustellen, dass",
+          "options": {
+            "a": "die rote LED \"Overload\" ständig leuchtet",
+            "b": "die rote LED \"Overload\" gerade nicht leuchtet",
+            "c": "der Leuchtpunkt in der Mitte steht"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-010",
+          "text": "In den Abbildungen a-c sehen Sie einen Riss in verschiedenen Positionen unterhalb einer Differenzsonde (die beiden Kreise stellen die Empfängerwicklungen dar). In welcher Testposition kann die höchste Fehleramplitude gemessen werden?",
+          "options": {
+            "a": "a",
+            "b": "b",
+            "c": "c"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-011",
+          "text": "Welche Darstellungsart gibt es?",
+          "options": {
+            "a": "Dichte-Auswertung",
+            "b": "Amplitudenauswertung",
+            "c": "y-Komponenten-Auswertung"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-016",
+          "text": "Bei vielen Rissprüfgeräten wird nur die Höhe der y-Komponente bewertet. Deshalb",
+          "options": {
+            "a": "muss beim Einrichten das Signal so in seiner Phase gedreht werden, dass sein größter Ausschlag möglichst parallel zur x-Achse liegt",
+            "b": "muss beim Einrichten das Signal so in seiner Phase gedreht werden, dass sein größter Ausschlag möglichst parallel zur y-Achse liegt",
+            "c": "ist es nicht notwendig, das Signal beim Einrichten in seiner Phase zu drehen"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-017",
+          "text": "Filterfrequenzen",
+          "options": {
+            "a": "brauchen nur ungefähr eingestellt werden, da sie das Signal nur unwesentlich beeinflussen",
+            "b": "müssen sorgfältig eingestellt werden, da bei falscher Einstellung der Durchschlupf rissbehafteter Teile möglich ist",
+            "c": "können für verschiedene Prüflingstypen variieren"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-020",
+          "text": "Die Tiefe bis zu welcher Fehler nachweisbar sind, ist abhängig von:",
+          "options": {
+            "a": "Material des Prüflings",
+            "b": "Prüfgerät",
+            "c": "Prüffrequenz"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-021",
+          "text": "Wo erfolgt die Kompensation (Nullabgleich) des Wirbelstromprüfgerätes im Regelfall?",
+          "options": {
+            "a": "in der Luft",
+            "b": "auf dem Prüfgegenstand auf einer fehlerbehafteten Fläche",
+            "c": "auf dem Prüfgegenstand auf einer fehlerfreien Fläche"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-022",
+          "text": "Welche Position ergibt für ein Differenzsystem einen Signalwert von Null?",
+          "options": {
+            "a": "Bild 1,3,4",
+            "b": "Bild 2,3",
+            "c": "nur Bild 2"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-024",
+          "text": "Wie nennt man die Anzeige, die man bei Annäherung des Sensors an die Bauteilkante erhält?",
+          "options": {
+            "a": "Kanteneffekt",
+            "b": "Permeabilitätsanzeige",
+            "c": "Abhebeeffekt"
+          },
+          "answer": null
+        },
+        {
+          "id": "PR-025",
+          "text": "Welche Darstellung zeigt für ein Differenzsystem die zum maximal möglichen Ausgangssignal gehörende Risslänge?",
+          "options": {
+            "a": "Bild 3",
+            "b": "Bild 2",
+            "c": "Bild 1+4"
+          },
+          "answer": null
         }
       ]
     },
-    "UT": {
-      "AT": [
-        { "id": "UT-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
-        { "id": "UT-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
-        { "id": "UT-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
-        { "id": "UT-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
-        { "id": "UT-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
-        { "id": "UT-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
-        { "id": "UT-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
-        { "id": "UT-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
-        { "id": "UT-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
-        { "id": "UT-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
-        { "id": "UT-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
-        { "id": "UT-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
-        { "id": "UT-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
-        { "id": "UT-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
-        { "id": "UT-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
-        { "id": "UT-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
-        { "id": "UT-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
-        { "id": "UT-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
-        { "id": "UT-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
-        { "id": "UT-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
-        { "id": "UT-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
-        { "id": "UT-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
-        { "id": "UT-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
-        { "id": "UT-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
-        { "id": "UT-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
-        { "id": "UT-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
-        { "id": "UT-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
-        { "id": "UT-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
-        { "id": "UT-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
-        { "id": "UT-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
-        { "id": "UT-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
-        { "id": "UT-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
-        { "id": "UT-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
-        { "id": "UT-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
-        { "id": "UT-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
-      ],
-      "ST": [
-        {
-          "id": "UT-ST-001",
-          "text": "Auf welchem Prinzip basiert die Ultraschallprüfung?",
-          "options": {
-            "a": "Elektromagnetische Induktion",
-            "b": "Piezoelektrischer Effekt und Schallwellenreflexion",
-            "c": "Röntgenabsorption",
-            "d": "Thermische Ausdehnung"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "UT-ST-002",
-          "text": "Welcher Frequenzbereich wird bei der Ultraschallprüfung typischerweise eingesetzt?",
-          "options": {
-            "a": "0,1 – 1 kHz",
-            "b": "100 – 500 kHz",
-            "c": "0,5 – 25 MHz",
-            "d": "1 – 100 GHz"
-          },
-          "answer": "c"
-        },
-        {
-          "id": "UT-ST-003",
-          "text": "Was ist das Impuls-Echo-Verfahren bei der Ultraschallprüfung?",
-          "options": {
-            "a": "Ein Prüfkopf sendet und empfängt; Reflektoren werden durch Laufzeit erkannt",
-            "b": "Sender und Empfänger sind getrennte Einheiten auf gegenüberliegenden Seiten",
-            "c": "Mehrere Prüfköpfe senden gleichzeitig",
-            "d": "Das Bauteil wird kontinuierlich beschallt"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "UT-ST-004",
-          "text": "Was versteht man unter der Schallschwächung beim Ultraschall?",
-          "options": {
-            "a": "Die Zunahme der Schallintensität mit der Wegstrecke",
-            "b": "Die Abnahme der Schallintensität durch Absorption und Streuung",
-            "c": "Die Reflexion des Schalls an Grenzflächen",
-            "d": "Die Brechung des Schalls beim Übergang zwischen Medien"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "UT-ST-005",
-          "text": "Was ist der Hauptunterschied zwischen Längsund Transversalwellen beim Ultraschall?",
-          "options": {
-            "a": "Longitudinalwellen schwingen quer zur Ausbreitungsrichtung, Transversalwellen längs",
-            "b": "Longitudinalwellen schwingen längs zur Ausbreitungsrichtung, Transversalwellen quer",
-            "c": "Longitudinalwellen sind schneller als Transversalwellen im gleichen Medium",
-            "d": "Sowohl b) als auch c) sind richtig"
-          },
-          "answer": "d"
-        },
-        {
-          "id": "UT-ST-006",
-          "text": "Welche Koppelmittel werden bei der Kontakttechnik verwendet?",
-          "options": {
-            "a": "Öl, Wasser, Gel oder Paste",
-            "b": "Luft",
-            "c": "Stickstoff",
-            "d": "Metallische Folien"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "UT-ST-007",
-          "text": "Was gibt der Prüfkopf-Vorlaufkeil bei der Winkelprüfung an?",
-          "options": {
-            "a": "Die Amplitude des Empfangssignals",
-            "b": "Den Einschallwinkel des Schallbündels in das Prüfstück",
-            "c": "Die Prüffrequenz",
-            "d": "Die Schallgeschwindigkeit"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "UT-ST-008",
-          "text": "Wofür wird beim Ultraschall der AVG-Vergleich genutzt?",
-          "options": {
-            "a": "Zur Abstandsmessung von Reflektoren",
-            "b": "Zur Bewertung von Reflektoren durch Vergleich mit einem Bezugsreflektor",
-            "c": "Zur Einstellung der Prüffrequenz",
-            "d": "Zur Bestimmung der Wanddicke"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "UT-ST-009",
-          "text": "Was ist die Nahfeldlänge (N) bei einem Ultraschallprüfkopf?",
-          "options": {
-            "a": "Der Bereich direkt am Prüfkopf mit unregelmäßigem Schalldruckverlauf",
-            "b": "Der Abstand zum ersten Rückwandecho",
-            "c": "Die minimale Prüftiefe",
-            "d": "Die Wellenlänge des Ultraschalls"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "UT-ST-010",
-          "text": "Mit welchem Verfahren lässt sich die Wanddicke eines Bauteils mit Ultraschall messen?",
-          "options": {
-            "a": "Impuls-Echo-Verfahren mit Laufzeitmessung",
-            "b": "Durchschallungsverfahren mit Amplitudenmessung",
-            "c": "Resonanzverfahren",
-            "d": "Sowohl a) als auch c) sind geeignet"
-          },
-          "answer": "d"
-        }
-      ],
-      "PR": [
-        {
-          "id": "UT-PR-001",
-          "text": "Wie wird ein Ultraschallprüfgerät kalibriert?",
-          "options": {
-            "a": "Mit Referenzblöcken bekannter Geometrie und Schallgeschwindigkeit",
-            "b": "Durch Vergleich mit einem Röntgenbild",
-            "c": "Durch Sichtprüfung des Prüfkopfes",
-            "d": "Mit einem magnetischen Kalibriergerät"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "UT-PR-002",
-          "text": "Welche Information enthält ein korrekt ausgefülltes UT-Prüfprotokoll mindestens?",
-          "options": {
-            "a": "Prüfling, Prüfkopf, Frequenz, Koppelmittel, Empfindlichkeit, Befunde, Prüfer, Datum",
-            "b": "Nur das Gesamtergebnis",
-            "c": "Name des Betriebsleiters",
-            "d": "Stückgewicht des Prüflings"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "UT-PR-003",
-          "text": "Was ist zu tun, wenn bei der UT-Prüfung ein Anzeigebefund festgestellt wird?",
-          "options": {
-            "a": "Befund ignorieren und Prüfung fortsetzen",
-            "b": "Befund lokalisieren, dokumentieren und gemäß Bewertungsvorschrift beurteilen",
-            "c": "Bauteil sofort verschrotten",
-            "d": "Befund mit roter Farbe markieren und freigeben"
-          },
-          "answer": "b"
-        }
-      ]
-    },
-    "NE": {
-      "AT": [
-        { "id": "NE-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
-        { "id": "NE-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
-        { "id": "NE-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
-        { "id": "NE-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
-        { "id": "NE-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
-        { "id": "NE-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
-        { "id": "NE-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
-        { "id": "NE-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
-        { "id": "NE-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
-        { "id": "NE-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
-        { "id": "NE-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
-        { "id": "NE-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
-        { "id": "NE-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
-        { "id": "NE-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
-        { "id": "NE-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
-        { "id": "NE-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
-        { "id": "NE-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
-        { "id": "NE-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
-        { "id": "NE-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
-        { "id": "NE-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
-        { "id": "NE-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
-        { "id": "NE-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
-        { "id": "NE-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
-        { "id": "NE-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
-        { "id": "NE-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
-        { "id": "NE-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
-        { "id": "NE-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
-        { "id": "NE-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
-        { "id": "NE-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
-        { "id": "NE-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
-        { "id": "NE-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
-        { "id": "NE-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
-        { "id": "NE-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
-        { "id": "NE-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
-        { "id": "NE-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
-      ],
-      "ST": [
-        {
-          "id": "NE-ST-001",
-          "text": "Was ist der Zweck der Nitalätzung (Ätzprüfung)?",
-          "options": {
-            "a": "Messung der Oberflächenhärte",
-            "b": "Sichtbarmachung von Gefügeveränderungen insbesondere Schleifbrand",
-            "c": "Erhöhung der Korrosionsbeständigkeit",
-            "d": "Verbesserung der Maßhaltigkeit"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-002",
-          "text": "Welche Ätzlösung wird bei der Nitalätzung verwendet?",
-          "options": {
-            "a": "Salzsäure (HCl) in Wasser",
-            "b": "Salpetersäure (HNO3) in Alkohol (Ethanol oder Methanol)",
-            "c": "Schwefelsäure (H2SO4) in Wasser",
-            "d": "Natronlauge (NaOH) in Wasser"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-003",
-          "text": "Welche typische Konzentration hat die Nitalätzlösung (Nital 2%)?",
-          "options": {
-            "a": "2% HNO3 in Alkohol",
-            "b": "2% HCl in Wasser",
-            "c": "2% NaOH in Wasser",
-            "d": "2% H2SO4 in Alkohol"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "NE-ST-004",
-          "text": "Wie zeigt sich Schleifbrand nach der Nitalätzung?",
-          "options": {
-            "a": "Als glänzende Stelle auf der Bauteiloberfläche",
-            "b": "Als dunkle (braune/schwarze) oder helle Verfärbung je nach Art des Schleifbrandes",
-            "c": "Als Rissanzeige",
-            "d": "Als metallische Ablösung"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-005",
-          "text": "Was ist verdeckter Schleifbrand?",
-          "options": {
-            "a": "Schleifbrand, der durch eine Schutzschicht verdeckt ist",
-            "b": "Schleifbrand in einer Tiefe, die durch nachfolgende Bearbeitungsschritte überdeckt wird",
-            "c": "Schleifbrand unter einer Beschichtung",
-            "d": "Schleifbrand bei verchromten Teilen"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-006",
-          "text": "Welche Schutzmaßnahmen sind bei der Nitalätzung zwingend erforderlich?",
-          "options": {
-            "a": "Keine besonderen Schutzmaßnahmen erforderlich",
-            "b": "Chemikalienschutzhandschuhe, Schutzbrille, Säureschutzschürze, Abzug",
-            "c": "Nur Handschuhe",
-            "d": "Atemschutzmaske ausreichend"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-007",
-          "text": "Welche Vorbereitung der Bauteiloberfläche ist vor der Nitalätzung notwendig?",
-          "options": {
-            "a": "Oberfläche muss lackiert werden",
-            "b": "Oberfläche muss entfettet und metallisch blank sein",
-            "c": "Oberfläche muss sandgestrahlt werden",
-            "d": "Keine Vorbereitung erforderlich"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-008",
-          "text": "Wie ist nach der Nitalätzung vorzugehen?",
-          "options": {
-            "a": "Bauteil trocknen lassen",
-            "b": "Ätzlösung mit Wasser abspülen, dann mit Alkohol neutralisieren/trocknen",
-            "c": "Ätzlösung mit Lappen abwischen",
-            "d": "Bauteil in frische Säure tauchen"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-009",
-          "text": "Was sind typische Ursachen für Schleifbrand?",
-          "options": {
-            "a": "Zu langsames Schleifen",
-            "b": "Übermäßige Wärmeentwicklung beim Schleifen durch zu hohe Schnitttiefe, Vorschub oder stumpfe Scheibe",
-            "c": "Falsches Kühlmittel beim Drehen",
-            "d": "Schlechte Korrosionsschutzmaßnahmen"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-ST-010",
-          "text": "Welche Norm regelt die Bewertung von Schleifbrand bei Wälzlagern?",
-          "options": {
-            "a": "DIN EN ISO 9712",
-            "b": "Schaeffler-Standard S285066 / EN ISO 14104",
-            "c": "ASTM E1444",
-            "d": "DIN 54130"
-          },
-          "answer": "b"
-        }
-      ],
-      "PR": [
-        {
-          "id": "NE-PR-001",
-          "text": "Wie wird die Nitalätzlösung fachgerecht entsorgt?",
-          "options": {
-            "a": "In den normalen Abfall",
-            "b": "Als Sondermüll / Gefahrstoff gemäß betrieblicher Entsorgungsvorschrift",
-            "c": "In den Ausguss mit viel Wasser",
-            "d": "Wiederverwendung unbegrenzt möglich"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-PR-002",
-          "text": "Wie wird das Ergebnis der Nitalätzprüfung dokumentiert?",
-          "options": {
-            "a": "Nur mündlich dem Vorgesetzten melden",
-            "b": "Schriftlich im Prüfprotokoll mit Bauteilkennzeichnung, Ätzparametern und Befundbeschreibung",
-            "c": "Nur bei negativem Befund",
-            "d": "Stempelabdruck auf dem Bauteil genügt"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "NE-PR-003",
-          "text": "Welche Einwirkzeit gilt typischerweise für Nital 2% bei der Schleifbrandprüfung?",
-          "options": {
-            "a": "1 Sekunde",
-            "b": "Gemäß Verfahrensanweisung, typisch 30–60 Sekunden",
-            "c": "Mindestens 10 Minuten",
-            "d": "24 Stunden"
-          },
-          "answer": "b"
-        }
-      ]
-    },
-    "MT": {
-      "AT": [
-        { "id": "MT-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
-        { "id": "MT-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
-        { "id": "MT-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
-        { "id": "MT-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
-        { "id": "MT-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
-        { "id": "MT-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
-        { "id": "MT-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
-        { "id": "MT-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
-        { "id": "MT-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
-        { "id": "MT-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
-        { "id": "MT-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
-        { "id": "MT-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
-        { "id": "MT-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
-        { "id": "MT-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
-        { "id": "MT-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
-        { "id": "MT-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
-        { "id": "MT-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
-        { "id": "MT-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
-        { "id": "MT-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
-        { "id": "MT-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
-        { "id": "MT-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
-        { "id": "MT-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
-        { "id": "MT-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
-        { "id": "MT-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
-        { "id": "MT-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
-        { "id": "MT-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
-        { "id": "MT-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
-        { "id": "MT-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
-        { "id": "MT-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
-        { "id": "MT-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
-        { "id": "MT-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
-        { "id": "MT-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
-        { "id": "MT-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
-        { "id": "MT-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
-        { "id": "MT-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
-      ],
-      "ST": [
-        {
-          "id": "MT-ST-001",
-          "text": "Auf welchem Prinzip basiert die Magnetpulverprüfung?",
-          "options": {
-            "a": "Elektromagnetische Induktion in leitfähigen Werkstoffen",
-            "b": "Streufluss an Fehlern magnetisierter ferromagnetischer Bauteile",
-            "c": "Schallreflexion an Grenzflächen",
-            "d": "Kapillarwirkung von Flüssigkeiten"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "MT-ST-002",
-          "text": "Welche Werkstoffe können mit der Magnetpulverprüfung untersucht werden?",
-          "options": {
-            "a": "Alle metallischen Werkstoffe",
-            "b": "Nur ferromagnetische Werkstoffe",
-            "c": "Nur austenitische Stähle",
-            "d": "Nur Aluminium und seine Legierungen"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "MT-ST-003",
-          "text": "Was ist eine Tangentialfeldstärkemessung bei der Magnetpulverprüfung?",
-          "options": {
-            "a": "Messung der Magnetfeldstärke an der Bauteiloberfläche mit einem Teslameter",
-            "b": "Berechnung der erforderlichen Magnetisierung",
-            "c": "Messung des Streuflusses über einem Fehler",
-            "d": "Kalibrierung des Gleichstromgenerators"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "MT-ST-004",
-          "text": "Welche Magnetisierungsrichtungen müssen für eine vollständige Prüfung berücksichtigt werden?",
-          "options": {
-            "a": "Nur längs zur Bauteilachse",
-            "b": "Nur quer zur Bauteilachse",
-            "c": "Längs und quer (mindestens zwei senkrechte Richtungen)",
-            "d": "Die Richtung spielt keine Rolle"
-          },
-          "answer": "c"
-        },
-        {
-          "id": "MT-ST-005",
-          "text": "Was ist der Unterschied zwischen Nass- und Trockenverfahren bei der Magnetpulverprüfung?",
-          "options": {
-            "a": "Beim Nassverfahren wird das Pulver in einer Trägerflüssigkeit suspendiert",
-            "b": "Beim Trockenverfahren werden magnetische Flüssigkeiten verwendet",
-            "c": "Beim Nassverfahren wird das Bauteil erhitzt",
-            "d": "Es gibt keinen praktischen Unterschied"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "MT-ST-006",
-          "text": "Welchen Vorteil bietet fluoreszierendes Magnetpulver?",
-          "options": {
-            "a": "Höhere Magnetisierungsstärke",
-            "b": "Bessere Sichtbarkeit kleiner Anzeigen unter UV-Licht",
-            "c": "Geringere Kosten",
-            "d": "Keine Notwendigkeit zur Entmagnetisierung"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "MT-ST-007",
-          "text": "Für welche Fehlerorientierung ist die Magnetpulverprüfung am empfindlichsten?",
-          "options": {
-            "a": "Fehler parallel zur Magnetisierungsrichtung",
-            "b": "Fehler senkrecht zur Magnetisierungsrichtung",
-            "c": "Fehler in 45° zur Magnetisierungsrichtung",
-            "d": "Die Empfindlichkeit ist richtungsunabhängig"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "MT-ST-008",
-          "text": "Was versteht man unter der Remanenz bei ferromagnetischen Werkstoffen?",
-          "options": {
-            "a": "Die maximale Magnetisierungsstärke",
-            "b": "Die verbleibende Magnetisierung nach Abschalten des äußeren Feldes",
-            "c": "Den Magnetisierungswiderstand",
-            "d": "Die Schmelztemperatur des Eisens"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "MT-ST-009",
-          "text": "Welche Mindestfeldstärke (Tangentialkomponente) ist für eine zuverlässige MT-Prüfung erforderlich?",
-          "options": {
-            "a": "Mindestens 1 A/m",
-            "b": "Mindestens 2000 A/m gemäß DIN EN ISO 9934",
-            "c": "Maximal 500 A/m",
-            "d": "Die Feldstärke ist nicht normiert"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "MT-ST-010",
-          "text": "Was ist Entmagnetisierung und wann ist sie erforderlich?",
-          "options": {
-            "a": "Beseitigung der Remanenzmagnetisierung; erforderlich wenn Restmagnetismus Funktion oder Weiterverarbeitung stört",
-            "b": "Aufhebung der Magnetisierung nur bei Nirostastahl",
-            "c": "Nur bei Bauteilen über 100 kg notwendig",
-            "d": "Entmagnetisierung ist nach Norm nie erforderlich"
-          },
-          "answer": "a"
-        }
-      ],
-      "PR": [
-        {
-          "id": "MT-PR-001",
-          "text": "Wie wird die Empfindlichkeit einer MT-Prüfanlage überprüft?",
-          "options": {
-            "a": "Mit dem Magnetpulver-Testindikator (Berthold-Streifen oder QQI)",
-            "b": "Durch Sichtprüfung der Magnetspule",
-            "c": "Durch Messen der Stromstärke",
-            "d": "Durch Wiegen des Magnetpulvers"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "MT-PR-002",
-          "text": "Welche Angaben müssen im MT-Prüfprotokoll enthalten sein?",
-          "options": {
-            "a": "Prüfling, Magnetisierungsverfahren, Feldstärke, Prüfmittel, Befunde, Prüfer, Datum, Norm",
-            "b": "Nur Bauteilnummer und Ergebnis",
-            "c": "Name des Qualitätsleiters",
-            "d": "Maschinenführer und Produktionszeit"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "MT-PR-003",
-          "text": "Was ist bei der Bewertung von MT-Anzeigen zu beachten?",
-          "options": {
-            "a": "Alle Anzeigen sind automatisch als Fehler zu bewerten",
-            "b": "Unterscheidung zwischen echten Fehleranzeigen und Scheinanzeigen; Bewertung nach Norm/Zeichnung",
-            "c": "Nur Anzeigen über 10mm Länge bewerten",
-            "d": "Anzeigen erst nach 24 Stunden auswerten"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "MT-PR-004",
-          "text": "Was ist ein Handjoch und wann wird es bei der MT-Prüfung eingesetzt?",
-          "options": {
-            "a": "Ein Elektromagnet für lokale Magnetisierung, eingesetzt bei Schweißnähten und lokalen Bereichen",
-            "b": "Ein Permanentmagnet für die Durchlaufmagnetisierung",
-            "c": "Ein Spulensystem für die Zirkularmagnetisierung",
-            "d": "Ein Messgerät für die Feldstärkemessung"
-          },
-          "answer": "a"
-        }
-      ]
-    },
-    "PT": {
-      "AT": [
-        { "id": "PT-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
-        { "id": "PT-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
-        { "id": "PT-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
-        { "id": "PT-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
-        { "id": "PT-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
-        { "id": "PT-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
-        { "id": "PT-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
-        { "id": "PT-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
-        { "id": "PT-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
-        { "id": "PT-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
-        { "id": "PT-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
-        { "id": "PT-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
-        { "id": "PT-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
-        { "id": "PT-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
-        { "id": "PT-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
-        { "id": "PT-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
-        { "id": "PT-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
-        { "id": "PT-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
-        { "id": "PT-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
-        { "id": "PT-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
-        { "id": "PT-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
-        { "id": "PT-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
-        { "id": "PT-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
-        { "id": "PT-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
-        { "id": "PT-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
-        { "id": "PT-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
-        { "id": "PT-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
-        { "id": "PT-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
-        { "id": "PT-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
-        { "id": "PT-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
-        { "id": "PT-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
-        { "id": "PT-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
-        { "id": "PT-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
-        { "id": "PT-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
-        { "id": "PT-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
-      ],
-      "ST": [
-        {
-          "id": "PT-ST-001",
-          "text": "Auf welchem Prinzip basiert die Eindringprüfung?",
-          "options": {
-            "a": "Elektromagnetische Streufelder",
-            "b": "Kapillareffekt: Eindringen von Flüssigkeit in offene Oberflächenrisse",
-            "c": "Röntgenstrahlung",
-            "d": "Magnetische Anziehung"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "PT-ST-002",
-          "text": "Welche Werkstoffe können mit der Eindringprüfung untersucht werden?",
-          "options": {
-            "a": "Nur ferromagnetische Stähle",
-            "b": "Alle nicht-porösen Werkstoffe mit geschlossener Oberfläche",
-            "c": "Nur Aluminium",
-            "d": "Nur Kunststoffe"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "PT-ST-003",
-          "text": "Welche Schritte umfasst das Standard-PT-Verfahren in der richtigen Reihenfolge?",
-          "options": {
-            "a": "Entwickeln → Eindringen → Zwischenreinigung → Auswerten",
-            "b": "Vorbehandlung → Eindringmittel aufbringen → Eindringzeit → Zwischenreinigung → Entwickler → Auswertung → Nachbehandlung",
-            "c": "Magnetisieren → Auftragen → Auswerten",
-            "d": "Vorbehandlung → Auswerten → Eindringen → Entwickeln"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "PT-ST-004",
-          "text": "Was ist die Eindringzeit (Penetrationszeit)?",
-          "options": {
-            "a": "Die Zeit, die das Entwicklermittel benötigt",
-            "b": "Die Mindestzeit, die das Eindringmittel auf der Oberfläche verbleiben muss",
-            "c": "Die Prüfzeit nach dem Auftragen des Entwicklers",
-            "d": "Die Trockenzeit des Zwischenreinigers"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "PT-ST-005",
-          "text": "Welche Arten von Entwicklern werden bei der Eindringprüfung eingesetzt?",
-          "options": {
-            "a": "Nur Trockenentwickler",
-            "b": "Trocken-, Nass- (wässrig oder lösemittelhaltig) und Folienentwickler",
-            "c": "Nur wässrige Nassent­wickler",
-            "d": "Nur Folienentwickler"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "PT-ST-006",
-          "text": "Was ist der Unterschied zwischen fluoreszierender und farbiger Eindringprüfung?",
-          "options": {
-            "a": "Fluoreszierende PT wird unter UV-Licht ausgewertet; farbige PT im sichtbaren Licht",
-            "b": "Farbige PT ist empfindlicher als fluoreszierende PT",
-            "c": "Beide Verfahren haben identische Empfindlichkeit",
-            "d": "Fluoreszierende PT ist nur für Stahl geeignet"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "PT-ST-007",
-          "text": "Welche Mindest-Beleuchtungsstärke ist bei der Auswertung mit sichtbaren Eindringmitteln erforderlich?",
-          "options": {
-            "a": "Mindestens 500 lx",
-            "b": "Mindestens 100 lx",
-            "c": "Mindestens 1000 lx gemäß EN ISO 3059",
-            "d": "Keine Anforderung"
-          },
-          "answer": "c"
-        },
-        {
-          "id": "PT-ST-008",
-          "text": "Welche Fehlerart kann mit der Eindringprüfung NICHT gefunden werden?",
-          "options": {
-            "a": "Oberflächenrisse",
-            "b": "Geschlossene Volumendefekte unter der Oberfläche",
-            "c": "Offene Poren an der Oberfläche",
-            "d": "Falten und Überlappungen"
-          },
-          "answer": "b"
-        }
-      ],
-      "PR": [
-        {
-          "id": "PT-PR-001",
-          "text": "Was muss vor der Eindringprüfung an der Bauteiloberfläche sichergestellt sein?",
-          "options": {
-            "a": "Oberfläche muss lackiert sein",
-            "b": "Oberfläche muss frei von Öl, Fett, Rost und anderen Verunreinigungen sein",
-            "c": "Oberfläche muss angeraut werden",
-            "d": "Oberfläche muss magnetisiert werden"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "PT-PR-002",
-          "text": "Wie wird das Eindringmittel nach der Eindringzeit entfernt?",
-          "options": {
-            "a": "Mit einem trockenen Tuch abwischen",
-            "b": "Gemäß Herstellerangaben: wasserabwaschbar mit Wasser, lösemittelbasiert mit Lösemitteltuch",
-            "c": "Mit Schmirgelpapier abschleifen",
-            "d": "Eindringmittel muss nicht entfernt werden"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "PT-PR-003",
-          "text": "Welche Anforderungen gelten für die UV-Leuchte bei fluoreszierender PT?",
-          "options": {
-            "a": "Mindestbestrahlungsstärke 10 W/m² bei 365 nm, Dunkelheit oder Halbdunkel",
-            "b": "Normale Taschenlampe ausreichend",
-            "c": "UV-Leuchte muss grünes Licht aussenden",
-            "d": "Bestrahlungsstärke spielt keine Rolle"
-          },
-          "answer": "a"
-        }
-      ]
-    },
-    "BN": {
-      "AT": [
-        { "id": "BN-AT-001", "text": "In welchen Gitterstrukturen kann Eisen auftreten?", "options": { "a": "hexagonal dichtest gepackt", "b": "kubisch flächenzentriert", "c": "kubisch raumzentriert", "d": "Die Antworten b) und c) sind richtig" }, "answer": "d" },
-        { "id": "BN-AT-002", "text": "Was sind interstitielle Fremdatome?", "options": { "a": "Atome einer anderen Sorte auf Zwischengitterplätzen", "b": "Atome einer anderen Sorte auf regulären Gitterplätzen", "c": "Ansammlungen von Versetzungen", "d": "Begrenzungsschichten zwischen unterschiedlichen Körnern" }, "answer": "a" },
-        { "id": "BN-AT-003", "text": "Eisen und Blei sind weder im festen noch im flüssigen Zustand mischbar. Was entsteht nach Abkühlung einer Schmelze dieser beiden Elemente im festen Zustand?", "options": { "a": "eine feste Lösung", "b": "ein Mischkristall", "c": "ein Kristallgemisch", "d": "eine Suspension" }, "answer": "c" },
-        { "id": "BN-AT-004", "text": "Wie lässt sich eine ausgeprägte Textur einstellen?", "options": { "a": "durch einige Kaltumformprozesse wie z. B. Walzen", "b": "durch gerichtete Erstarrung", "c": "durch zusätzliche Magnetfelder während des Sinterns", "d": "Alle Antworten treffen zu" }, "answer": "d" },
-        { "id": "BN-AT-005", "text": "Welchen Einfluss hat die Korngröße auf die mechanischen Eigenschaften?", "options": { "a": "je größer die Korngröße desto höher der Schwefelgehalt", "b": "je größer die Korngröße desto schlechter die Zähigkeit", "c": "je größer die Korngröße desto höher die Festigkeit", "d": "Die Antworten b) und c) treffen zu" }, "answer": "b" },
-        { "id": "BN-AT-006", "text": "Welche Zusätze werden bei der Stahlherstellung für die Desoxidation eingesetzt?", "options": { "a": "Silizium, Aluminium, Mangan", "b": "Silizium, Kohlenstoff, Chrom", "c": "Aluminium, Kalzium, Phosphor", "d": "Nickel, Wolfram, Mangan" }, "answer": "a" },
-        { "id": "BN-AT-007", "text": "Bei welcher Vergießungsart ist mit besonders ausgeprägter Lunkerneigung zu rechnen?", "options": { "a": "beim unberuhigten Blockguss", "b": "beim doppelt beruhigten Blockguss", "c": "beim Strangguss", "d": "beim Schleuderguss" }, "answer": "b" },
-        { "id": "BN-AT-008", "text": "Wie sind Blockseigerungen zu bewerten?", "options": { "a": "Sie können die Weiterverarbeitung, z. B. beim Schweißen, beeinträchtigen.", "b": "Sie müssen ausgeschliffen werden.", "c": "Sie verbessern die Zähigkeit des Werkstoffes.", "d": "Sie stellen einen unzulässigen Fehler dar." }, "answer": "a" },
-        { "id": "BN-AT-009", "text": "Welcher Fehler tritt bei Stahlguss in Nachbarschaft von Lunkern an Hohlkehlen auf?", "options": { "a": "Kaltrisse", "b": "Warmrisse", "c": "Kernstützen", "d": "Einschlüsse" }, "answer": "b" },
-        { "id": "BN-AT-010", "text": "Welcher Gusswerkstoff ist besonders lunkeranfällig?", "options": { "a": "Grauguss mit Lamellengrafit", "b": "Grauguss mit Kugelgrafit", "c": "Stahlguss", "d": "Die Lunkeranfälligkeit hängt unabhängig vom Werkstoff nur von der Geometrie ab" }, "answer": "c" },
-        { "id": "BN-AT-011", "text": "Wie hoch ist der mittlere Kohlenstoffgehalt in Masseprozent des Stahls C45?", "options": { "a": "45,00%", "b": "4,50%", "c": "0,45%", "d": "0,045%" }, "answer": "c" },
-        { "id": "BN-AT-012", "text": "Welche Unregelmäßigkeit kann beim Sandguss durch das Auftreten von Schülpen begünstigt werden?", "options": { "a": "Lunker", "b": "Poren", "c": "Dendriten", "d": "Sandeinschlüsse" }, "answer": "d" },
-        { "id": "BN-AT-013", "text": "Was ist für das Freiformschmieden eines Stahlbauteils kennzeichnend?", "options": { "a": "freies Fließen des Werkstoffes", "b": "Warmformen in einer Hohlform", "c": "Formgebung mittels hydraulischen Pressen bei Temperaturen von ca. 500°C", "d": "Herstellen eines Blockes" }, "answer": "a" },
-        { "id": "BN-AT-014", "text": "Welche Inhomogenitäten entstehen beim Walzen?", "options": { "a": "ausgewalzte Bindefehler", "b": "ausgewalzte Kernstützen", "c": "ausgewalzte Mangansulfide", "d": "ausgewalzte Dopplungen" }, "answer": "d" },
-        { "id": "BN-AT-015", "text": "Was sollte durch den Schmiedeprozess verursacht werden?", "options": { "a": "ein grobes Verformungsgefüge", "b": "ein feines Verformungsgefüge", "c": "eine Verformung des gesamten Volumens", "d": "Die Antworten b) und c) treffen zu." }, "answer": "d" },
-        { "id": "BN-AT-016", "text": "Was kann durch Feuchtigkeitsaufnahme der Schmelze in einer anschließend geschmiedeten Welle entstehen?", "options": { "a": "atomar gelöster Wasserstoff", "b": "molekular eingelagerter Wasserstoff", "c": "Flocken", "d": "alles genannte" }, "answer": "d" },
-        { "id": "BN-AT-017", "text": "Was bewirkt der Kohlenstoff in einem Bauteil aus Lamellengrafitguss?", "options": { "a": "gute Zähigkeit", "b": "innere Kerbwirkung", "c": "gutes Dämpfungsverhalten", "d": "Die Antworten b) und c) sind richtig." }, "answer": "d" },
-        { "id": "BN-AT-018", "text": "Welches Element beeinflusst am meisten die Aufhärtungsneigung beim Schweißen?", "options": { "a": "Chrom", "b": "Nickel", "c": "Kohlenstoff", "d": "Vanadium" }, "answer": "c" },
-        { "id": "BN-AT-019", "text": "Wodurch wird der Terrassenbruch beim Schweißen verursacht?", "options": { "a": "durch eine ausgeprägte Zeilenstruktur", "b": "durch eine isotrope Gefügestruktur", "c": "durch eine Verformung in Walzrichtung des Grundwerkstoffes", "d": "durch feuchte Schweißelektroden" }, "answer": "a" },
-        { "id": "BN-AT-020", "text": "Bei welchem Schweißverfahren ist am ehesten mit Schlackeneinschlüssen zu rechnen?", "options": { "a": "Lichtbogenhandschweißen", "b": "WIG", "c": "MAG", "d": "Pressschweißen" }, "answer": "a" },
-        { "id": "BN-AT-021", "text": "Wird die geometrische Unschärfe beeinflusst, wenn man die Strahlungsenergie für eine Durchstrahlungsaufnahme erhöht?", "options": { "a": "Sie wird nicht beeinflusst.", "b": "Sie wird vergrößert.", "c": "Sie wird verkleinert.", "d": "Unter 400 keV wird sie nicht beeinflusst, darüber hinaus aber vergrößert." }, "answer": "c" },
-        { "id": "BN-AT-022", "text": "Nach welchen Gesichtspunkten wird die Länge des auswertbaren Bereiches begrenzt?", "options": { "a": "Durch die zulässige Randverzerrung", "b": "Durch die zulässige Schwärzung", "c": "Durch die erreichte Bildgütezahl", "d": "a) oder b) können ausschlaggebend sein" }, "answer": "d" },
-        { "id": "BN-AT-023", "text": "Welche Information liefert die Streckgrenze eines Werkstoffs?", "options": { "a": "die größte Dehnung bis zum Bruch", "b": "die Spannung bei Einschnürung", "c": "der Übergang von der elastischen zur plastischen Verformung", "d": "die maximale Kaltverfestigung" }, "answer": "c" },
-        { "id": "BN-AT-024", "text": "Wodurch wird das Ermüdungsverhalten eines Werkstoffes üblicherweise beschrieben?", "options": { "a": "die Wöhlerlinie", "b": "die Hooke'sche Gerade (E-Modul)", "c": "das KV-T-Diagramm", "d": "die Übergangstemperatur" }, "answer": "a" },
-        { "id": "BN-AT-025", "text": "Wie verhält sich die Wechselfestigkeit von ferritischem Stahl?", "options": { "a": "Sie nimmt gleichmäßig mit der Lastspielzahl bis 0 ab (Grenzlastspielzahl).", "b": "Sie nimmt gleichmäßig bis ca. 10³ Lastwechsel ab und bleibt dann konstant (Durchläufer).", "c": "Sie nimmt bis zum Wert der Dauerfestigkeit ab.", "d": "Sie nimmt mit der Zugfestigkeit proportional zu (σD = 0,34Rm)." }, "answer": "c" },
-        { "id": "BN-AT-026", "text": "Bei welchem Versuch zeigt die Probe eine Bruchfläche mit Rastlinien und einem körnigen Restbruch?", "options": { "a": "bei dem Wöhlerversuch", "b": "bei dem Hook-Versuch", "c": "bei dem Kerbschlagbiegeversuch (Hochlage)", "d": "bei dem Kerbschlagbiegeversuch (Tieflage)" }, "answer": "a" },
-        { "id": "BN-AT-027", "text": "Risse sind im Allgemeinen als kritisch einzuschätzen. Wann trifft diese Aussage besonders zu?", "options": { "a": "bei Werkstoffen niedriger Festigkeit", "b": "bei höherfesten Werkstoffen", "c": "bei duktilen Werkstoffen", "d": "bei Werkstoffen mit hoher Zähigkeit" }, "answer": "b" },
-        { "id": "BN-AT-028", "text": "Was versteht man unter Spannungsrisskorrosion?", "options": { "a": "Rissbildung durch mechanische Überlastung in korrosivem Medium", "b": "Rissbildung durch korrosiven Angriff ohne mechanische Beanspruchung", "c": "Rissbildung durch kombinierte Wirkung von Zugspannungen und korrosivem Medium", "d": "Korrosionsschutz durch Druckspannungen" }, "answer": "c" },
-        { "id": "BN-AT-029", "text": "Was ist Martensit?", "options": { "a": "eine thermodynamisch stabile Phase im Eisen-Kohlenstoff-Diagramm", "b": "eine übersättigte feste Lösung von Kohlenstoff in kubisch-raumzentriertem Eisen", "c": "eine Ausscheidungsphase bei langsamer Abkühlung", "d": "Eisen mit sehr niedrigem Kohlenstoffgehalt" }, "answer": "b" },
-        { "id": "BN-AT-030", "text": "Welche Wärmebehandlung dient zur Verbesserung der Zähigkeit von gehärtetem Stahl?", "options": { "a": "Normalisieren", "b": "Anlassen", "c": "Glühen", "d": "Aufkohlen" }, "answer": "b" },
-        { "id": "BN-AT-031", "text": "Was versteht man unter dem Perlitgefüge?", "options": { "a": "reines Eisenkarbid (Fe3C)", "b": "lamellares Gemisch aus Ferrit und Zementit mit 0,8% C", "c": "kubisch-flächenzentriertes Eisen", "d": "Mischkristall mit über 2% Kohlenstoff" }, "answer": "b" },
-        { "id": "BN-AT-032", "text": "Was kennzeichnet einen austenitischen Stahl?", "options": { "a": "kubisch-raumzentriertes Gitter, ferromagnetisch", "b": "kubisch-flächenzentriertes Gitter, nicht ferromagnetisch", "c": "hexagonales Gitter, paramagnetisch", "d": "orthorhombisches Gitter, antiferromagnetisch" }, "answer": "b" },
-        { "id": "BN-AT-033", "text": "Welche Eigenschaft charakterisiert einen zähen Werkstoff?", "options": { "a": "hohe Festigkeit bei niedriger Dehnung", "b": "hohes Produkt aus Festigkeit und Bruchdehnung", "c": "ausschließlich elastische Verformung", "d": "niedriger E-Modul" }, "answer": "b" },
-        { "id": "BN-AT-034", "text": "Was versteht man unter dem Begriff 'Eigenspannungen'?", "options": { "a": "Spannungen durch äußere Belastung", "b": "im Werkstoff vorhandene Spannungen ohne äußere Belastung", "c": "Spannungen an der Bauteiloberfläche durch Korrosion", "d": "Thermisch induzierte Spannungen bei Raumtemperatur" }, "answer": "b" },
-        { "id": "BN-AT-035", "text": "Welche Härteskala wird bei der Kugeldruckprüfung verwendet?", "options": { "a": "Vickers (HV)", "b": "Brinell (HB)", "c": "Rockwell (HRC)", "d": "Shore (HS)" }, "answer": "b" }
-      ],
-      "ST": [
-        {
-          "id": "BN-ST-001",
-          "text": "Was ist das Barkhausen-Rauschen (BN)?",
-          "options": {
-            "a": "Ein akustisches Rauschen bei der Ultraschallprüfung",
-            "b": "Sprunghafte Änderungen der Magnetisierung durch Verschiebung von Weiss'schen Bezirken",
-            "c": "Elektrisches Rauschen im Wirbelstrommessgerät",
-            "d": "Ein optisches Phänomen bei der Ätzprüfung"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "BN-ST-002",
-          "text": "Welche Eigenschaft des Barkhausen-Rauschens wird für die Schleifbranderkennung genutzt?",
-          "options": {
-            "a": "Die Amplitude des Rauschsignals ändert sich mit Gefügezustand und Eigenspannungen",
-            "b": "Die Frequenz des Rauschens ist konstant",
-            "c": "Das Rauschen tritt nur bei Rissen auf",
-            "d": "Das Rauschen ist temperaturunabhängig"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "BN-ST-003",
-          "text": "Welche Werkstoffe können mit der Barkhausen-Rauschen-Methode geprüft werden?",
-          "options": {
-            "a": "Alle metallischen Werkstoffe",
-            "b": "Ausschließlich ferromagnetische Werkstoffe",
-            "c": "Nur austenitische Stähle",
-            "d": "Nur Aluminiumlegierungen"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "BN-ST-004",
-          "text": "Wie wirken sich Druckeigenspannungen auf das Barkhausen-Rauschsignal aus?",
-          "options": {
-            "a": "Druckeigenspannungen erhöhen das BN-Signal",
-            "b": "Druckeigenspannungen erniedrigen das BN-Signal",
-            "c": "Eigenspannungen haben keinen Einfluss auf das BN-Signal",
-            "d": "Der Effekt hängt nur von der Temperatur ab"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "BN-ST-005",
-          "text": "Was ist der Vorteil der Barkhausen-Rausch-Methode gegenüber der Nitalätzprüfung?",
-          "options": {
-            "a": "Keine Vorbereitung der Oberfläche nötig",
-            "b": "Zerstörungsfreie und chemikalienfreie Prüfung, automatisierbar",
-            "c": "Höhere Empfindlichkeit bei groben Schäden",
-            "d": "Prüfung von Nichteisenmetallen möglich"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "BN-ST-006",
-          "text": "Was sind Weisssche Bezirke?",
-          "options": {
-            "a": "Elektrisch isolierte Bereiche im Metall",
-            "b": "Magnetisch gleichmäßig ausgerichtete Bereiche in ferromagnetischen Werkstoffen",
-            "c": "Korrosionszonen an der Oberfläche",
-            "d": "Martensitische Bereiche nach Schleifbrand"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "BN-ST-007",
-          "text": "Welchen Einfluss hat Schleifbrand auf das Barkhausen-Rauschsignal?",
-          "options": {
-            "a": "Schleifbrand erzeugt ein erhöhtes BN-Signal durch Zugspannungen und Gefügeveränderungen",
-            "b": "Schleifbrand hat keinen Einfluss auf das BN-Signal",
-            "c": "Schleifbrand verringert das BN-Signal auf null",
-            "d": "Nur Kaltrisse verändern das BN-Signal"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "BN-ST-008",
-          "text": "In welchem Tiefenbereich ist das Barkhausen-Rauschen empfindlich?",
-          "options": {
-            "a": "Bis zu mehreren Millimetern Tiefe",
-            "b": "Oberflächennah, typisch 0,01 – 0,3 mm je nach Material und Frequenz",
-            "c": "Nur an der Oberfläche (0 mm)",
-            "d": "Ab 5 mm Tiefe aufwärts"
-          },
-          "answer": "b"
-        },
-        {
-          "id": "BN-ST-009",
-          "text": "Was ist der Magnetoelastische Parameter (MAP) beim Barkhausen-Rauschen?",
-          "options": {
-            "a": "Ein Maß für die Amplitude des BN-Signals in einem definierten Feldstärkebereich",
-            "b": "Die Prüffrequenz des Magnetisierungsfeldes",
-            "c": "Die Eindringtiefe des Magnetfeldes",
-            "d": "Die Anzahl der Weissschen Bezirke"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "BN-ST-010",
-          "text": "Was ist beim Barkhausen-Rauschen-Verfahren als Referenz notwendig?",
-          "options": {
-            "a": "Ein Referenzkörper mit bekanntem Gefügezustand (schleifbrandfrei und mit Schleifbrand)",
-            "b": "Ein Eisenkalibrierblock",
-            "c": "Eine Nitalätzprobe",
-            "d": "Kein Referenzkörper notwendig"
-          },
-          "answer": "a"
-        }
-      ],
-      "PR": [
-        {
-          "id": "BN-PR-001",
-          "text": "Wie wird ein Barkhausen-Rausch-Messgerät kalibriert?",
-          "options": {
-            "a": "Mit bekannten Referenzproben (schleifbrandfrei / mit Schleifbrand) und Einstellung der Schwellwerte",
-            "b": "Mit einem Multimeter",
-            "c": "Durch Vergleich mit der Ätzprüfung",
-            "d": "Kalibrierung ist nicht notwendig"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "BN-PR-002",
-          "text": "Welche Faktoren können das Barkhausen-Rauschsignal neben Schleifbrand beeinflussen?",
-          "options": {
-            "a": "Materialhärte, Gefügezustand, Eigenspannungen, Oberflächenbeschaffenheit, Temperatur",
-            "b": "Nur die Oberflächenrauheit",
-            "c": "Nur die Bauteiltemperatur",
-            "d": "Der BN-Wert ist ausschließlich fehlerabhängig"
-          },
-          "answer": "a"
-        },
-        {
-          "id": "BN-PR-003",
-          "text": "Was ist bei der BN-Prüfung bezüglich der Anpressung des Sensors zu beachten?",
-          "options": {
-            "a": "Anpressung spielt keine Rolle",
-            "b": "Definierter und reproduzierbarer Anpressdruck gemäß Prüfanweisung erforderlich",
-            "c": "So fest wie möglich anpressen",
-            "d": "Sensor darf Oberfläche nicht berühren"
-          },
-          "answer": "b"
-        }
-      ]
-    }
+    "MT": { "AT": [], "ST": [], "PR": [] },
+    "NE": { "AT": [], "ST": [], "PR": [] }
   }
 }
