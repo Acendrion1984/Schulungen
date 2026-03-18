@@ -1,0 +1,618 @@
+{
+  "AT": [
+    {
+      "id": "NE-AT-001",
+      "text": "Was ist der Zweck der Nitalätzung (Ätzprüfung)?",
+      "options": {
+        "a": "Messung der Oberflächenhärte",
+        "b": "Sichtbarmachung von Gefügeveränderungen insbesondere Schleifbrand",
+        "c": "Erhöhung der Korrosionsbeständigkeit",
+        "d": "Verbesserung der Maßhaltigkeit"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-002",
+      "text": "Welche Ätzlösung wird bei der Nitalätzung verwendet?",
+      "options": {
+        "a": "Salzsäure (HCl) in Wasser",
+        "b": "Salpetersäure (HNO3) in Alkohol (Ethanol oder Methanol)",
+        "c": "Schwefelsäure (H2SO4) in Wasser",
+        "d": "Natronlauge (NaOH) in Wasser"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-003",
+      "text": "Welche typische Konzentration hat die Nitalätzlösung (Nital 2%)?",
+      "options": {
+        "a": "2% HNO3 in Alkohol",
+        "b": "2% HCl in Wasser",
+        "c": "2% NaOH in Wasser",
+        "d": "2% H2SO4 in Alkohol"
+      },
+      "answer": "a"
+    },
+    {
+      "id": "NE-AT-004",
+      "text": "Wie zeigt sich Schleifbrand nach der Nitalätzung?",
+      "options": {
+        "a": "Als glänzende Stelle auf der Bauteiloberfläche",
+        "b": "Als dunkle (braune/schwarze) oder helle Verfärbung je nach Art des Schleifbrandes",
+        "c": "Als Rissanzeige",
+        "d": "Als metallische Ablösung"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-005",
+      "text": "Was ist verdeckter Schleifbrand?",
+      "options": {
+        "a": "Schleifbrand, der durch eine Schutzschicht verdeckt ist",
+        "b": "Schleifbrand in einer Tiefe, die durch nachfolgende Bearbeitungsschritte überdeckt wird",
+        "c": "Schleifbrand unter einer Beschichtung",
+        "d": "Schleifbrand bei verchromten Teilen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-006",
+      "text": "Welche Schutzmaßnahmen sind bei der Nitalätzung zwingend erforderlich?",
+      "options": {
+        "a": "Keine besonderen Schutzmaßnahmen erforderlich",
+        "b": "Chemikalienschutzhandschuhe, Schutzbrille, Säureschutzschürze, Abzug",
+        "c": "Nur Handschuhe",
+        "d": "Atemschutzmaske ausreichend"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-007",
+      "text": "Welche Vorbereitung der Bauteiloberfläche ist vor der Nitalätzung notwendig?",
+      "options": {
+        "a": "Oberfläche muss lackiert werden",
+        "b": "Oberfläche muss entfettet und metallisch blank sein",
+        "c": "Oberfläche muss sandgestrahlt werden",
+        "d": "Keine Vorbereitung erforderlich"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-008",
+      "text": "Wie ist nach der Nitalätzung vorzugehen?",
+      "options": {
+        "a": "Bauteil trocknen lassen",
+        "b": "Ätzlösung mit Wasser abspülen, dann mit Alkohol neutralisieren/trocknen",
+        "c": "Ätzlösung mit Lappen abwischen",
+        "d": "Bauteil in frische Säure tauchen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-009",
+      "text": "Was sind typische Ursachen für Schleifbrand?",
+      "options": {
+        "a": "Zu langsames Schleifen",
+        "b": "Übermäßige Wärmeentwicklung beim Schleifen durch zu hohe Schnitttiefe, Vorschub oder stumpfe Scheibe",
+        "c": "Falsches Kühlmittel beim Drehen",
+        "d": "Schlechte Korrosionsschutzmaßnahmen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-010",
+      "text": "Welche Norm regelt die Bewertung von Schleifbrand bei Wälzlagern?",
+      "options": {
+        "a": "DIN EN ISO 9712",
+        "b": "Schaeffler-Standard S285066 / EN ISO 14104",
+        "c": "ASTM E1444",
+        "d": "DIN 54130"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-011",
+      "text": "Was ist Anlassfarbe?",
+      "options": {
+        "a": "Eine Schutzlackierung",
+        "b": "Verfärbung durch Wärmeeinwirkung",
+        "c": "Eine spezielle Ätzlösung",
+        "d": "Ein Korrosionsschutz"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-012",
+      "text": "Ab welcher Temperatur entstehen typischerweise Anlassfarben?",
+      "options": {
+        "a": "ab 100°C",
+        "b": "ab 200°C",
+        "c": "ab 500°C",
+        "d": "ab 800°C"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-013",
+      "text": "Welche Farbe zeigt eine Temperatur von etwa 220-240°C bei Anlassfarben?",
+      "options": {
+        "a": "Blau",
+        "b": "Gelb",
+        "c": "Violett",
+        "d": "Braun"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-014",
+      "text": "Welche Farbe zeigt eine Temperatur von etwa 260-280°C bei Anlassfarben?",
+      "options": {
+        "a": "Gelb",
+        "b": "Violett",
+        "c": "Blau",
+        "d": "Braun"
+      },
+      "answer": "c"
+    },
+    {
+      "id": "NE-AT-015",
+      "text": "Die Eindringtiefe der Wärmebeeinflussung beim Schleifbrand beträgt typisch",
+      "options": {
+        "a": "0,01 - 0,05 mm",
+        "b": "0,05 - 0,5 mm",
+        "c": "0,5 - 2 mm",
+        "d": "2 - 5 mm"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-016",
+      "text": "Welche Gefügeveränderung tritt bei Anlassbrand auf?",
+      "options": {
+        "a": "Martensitbildung",
+        "b": "Anlassen des Martensits",
+        "c": "Austenitbildung",
+        "d": "Ferritbildung"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-017",
+      "text": "Welche Gefügeveränderung tritt bei Neuhärtungsbrand auf?",
+      "options": {
+        "a": "Anlassen des Martensits",
+        "b": "Neubildung von Martensit durch Wiederaufhärtung",
+        "c": "Ferritbildung",
+        "d": "Perlitbildung"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-018",
+      "text": "Die Härte bei Anlassbrand ist im Vergleich zum Grundgefüge",
+      "options": {
+        "a": "höher",
+        "b": "niedriger",
+        "c": "gleich",
+        "d": "nicht messbar"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-AT-019",
+      "text": "Die Härte bei Neuhärtungsbrand ist im Vergleich zum Grundgefüge",
+      "options": {
+        "a": "höher",
+        "b": "niedriger",
+        "c": "gleich",
+        "d": "nicht messbar"
+      },
+      "answer": "a"
+    },
+    {
+      "id": "NE-AT-020",
+      "text": "Welche Prüfverfahren können Schleifbrand ergänzend nachweisen?",
+      "options": {
+        "a": "Magnetpulverprüfung",
+        "b": "Barkhausen-Rauschen",
+        "c": "Wirbelstromprüfung",
+        "d": "Alle genannten"
+      },
+      "answer": "d"
+    }
+  ],
+  "ST": [
+    {
+      "id": "NE-ST-001",
+      "text": "Welche Schleifbrandarten werden unterschieden?",
+      "options": {
+        "a": "Nur Anlassbrand",
+        "b": "Nur Neuhärtungsbrand",
+        "c": "Anlassbrand und Neuhärtungsbrand",
+        "d": "Kaltbrand und Warmbrand"
+      },
+      "answer": "c"
+    },
+    {
+      "id": "NE-ST-002",
+      "text": "Wie erscheint Anlassbrand unter dem Mikroskop?",
+      "options": {
+        "a": "Weiße ungeätzte Zone",
+        "b": "Dunkel geätzte Zone (angelassener Martensit)",
+        "c": "Ferritinseln",
+        "d": "Perlitbänder"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-003",
+      "text": "Wie erscheint Neuhärtungsbrand unter dem Mikroskop?",
+      "options": {
+        "a": "Dunkle Zone",
+        "b": "Weiße Zone (wiederaufgehärteter Martensit)",
+        "c": "Ferritinseln",
+        "d": "Grafitauscheidungen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-004",
+      "text": "Die typische Einwirkzeit für Nital 2% bei der Schleifbrandprüfung beträgt",
+      "options": {
+        "a": "1-5 Sekunden",
+        "b": "10-20 Sekunden",
+        "c": "30-60 Sekunden",
+        "d": "5-10 Minuten"
+      },
+      "answer": "c"
+    },
+    {
+      "id": "NE-ST-005",
+      "text": "Die Ätztiefe bei korrekter Einwirkzeit von Nital 2% beträgt etwa",
+      "options": {
+        "a": "0,1-0,5 µm",
+        "b": "1-2 µm",
+        "c": "10-20 µm",
+        "d": "0,1-0,5 mm"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-006",
+      "text": "Was passiert bei zu langer Ätzdauer?",
+      "options": {
+        "a": "Bessere Sichtbarkeit",
+        "b": "Überätzung mit falschen Ergebnissen",
+        "c": "Kein Unterschied",
+        "d": "Hellere Anzeigen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-007",
+      "text": "Was passiert bei zu kurzer Ätzdauer?",
+      "options": {
+        "a": "Bessere Kontraste",
+        "b": "Schleifbrand wird möglicherweise nicht sichtbar",
+        "c": "Dunklere Anzeigen",
+        "d": "Kein Unterschied"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-008",
+      "text": "Die Bewertung des Schleifbrands erfolgt nach",
+      "options": {
+        "a": "subjektivem Eindruck",
+        "b": "Vergleichsmustern oder Grenzmustern",
+        "c": "Farbintensität",
+        "d": "Rauheitsmessung"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-009",
+      "text": "In welchen Bereichen von Wälzlagern ist Schleifbrand besonders kritisch?",
+      "options": {
+        "a": "In den Lastzonen der Laufbahnen",
+        "b": "An den Stirnseiten",
+        "c": "In den Bohrungen",
+        "d": "An den Fasen"
+      },
+      "answer": "a"
+    },
+    {
+      "id": "NE-ST-010",
+      "text": "Die Dokumentation der Schleifbrandprüfung muss enthalten",
+      "options": {
+        "a": "nur Gut/Schlecht",
+        "b": "Lage, Ausdehnung und Schweregrad der Befunde",
+        "c": "nur Datum und Unterschrift",
+        "d": "nur Bauteilnummer"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-011",
+      "text": "Wie wird verdeckter Schleifbrand geprüft?",
+      "options": {
+        "a": "Durch Röntgen",
+        "b": "Durch Nachschliff und erneute Ätzung",
+        "c": "Durch Ultraschall",
+        "d": "Durch Magnetpulver"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-012",
+      "text": "Welche Temperatur wird beim Schleifen typischerweise in der Randzone erreicht?",
+      "options": {
+        "a": "100-200°C",
+        "b": "200-400°C",
+        "c": "400-800°C",
+        "d": "über 1000°C"
+      },
+      "answer": "d"
+    },
+    {
+      "id": "NE-ST-013",
+      "text": "Die Abkühlgeschwindigkeit nach dem Schleifen beeinflusst",
+      "options": {
+        "a": "nur die Härte",
+        "b": "die Gefügeausbildung (Anlass- oder Neuhärtungsbrand)",
+        "c": "nur die Farbe",
+        "d": "keine Rolle"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-014",
+      "text": "Ein zu hoher Vorschub beim Schleifen führt zu",
+      "options": {
+        "a": "besserer Oberfläche",
+        "b": "höherer Wärmeentwicklung",
+        "c": "längerer Standzeit",
+        "d": "weniger Kühlmittelverbrauch"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-ST-015",
+      "text": "Eine stumpfe Schleifscheibe führt zu",
+      "options": {
+        "a": "besserem Schliffbild",
+        "b": "erhöhter Reibung und Wärme",
+        "c": "geringerem Verschleiß",
+        "d": "kühlerem Schliff"
+      },
+      "answer": "b"
+    }
+  ],
+  "PR": [
+    {
+      "id": "NE-PR-001",
+      "text": "Wie wird Nital fachgerecht angesetzt?",
+      "options": {
+        "a": "Alkohol zur Salpetersäure geben",
+        "b": "Salpetersäure vorsichtig zum Alkohol geben",
+        "c": "Beides gleichzeitig mischen",
+        "d": "Säure in Wasser lösen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-002",
+      "text": "Die Haltbarkeit von angesetztem Nital ist",
+      "options": {
+        "a": "unbegrenzt",
+        "b": "begrenzt, regelmäßig erneuern",
+        "c": "mindestens 2 Jahre",
+        "d": "abhängig von der Lichtexposition"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-003",
+      "text": "Worauf ist bei der Lagerung von Nital zu achten?",
+      "options": {
+        "a": "Kühlschrank",
+        "b": "Dunkle Flasche, kühl und gut verschlossen",
+        "c": "Offen stehen lassen",
+        "d": "Metallbehälter"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-004",
+      "text": "Die Ätzwanne muss aus welchem Material sein?",
+      "options": {
+        "a": "Metall",
+        "b": "Säurebeständigem Kunststoff oder Glas",
+        "c": "Holz",
+        "d": "Pappe"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-005",
+      "text": "Nach der Ätzung muss das Bauteil",
+      "options": {
+        "a": "sofort mit Wasser gespült werden",
+        "b": "trocknen gelassen werden",
+        "c": "erhitzt werden",
+        "d": "in Öl getaucht werden"
+      },
+      "answer": "a"
+    },
+    {
+      "id": "NE-PR-006",
+      "text": "Die Trocknung nach der Ätzung erfolgt mit",
+      "options": {
+        "a": "Druckluft",
+        "b": "Alkohol und warmer Luft",
+        "c": "Öl",
+        "d": "Wasser"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-007",
+      "text": "Die Auswertung der geätzten Oberfläche muss erfolgen",
+      "options": {
+        "a": "nach 24 Stunden",
+        "b": "unmittelbar nach der Trocknung",
+        "c": "nach einer Woche",
+        "d": "erst nach dem Einölen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-008",
+      "text": "Die Beleuchtung für die Auswertung sollte",
+      "options": {
+        "a": "gedimmt sein",
+        "b": "ausreichend hell und gleichmäßig sein",
+        "c": "UV-Licht sein",
+        "d": "rot sein"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-009",
+      "text": "Bei Verdacht auf verdeckten Schleifbrand ist",
+      "options": {
+        "a": "das Bauteil zu verwerfen",
+        "b": "ein Nachschliff mit erneuter Ätzung durchzuführen",
+        "c": "die Prüfung zu wiederholen",
+        "d": "Röntgen durchzuführen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-010",
+      "text": "Die Dokumentation muss enthalten",
+      "options": {
+        "a": "nur den Befund",
+        "b": "Ätzdauer, Konzentration, Temperatur, Befund",
+        "c": "nur Datum",
+        "d": "nur Bauteilnummer"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-011",
+      "text": "Bei Hautkontakt mit Nital ist sofort",
+      "options": {
+        "a": "mit Alkohol zu spülen",
+        "b": "mit viel Wasser zu spülen und Arzt aufzusuchen",
+        "c": "abzuwischen",
+        "d": "mit Öl zu behandeln"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-012",
+      "text": "Die persönliche Schutzausrüstung umfasst",
+      "options": {
+        "a": "nur Handschuhe",
+        "b": "Säureschutzhandschuhe, Schutzbrille, Säureschutzschürze",
+        "c": "nur Brille",
+        "d": "Atemschutzmaske"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-013",
+      "text": "Die Entsorgung der Ätzlösung erfolgt als",
+      "options": {
+        "a": "Normalmüll",
+        "b": "Sondermüll / Gefahrstoff",
+        "c": "Abwasser",
+        "d": "Wiederverwertung"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-014",
+      "text": "Vor dem Ätzen muss das Bauteil",
+      "options": {
+        "a": "erwärmt werden",
+        "b": "entfettet und gereinigt sein",
+        "c": "magnetisiert sein",
+        "d": "gekühlt sein"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-015",
+      "text": "Die Ätzlösung muss während der Prüfung",
+      "options": {
+        "a": "regelmäßig gerührt werden",
+        "b": "die richtige Temperatur haben",
+        "c": "beleuchtet sein",
+        "d": "unter Druck stehen"
+      },
+      "answer": "b"
+    },
+    {
+      "id": "NE-PR-016",
+      "text": "Das Bild zeigt eine typische Schleifbranderscheinung. Um welche Art handelt es sich?",
+      "options": {
+        "a": "Anlassbrand",
+        "b": "Neuhärtungsbrand",
+        "c": "Korrosion",
+        "d": "Verschleiß"
+      },
+      "answer": "a",
+      "image": "images/ne/anlassbrand.png"
+    },
+    {
+      "id": "NE-PR-017",
+      "text": "Das Bild zeigt eine typische Schleifbranderscheinung. Um welche Art handelt es sich?",
+      "options": {
+        "a": "Anlassbrand",
+        "b": "Neuhärtungsbrand",
+        "c": "Korrosion",
+        "d": "Verschleiß"
+      },
+      "answer": "b",
+      "image": "images/ne/neuhaertungsbrand.png"
+    },
+    {
+      "id": "NE-PR-018",
+      "text": "Das Bild zeigt eine Wälzlagerlaufbahn nach der Nitalätzung. Wie ist der Befund zu bewerten?",
+      "options": {
+        "a": "In Ordnung",
+        "b": "Leichter Schleifbrand, grenzwertig",
+        "c": "Starker Schleifbrand, Ausschuss",
+        "d": "Korrosion"
+      },
+      "answer": "c",
+      "image": "images/ne/schleifbrand_laufbahn.png"
+    },
+    {
+      "id": "NE-PR-019",
+      "text": "Welche Stelle im Bild zeigt den kritischen Schleifbrand?",
+      "options": {
+        "a": "Bereich A",
+        "b": "Bereich B",
+        "c": "Bereich C",
+        "d": "Kein Schleifbrand"
+      },
+      "answer": "b",
+      "image": "images/ne/schleifbrand_markierung.png"
+    },
+    {
+      "id": "NE-PR-020",
+      "text": "Das Bild zeigt einen Querschliff mit Schleifbrand. Was ist bei A zu sehen?",
+      "options": {
+        "a": "Grundgefüge",
+        "b": "Anlasszone",
+        "c": "Neuhärtungszone",
+        "d": "Ferrit"
+      },
+      "answer": "c",
+      "image": "images/ne/querschliff_neuhaertung.png"
+    }
+  ]
+}
