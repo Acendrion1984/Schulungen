@@ -1704,7 +1704,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#90caf9;border-col
             </style></head><body>
             <div style="max-width:1200px;margin:0 auto;">
                 <h1>Anwesenheitsliste</h1>
-                <div class="seminocode"><span class="seminocode-label">Seminarcode:</span><span class="seminocode-field">_________________</span></div>
+                <div class="seminocode"><span class="seminocode-label">Seminarcode:</span><span class="seminocode-field"></span></div>
                 <div style="margin:10px 0;">
                     <div style="font-weight:bold;margin-bottom:4px;">Thema:</div>
                     <div class="thema-grid">
@@ -1728,8 +1728,8 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#90caf9;border-col
                     <div class="checkbox-item">☐ nein</div>
                 </div></div>
                 <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Datum:</span><span class="info-field">${t.date_str||'_________________'}</span></div>
-                    <div class="info-item"><span class="info-label">Seminarort:</span><span class="info-field">${t.location||'_________________'}</span></div>
+                    <div class="info-item"><span class="info-label">Datum:</span><span class="info-field">${t.date_str||' '}</span></div>
+                    <div class="info-item"><span class="info-label">Seminarort:</span><span class="info-field">${t.location||' '}</span></div>
                     <div class="info-item"><span class="info-label">Uhrzeit:</span><span class="info-field">${st} - ${et} Uhr</span></div>
                     <div class="info-item"><span class="info-label">Referent /-in:</span><span class="info-field">_________________</span></div>
                 </div>
