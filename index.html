@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-
         *, *::before, *::after { box-sizing: border-box; margin: 0; }
 
         :root {
@@ -1704,7 +1703,7 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#90caf9;border-col
             </style></head><body>
             <div style="max-width:1200px;margin:0 auto;">
                 <h1>Anwesenheitsliste</h1>
-                <div class="seminocode"><span class="seminocode-label">Seminarcode:</span><span class="seminocode-field"></span></div>
+                <div class="seminocode"><span class="seminocode-label">Seminarcode:</span><span class="seminocode-field">_________________</span></div>
                 <div style="margin:10px 0;">
                     <div style="font-weight:bold;margin-bottom:4px;">Thema:</div>
                     <div class="thema-grid">
@@ -1728,10 +1727,10 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#90caf9;border-col
                     <div class="checkbox-item">☐ nein</div>
                 </div></div>
                 <div class="info-grid">
-                    <div class="info-item"><span class="info-label">Datum:</span><span class="info-field">${t.date_str||' '}</span></div>
-                    <div class="info-item"><span class="info-label">Seminarort:</span><span class="info-field">${t.location||' '}</span></div>
+                    <div class="info-item"><span class="info-label">Datum:</span><span class="info-field">${t.date_str||'_________________'}</span></div>
+                    <div class="info-item"><span class="info-label">Seminarort:</span><span class="info-field">${t.location||'_________________'}</span></div>
                     <div class="info-item"><span class="info-label">Uhrzeit:</span><span class="info-field">${st} - ${et} Uhr</span></div>
-                    <div class="info-item"><span class="info-label">Referent /-in:</span><span class="info-field"></span></div>
+                    <div class="info-item"><span class="info-label">Referent /-in:</span><span class="info-field">_________________</span></div>
                 </div>
                 <div class="hinweise">
                     <div class="hinweis-item"><span>➢</span><i>Beachte Schaeffler Prozedur S245012* „Qualifizierung und Verantwortlichkeiten von Personal"</i></div>
@@ -1791,14 +1790,21 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#90caf9;border-col
 
 <script>
 /* ══════════════════════════════════════════════════════════════
-   PRÜFUNGSSYSTEM JS  (GitHub-backed, all functions from index.html)
+   PRÜFUNGSSYSTEM JS  (mit separaten Fragendateien pro Verfahren)
 ══════════════════════════════════════════════════════════════ */
 
 // ===== STATE =====
-let questions = null;
+let questionsDB = {
+    ET: { AT: [], ST: [], PR: [] },
+    UT: { AT: [], ST: [], PR: [] },
+    MT: { AT: [], ST: [], PR: [] },
+    PT: { AT: [], ST: [], PR: [] },
+    NE: { AT: [], ST: [], PR: [] },
+    BN: { AT: [], ST: [], PR: [] }
+};
 let currentMethod = '';
 let selectedNTParticipants = [];
-let ntLockedMode = false;  // true = only schulungs attendees, no adding
+let ntLockedMode = false;
 let currentTrainingId = null;
 let currentExamParticipantIndex = 0;
 let currentExamPart = 'AT';
@@ -1816,9 +1822,8 @@ const RECERT_YEARS = 4;
 const NEW_Q_MIN_RATIO = 0.25;
 
 // ===== STORAGE (GitHub-backed) =====
-// _pSessions, _pHistory, _pParticipants are set by the unified init
 const getParticipants = () => window._pParticipants || [];
-const getTrainings    = () => window._pSessions    || [];   // exam sessions
+const getTrainings    = () => window._pSessions    || [];
 const getHistory      = () => window._pHistory     || {};
 
 const saveParticipants = v => { window._pParticipants = v; };
@@ -1832,35 +1837,53 @@ const saveHistory = v => {
 };
 
 // ===== QUESTION LOADING =====
-async function loadQuestions() {
-  try {
-    const r = await fetch('questions.json');
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    questions = await r.json();
-    document.getElementById('totalQCount').textContent = countQuestions();
-    document.getElementById('lastSync').textContent = new Date().toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'});
-    renderSettings();
-  } catch (e) {
-    showToast('Fragen konnten nicht geladen werden. Bitte einen lokalen Webserver verwenden (z.B. python -m http.server).', 'error', 6000);
-    document.getElementById('totalQCount').textContent = 'Fehler';
-  }
+async function loadQuestionsForMethod(method) {
+    if (!method) return [];
+    try {
+        const response = await fetch(`questions_${method}.json`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const data = await response.json();
+        
+        // Daten im Format { "AT": [...], "ST": [...], "PR": [...] } erwarten
+        questionsDB[method] = {
+            AT: data.AT || [],
+            ST: data.ST || [],
+            PR: data.PR || []
+        };
+        
+        showPruefToast(`Fragen für ${METHOD_NAMES[method]} geladen (${(data.AT?.length||0) + (data.ST?.length||0) + (data.PR?.length||0)} Fragen)`, 'success');
+        return true;
+    } catch (e) {
+        console.error(`Fehler beim Laden von questions_${method}.json:`, e);
+        questionsDB[method] = { AT: [], ST: [], PR: [] };
+        showPruefToast(`❌ Konnte Fragen für ${method} nicht laden`, 'error');
+        return false;
+    }
 }
 
-function countQuestions() {
-  if (!questions) return 0;
-  let c = 0;
-  if (questions.methods) {
-    for (const m of Object.values(questions.methods)) {
-      c += (m.AT?.length || 0) + (m.ST?.length || 0) + (m.PR?.length || 0);
+async function loadAllQuestions() {
+    const methods = ['ET', 'UT', 'MT', 'PT', 'NE', 'BN'];
+    let loaded = 0;
+    for (const method of methods) {
+        if (await loadQuestionsForMethod(method)) loaded++;
     }
-  }
-  return c;
+    document.getElementById('totalQCount').textContent = countAllQuestions();
+    document.getElementById('lastSync').textContent = new Date().toLocaleTimeString('de-DE', {hour:'2-digit',minute:'2-digit'});
+    renderSettings();
+    showPruefToast(`${loaded} von 6 Fragendatenbanken geladen`, 'success');
+}
+
+function countAllQuestions() {
+    let total = 0;
+    for (const m in questionsDB) {
+        total += (questionsDB[m].AT?.length || 0) + (questionsDB[m].ST?.length || 0) + (questionsDB[m].PR?.length || 0);
+    }
+    return total;
 }
 
 function getQuestionsForMethod(method, part) {
-  if (!questions || !method) return [];
-  // Holen aus dem methoden-spezifischen Objekt – auch für AT
-  return questions.methods?.[method]?.[part] || [];
+    if (!method || !questionsDB[method]) return [];
+    return questionsDB[method][part] || [];
 }
 
 // ===== NAVIGATION =====
@@ -1888,7 +1911,14 @@ function navPruef(view, title) {
 function setGlobalMethod(m) {
   currentMethod = m;
   const badge = document.getElementById('headerMethod');
-  if (m) { badge.textContent = m + ' · ' + (METHOD_NAMES[m] || ''); badge.style.display = ''; }
+  if (m) { 
+      badge.textContent = m + ' · ' + (METHOD_NAMES[m] || ''); 
+      badge.style.display = ''; 
+      // Automatisch Fragen für diese Methode laden falls noch nicht vorhanden
+      if (questionsDB[m] && questionsDB[m].AT.length === 0 && questionsDB[m].ST.length === 0 && questionsDB[m].PR.length === 0) {
+          loadQuestionsForMethod(m);
+      }
+  }
   else badge.style.display = 'none';
 }
 
@@ -1897,9 +1927,7 @@ function renderDashboard() {
   const trainings = getTrainings();
   const participants = getParticipants();
   const now = new Date();
-  const fourYearsAgo = new Date(now); fourYearsAgo.setFullYear(fourYearsAgo.getFullYear() - RECERT_YEARS);
 
-  // Stats
   const completed = trainings.filter(t => t.status === 'completed');
   const passCount = completed.reduce((a, t) => a + (t.participants?.filter(p => p.overallPassed).length || 0), 0);
   const totalExaminees = completed.reduce((a, t) => a + (t.participants?.length || 0), 0);
@@ -1912,7 +1940,6 @@ function renderDashboard() {
     <div class="stat-card"><div class="val" style="color:${passRate>=80?'var(--accent)':'var(--cancelled-text)'}">${passRate}%</div><div class="lbl">Bestehensquote</div></div>
   `;
 
-  // Recent trainings
   const recent = [...trainings].sort((a,b) => new Date(b.date)-new Date(a.date)).slice(0,5);
   document.getElementById('dashTrainings').innerHTML = recent.length ? `
     <div class="table-wrap"><table>
@@ -1928,9 +1955,8 @@ function renderDashboard() {
         </tr>`).join('')}
       </tbody>
     </table></div>
-  ` : '<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Schulungen angelegt</p><button class="btn btn-primary" onclick="nav(\'newTraining\')">Erste Schulung anlegen</button></div>';
+  ` : '<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Schulungen angelegt</p><button class="btn btn-primary" onclick="navPruef(\'newTraining\')">Erste Schulung anlegen</button></div>';
 
-  // Method pass rates
   const methodStats = {};
   completed.forEach(t => {
     if (!methodStats[t.method]) methodStats[t.method] = {pass:0,total:0};
@@ -1947,7 +1973,6 @@ function renderDashboard() {
     </div>`;
   }).join('') || '<div class="text-sm text-muted">Noch keine Daten</div>';
 
-  // Recertification due
   const history = getHistory();
   const recertDue = [];
   participants.forEach(p => {
@@ -1983,10 +2008,8 @@ function renderParticipants(search = '') {
   const now = new Date();
   document.getElementById('participantsTable').innerHTML = ps.length ? ps.map(p => {
 
-    // Collect all methods this participant has exam history for
     const methodKeys = Object.keys(history).filter(k => k.startsWith(p.id + ':::'));
 
-    // Build per-method summary: last exam date + pass status + recert due
     const methodRows = methodKeys.map(key => {
       const method = key.split(':::')[1];
       const entries = (history[key] || []).slice().sort((a,b) => new Date(b.date)-new Date(a.date));
@@ -1999,7 +2022,6 @@ function renderParticipants(search = '') {
       return { method, last, recertDate, days, color };
     }).filter(Boolean).sort((a,b) => a.method.localeCompare(b.method));
 
-    // Methods cell: one badge per method with last date + pass/fail
     const methodsCell = methodRows.length ? methodRows.map(r =>
       `<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.25rem;flex-wrap:wrap">
         <span class="badge badge-blue">${r.method}</span>
@@ -2008,7 +2030,6 @@ function renderParticipants(search = '') {
       </div>`
     ).join('') : '<span style="color:var(--text3);font-size:.83rem">– noch keine Prüfung –</span>';
 
-    // Recert cell: next due date across all methods (soonest)
     const soonest = methodRows.filter(r => r.recertDate && r.days !== null).sort((a,b) => a.days - b.days)[0];
     const recertCell = soonest
       ? `<span class="badge ${soonest.color}" title="${soonest.method}">${soonest.method}: ${fmtDate(soonest.recertDate.toISOString().split('T')[0])} (${soonest.days}d)</span>`
@@ -2029,18 +2050,6 @@ function renderParticipants(search = '') {
       </div></td>
     </tr>`;
   }).join('') : '<tr><td colspan="6" class="text-muted" style="text-align:center;padding:32px">Keine Teilnehmer gefunden</td></tr>';
-}
-
-function getLastExamInfo(participantId, history) {
-  let last = null;
-  Object.keys(history).forEach(key => {
-    if (!key.startsWith(participantId + ':::')) return;
-    const method = key.split(':::')[1];
-    (history[key] || []).forEach(h => {
-      if (!last || new Date(h.date) > new Date(last.date)) last = { ...h, method };
-    });
-  });
-  return last;
 }
 
 function openAddParticipant() { openModal('modal-addParticipant'); }
@@ -2077,15 +2086,12 @@ function viewParticipantHistory(id) {
 
 // ===== NEW TRAINING =====
 function initNewTraining() {
-  // If ntLockedMode is true, we were called from openExamFromTraining –
-  // do NOT reset participants or mode, just render the pre-filled state.
   if (ntLockedMode) {
     renderNTSelected();
     return;
   }
   selectedNTParticipants = [];
   document.getElementById('nt-date').value = new Date().toISOString().split('T')[0];
-  // Free-mode UI
   const lockedInfo = document.getElementById('nt-locked-info');
   const searchArea = document.getElementById('nt-search-area');
   const newPCard   = document.getElementById('nt-new-participant-card');
@@ -2099,11 +2105,16 @@ function initNewTraining() {
 
 function updateNTMethod() {
   const m = document.getElementById('nt-method').value;
-  if (m) setGlobalMethod(m);
+  if (m) {
+      setGlobalMethod(m);
+      // Fragen für diese Methode laden falls nötig
+      if (questionsDB[m] && questionsDB[m].AT.length === 0 && questionsDB[m].ST.length === 0 && questionsDB[m].PR.length === 0) {
+          loadQuestionsForMethod(m);
+      }
+  }
 }
 
 function renderNTSearch(search) {
-  // Live-Sync: Schulungsanmeldungen → Prüfungssystem Teilnehmer
   if (typeof syncParticipantsFromAttendees === 'function') syncParticipantsFromAttendees();
   const ps = getParticipants().filter(p =>
     (!search || p.name.toLowerCase().includes(search.toLowerCase()) || p.employeeId?.includes(search)) &&
@@ -2184,13 +2195,11 @@ function resetNewTraining() {
 }
 
 // ===== QUESTION SELECTION (25% NEW GUARANTEE) =====
-// "Neu" = Frage wurde in der LETZTEN Prüfung NICHT gestellt (nicht 4-Jahres-Fenster)
 function selectQuestionsForParticipant(participantId, method, config) {
   const history = getHistory();
   const hkey = `${participantId}:::${method}`;
   const hlist = history[hkey] || [];
 
-  // Nur die LETZTE Prüfung zählt für die 25%-Neu-Garantie
   const lastExam = hlist.length > 0
     ? hlist.slice().sort((a, b) => new Date(b.date) - new Date(a.date))[0]
     : null;
@@ -2214,14 +2223,11 @@ function selectQuestionsForParticipant(participantId, method, config) {
     let selected = [];
 
     if (newQs.length >= minNew) {
-      // Take at least minNew from new
       selected = [...newQs.slice(0, minNew)];
-      // Fill rest from remaining pool (prefer more new if available)
       const remaining = needed - selected.length;
       const fillPool = shuffle([...newQs.slice(minNew), ...oldQs]);
       selected = shuffle([...selected, ...fillPool.slice(0, remaining)]);
     } else {
-      // Not enough new questions — take all new, fill with old
       selected = shuffle([...newQs, ...oldQs].slice(0, needed));
     }
 
@@ -2234,7 +2240,6 @@ function selectQuestionsForParticipant(participantId, method, config) {
 
 // ===== GENERATE TRAINING =====
 async function generateTraining() {
-  if (!questions) { showToast('Fragen noch nicht geladen!', 'error'); return; }
   const method = document.getElementById('nt-method').value;
   const date = document.getElementById('nt-date').value;
   const location = document.getElementById('nt-location').value.trim();
@@ -2245,14 +2250,23 @@ async function generateTraining() {
   if (!date) { showToast('Bitte Datum angeben', 'error'); return; }
   if (selectedNTParticipants.length === 0) { showToast('Bitte mindestens einen Teilnehmer hinzufügen', 'error'); return; }
 
+  // Prüfen ob Fragen für diese Methode geladen sind
+  if (!questionsDB[method] || (questionsDB[method].AT.length === 0 && questionsDB[method].ST.length === 0 && questionsDB[method].PR.length === 0)) {
+      const loaded = await loadQuestionsForMethod(method);
+      if (!loaded) {
+          showToast(`Keine Fragen für Methode ${method} verfügbar`, 'error');
+          return;
+      }
+  }
+
   const countAT = parseInt(document.getElementById('nt-count-at').value) || 20;
   const countST = parseInt(document.getElementById('nt-count-st').value) || 15;
   const countPR = parseInt(document.getElementById('nt-count-pr').value) || 8;
 
-  // Validate pool sizes
   const atPool = getQuestionsForMethod(method, 'AT');
   const stPool = getQuestionsForMethod(method, 'ST');
   const prPool = getQuestionsForMethod(method, 'PR');
+  
   if (atPool.length < countAT) { showToast(`Nicht genug AT-Fragen: ${atPool.length} verfügbar, ${countAT} benötigt`, 'error'); return; }
   if (stPool.length < countST) { showToast(`Nicht genug ST-Fragen: ${stPool.length} verfügbar, ${countST} benötigt`, 'error'); return; }
   if (prPool.length < countPR) { showToast(`Nicht genug PR-Fragen: ${prPool.length} verfügbar, ${countPR} benötigt`, 'error'); return; }
@@ -2390,7 +2404,7 @@ function showExamSheet(trainingId, pIdx) {
   const training = getTrainings().find(t => t.id === trainingId);
   if (!training) return;
   const p = training.participants[pIdx];
-  const allQ = getAllQuestionsMap();
+  const allQ = getAllQuestionsMap(training.method);
 
   let html = `
     <div class="print-only" style="margin-bottom:20px">
@@ -2443,7 +2457,7 @@ function openResultsModal(trainingId, pIdx) {
   pendingResultsData = { trainingId, pIdx };
   const training = getTrainings().find(t => t.id === trainingId);
   const p = training.participants[pIdx];
-  const allQ = getAllQuestionsMap();
+  const allQ = getAllQuestionsMap(training.method);
   document.getElementById('results-modal-sub').textContent = `Teilnehmer: ${p.name} · ${training.method}`;
 
   let html = '';
@@ -2482,7 +2496,7 @@ async function saveResults() {
   const trainings = getTrainings();
   const training = trainings.find(t => t.id === trainingId);
   const p = training.participants[pIdx];
-  const allQ = getAllQuestionsMap();
+  const allQ = getAllQuestionsMap(training.method);
 
   const inputs = document.querySelectorAll('#results-modal-content .answer-input');
   const answers = {};
@@ -2507,11 +2521,9 @@ async function saveResults() {
   p.overallPassed = Object.values(scores).every(s => s.passed);
   p.completedAt = now_iso();
 
-  // Update training status
   if (training.participants.every(x => x.completedAt)) training.status = 'completed';
   window._pSessions = trainings;
 
-  // Update history
   const history = getHistory();
   const hkey = `${p.participantId}:::${training.method}`;
   if (!history[hkey]) history[hkey] = [];
@@ -2522,7 +2534,6 @@ async function saveResults() {
   try {
     await window.ghSaveFile(window.EXAM_SESS_FILE, window._pSessions, `Ergebnis: ${p.name}`);
     await window.ghSaveFile(window.EXAM_HIST_FILE, window._pHistory,  `Ergebnis: ${p.name}`);
-    // Also update schulungs attendee pruefungBestanden flag
     window._updateAttendeeResult && window._updateAttendeeResult(p.participantId, p.overallPassed);
   } catch(e) { showPruefToast('❌ GH-Speichern: '+e.message,'error'); }
   finally { showSaving(false); }
@@ -2573,7 +2584,7 @@ function startExamForParticipant(trainingId, pIdx) {
 function renderExamInterface(trainingId, pIdx, part) {
   const training = getTrainings().find(t => t.id === trainingId);
   const p = training.participants[pIdx];
-  const allQ = getAllQuestionsMap();
+  const allQ = getAllQuestionsMap(training.method);
   const qIds = p.questions[part] || [];
   const parts = Object.keys(PART_NAMES);
 
@@ -2659,9 +2670,8 @@ async function submitDigitalExam(trainingId, pIdx) {
   if (!allAnswered) {
     if (!confirm('Nicht alle Fragen beantwortet. Trotzdem abgeben?')) return;
   }
-  // Auto-save results
   pendingResultsData = { trainingId, pIdx };
-  const allQ = getAllQuestionsMap();
+  const allQ = getAllQuestionsMap(training.method);
   const trainings = getTrainings();
   const t2 = trainings.find(x => x.id === trainingId);
   const p2 = t2.participants[pIdx];
@@ -2701,7 +2711,6 @@ async function submitDigitalExam(trainingId, pIdx) {
   } catch(e) { showPruefToast('❌ GH-Speichern: '+e.message,'error'); }
   finally { showSaving(false); }
 
-  // Show result
   showExamResult(trainingId, pIdx, scores, p2.overallPassed);
 }
 
@@ -2783,7 +2792,6 @@ function renderHistory() {
   const methodFilter = document.getElementById('history-method')?.value || '';
   const history = getHistory();
   const participants = getParticipants();
-  const now = new Date();
 
   let rows = [];
   Object.entries(history).forEach(([key, hlist]) => {
@@ -2792,7 +2800,6 @@ function renderHistory() {
     const p = participants.find(x => x.id === pid);
     const name = p?.name || pid;
     if (nameSearch && !name.toLowerCase().includes(nameSearch)) return;
-    // Alle Einträge anzeigen – kein Zeitlimit
     hlist.forEach(h => {
       rows.push({ name, employeeId: p?.employeeId, method, ...h });
     });
@@ -2827,23 +2834,21 @@ function renderHistory() {
 
 // ===== SETTINGS =====
 function renderSettings() {
-  if (!questions) return;
   let info = '';
-  if (questions.methods) {
-    Object.entries(questions.methods).forEach(([m, mq]) => {
-      const at = mq.AT?.length || 0;
-      const st = mq.ST?.length || 0;
-      const pr = mq.PR?.length || 0;
-      info += `<div class="mb4"><span class="badge badge-blue mb4">${m}</span> AT: <strong>${at}</strong> · ST: <strong>${st}</strong> · PR: <strong>${pr}</strong></div>`;
-    });
+  for (const [method, qs] of Object.entries(questionsDB)) {
+      const at = qs.AT?.length || 0;
+      const st = qs.ST?.length || 0;
+      const pr = qs.PR?.length || 0;
+      const status = (at+st+pr > 0) ? '✅' : '❌';
+      info += `<div class="mb4"><span class="badge badge-blue mb4">${method}</span> ${status} AT: <strong>${at}</strong> · ST: <strong>${st}</strong> · PR: <strong>${pr}</strong></div>`;
   }
-  document.getElementById('question-db-info').innerHTML = info;
+  document.getElementById('question-db-info').innerHTML = info || '<p>Keine Fragen geladen</p>';
 }
 
 // ===== PRINT EXAM =====
 function printExam(trainingId) {
   const training = getTrainings().find(t => t.id === trainingId);
-  const allQ = getAllQuestionsMap();
+  const allQ = getAllQuestionsMap(training.method);
 
   let printContent = training.participants.map((p, idx) => {
     let html = `<div class="${idx>0?'page-break':''}">
@@ -2939,19 +2944,16 @@ function clearAllData() {
   renderDashboard();
 }
 
-function reloadQuestions() { loadQuestions(); showToast('Fragen werden neu geladen...', 'success'); }
+function reloadQuestions() { loadAllQuestions(); showToast('Fragen werden neu geladen...', 'success'); }
 
 // ===== HELPERS =====
-function getAllQuestionsMap() {
+function getAllQuestionsMap(method) {
   const map = {};
-  if (!questions) return map;
-  if (questions.methods) {
-    Object.values(questions.methods).forEach(m => {
-      (m.AT||[]).forEach(q => map[q.id] = q);
-      (m.ST||[]).forEach(q => map[q.id] = q);
-      (m.PR||[]).forEach(q => map[q.id] = q);
-    });
-  }
+  if (!method || !questionsDB[method]) return map;
+  const qs = questionsDB[method];
+  (qs.AT || []).forEach(q => map[q.id] = q);
+  (qs.ST || []).forEach(q => map[q.id] = q);
+  (qs.PR || []).forEach(q => map[q.id] = q);
   return map;
 }
 
@@ -2977,16 +2979,17 @@ function closeModal(id) { document.getElementById(id)?.classList.remove('open');
 
 function showPruefToast(msg, type='success') {
   const container = document.getElementById('pruef-toast');
-  if (!container) { showToast(msg, type==='success'?'success':'error'); return; }
+  if (!container) { 
+      if (typeof window.showToast === 'function') window.showToast(msg, type); 
+      return; 
+  }
   const el = document.createElement('div');
   el.className = 'pruef-toast-item ' + type;
   el.textContent = msg;
   container.appendChild(el);
   setTimeout(() => el.remove(), 3500);
 }
-// Alias so pruef code calling showToast still works
-const _pruefShowToastOrig = typeof showToast !== 'undefined' ? showToast : null;
-function showToast(msg, type='success', dur=3500) { showPruefToast(msg, type); }
+const showToast = showPruefToast;
 
 function importParticipantsCSV() {
   const input = document.createElement('input');
@@ -3014,9 +3017,9 @@ function importParticipantsCSV() {
   input.click();
 }
 
-// ===== INIT (called by unified init) =====
+// ===== INIT =====
 function initPruefSystem() {
-  loadQuestions();
+  loadAllQuestions();
   renderDashboard();
 }
 
@@ -3035,39 +3038,37 @@ function initPruefSystem() {
     <div class="version">v2.0 · DGZfP konform</div>
   </div>
 
-  <!-- Dropdown entfernt – wie gewünscht -->
-
   <div class="sidebar-section">Navigation</div>
-  <div class="nav-item active" onclick="nav('dashboard')" data-view="dashboard">
+  <div class="nav-item active" onclick="navPruef('dashboard')" data-view="dashboard">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
     Dashboard
   </div>
-  <div class="nav-item" onclick="nav('participants')" data-view="participants">
+  <div class="nav-item" onclick="navPruef('participants')" data-view="participants">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
     Teilnehmer
   </div>
-  <div class="nav-item" onclick="nav('newTraining')" data-view="newTraining">
+  <div class="nav-item" onclick="navPruef('newTraining')" data-view="newTraining">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
     Neue Schulung
   </div>
-  <div class="nav-item" onclick="nav('trainings')" data-view="trainings">
+  <div class="nav-item" onclick="navPruef('trainings')" data-view="trainings">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
     Schulungen
   </div>
-  <div class="nav-item" onclick="nav('history')" data-view="history">
+  <div class="nav-item" onclick="navPruef('history')" data-view="history">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
     Verlauf & Archiv
   </div>
 
   <div class="sidebar-section">System</div>
-  <div class="nav-item" onclick="nav('settings')" data-view="settings">
+  <div class="nav-item" onclick="navPruef('settings')" data-view="settings">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 12 2a10 10 0 0 0-7.07 2.93"/><path d="M2.93 19.07A10 10 0 0 0 12 22a10 10 0 0 0 7.07-2.93"/><path d="M2.93 4.93l18.14 14.14"/></svg>
     Einstellungen
   </div>
 
   <div style="margin-top:auto;padding:12px 8px;border-top:1px solid var(--border)">
     <div style="font-size:10px;font-family:var(--mono);color:var(--text3);padding:0 8px;line-height:1.6">
-      Fragen ges.: <span id="totalQCount" class="text-accent">—</span><br>
+      Fragen ges.: <span id="totalQCount" class="text-accent">0</span><br>
       Letzte Sync: <span id="lastSync">—</span>
     </div>
   </div>
@@ -3224,12 +3225,10 @@ function initPruefSystem() {
         <div>
           <div class="card">
             <div class="card-title">Teilnehmerliste</div>
-            <!-- Locked mode: from Schulungskalender -->
             <div id="nt-locked-info" style="display:none;background:var(--accent-dim);border:1px solid var(--accent);border-radius:var(--radius-lg);padding:.7rem 1rem;font-size:.85rem;color:var(--text2);margin-bottom:.8rem;display:none">
               <i class="fas fa-lock" style="color:var(--accent)"></i>
               <span id="nt-locked-label">Teilnehmer aus Schulungsanmeldung – nicht änderbar</span>
             </div>
-            <!-- Free mode: standalone -->
             <div id="nt-search-area">
               <div class="flex gap8 mb16">
                 <input class="form-input" style="flex:1" placeholder="Name oder Personal-Nr. suchen" id="nt-search" oninput="renderNTSearch(this.value)">
@@ -3309,7 +3308,7 @@ function initPruefSystem() {
       <div class="page-title">Einstellungen</div>
       <div class="page-sub">Systemkonfiguration</div>
       <div class="card" style="max-width:560px">
-        <div class="card-title">Fragen-Datenbank</div>
+        <div class="card-title">Fragen-Datenbanken</div>
         <div id="question-db-info" class="mb16"></div>
         <button class="btn btn-secondary" onclick="reloadQuestions()">Fragen neu laden</button>
       </div>
@@ -3348,7 +3347,6 @@ function initPruefSystem() {
     </div>
 
   </div>
-</div>
 </div>`;
 
   function injectPruef() {
