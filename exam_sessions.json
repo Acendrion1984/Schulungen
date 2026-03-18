@@ -1,0 +1,72 @@
+[
+  {
+    "id": "mmvdvlyng6vn0r696u",
+    "method": "BN",
+    "date": "2026-03-18",
+    "location": "Test",
+    "trainer": "Daniel",
+    "name": "BN · 18.03.2026",
+    "config": {
+      "AT": 15,
+      "ST": 10,
+      "PR": 5
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-18T01:49:42.768Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "BN-AT-002",
+            "BN-AT-001",
+            "BN-AT-007",
+            "BN-AT-003",
+            "BN-AT-009",
+            "BN-AT-005",
+            "BN-AT-015",
+            "BN-AT-006",
+            "BN-AT-014",
+            "BN-AT-011",
+            "BN-AT-010",
+            "BN-AT-012",
+            "BN-AT-013",
+            "BN-AT-008",
+            "BN-AT-004"
+          ],
+          "ST": [
+            "BN-ST-001",
+            "BN-ST-009",
+            "BN-ST-006",
+            "BN-ST-003",
+            "BN-ST-010",
+            "BN-ST-007",
+            "BN-ST-005",
+            "BN-ST-011",
+            "BN-ST-012",
+            "BN-ST-004"
+          ],
+          "PR": [
+            "BN-PR-008",
+            "BN-PR-010",
+            "BN-PR-004",
+            "BN-PR-003",
+            "BN-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 15,
+          "ST": 10,
+          "PR": 5
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
+  }
+]
