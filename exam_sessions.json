@@ -11,7 +11,7 @@
       "ST": 10,
       "PR": 5
     },
-    "status": "prepared",
+    "status": "completed",
     "createdAt": "2026-03-18T01:49:42.768Z",
     "participants": [
       {
@@ -60,6 +60,130 @@
         "newCounts": {
           "AT": 15,
           "ST": 10,
+          "PR": 5
+        },
+        "answers": {
+          "AT": {
+            "BN-AT-002": "a",
+            "BN-AT-001": "a",
+            "BN-AT-007": "a",
+            "BN-AT-003": "a",
+            "BN-AT-009": "a",
+            "BN-AT-005": "a",
+            "BN-AT-015": "a",
+            "BN-AT-006": "a",
+            "BN-AT-014": "a",
+            "BN-AT-011": "a",
+            "BN-AT-010": "a",
+            "BN-AT-012": "a",
+            "BN-AT-013": "a",
+            "BN-AT-008": "a",
+            "BN-AT-004": "a"
+          },
+          "ST": {
+            "BN-ST-001": "a",
+            "BN-ST-009": "b",
+            "BN-ST-006": "c",
+            "BN-ST-003": "a",
+            "BN-ST-010": "a",
+            "BN-ST-007": "a",
+            "BN-ST-005": "a",
+            "BN-ST-011": "a",
+            "BN-ST-012": "a",
+            "BN-ST-004": "a"
+          },
+          "PR": {
+            "BN-PR-008": "a",
+            "BN-PR-010": "a",
+            "BN-PR-004": "a",
+            "BN-PR-003": "a",
+            "BN-PR-001": "a"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 15,
+            "total": 15,
+            "percent": 100,
+            "passed": true
+          },
+          "ST": {
+            "correct": 8,
+            "total": 10,
+            "percent": 80,
+            "passed": true
+          },
+          "PR": {
+            "correct": 5,
+            "total": 5,
+            "percent": 100,
+            "passed": true
+          }
+        },
+        "overallPassed": true,
+        "completedAt": "2026-03-18T01:50:42.173Z"
+      }
+    ]
+  },
+  {
+    "id": "mmvdy0edn7itvx2ifq",
+    "method": "BN",
+    "date": "2026-03-18",
+    "location": "Bau 50, Raum Silber",
+    "trainer": "Daniel",
+    "name": "BN · 18.03.2026",
+    "config": {
+      "AT": 10,
+      "ST": 10,
+      "PR": 8
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-18T01:51:34.790Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "BN-AT-008",
+            "BN-AT-002",
+            "BN-AT-010",
+            "BN-AT-001",
+            "BN-AT-015",
+            "BN-AT-005",
+            "BN-AT-006",
+            "BN-AT-003",
+            "BN-AT-004",
+            "BN-AT-011"
+          ],
+          "ST": [
+            "BN-ST-004",
+            "BN-ST-012",
+            "BN-ST-003",
+            "BN-ST-011",
+            "BN-ST-008",
+            "BN-ST-005",
+            "BN-ST-001",
+            "BN-ST-009",
+            "BN-ST-010",
+            "BN-ST-002"
+          ],
+          "PR": [
+            "BN-PR-002",
+            "BN-PR-005",
+            "BN-PR-009",
+            "BN-PR-001",
+            "BN-PR-008",
+            "BN-PR-006",
+            "BN-PR-007",
+            "BN-PR-010"
+          ]
+        },
+        "newCounts": {
+          "AT": 0,
+          "ST": 2,
           "PR": 5
         },
         "answers": {},
