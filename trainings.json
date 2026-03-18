@@ -420,5 +420,15 @@
     "days": 1,
     "start_time": "08:00",
     "attendees": []
+  },
+  {
+    "id": "tr_mmwgriftul72",
+    "type": "Nital-Ätzen",
+    "location": "Schweinfurt, Bau 50 - Raum Silber",
+    "start_date": "2026-04-08",
+    "days": 1,
+    "start_time": "08:00",
+    "date_str": "08.04.2026",
+    "attendees": []
   }
 ]
