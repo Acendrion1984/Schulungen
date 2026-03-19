@@ -2850,12 +2850,17 @@ function printExam(trainingId) {
   const training = getTrainings().find(t => t.id === trainingId);
   const allQ = getAllQuestionsMap(training.method);
 
+  // Hilfsfunktion: X in richtiger Spalte setzen
+  const markX = (correctAnswer, col) => (String(correctAnswer).toLowerCase() === col ? 'X' : '');
+
+  // 1) Fragebogen (wie bisher)
   let printContent = training.participants.map((p, idx) => {
     let html = `<div class="${idx>0?'page-break':''}">
-      <h2 style="margin-bottom:8px">ZfP Prüfungsbogen – ${training.method} · ${METHOD_NAMES[training.method]}</h2>
-      <p style="margin-bottom:4px"><strong>Teilnehmer:</strong> ${p.name} (${p.employeeId||'—'}) | <strong>Datum:</strong> ${fmtDate(training.date)} | <strong>Ort:</strong> ${training.location||'—'}</p>
-      <p style="margin-bottom:16px"><em>Bestehensgrenze: 80% je Teil · Bitte nur EINE Antwort je Frage ankreuzen</em></p>
+      <h2 style="margin-bottom:8px">ZfP PrÃ¼fungsbogen â€“ ${training.method} Â· ${METHOD_NAMES[training.method]}</h2>
+      <p style="margin-bottom:4px"><strong>Teilnehmer:</strong> ${p.name} (${p.employeeId||'â€”'}) | <strong>Datum:</strong> ${fmtDate(training.date)} | <strong>Ort:</strong> ${training.location||'â€”'}</p>
+      <p style="margin-bottom:16px"><em>Bestehensgrenze: 80% je Teil Â· Bitte nur EINE Antwort je Frage ankreuzen</em></p>
     `;
+
     for (const [partKey, partLabel] of Object.entries(PART_NAMES)) {
       const qIds = p.questions[partKey] || [];
       html += `<h3 style="margin:16px 0 8px">${partLabel} (${qIds.length} Fragen)</h3>`;
@@ -2864,19 +2869,86 @@ function printExam(trainingId) {
         if (!q) return;
         html += `<div style="margin-bottom:12px;padding:10px;border:1pt solid #ddd;border-radius:4px">
           <p style="font-weight:600;margin-bottom:6px">${qi+1}. ${q.text}</p>
-          ${Object.entries(q.options).map(([k,v]) => `<p style="margin:2px 0;padding-left:16px">☐ ${k}) ${v}</p>`).join('')}
+          ${Object.entries(q.options).map(([k,v]) => `<p style="margin:2px 0;padding-left:16px">â˜ ${k}) ${v}</p>`).join('')}
         </div>`;
       });
     }
+
     html += '</div>';
     return html;
   }).join('');
 
+  // 2) ZusÃ¤tzlich: LÃ¶sungsbogen (5 Spalten: ID, A, B, C, D)
+  const solutionSheets = training.participants.map((p, idx) => {
+    const rows = [];
+
+    for (const partKey of Object.keys(PART_NAMES)) {
+      const qIds = p.questions[partKey] || [];
+      qIds.forEach((qId) => {
+        const q = allQ[qId];
+        if (!q) return;
+        const corr = (q.answer || '').toLowerCase();
+
+        rows.push(`
+          <tr>
+            <td>${q.id}</td>
+            <td class="${markX(corr,'a') ? 'x':''}">${markX(corr,'a')}</td>
+            <td class="${markX(corr,'b') ? 'x':''}">${markX(corr,'b')}</td>
+            <td class="${markX(corr,'c') ? 'x':''}">${markX(corr,'c')}</td>
+            <td class="${markX(corr,'d') ? 'x':''}">${markX(corr,'d')}</td>
+          </tr>
+        `);
+      });
+    }
+
+    return `
+      <div class="print-solution-sheet ${idx>0 ? 'page-break' : ''}">
+        <h3>LÃ¶sungsbogen (Auswertung) â€“ ${training.method} Â· ${METHOD_NAMES[training.method]}</h3>
+        <p style="margin:0 0 6mm">
+          <strong>Teilnehmer:</strong> ${p.name} (${p.employeeId||'â€”'}) Â·
+          <strong>Datum:</strong> ${fmtDate(training.date)} Â·
+          <strong>Ort:</strong> ${training.location||'â€”'}
+        </p>
+
+        <table class="solution-table">
+          <thead>
+            <tr>
+              <th>Frage-ID</th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${rows.join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  }).join('');
+
+  // 3) Druckfenster: Fragebogen + LÃ¶sungsbogen
   const win = window.open('','_blank');
-  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Prüfungsbogen · ${training.name}</title>
-    <style>body{font-family:Arial,sans-serif;font-size:11pt;margin:20mm}.page-break{break-before:page}h2{font-size:14pt}h3{font-size:12pt}</style>
-  </head><body>${printContent}</body></html>`);
+  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>PrÃ¼fungsbogen Â· ${training.name}</title>
+    <style>
+      body{font-family:Arial,sans-serif;font-size:11pt;margin:20mm}
+      .page-break{break-before:page}
+      h2{font-size:14pt}
+      h3{font-size:12pt}
+
+      .print-solution-sheet{margin:10mm 0 0; break-before:page}
+      .solution-table{width:100%;border-collapse:collapse;font-size:9.5pt}
+      .solution-table th,.solution-table td{border:1pt solid #000;padding:4px 6px;text-align:center}
+      .solution-table th:first-child,.solution-table td:first-child{text-align:left;white-space:nowrap;font-family:monospace}
+      .solution-table td.x{font-weight:700;font-size:11pt}
+    </style>
+  </head><body>
+    ${printContent}
+    ${solutionSheets}
+  </body></html>`);
   win.document.close();
+  win.focus();
   win.print();
 }
 
