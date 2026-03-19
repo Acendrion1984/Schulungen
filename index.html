@@ -1163,7 +1163,11 @@ document.getElementById('section-' + tab).classList.add('active');
 if (tab === 'pruefungen') {
 // Sync attendees → Prüfungssystem participants automatically
 syncParticipantsFromAttendees();
-if (typeof renderDashboard === 'function') setTimeout(renderDashboard, 50);
+// ALLE FRAGEN AUTOMATISCH LADEN
+if (typeof loadAllQuestions === 'function') {
+loadAllQuestions();
+}
+if (typeof renderDashboard === 'function') setTimeout(renderDashboard, 500);
 }
 };
 
