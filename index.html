@@ -554,6 +554,19 @@ body.dark #pruef-content .badge-blue{background:#1a2a3a;color:#90caf9;border-col
 #pruef-content .q-option.wrong{background:var(--cancelled-bg);border-color:var(--cancelled-border)}
 #pruef-content .q-option-label{font-family:var(--font-mono);font-size:10px;color:var(--text3);flex-shrink:0;width:15px}
 #pruef-content .q-option-text{font-size:.86rem;color:var(--text)}
+/* NEU: CSS für Fragebilder */
+.question-image {
+    margin: 12px 0;
+    text-align: center;
+}
+.question-image img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    background: var(--surface2);
+}
 #pruef-content input[type=radio]{display:none}
 #pruef-content .alert{padding:10px 13px;border-radius:var(--radius-md);font-size:.85rem;margin-bottom:12px;display:flex;align-items:flex-start;gap:7px;border:2px solid transparent}
 #pruef-content .alert-info{background:var(--accent-dim);border-color:var(--accent);color:var(--text2)}
@@ -1980,6 +1993,23 @@ init();
 PRÜFUNGSSYSTEM JS (mit separaten Fragendateien pro Verfahren)
 ══════════════════════════════════════════════════════════════ */
 
+// ===== BILD-FUNKTION MIT DEBUG =====
+function getImageUrl(filename) {
+    if (!filename) {
+        console.warn('Kein Bilddateiname angegeben');
+        return '';
+    }
+    if (!window.ghConfig || !window.ghConfig.owner || !window.ghConfig.repo || !window.ghConfig.branch) {
+        console.warn('GitHub nicht konfiguriert:', window.ghConfig);
+        return '';
+    }
+    // Entferne eventuelles "images/" aus dem filename, falls es doppelt vorkommt
+    let cleanFilename = filename.replace(/^images\//, '');
+    const url = 'https://raw.githubusercontent.com/' + window.ghConfig.owner + '/' + window.ghConfig.repo + '/' + window.ghConfig.branch + '/images/' + cleanFilename;
+    console.log('Bild-URL generiert:', url);
+    return url;
+}
+
 // ===== STATE =====
 let questionsDB = {
 ET: { AT: [], ST: [], PR: [] },
@@ -2082,7 +2112,7 @@ if (v) v.classList.add('active');
 document.querySelector(`[data-view="${view}"]`)?.classList.add('active');
 const titles = {
 dashboard:'Dashboard', participants:'Teilnehmerverwaltung',
-newTraining:'Neue Schulung', trainings:'Schulungen',
+newTraining:'Neue Prüfung', trainings:'Prüfungen',
 history:'Verlauf & Archiv', settings:'Einstellungen',
 trainingDetail: title || 'Schulungsdetail', examMode: 'Prüfung'
 };
@@ -2121,7 +2151,7 @@ const totalExaminees = completed.reduce((a, t) => a + (t.participants?.length ||
 const passRate = totalExaminees ? Math.round(passCount / totalExaminees * 100) : 0;
 
 document.getElementById('dashStats').innerHTML = `
-<div class="stat-card"><div class="val">${trainings.length}</div><div class="lbl">Schulungen gesamt</div></div>
+<div class="stat-card"><div class="val">${trainings.length}</div><div class="lbl">Prüfungen gesamt</div></div>
 <div class="stat-card"><div class="val">${participants.length}</div><div class="lbl">Teilnehmer</div></div>
 <div class="stat-card"><div class="val">${totalExaminees}</div><div class="lbl">Prüfungsabnahmen</div></div>
 <div class="stat-card"><div class="val" style="color:${passRate>=80?'var(--accent)':'var(--cancelled-text)'}">${passRate}%</div><div class="lbl">Bestehensquote</div></div>
@@ -2142,7 +2172,7 @@ document.getElementById('dashTrainings').innerHTML = recent.length ? `
 </tr>`).join('')}
 </tbody>
 </table></div>
-` : '<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Schulungen angelegt</p><button class="btn btn-primary" onclick="navPruef(\'newTraining\')">Erste Schulung anlegen</button></div>';
+` : '<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Prüfungen angelegt</p><button class="btn btn-primary" onclick="navPruef(\'newTraining\')">Erste Prüfung anlegen</button></div>';
 
 const methodStats = {};
 completed.forEach(t => {
@@ -2612,8 +2642,12 @@ html += `<div class="question-block">
 <div class="q-header">
 <span class="q-num">${qId}</span>
 <div class="q-text">${q.text}</div>
-</div>
-<div class="q-options">
+</div>`;
+// Bild einfügen wenn vorhanden
+if (q.image) {
+    html += `<div class="question-image"><img src="` + getImageUrl(q.image) + `" alt="Fragebild"></div>`;
+}
+html += `<div class="q-options">
 ${Object.entries(q.options).map(([k, v]) => {
 let cls = '';
 if (ans) { if (k === q.answer) cls = 'correct'; else if (k === ans) cls = 'wrong'; }
@@ -2874,12 +2908,16 @@ const q = allQ[qId];
 if (!q) return '';
 const partAns = currentExamAnswers[part] || {};
 const ans = partAns[qId];
-return `<div class="question-block" id="qb-${qId}">
+let html = `<div class="question-block" id="qb-${qId}">
 <div class="q-header">
 <span class="q-num">${part}-${qi+1}</span>
 <div class="q-text">${q.text}</div>
-</div>
-<div class="q-options">
+</div>`;
+// Bild einfügen wenn vorhanden
+if (q.image) {
+    html += `<div class="question-image"><img src="` + getImageUrl(q.image) + `" alt="Fragebild"></div>`;
+}
+html += `<div class="q-options">
 ${Object.entries(q.options).map(([k,v]) => `
 <div class="q-option ${ans===k?'selected':''}" onclick="selectAnswer('${part}','${qId}','${k}','${trainingId}',${pIdx})">
 <span class="q-option-label">${k})</span>
@@ -2888,6 +2926,7 @@ ${Object.entries(q.options).map(([k,v]) => `
 `).join('')}
 </div>
 </div>`;
+return html;
 }).join('')}
 </div>
 <div class="flex justify-between mt24 mb24">
@@ -3044,7 +3083,7 @@ ${t.status === 'completed' ? `<span class="badge badge-green">Abgeschlossen · $
 </div>
 </div>`;
 }).join('')}
-` : `<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Schulungen angelegt</p><button class="btn btn-primary" onclick="navPruef('newTraining')">Erste Schulung anlegen</button></div>`;
+` : `<div class="empty-state"><div class="empty-icon">📋</div><p>Noch keine Prüfung angelegt</p><button class="btn btn-primary" onclick="navPruef('newTraining')">Erste Prüfung anlegen</button></div>`;
 }
 
 function filterTrainings(method) {
@@ -3165,6 +3204,10 @@ function printExam(trainingId) {
         test +=     '<span class="pf-q-num">' + pid + '</span>';
         test +=     '<span class="pf-q-text">' + (q.text||'') + '</span>';
         test +=   '</div>';
+        // Bild im Druck einfügen
+        if (q.image) {
+            test +=   '<div class="question-image"><img src="' + getImageUrl(q.image) + '" alt="Fragebild" style="max-width:100%;max-height:200px;border-radius:8px;margin:8px 0;"></div>';
+        }
         test +=   '<div class="pf-q-opts">';
 
         var opts = q.options || {};
@@ -3424,11 +3467,11 @@ Teilnehmer
 </div>
 <div class="nav-item" onclick="navPruef('newTraining')" data-view="newTraining">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-Neue Schulung
+Neue Prüfung
 </div>
 <div class="nav-item" onclick="navPruef('trainings')" data-view="trainings">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-Schulungen
+Prüfungen
 </div>
 <div class="nav-item" onclick="navPruef('history')" data-view="history">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -3481,7 +3524,7 @@ Import
 <div class="card">
 <div class="card-title">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
-Aktuelle Schulungen
+Aktuelle Prüfungen
 </div>
 <div id="dashTrainings"></div>
 </div>
@@ -3533,8 +3576,8 @@ Teilnehmer hinzufügen
 
 <!-- NEW TRAINING -->
 <div id="view-newTraining" class="view">
-<div class="page-title">Neue Schulung anlegen</div>
-<div class="page-sub">Schulungsprüfung konfigurieren und Fragen generieren</div>
+<div class="page-title">Neue Prüfung anlegen</div>
+<div class="page-sub">Prüfung konfigurieren und Fragen generieren</div>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
 <div>
@@ -3561,7 +3604,7 @@ Teilnehmer hinzufügen
 <div class="form-row col2">
 <div class="form-group">
 <label class="form-label">Schulungsort</label>
-<input class="form-input" type="text" id="nt-location" placeholder="z.B. Schweinfurt Werk 1">
+<input class="form-input" type="text" id="nt-location" placeholder="z.B. Schweinfurt Werk 1, Bau 50, Raum "silber"">
 </div>
 <div class="form-group">
 <label class="form-label">Prüfer / Ausbilder</label>
@@ -3648,7 +3691,7 @@ Prüfung generieren
 
 <!-- TRAININGS LIST -->
 <div id="view-trainings" class="view">
-<div class="page-title">Schulungen</div>
+<div class="page-title">Prüfungen</div>
 <div class="page-sub">Alle angelegten Prüfungseinheiten</div>
 <div id="trainings-list"></div>
 </div>
