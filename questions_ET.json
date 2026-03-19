@@ -19,7 +19,7 @@
         "c": "Bild 3"
       },
       "answer": "b",
-      "image": "images/et/feldlinien_spule.png"
+      "image": "images/ET/ET-AT-002.png"
     },
     {
       "id": "ET-AT-003",
@@ -523,7 +523,7 @@
         "c": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 90° sein"
       },
       "answer": "c",
-      "image": "images/et/differenzsonde_optimal.png"
+      "image": "images/ET/ET-ST-030.png"
     },
     {
       "id": "ET-ST-031",
@@ -626,7 +626,7 @@
         "c": "Abhebeeffekt"
       },
       "answer": "a",
-      "image": "images/et/kanteneffekt.png"
+      "image": "images/ET/ET-PR-003.png"
     },
     {
       "id": "ET-PR-004",
@@ -637,7 +637,7 @@
         "c": "beliebig erfolgen"
       },
       "answer": "a",
-      "image": "images/et/abhebeeffekt.png"
+      "image": "images/ET/ET-PR-004.png"
     },
     {
       "id": "ET-PR-005",
@@ -648,7 +648,7 @@
         "c": "Beide"
       },
       "answer": "c",
-      "image": "images/et/darstellungsarten.png"
+      "image": "images/ET/ET-PR-005.png"
     },
     {
       "id": "ET-PR-006",
@@ -679,7 +679,7 @@
         "c": "Beides"
       },
       "answer": "c",
-      "image": "images/et/schwellwert.png"
+      "image": "images/ET/ET-PR-008.png"
     },
     {
       "id": "ET-PR-009",
@@ -720,7 +720,7 @@
         "c": "Phasen-Amplituden-Auswertung"
       },
       "answer": "a",
-      "image": "images/et/auswertung_y.png"
+      "image": "images/ET/ET-PR-012.png"
     },
     {
       "id": "ET-PR-013",
@@ -731,7 +731,7 @@
         "c": "Phasen-Amplituden-Auswertung"
       },
       "answer": "b",
-      "image": "images/et/auswertung_amplitude.png"
+      "image": "images/ET/ET-PR-013.png"
     },
     {
       "id": "ET-PR-014",
@@ -742,7 +742,7 @@
         "c": "Phasen-Amplituden-Auswertung"
       },
       "answer": "c",
-      "image": "images/et/auswertung_phase.png"
+      "image": "images/ET/ET-PR-014.png"
     },
     {
       "id": "ET-PR-015",
@@ -753,7 +753,7 @@
         "c": "Phasensteller"
       },
       "answer": "a",
-      "image": "images/et/xy_darstellung.png"
+      "image": "images/ET/ET-PR-015.png"
     },
     {
       "id": "ET-PR-016",
@@ -764,7 +764,7 @@
         "c": "nur Anzeige 2 und 3"
       },
       "answer": "b",
-      "image": "images/et/fehlersignale_1.png"
+      "image": "images/ET/ET-PR-016.png"
     },
     {
       "id": "ET-PR-017",
@@ -775,7 +775,7 @@
         "c": "nur Anzeige 2 und 3"
       },
       "answer": "c",
-      "image": "images/et/fehlersignale_2.png"
+      "image": "images/ET/ET-PR-017.png"
     },
     {
       "id": "ET-PR-018",
@@ -786,7 +786,7 @@
         "c": "nur Anzeige 3"
       },
       "answer": "c",
-      "image": "images/et/fehlersignale_3.png"
+      "image": "images/ET/ET-PR-018.png"
     },
     {
       "id": "ET-PR-019",
@@ -797,7 +797,7 @@
         "c": "c"
       },
       "answer": "b",
-      "image": "images/et/riss_positionen.png"
+      "image": "images/ET/ET-PR-019.png"
     },
     {
       "id": "ET-PR-020",
@@ -808,7 +808,7 @@
         "c": "ist es nicht notwendig, das Signal beim Einrichten in seiner Phase zu drehen"
       },
       "answer": "b",
-      "image": "images/et/phasendrehung.png"
+      "image": "images/ET/ET-PR-020.png"
     },
     {
       "id": "ET-PR-021",
@@ -819,7 +819,7 @@
         "c": "nur Bild 2"
       },
       "answer": "c",
-      "image": "images/et/differenzsystem_null.png"
+      "image": "images/ET/ET-PR-021.png"
     },
     {
       "id": "ET-PR-022",
@@ -830,7 +830,7 @@
         "c": "Bild 1+4"
       },
       "answer": "a",
-      "image": "images/et/risslaenge_signal.png"
+      "image": "images/ET/ET-PR-022.png"
     }
   ]
 }
