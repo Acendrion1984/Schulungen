@@ -2610,7 +2610,7 @@ if (!q) return;
 const ans = p.answers?.[partKey]?.[qId];
 html += `<div class="question-block">
 <div class="q-header">
-<span class="q-num">${partKey}-${qi+1}</span>
+<span class="q-num">${qId}</span>
 <div class="q-text">${q.text}</div>
 </div>
 <div class="q-options">
@@ -3158,7 +3158,7 @@ function printExam(trainingId) {
         if (!q) continue;
 
         // ID auf dem Prüfungsbogen: ET-AT-016 (muss zum Antwortbogen passen)
-        var pid = makePrintId(training.method, partKey, (qi+1));
+        var pid = qId;   // echte feste ID aus questions_XX.json
 
         test += '<div class="pf-q">';
         test +=   '<div class="pf-q-title">';
@@ -3191,7 +3191,7 @@ function printExam(trainingId) {
         var q2 = allQ[qIds2[r]];
         if (!q2) continue;
 
-        var pid2 = makePrintId(training.method, partKey2, (r+1));
+        var pid2 = qIds2[r]; // echte feste ID
         rows += '<tr><td class="pf-qid">' + pid2 + '</td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td></tr>';
       }
     }
