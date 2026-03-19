@@ -2657,9 +2657,9 @@ ${qIds.map((qId, qi) => {
 const q = allQ[qId];
 const existing = p.answers?.[partKey]?.[qId] || '';
 return `<div class="answer-cell">
-<div class="q-label">${partKey}-${qi+1}</div>
-<input class="answer-input" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}"
-maxlength="1" value="${existing}" oninput="validateAnswerInput(this)" placeholder="?">
+  <div class="q-label">${qId}</div>
+  <input class="answer-input" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}"
+    maxlength="1" value="${existing}" oninput="validateAnswerInput(this)" placeholder="?">
 </div>`;
 }).join('')}
 </div>
