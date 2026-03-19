@@ -1,0 +1,82 @@
+[
+  {
+    "id": "mmxbttbyml9bfuxop7",
+    "method": "ET",
+    "date": "2026-05-11",
+    "location": "Bau 50, Raum Silber",
+    "trainer": "",
+    "name": "Wirbelstromprüfung – 11.05.–12.05.2026",
+    "config": {
+      "AT": 15,
+      "ST": 15,
+      "PR": 10
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-19T10:27:52.126Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-006",
+            "ET-AT-004",
+            "ET-AT-002",
+            "ET-AT-001",
+            "ET-AT-010",
+            "ET-AT-005",
+            "ET-AT-020",
+            "ET-AT-014",
+            "ET-AT-017",
+            "ET-AT-015",
+            "ET-AT-007",
+            "ET-AT-021",
+            "ET-AT-018",
+            "ET-AT-012",
+            "ET-AT-011"
+          ],
+          "ST": [
+            "ET-ST-026",
+            "ET-ST-004",
+            "ET-ST-028",
+            "ET-ST-023",
+            "ET-ST-025",
+            "ET-ST-014",
+            "ET-ST-027",
+            "ET-ST-033",
+            "ET-ST-006",
+            "ET-ST-011",
+            "ET-ST-007",
+            "ET-ST-008",
+            "ET-ST-024",
+            "ET-ST-016",
+            "ET-ST-005"
+          ],
+          "PR": [
+            "ET-PR-016",
+            "ET-PR-018",
+            "ET-PR-011",
+            "ET-PR-021",
+            "ET-PR-010",
+            "ET-PR-022",
+            "ET-PR-002",
+            "ET-PR-004",
+            "ET-PR-015",
+            "ET-PR-012"
+          ]
+        },
+        "newCounts": {
+          "AT": 15,
+          "ST": 15,
+          "PR": 10
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
+  }
+]
