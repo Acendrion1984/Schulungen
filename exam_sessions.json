@@ -675,5 +675,88 @@
         "completedAt": null
       }
     ]
+  },
+  {
+    "id": "mmxamaan8cua19ckk0v",
+    "method": "ET",
+    "date": "2026-03-19",
+    "location": "",
+    "trainer": "",
+    "name": "ET · 19.03.2026",
+    "config": {
+      "AT": 20,
+      "ST": 15,
+      "PR": 8
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-19T09:54:01.247Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-011",
+            "ET-AT-016",
+            "ET-AT-003",
+            "ET-AT-004",
+            "ET-AT-014",
+            "ET-AT-001",
+            "ET-AT-012",
+            "ET-AT-021",
+            "ET-AT-022",
+            "ET-AT-006",
+            "ET-AT-009",
+            "ET-AT-013",
+            "ET-AT-018",
+            "ET-AT-020",
+            "ET-AT-002",
+            "ET-AT-007",
+            "ET-AT-008",
+            "ET-AT-015",
+            "ET-AT-005",
+            "ET-AT-019"
+          ],
+          "ST": [
+            "ET-ST-005",
+            "ET-ST-001",
+            "ET-ST-024",
+            "ET-ST-019",
+            "ET-ST-027",
+            "ET-ST-018",
+            "ET-ST-006",
+            "ET-ST-028",
+            "ET-ST-011",
+            "ET-ST-033",
+            "ET-ST-020",
+            "ET-ST-034",
+            "ET-ST-015",
+            "ET-ST-031",
+            "ET-ST-010"
+          ],
+          "PR": [
+            "ET-PR-021",
+            "ET-PR-012",
+            "ET-PR-010",
+            "ET-PR-002",
+            "ET-PR-020",
+            "ET-PR-008",
+            "ET-PR-014",
+            "ET-PR-006"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
   }
 ]
