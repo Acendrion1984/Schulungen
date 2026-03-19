@@ -2645,7 +2645,9 @@ html += `<div class="question-block">
 </div>`;
 // Bild einfügen wenn vorhanden
 if (q.image) {
-    html += `<div class="question-image"><img src="` + getImageUrl(q.image) + `" alt="Fragebild"></div>`;
+    var imgUrl = getImageUrl(q.image);
+    console.log('Bild-URL für ' + q.id + ':', imgUrl);
+    html += `<div class="question-image"><img src="` + imgUrl + `" alt="Fragebild" onerror="this.style.display='none'; console.log('Bildfehler:', this.src)"></div>`;
 }
 html += `<div class="q-options">
 ${Object.entries(q.options).map(([k, v]) => {
@@ -2915,7 +2917,9 @@ let html = `<div class="question-block" id="qb-${qId}">
 </div>`;
 // Bild einfügen wenn vorhanden
 if (q.image) {
-    html += `<div class="question-image"><img src="` + getImageUrl(q.image) + `" alt="Fragebild"></div>`;
+    var imgUrl = getImageUrl(q.image);
+    console.log('Bild-URL für ' + q.id + ':', imgUrl);
+    html += `<div class="question-image"><img src="` + imgUrl + `" alt="Fragebild" onerror="this.style.display='none'; console.log('Bildfehler:', this.src)"></div>`;
 }
 html += `<div class="q-options">
 ${Object.entries(q.options).map(([k,v]) => `
@@ -3364,6 +3368,38 @@ renderDashboard();
 
 function reloadQuestions() { loadAllQuestions(); showToast('Fragen werden neu geladen...', 'success'); }
 
+// ===== KORRIGIERTE BILD-FUNKTION =====
+function getImageUrl(filename) {
+    if (!filename) return '';
+    
+    // Direktes Auslesen der ghConfig aus dem ersten Script
+    let owner = '';
+    let repo = '';
+    let branch = 'main';
+    
+    // Versuche ghConfig aus dem globalen Scope zu lesen
+    if (typeof ghConfig !== 'undefined') {
+        owner = ghConfig.owner;
+        repo = ghConfig.repo;
+        branch = ghConfig.branch || 'main';
+    } else if (window.ghConfig) {
+        owner = window.ghConfig.owner;
+        repo = window.ghConfig.repo;
+        branch = window.ghConfig.branch || 'main';
+    }
+    
+    if (!owner || !repo) {
+        console.warn('GitHub nicht konfiguriert');
+        return '';
+    }
+    
+    // Entferne führenden Slash falls vorhanden
+    let cleanFilename = filename.replace(/^\//, '');
+    
+    // Baue URL
+    return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${cleanFilename}`;
+}
+
 // ===== HELPERS =====
 function getAllQuestionsMap(method) {
 const map = {};
@@ -3433,12 +3469,6 @@ showToast(`${added} Teilnehmer importiert`, 'success');
 reader.readAsText(file, 'utf-8');
 };
 input.click();
-}
-
-// ===== INIT =====
-function initPruefSystem() {
-loadAllQuestions();
-renderDashboard();
 }
 
 </script>
