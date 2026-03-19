@@ -2847,9 +2847,17 @@ function renderSettings() {
 
 // ===== PRINT EXAM =====
 // ===== PRINT EXAM =====
+// ===== PRINT EXAM =====
 function printExam(trainingId) {
   var training = getTrainings().find(function(t){ return t.id === trainingId; });
   if (!training) { alert('Training nicht gefunden'); return; }
+
+  // ID-Format: ET-AT-016 (Methode-Teil-3stellige Laufnummer)
+  function makePrintId(method, partKey, n) {
+    var num = String(n);
+    while (num.length < 3) num = "0" + num;
+    return method + "-" + partKey + "-" + num;
+  }
 
   var allQ = getAllQuestionsMap(training.method);
   var participants = training.participants || [];
@@ -2882,9 +2890,12 @@ function printExam(trainingId) {
         var q = allQ[qId];
         if (!q) continue;
 
+        // ID auf dem Prüfungsbogen: ET-AT-016 (muss zum Antwortbogen passen)
+        var pid = makePrintId(training.method, partKey, (qi+1));
+
         test += '<div class="pf-q">';
         test +=   '<div class="pf-q-title">';
-        test +=     '<span class="pf-q-num">' + partKey + '-' + (qi+1) + '</span>';
+        test +=     '<span class="pf-q-num">' + pid + '</span>';
         test +=     '<span class="pf-q-text">' + (q.text||'') + '</span>';
         test +=   '</div>';
         test +=   '<div class="pf-q-opts">';
@@ -2903,14 +2914,18 @@ function printExam(trainingId) {
     test += '</section>';
 
     // --- ANTWORTBOGEN (OHNE LÖSUNG) ---
+    // ID in erster Spalte ebenfalls ET-AT-016 etc.
     var rows = '';
     for (var partKey2 in PART_NAMES) {
       if (!PART_NAMES.hasOwnProperty(partKey2)) continue;
       var qIds2 = (p.questions && p.questions[partKey2]) ? p.questions[partKey2] : [];
+
       for (var r=0; r<qIds2.length; r++) {
         var q2 = allQ[qIds2[r]];
         if (!q2) continue;
-        rows += '<tr><td class="pf-qid">' + q2.id + '</td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td></tr>';
+
+        var pid2 = makePrintId(training.method, partKey2, (r+1));
+        rows += '<tr><td class="pf-qid">' + pid2 + '</td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td></tr>';
       }
     }
 
