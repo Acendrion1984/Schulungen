@@ -2846,110 +2846,131 @@ function renderSettings() {
 }
 
 // ===== PRINT EXAM =====
+// ===== PRINT EXAM =====
 function printExam(trainingId) {
-  const training = getTrainings().find(t => t.id === trainingId);
-  const allQ = getAllQuestionsMap(training.method);
+  var training = getTrainings().find(function(t){ return t.id === trainingId; });
+  if (!training) { alert('Training nicht gefunden'); return; }
 
-  // Hilfsfunktion: X in richtiger Spalte setzen
-  const markX = (correctAnswer, col) => (String(correctAnswer).toLowerCase() === col ? 'X' : '');
+  var allQ = getAllQuestionsMap(training.method);
+  var participants = training.participants || [];
+  var htmlParts = [];
 
-  // 1) Fragebogen (wie bisher)
-  let printContent = training.participants.map((p, idx) => {
-    let html = `<div class="${idx>0?'page-break':''}">
-      <h2 style="margin-bottom:8px">ZfP PrÃ¼fungsbogen â€“ ${training.method} Â· ${METHOD_NAMES[training.method]}</h2>
-      <p style="margin-bottom:4px"><strong>Teilnehmer:</strong> ${p.name} (${p.employeeId||'â€”'}) | <strong>Datum:</strong> ${fmtDate(training.date)} | <strong>Ort:</strong> ${training.location||'â€”'}</p>
-      <p style="margin-bottom:16px"><em>Bestehensgrenze: 80% je Teil Â· Bitte nur EINE Antwort je Frage ankreuzen</em></p>
-    `;
+  for (var pi=0; pi<participants.length; pi++) {
+    var p = participants[pi];
 
-    for (const [partKey, partLabel] of Object.entries(PART_NAMES)) {
-      const qIds = p.questions[partKey] || [];
-      html += `<h3 style="margin:16px 0 8px">${partLabel} (${qIds.length} Fragen)</h3>`;
-      qIds.forEach((qId, qi) => {
-        const q = allQ[qId];
-        if (!q) return;
-        html += `<div style="margin-bottom:12px;padding:10px;border:1pt solid #ddd;border-radius:4px">
-          <p style="font-weight:600;margin-bottom:6px">${qi+1}. ${q.text}</p>
-          ${Object.entries(q.options).map(([k,v]) => `<p style="margin:2px 0;padding-left:16px">â˜ ${k}) ${v}</p>`).join('')}
-        </div>`;
-      });
+    // --- TEST / FRAGEBOGEN ---
+    var test = '';
+    test += '<section class="pf-participant' + (pi>0 ? ' pf-page-break' : '') + '">';
+    test +=   '<div class="pf-header">';
+    test +=     '<h2>ZfP Prüfungsbogen – ' + training.method + ' · ' + (METHOD_NAMES[training.method] || '') + '</h2>';
+    test +=     '<div class="pf-meta">';
+    test +=       '<div><strong>Teilnehmer:</strong> ' + (p.name||'') + ' (' + (p.employeeId||'—') + ')</div>';
+    test +=       '<div><strong>Datum:</strong> ' + fmtDate(training.date) + ' &nbsp;|&nbsp; <strong>Ort:</strong> ' + (training.location||'—') + '</div>';
+    test +=     '</div>';
+    test +=     '<div class="pf-hint"><em>Bitte nur EINE Antwort je Frage ankreuzen.</em></div>';
+    test +=   '</div>';
+
+    for (var partKey in PART_NAMES) {
+      if (!PART_NAMES.hasOwnProperty(partKey)) continue;
+      var partLabel = PART_NAMES[partKey];
+      var qIds = (p.questions && p.questions[partKey]) ? p.questions[partKey] : [];
+
+      test += '<h3 class="pf-part-title">' + partLabel + ' (' + qIds.length + ' Fragen)</h3>';
+
+      for (var qi=0; qi<qIds.length; qi++) {
+        var qId = qIds[qi];
+        var q = allQ[qId];
+        if (!q) continue;
+
+        test += '<div class="pf-q">';
+        test +=   '<div class="pf-q-title">';
+        test +=     '<span class="pf-q-num">' + partKey + '-' + (qi+1) + '</span>';
+        test +=     '<span class="pf-q-text">' + (q.text||'') + '</span>';
+        test +=   '</div>';
+        test +=   '<div class="pf-q-opts">';
+
+        var opts = q.options || {};
+        for (var k in opts) {
+          if (!opts.hasOwnProperty(k)) continue;
+          test += '<div class="pf-opt">☐ <strong>' + k + ')</strong> ' + opts[k] + '</div>';
+        }
+
+        test +=   '</div>';
+        test += '</div>';
+      }
     }
 
-    html += '</div>';
-    return html;
-  }).join('');
+    test += '</section>';
 
-  // 2) ZusÃ¤tzlich: LÃ¶sungsbogen (5 Spalten: ID, A, B, C, D)
-  const solutionSheets = training.participants.map((p, idx) => {
-    const rows = [];
-
-    for (const partKey of Object.keys(PART_NAMES)) {
-      const qIds = p.questions[partKey] || [];
-      qIds.forEach((qId) => {
-        const q = allQ[qId];
-        if (!q) return;
-        const corr = (q.answer || '').toLowerCase();
-
-        rows.push(`
-          <tr>
-            <td>${q.id}</td>
-            <td class="${markX(corr,'a') ? 'x':''}">${markX(corr,'a')}</td>
-            <td class="${markX(corr,'b') ? 'x':''}">${markX(corr,'b')}</td>
-            <td class="${markX(corr,'c') ? 'x':''}">${markX(corr,'c')}</td>
-            <td class="${markX(corr,'d') ? 'x':''}">${markX(corr,'d')}</td>
-          </tr>
-        `);
-      });
+    // --- ANTWORTBOGEN (OHNE LÖSUNG) ---
+    var rows = '';
+    for (var partKey2 in PART_NAMES) {
+      if (!PART_NAMES.hasOwnProperty(partKey2)) continue;
+      var qIds2 = (p.questions && p.questions[partKey2]) ? p.questions[partKey2] : [];
+      for (var r=0; r<qIds2.length; r++) {
+        var q2 = allQ[qIds2[r]];
+        if (!q2) continue;
+        rows += '<tr><td class="pf-qid">' + q2.id + '</td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td><td class="pf-box"></td></tr>';
+      }
     }
 
-    return `
-      <div class="print-solution-sheet ${idx>0 ? 'page-break' : ''}">
-        <h3>LÃ¶sungsbogen (Auswertung) â€“ ${training.method} Â· ${METHOD_NAMES[training.method]}</h3>
-        <p style="margin:0 0 6mm">
-          <strong>Teilnehmer:</strong> ${p.name} (${p.employeeId||'â€”'}) Â·
-          <strong>Datum:</strong> ${fmtDate(training.date)} Â·
-          <strong>Ort:</strong> ${training.location||'â€”'}
-        </p>
+    var sheet = '';
+    sheet += '<section class="pf-answer pf-page-break">';
+    sheet +=   '<h3>Antwortbogen (vom Teilnehmer auszufüllen)</h3>';
+    sheet +=   '<div class="pf-meta pf-meta-small">';
+    sheet +=     '<div><strong>Teilnehmer:</strong> ' + (p.name||'') + ' (' + (p.employeeId||'—') + ')</div>';
+    sheet +=     '<div><strong>Prüfung:</strong> ' + training.method + ' · ' + (training.name||'') + ' · <strong>Datum:</strong> ' + fmtDate(training.date) + '</div>';
+    sheet +=   '</div>';
+    sheet +=   '<table class="pf-ans-table"><thead><tr><th>Frage‑ID</th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    sheet +=   '<div class="pf-sign"><div>Unterschrift Teilnehmer: ____________________________</div><div>Unterschrift Prüfer: _________________________________</div></div>';
+    sheet += '</section>';
 
-        <table class="solution-table">
-          <thead>
-            <tr>
-              <th>Frage-ID</th>
-              <th>A</th>
-              <th>B</th>
-              <th>C</th>
-              <th>D</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${rows.join('')}
-          </tbody>
-        </table>
-      </div>
-    `;
-  }).join('');
+    htmlParts.push(test + sheet);
+  }
 
-  // 3) Druckfenster: Fragebogen + LÃ¶sungsbogen
-  const win = window.open('','_blank');
-  win.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>PrÃ¼fungsbogen Â· ${training.name}</title>
-    <style>
-      body{font-family:Arial,sans-serif;font-size:11pt;margin:20mm}
-      .page-break{break-before:page}
-      h2{font-size:14pt}
-      h3{font-size:12pt}
+  var content = htmlParts.join('');
 
-      .print-solution-sheet{margin:10mm 0 0; break-before:page}
-      .solution-table{width:100%;border-collapse:collapse;font-size:9.5pt}
-      .solution-table th,.solution-table td{border:1pt solid #000;padding:4px 6px;text-align:center}
-      .solution-table th:first-child,.solution-table td:first-child{text-align:left;white-space:nowrap;font-family:monospace}
-      .solution-table td.x{font-weight:700;font-size:11pt}
-    </style>
-  </head><body>
-    ${printContent}
-    ${solutionSheets}
-  </body></html>`);
-  win.document.close();
-  win.focus();
-  win.print();
+  var w = window.open('', '_blank');
+  if (!w) { alert('Pop-up blockiert. Bitte Pop-ups erlauben.'); return; }
+
+  w.document.open('text/html', 'replace');
+  w.document.write(
+    '<!DOCTYPE html><html lang="de"><head>' +
+    '<meta charset="UTF-8">' +
+    '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+    '<title>Prüfungsbogen · ' + (training.name||training.method) + '</title>' +
+    '<style>' +
+      'html,body{font-family:Arial,"DejaVu Sans","Noto Sans",sans-serif;color:#000;}' +
+      'body{margin:18mm;font-size:10.5pt;}' +
+      'h2{font-size:14pt;margin:0 0 4mm;}' +
+      'h3{font-size:12pt;margin:0 0 3mm;}' +
+      '.pf-header{margin-bottom:5mm;}' +
+      '.pf-meta{line-height:1.35;margin-bottom:2mm;}' +
+      '.pf-meta-small{font-size:9.5pt;}' +
+      '.pf-hint{margin:0 0 6mm;}' +
+      '.pf-part-title{margin:6mm 0 3mm;}' +
+      '.pf-page-break{break-before:page;page-break-before:always;}' +
+      '.pf-q{border:1pt solid #ddd;border-radius:4px;padding:8px 10px;margin:0 0 4mm;break-inside:avoid;page-break-inside:avoid;}' +
+      '.pf-q-title{display:flex;gap:8px;margin-bottom:2mm;}' +
+      '.pf-q-num{font-family:monospace;font-size:9pt;padding:1px 5px;border:1pt solid #aaa;border-radius:3px;white-space:nowrap;flex-shrink:0;}' +
+      '.pf-q-text{font-weight:600;}' +
+      '.pf-q-opts{margin-left:18px;}' +
+      '.pf-opt{margin:1.2mm 0;}' +
+      '.pf-answer{break-inside:avoid;page-break-inside:avoid;}' +
+      '.pf-ans-table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:9pt;}' +
+      '.pf-ans-table th,.pf-ans-table td{border:1pt solid #000;padding:3px 4px;text-align:center;}' +
+      '.pf-ans-table th:first-child,.pf-ans-table td:first-child{text-align:left;}' +
+      '.pf-qid{font-family:monospace;white-space:nowrap;width:60%;}' +
+      '.pf-box{width:10%;height:16px;}' +
+      '.pf-sign{margin-top:8mm;display:flex;justify-content:space-between;gap:10mm;font-size:10pt;}' +
+      '@media print{.pf-q{break-inside:avoid;page-break-inside:avoid;}}' +
+    '</style></head><body>' + content + '</body></html>'
+  );
+
+  w.document.close();
+  w.focus();
+  w.print();
 }
 
 // ===== EXPORT/IMPORT =====
