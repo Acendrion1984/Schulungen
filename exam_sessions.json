@@ -11,7 +11,7 @@
       "ST": 15,
       "PR": 8
     },
-    "status": "prepared",
+    "status": "completed",
     "createdAt": "2026-03-19T16:56:21.444Z",
     "participants": [
       {
@@ -74,6 +74,158 @@
           "AT": 20,
           "ST": 15,
           "PR": 8
+        },
+        "answers": {
+          "AT": {
+            "ET-AT-005": "a",
+            "ET-AT-016": "a",
+            "ET-AT-004": "a",
+            "ET-AT-011": "a",
+            "ET-AT-012": "a",
+            "ET-AT-022": "a",
+            "ET-AT-020": "a",
+            "ET-AT-014": "a",
+            "ET-AT-021": "a",
+            "ET-AT-007": "a",
+            "ET-AT-001": "a",
+            "ET-AT-002": "a",
+            "ET-AT-008": "a",
+            "ET-AT-006": "a",
+            "ET-AT-019": "a",
+            "ET-AT-013": "a",
+            "ET-AT-017": "a",
+            "ET-AT-018": "a",
+            "ET-AT-015": "a",
+            "ET-AT-010": "a"
+          },
+          "ST": {
+            "ET-ST-030": "a",
+            "ET-ST-012": "a",
+            "ET-ST-034": "a",
+            "ET-ST-017": "a",
+            "ET-ST-029": "a",
+            "ET-ST-023": "a",
+            "ET-ST-022": "a",
+            "ET-ST-011": "a",
+            "ET-ST-027": "a",
+            "ET-ST-024": "a",
+            "ET-ST-035": "a",
+            "ET-ST-008": "a",
+            "ET-ST-014": "a",
+            "ET-ST-009": "a",
+            "ET-ST-032": "a"
+          },
+          "PR": {
+            "ET-PR-010": "a",
+            "ET-PR-016": "a",
+            "ET-PR-004": "a",
+            "ET-PR-002": "a",
+            "ET-PR-014": "a",
+            "ET-PR-012": "a",
+            "ET-PR-013": "a",
+            "ET-PR-001": "a"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 5,
+            "total": 20,
+            "percent": 25,
+            "passed": false
+          },
+          "ST": {
+            "correct": 1,
+            "total": 15,
+            "percent": 7,
+            "passed": false
+          },
+          "PR": {
+            "correct": 3,
+            "total": 8,
+            "percent": 38,
+            "passed": false
+          }
+        },
+        "overallPassed": false,
+        "completedAt": "2026-03-19T16:56:38.815Z"
+      }
+    ]
+  },
+  {
+    "id": "mmxpqlywfg2fg7sum1w",
+    "method": "ET",
+    "date": "2026-03-19",
+    "location": "",
+    "trainer": "",
+    "name": "ET · 19.03.2026",
+    "config": {
+      "AT": 20,
+      "ST": 15,
+      "PR": 8
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-19T16:57:17.241Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-011",
+            "ET-AT-009",
+            "ET-AT-006",
+            "ET-AT-008",
+            "ET-AT-012",
+            "ET-AT-014",
+            "ET-AT-016",
+            "ET-AT-010",
+            "ET-AT-021",
+            "ET-AT-020",
+            "ET-AT-017",
+            "ET-AT-002",
+            "ET-AT-003",
+            "ET-AT-022",
+            "ET-AT-015",
+            "ET-AT-019",
+            "ET-AT-005",
+            "ET-AT-004",
+            "ET-AT-018",
+            "ET-AT-013"
+          ],
+          "ST": [
+            "ET-ST-028",
+            "ET-ST-034",
+            "ET-ST-015",
+            "ET-ST-025",
+            "ET-ST-010",
+            "ET-ST-014",
+            "ET-ST-024",
+            "ET-ST-002",
+            "ET-ST-005",
+            "ET-ST-003",
+            "ET-ST-004",
+            "ET-ST-035",
+            "ET-ST-017",
+            "ET-ST-009",
+            "ET-ST-026"
+          ],
+          "PR": [
+            "ET-PR-020",
+            "ET-PR-011",
+            "ET-PR-014",
+            "ET-PR-022",
+            "ET-PR-010",
+            "ET-PR-005",
+            "ET-PR-009",
+            "ET-PR-013"
+          ]
+        },
+        "newCounts": {
+          "AT": 2,
+          "ST": 9,
+          "PR": 5
         },
         "answers": {},
         "scores": null,
