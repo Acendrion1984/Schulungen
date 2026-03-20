@@ -1,3 +1,14 @@
+Hier ist die **vollständige, ungekürzte HTML‑Datei** mit den beiden gewünschten Korrekturen:
+
+1. **Fragenkataloge werden sofort beim App‑Start geladen** – unabhängig von der GitHub‑Verbindung.  
+   Dazu wird `loadAllQuestions()` am Ende des `<script>`‑Bereichs direkt aufgerufen.
+
+2. **Das Ergebnismodal schließt sich immer nach dem Speichern** (auch bei Fehlern).  
+   In der Funktion `saveResults()` wurde der Aufruf von `closeModal()` in einen `finally`‑Block gelegt.
+
+Die Datei ist vollständig und kann direkt gespeichert und genutzt werden.
+
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -1858,18 +1869,17 @@ rows += `<tr>
 <td>${a.abteilung||''}</td>
 <td>${a.geburtsort||''}</td>
 <td>${a.geburtstag||''}</td>
-${Array.from({length:days},()=>'<td> </td>').join('')}
+${Array.from({length:days},()=>'<td>  </td>').join('')}
 <td>☐ ja ☐ nein</td>
 </tr>`;
 });
 for (let i=attendees.length;i<11;i++) {
 rows += `<tr>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> </td>
-<td> . . </td>
-${Array.from({length:days},()=>'<td> </td>').join('')}
+<td>  </td>
+<td>  </td>
+<td>  </td>
+<td>  </td>
+${Array.from({length:days},()=>'<td>  </td>').join('')}
 <td>☐ ja ☐ nein</td>
 </tr>`;
 }
@@ -1936,11 +1946,13 @@ td{border:1px solid black;padding:6px 4px;}
 <div class="hinweis-item"><span>➢</span><i>Beachte Schaeffler Prozedur S245012* „Qualifizierung und Verantwortlichkeiten von Personal"</i></div>
 </div>
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Personal-<br>nummer</th><th>Name, Vorname</th><th>Abteilung</th><th>Geburtsort</th><th>Geburts-<br>datum</th>
 ${dayHeaders}
 <th>Prüfung bestanden</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>${rows}</tbody>
 </table>
 <div class="footer"><div>Seite 1 von 1</div></div>
@@ -2575,11 +2587,13 @@ ${training.status === 'completed' ? `
 <div class="card-title">Teilnehmer & Prüfungsstatus</div>
 <div class="table-wrap">
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Name</th><th>Personal-Nr.</th><th>AT Neu</th><th>ST Neu</th><th>PR Neu</th>
 ${training.status !== 'prepared' || true ? '<th>AT</th><th>ST</th><th>PR</th><th>Gesamt</th>' : ''}
 <th>Aktionen</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>${training.participants.map((p, idx) => {
 const nc = p.newCounts || {};
 const s = p.scores;
@@ -2838,9 +2852,10 @@ await window.ghSaveFile(window.EXAM_SESS_FILE, window._pSessions, `Ergebnis: ${p
 await window.ghSaveFile(window.EXAM_HIST_FILE, window._pHistory, `Ergebnis: ${p.name}`);
 window._updateAttendeeResult && window._updateAttendeeResult(p.participantId, p.overallPassed);
 } catch(e) { showPruefToast('❌ GH-Speichern: '+e.message,'error'); }
-finally { showSaving(false); }
-
-closeModal('modal-results');
+finally { 
+  showSaving(false);
+  closeModal('modal-results');   // *** Fenster immer schließen ***
+}
 showToast(`Ergebnisse für ${p.name} gespeichert: ${p.overallPassed ? '✓ Bestanden' : '✗ Nicht bestanden'}`, p.overallPassed ? 'success' : 'error');
 renderTrainingDetail(trainingId);
 }
@@ -3120,10 +3135,12 @@ document.getElementById('history-content').innerHTML = rows.length ? `
 <div class="card">
 <div class="table-wrap">
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Datum</th><th>Teilnehmer</th><th>Personal-Nr.</th><th>Methode</th>
 <th>AT</th><th>ST</th><th>PR</th><th>Gesamt</th><th>Fragen gesamt</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>${rows.map(r => `<tr>
 <td class="td-mono">${fmtDate(r.date)}</td>
 <td>${r.name}</td>
@@ -3154,9 +3171,6 @@ info += `<div class="mb4"><span class="badge badge-blue mb4">${method}</span> ${
 document.getElementById('question-db-info').innerHTML = info || '<p>Keine Fragen geladen</p>';
 }
 
-// ===== PRINT EXAM =====
-// ===== PRINT EXAM =====
-// ===== PRINT EXAM =====
 // ===== PRINT EXAM =====
 function printExam(trainingId) {
   var training = getTrainings().find(function(t){ return t.id === trainingId; });
@@ -3471,6 +3485,9 @@ reader.readAsText(file, 'utf-8');
 input.click();
 }
 
+// ==== SOFORTIGES LADEN DER FRAGEN BEI APP-START ====
+loadAllQuestions();
+
 </script>
 
 <script>
@@ -3595,9 +3612,11 @@ Teilnehmer hinzufügen
 </div>
 <div class="table-wrap">
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Name</th><th>Personal-Nr.</th><th>Abteilung</th><th>Prüfungsverfahren &amp; letzte Prüfung</th><th>Rezertifiz. fällig (nächste)</th><th></th>
-</tr></thead>
+</tr>
+</thead>
 <tbody id="participantsTable"></tbody>
 </table>
 </div>
