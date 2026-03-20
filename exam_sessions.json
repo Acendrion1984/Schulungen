@@ -11,7 +11,7 @@
       "ST": 10,
       "PR": 5
     },
-    "status": "prepared",
+    "status": "completed",
     "createdAt": "2026-03-20T10:02:35.933Z",
     "participants": [
       {
@@ -66,6 +66,150 @@
           "AT": 20,
           "ST": 10,
           "PR": 5
+        },
+        "answers": {
+          "AT": {
+            "ET-AT-007": "a",
+            "ET-AT-008": "a",
+            "ET-AT-021": "a",
+            "ET-AT-002": "a",
+            "ET-AT-017": "a",
+            "ET-AT-013": "a",
+            "ET-AT-019": "a",
+            "ET-AT-006": "a",
+            "ET-AT-005": "a",
+            "ET-AT-016": "a",
+            "ET-AT-022": "a",
+            "ET-AT-003": "a",
+            "ET-AT-009": "a",
+            "ET-AT-001": "a",
+            "ET-AT-011": "a",
+            "ET-AT-010": "a",
+            "ET-AT-015": "a",
+            "ET-AT-018": "a",
+            "ET-AT-020": "a",
+            "ET-AT-004": "a"
+          },
+          "ST": {
+            "ET-ST-018": "a",
+            "ET-ST-017": "a",
+            "ET-ST-034": "a",
+            "ET-ST-028": "a",
+            "ET-ST-037": "a",
+            "ET-ST-019": "a",
+            "ET-ST-007": "a",
+            "ET-ST-026": "a",
+            "ET-ST-016": "a",
+            "ET-ST-023": "a"
+          },
+          "PR": {
+            "ET-PR-022": "a",
+            "ET-PR-016": "a",
+            "ET-PR-011": "a",
+            "ET-PR-019": "a",
+            "ET-PR-004": "a"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 5,
+            "total": 20,
+            "percent": 25,
+            "passed": false
+          },
+          "ST": {
+            "correct": 1,
+            "total": 10,
+            "percent": 10,
+            "passed": false
+          },
+          "PR": {
+            "correct": 2,
+            "total": 5,
+            "percent": 40,
+            "passed": false
+          }
+        },
+        "overallPassed": false,
+        "completedAt": "2026-03-20T10:02:51.827Z"
+      }
+    ]
+  },
+  {
+    "id": "mmyqdy8tkclvxt9l6s",
+    "method": "ET",
+    "date": "2026-03-20",
+    "location": "",
+    "trainer": "",
+    "name": "ET · 20.03.2026",
+    "config": {
+      "AT": 20,
+      "ST": 15,
+      "PR": 8
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-20T10:03:12.413Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-008",
+            "ET-AT-019",
+            "ET-AT-011",
+            "ET-AT-005",
+            "ET-AT-017",
+            "ET-AT-010",
+            "ET-AT-021",
+            "ET-AT-014",
+            "ET-AT-012",
+            "ET-AT-007",
+            "ET-AT-009",
+            "ET-AT-013",
+            "ET-AT-006",
+            "ET-AT-004",
+            "ET-AT-018",
+            "ET-AT-015",
+            "ET-AT-003",
+            "ET-AT-020",
+            "ET-AT-016",
+            "ET-AT-022"
+          ],
+          "ST": [
+            "ET-ST-005",
+            "ET-ST-011",
+            "ET-ST-037",
+            "ET-ST-015",
+            "ET-ST-036",
+            "ET-ST-021",
+            "ET-ST-030",
+            "ET-ST-008",
+            "ET-ST-020",
+            "ET-ST-033",
+            "ET-ST-017",
+            "ET-ST-031",
+            "ET-ST-024",
+            "ET-ST-025",
+            "ET-ST-019"
+          ],
+          "PR": [
+            "ET-PR-020",
+            "ET-PR-018",
+            "ET-PR-016",
+            "ET-PR-001",
+            "ET-PR-004",
+            "ET-PR-017",
+            "ET-PR-015",
+            "ET-PR-008"
+          ]
+        },
+        "newCounts": {
+          "AT": 2,
+          "ST": 12,
+          "PR": 6
         },
         "answers": {},
         "scores": null,
