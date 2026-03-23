@@ -11,7 +11,7 @@
       "ST": 15,
       "PR": 8
     },
-    "status": "prepared",
+    "status": "completed",
     "createdAt": "2026-03-23T19:33:32.789Z",
     "participants": [
       {
@@ -75,10 +75,79 @@
           "ST": 15,
           "PR": 8
         },
-        "answers": {},
-        "scores": null,
-        "overallPassed": null,
-        "completedAt": null
+        "answers": {
+          "AT": {
+            "ET-AT-014": "a",
+            "ET-AT-004": "a",
+            "ET-AT-006": "a",
+            "ET-AT-012": "a",
+            "ET-AT-005": "a",
+            "ET-AT-002": "a",
+            "ET-AT-008": "a",
+            "ET-AT-009": "a",
+            "ET-AT-013": "a",
+            "ET-AT-001": "a",
+            "ET-AT-019": "a",
+            "ET-AT-021": "a",
+            "ET-AT-003": "a",
+            "ET-AT-017": "a",
+            "ET-AT-016": "a",
+            "ET-AT-020": "a",
+            "ET-AT-018": "a",
+            "ET-AT-007": "a",
+            "ET-AT-022": "a",
+            "ET-AT-011": "a"
+          },
+          "ST": {
+            "ET-ST-018": "a",
+            "ET-ST-029": "a",
+            "ET-ST-013": "a",
+            "ET-ST-025": "a",
+            "ET-ST-021": "a",
+            "ET-ST-024": "a",
+            "ET-ST-003": "a",
+            "ET-ST-004": "a",
+            "ET-ST-005": "a",
+            "ET-ST-014": "a",
+            "ET-ST-009": "a",
+            "ET-ST-033": "a",
+            "ET-ST-008": "a",
+            "ET-ST-006": "a",
+            "ET-ST-023": "a"
+          },
+          "PR": {
+            "ET-PR-012": "a",
+            "ET-PR-022": "a",
+            "ET-PR-014": "a",
+            "ET-PR-019": "a",
+            "ET-PR-015": "a",
+            "ET-PR-011": "a",
+            "ET-PR-003": "a",
+            "ET-PR-013": "a"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 4,
+            "total": 20,
+            "percent": 20,
+            "passed": false
+          },
+          "ST": {
+            "correct": 2,
+            "total": 15,
+            "percent": 13,
+            "passed": false
+          },
+          "PR": {
+            "correct": 4,
+            "total": 8,
+            "percent": 50,
+            "passed": false
+          }
+        },
+        "overallPassed": false,
+        "completedAt": "2026-03-23T19:34:10.612Z"
       }
     ]
   }
