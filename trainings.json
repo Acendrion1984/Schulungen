@@ -14,7 +14,9 @@
         "personalnummer": "45785",
         "abteilung": "WI/SW2-P114",
         "geburtstag": "14.03.1967",
-        "geburtsort": "Weisbrunn"
+        "geburtsort": "Weisbrunn",
+        "pruefungBestanden": "nein",
+        "pruefungDatum": "2026-03-23"
       },
       {
         "vorname": "Dieter",
@@ -291,7 +293,9 @@
         "personalnummer": "45785",
         "abteilung": "WI/SW2-P11Q",
         "geburtstag": "01.01.1900",
-        "geburtsort": "Haßfurt"
+        "geburtsort": "Haßfurt",
+        "pruefungBestanden": "nein",
+        "pruefungDatum": "2026-03-23"
       }
     ]
   },
