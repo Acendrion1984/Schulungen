@@ -632,12 +632,14 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
   #pruef-main { min-width: 0 !important; width: 100% !important; }
 }
 @media (max-width: 768px) {
-  .site-header { padding: 8px 10px 7px 210px !important; flex-wrap: nowrap !important; gap: 6px !important; align-items: center !important; }
-  .site-header-title { font-size: clamp(13px, 4vw, 17px) !important; }
-  .site-header-eyebrow { font-size: 9px !important; letter-spacing: 1.5px !important; }
+  .site-header { padding: 8px 10px 7px !important; flex-wrap: wrap !important; gap: 4px 0 !important; }
+  .site-header-left { width: 100%; }
+  .site-header-right { width: 100%; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+  .site-header-title { font-size: clamp(16px, 5vw, 22px) !important; }
+  .site-header-eyebrow { display: none !important; }
   .site-header-sub { display: none !important; }
   .gh-badge { display: none !important; }
-  .schaeffler-logo { height: 28px !important; }
+  .schaeffler-logo { height: 34px !important; width: auto !important; }
   .token-bar { flex-wrap: wrap !important; }
   .token-input-wrap { max-width: 100% !important; }
 }
