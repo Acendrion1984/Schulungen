@@ -144,57 +144,44 @@ body {
   display: flex; align-items: center; gap: .9rem; flex-wrap: wrap;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-.token-bar.connected {
-  border-color: rgba(88,166,255,0.3);
-  background: rgba(88,166,255,0.04);
-}
+.token-bar.connected { background: rgba(39,174,96,0.06); border-color: rgba(39,174,96,0.2); }
 .token-bar-label {
-  font-size: .82rem; font-weight: 700;
-  color: var(--text3); white-space: nowrap;
-  letter-spacing: .04em; text-transform: uppercase;
-  display: flex; align-items: center; gap: .5rem;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text3); white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
 }
-.token-bar-label i { font-size: .9rem; }
 .status-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--past-border); flex-shrink: 0;
-  transition: background .3s, box-shadow .3s;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--text3); flex-shrink: 0;
+  transition: background 0.3s, box-shadow 0.3s;
 }
-.status-dot.online {
-  background: #69f0ae;
-  box-shadow: 0 0 0 3px rgba(105,240,174,.3), 0 0 8px rgba(105,240,174,.6);
-}
-.status-dot.error { background: var(--err-border); box-shadow: 0 0 6px rgba(198,40,40,.5); }
+.status-dot.online { background: #27ae60; box-shadow: 0 0 0 3px rgba(39,174,96,0.22); }
+.status-dot.error  { background: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.18); }
 .token-input-wrap {
-  flex: 1; min-width: 200px;
+  flex: 1; min-width: 180px; max-width: 340px;
   display: flex; align-items: center;
-  background: var(--surface2); border: 1.5px solid var(--border);
-  border-radius: var(--r-full); overflow: hidden;
-  transition: border-color .2s, box-shadow .2s;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.token-input-wrap:focus-within {
-  border-color: var(--accent2);
-  box-shadow: 0 0 0 3px var(--accent-glow);
-}
+.token-input-wrap:focus-within { border-color: #58a6ff; box-shadow: 0 0 0 3px rgba(88,166,255,0.15); }
 .token-input-wrap input {
-  flex:1; background:transparent; border:none; outline:none;
-  padding: .6rem 1rem;
-  font-family: var(--mono); font-size: .82rem; color: var(--text);
-  letter-spacing: .03em;
+  flex: 1; background: transparent; border: none; outline: none;
+  padding: 6px 10px; font-family: var(--mono); font-size: 12px; color: var(--text);
 }
-.token-input-wrap input::placeholder { color: var(--text-muted); opacity:.8; }
-.btn-eye {
-  background:transparent; border:none;
-  padding:.6rem .9rem; cursor:pointer;
-  color: var(--text3); font-size:.9rem;
-  transition: color .15s;
+.token-input-wrap input::placeholder { color: var(--text3); }
+.token-connect-btn {
+  padding: 6px 14px; border-radius: 7px; border: none;
+  background: #58a6ff; color: #fff;
+  font-family: var(--font); font-size: 12px; font-weight: 700;
+  cursor: pointer; white-space: nowrap; transition: opacity 0.2s;
 }
-.btn-eye:hover { color: var(--accent2); }
+.token-connect-btn:hover { opacity: 0.85; }
 .token-status-text {
-  font-size: .82rem; color: var(--text3); white-space: nowrap;
+  font-family: var(--mono); font-size: 11px; color: var(--text3); white-space: nowrap;
 }
-.token-status-text.ok { color: var(--accent3); font-weight: 600; }
-.token-status-text.err { color: var(--err-text); }
+.token-status-text.ok  { color: #27ae60; font-weight: 600; }
+.token-status-text.err { color: #e74c3c; }
 
 /* ── CONNECTED BADGE ── */
 .gh-badge {
@@ -721,11 +708,10 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
     </div>
     <div class="status-dot" id="tokenDot"></div>
     <div class="token-input-wrap" id="tokenInputWrap">
-      <input type="password" id="cfgToken" placeholder="github_pat_…  (Enter zum Verbinden)" autocomplete="off"
-        onkeydown="if(event.key==='Enter')connectGitHub()">
-      <button class="btn-eye" onclick="togglePAT()" title="Token anzeigen"><i class="fas fa-eye" id="eyeIcon"></i></button>
+      <input type="password" id="cfgToken" placeholder="github_pat_… (Enter zum Verbinden)" autocomplete="off"
+        onkeydown="if(event.key==='Enter')connectGitHub()" spellcheck="false">
     </div>
-    <button class="btn btn-primary btn-sm" onclick="connectGitHub()" id="connectBtn">
+    <button class="token-connect-btn" onclick="connectGitHub()" id="connectBtn">
       <i class="fas fa-plug"></i> Verbinden
     </button>
     <span class="token-status-text" id="tokenStatusText">Bitte Token eingeben</span>
