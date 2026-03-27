@@ -374,5 +374,58 @@
         "completedAt": "2026-03-27T23:41:55.000Z"
       }
     ]
+  },
+  {
+    "id": "mn9jqg7c54btoiv499c",
+    "method": "ET",
+    "date": "2026-03-27",
+    "location": "",
+    "trainer": "",
+    "name": "ET · 27.03.2026",
+    "config": {
+      "AT": 5,
+      "ST": 5,
+      "PR": 3
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-27T23:42:26.184Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-015",
+            "ET-AT-006",
+            "ET-AT-010",
+            "ET-AT-013",
+            "ET-AT-005"
+          ],
+          "ST": [
+            "ET-ST-017",
+            "ET-ST-023",
+            "ET-ST-028",
+            "ET-ST-031",
+            "ET-ST-034"
+          ],
+          "PR": [
+            "ET-PR-018",
+            "ET-PR-005",
+            "ET-PR-011"
+          ]
+        },
+        "newCounts": {
+          "AT": 2,
+          "ST": 4,
+          "PR": 2
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
   }
 ]
