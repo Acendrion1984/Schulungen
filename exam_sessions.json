@@ -150,5 +150,88 @@
         "completedAt": "2026-03-23T19:34:10.612Z"
       }
     ]
+  },
+  {
+    "id": "mn9jmydwl44aq9j5t9",
+    "method": "MT",
+    "date": "2026-03-27",
+    "location": "",
+    "trainer": "",
+    "name": "MT · 27.03.2026",
+    "config": {
+      "AT": 20,
+      "ST": 15,
+      "PR": 8
+    },
+    "status": "prepared",
+    "createdAt": "2026-03-27T23:39:43.125Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "MT-AT-013",
+            "MT-AT-015",
+            "MT-AT-012",
+            "MT-AT-011",
+            "MT-AT-004",
+            "MT-AT-007",
+            "MT-AT-010",
+            "MT-AT-006",
+            "MT-AT-001",
+            "MT-AT-018",
+            "MT-AT-009",
+            "MT-AT-019",
+            "MT-AT-002",
+            "MT-AT-005",
+            "MT-AT-008",
+            "MT-AT-016",
+            "MT-AT-014",
+            "MT-AT-017",
+            "MT-AT-020",
+            "MT-AT-003"
+          ],
+          "ST": [
+            "MT-ST-020",
+            "MT-ST-002",
+            "MT-ST-024",
+            "MT-ST-028",
+            "MT-ST-040",
+            "MT-ST-019",
+            "MT-ST-030",
+            "MT-ST-012",
+            "MT-ST-022",
+            "MT-ST-025",
+            "MT-ST-033",
+            "MT-ST-031",
+            "MT-ST-026",
+            "MT-ST-004",
+            "MT-ST-013"
+          ],
+          "PR": [
+            "MT-PR-004",
+            "MT-PR-020",
+            "MT-PR-003",
+            "MT-PR-022",
+            "MT-PR-024",
+            "MT-PR-012",
+            "MT-PR-021",
+            "MT-PR-017"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
   }
 ]
