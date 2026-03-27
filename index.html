@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
 <title>ZfP · Schulungen &amp; Prüfungssystem · Schaeffler</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2323,14 +2320,15 @@ var MAIN=`<div id="pruef-main">
     <div style="display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:end;margin-bottom:12px;flex-wrap:wrap">
       <div class="form-group">
         <label class="form-label">Prüfverfahren wählen</label>
-        <select class="form-input" id="catalog-method">
-          <option value="ET">ET · Wirbelstromprüfung</option>
-          <option value="UT">UT · Ultraschallprüfung</option>
-          <option value="NE">NE · Ätzprüfung</option>
-          <option value="MT">MT · Magnetpulverprüfung</option>
-          <option value="PT">PT · Eindringprüfung</option>
-          <option value="BN">BN · Barkhausen Rauschen</option>
-        </select>
+<!-- Im HTML-Bereich der Einstellungen wird das Dropdown nun mit ET vorausgefüllt -->
+<select class="form-input" id="catalog-method">
+  <option value="ET" selected>ET · Wirbelstromprüfung</option>
+  <option value="UT">UT · Ultraschallprüfung</option>
+  <option value="NE">NE · Ätzprüfung</option>
+  <option value="MT">MT · Magnetpulverprüfung</option>
+  <option value="PT">PT · Eindringprüfung</option>
+  <option value="BN">BN · Barkhausen Rauschen</option>
+</select>
       </div>
       <div style="display:flex;flex-direction:column;gap:4px">
         <label class="form-label">Excel hochladen</label>
