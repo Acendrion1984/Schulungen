@@ -315,7 +315,7 @@
       "ST": 1,
       "PR": 1
     },
-    "status": "prepared",
+    "status": "completed",
     "createdAt": "2026-03-27T23:41:01.763Z",
     "participants": [
       {
@@ -339,10 +339,39 @@
           "ST": 1,
           "PR": 1
         },
-        "answers": {},
-        "scores": null,
-        "overallPassed": null,
-        "completedAt": null
+        "answers": {
+          "AT": {
+            "MT-AT-017": "b"
+          },
+          "ST": {
+            "MT-ST-037": "b"
+          },
+          "PR": {
+            "MT-PR-023": "a"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 1,
+            "total": 1,
+            "percent": 100,
+            "passed": true
+          },
+          "ST": {
+            "correct": 1,
+            "total": 1,
+            "percent": 100,
+            "passed": true
+          },
+          "PR": {
+            "correct": 1,
+            "total": 1,
+            "percent": 100,
+            "passed": true
+          }
+        },
+        "overallPassed": true,
+        "completedAt": "2026-03-27T23:41:55.000Z"
       }
     ]
   }
