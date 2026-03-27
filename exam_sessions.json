@@ -387,7 +387,7 @@
       "ST": 5,
       "PR": 3
     },
-    "status": "prepared",
+    "status": "completed",
     "createdAt": "2026-03-27T23:42:26.184Z",
     "participants": [
       {
@@ -421,10 +421,49 @@
           "ST": 4,
           "PR": 2
         },
-        "answers": {},
-        "scores": null,
-        "overallPassed": null,
-        "completedAt": null
+        "answers": {
+          "AT": {
+            "ET-AT-015": "b",
+            "ET-AT-006": "b",
+            "ET-AT-010": "a",
+            "ET-AT-013": "b",
+            "ET-AT-005": "c"
+          },
+          "ST": {
+            "ET-ST-017": "c",
+            "ET-ST-023": "c",
+            "ET-ST-028": "a",
+            "ET-ST-031": "a",
+            "ET-ST-034": "c"
+          },
+          "PR": {
+            "ET-PR-018": "c",
+            "ET-PR-005": "c",
+            "ET-PR-011": "c"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 5,
+            "total": 5,
+            "percent": 100,
+            "passed": true
+          },
+          "ST": {
+            "correct": 4,
+            "total": 5,
+            "percent": 80,
+            "passed": true
+          },
+          "PR": {
+            "correct": 3,
+            "total": 3,
+            "percent": 100,
+            "passed": true
+          }
+        },
+        "overallPassed": true,
+        "completedAt": "2026-03-27T23:43:51.692Z"
       }
     ]
   }
