@@ -112,28 +112,28 @@ body {
 .loading-text { color:var(--text3); font-size:.95rem; font-weight:600; letter-spacing:.03em; }
 
 /* ── SITE HEADER ── */
-.header {
+.site-header {
   background: var(--surface);
   border-bottom: 1px solid var(--border);
-  padding: 28px 40px 24px 120px;  /* wie im Self-Audit Beispiel */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+  padding: 28px 40px 24px 120px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  position: relative;
 }
-.header-left h1 {
-  font-size: clamp(20px, 2.5vw, 28px); font-weight: 900;
-  letter-spacing: -0.5px; color: var(--text); line-height: 1.1;
-}
-.header-left .sub { font-size: 13px; color: var(--text3); margin-top: 3px; }
-.header-eyebrow {
+.site-header-left { display: flex; flex-direction: column; gap: 6px; }
+.site-header-eyebrow {
   font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 5px;
+  text-transform: uppercase; color: var(--accent); font-weight: 500;
 }
-.header-actions { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; }
+.site-header-title {
+  font-size: clamp(22px, 3vw, 30px); font-weight: 900;
+  color: var(--text); line-height: 1.1; letter-spacing: -0.5px;
+  transition: color 0.3s ease;
+}
+.site-header-sub { font-size: 14px; color: var(--text3); margin-top: 2px; transition: color 0.3s ease; }
+.site-header-right { display: flex; align-items: center; gap: 12px; }
+
+.schaeffler-logo { height: 34px; width: auto; }
 
 /* ── TOKEN CONNECT BAR (in header) ── */
 .token-bar {
@@ -144,57 +144,44 @@ body {
   display: flex; align-items: center; gap: .9rem; flex-wrap: wrap;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-.token-bar.connected {
-  border-color: rgba(88,166,255,0.3);
-  background: rgba(88,166,255,0.04);
-}
+.token-bar.connected { background: rgba(39,174,96,0.06); border-color: rgba(39,174,96,0.2); }
 .token-bar-label {
-  font-size: .82rem; font-weight: 700;
-  color: var(--text3); white-space: nowrap;
-  letter-spacing: .04em; text-transform: uppercase;
-  display: flex; align-items: center; gap: .5rem;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text3); white-space: nowrap;
+  display: flex; align-items: center; gap: 6px;
 }
-.token-bar-label i { font-size: .9rem; }
 .status-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--past-border); flex-shrink: 0;
-  transition: background .3s, box-shadow .3s;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--text3); flex-shrink: 0;
+  transition: background 0.3s, box-shadow 0.3s;
 }
-.status-dot.online {
-  background: #69f0ae;
-  box-shadow: 0 0 0 3px rgba(105,240,174,.3), 0 0 8px rgba(105,240,174,.6);
-}
-.status-dot.error { background: var(--err-border); box-shadow: 0 0 6px rgba(198,40,40,.5); }
+.status-dot.online { background: #27ae60; box-shadow: 0 0 0 3px rgba(39,174,96,0.22); }
+.status-dot.error  { background: #e74c3c; box-shadow: 0 0 0 3px rgba(231,76,60,0.18); }
 .token-input-wrap {
-  flex: 1; min-width: 200px;
+  flex: 1; min-width: 180px; max-width: 340px;
   display: flex; align-items: center;
-  background: var(--surface2); border: 1.5px solid var(--border);
-  border-radius: var(--r-full); overflow: hidden;
-  transition: border-color .2s, box-shadow .2s;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 8px; overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
-.token-input-wrap:focus-within {
-  border-color: var(--accent2);
-  box-shadow: 0 0 0 3px var(--accent-glow);
-}
+.token-input-wrap:focus-within { border-color: #58a6ff; box-shadow: 0 0 0 3px rgba(88,166,255,0.15); }
 .token-input-wrap input {
-  flex:1; background:transparent; border:none; outline:none;
-  padding: .6rem 1rem;
-  font-family: var(--mono); font-size: .82rem; color: var(--text);
-  letter-spacing: .03em;
+  flex: 1; background: transparent; border: none; outline: none;
+  padding: 6px 10px; font-family: var(--mono); font-size: 12px; color: var(--text);
 }
-.token-input-wrap input::placeholder { color: var(--text-muted); opacity:.8; }
-.btn-eye {
-  background:transparent; border:none;
-  padding:.6rem .9rem; cursor:pointer;
-  color: var(--text3); font-size:.9rem;
-  transition: color .15s;
+.token-input-wrap input::placeholder { color: var(--text3); }
+.token-connect-btn {
+  padding: 6px 14px; border-radius: 7px; border: none;
+  background: #58a6ff; color: #fff;
+  font-family: var(--font); font-size: 12px; font-weight: 700;
+  cursor: pointer; white-space: nowrap; transition: opacity 0.2s;
 }
-.btn-eye:hover { color: var(--accent2); }
+.token-connect-btn:hover { opacity: 0.85; }
 .token-status-text {
-  font-size: .82rem; color: var(--text3); white-space: nowrap;
+  font-family: var(--mono); font-size: 11px; color: var(--text3); white-space: nowrap;
 }
-.token-status-text.ok { color: var(--accent3); font-weight: 600; }
-.token-status-text.err { color: var(--err-text); }
+.token-status-text.ok  { color: #27ae60; font-weight: 600; }
+.token-status-text.err { color: #e74c3c; }
 
 /* ── CONNECTED BADGE ── */
 .gh-badge {
@@ -409,19 +396,14 @@ tr:hover td { background:var(--accent-dim); }
 .save-spinner { width:13px; height:13px; border:2px solid rgba(165,214,167,.3); border-top-color:#69f0ae; border-radius:50%; animation:spin .7s linear infinite; }
 
 /* ── THEME TOGGLE ── */
-.theme-btn {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: 18px;
-  cursor: pointer;
+.theme-toggle-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text); font-size: 18px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+  transition: all 0.3s ease; flex-shrink: 0;
 }
-.theme-btn:hover { transform: scale(1.08) rotate(15deg); border-color: var(--accent); }
+.theme-toggle-btn:hover { transform: scale(1.08) rotate(15deg); border-color: var(--accent); }
 
 /* ── SYNC TOAST ── */
 .sync-toast {
@@ -652,7 +634,14 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
   #pruef-main { min-width: 0 !important; width: 100% !important; }
 }
 @media (max-width: 768px) {
-  .header-inner { flex-wrap: wrap !important; gap: 6px !important; }
+  .site-header { padding: 8px 10px 7px !important; flex-wrap: wrap !important; gap: 4px 0 !important; }
+  .site-header-left { width: 100% !important; padding-left: 155px !important; box-sizing: border-box !important; }
+  .site-header-right { width: 100% !important; padding-left: 155px !important; box-sizing: border-box !important; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+  .site-header-title { font-size: clamp(16px, 5vw, 22px) !important; }
+  .site-header-eyebrow { display: none !important; }
+  .site-header-sub { display: none !important; }
+  .gh-badge { display: none !important; }
+  .schaeffler-logo { height: 18px !important; width: auto !important; }
   .token-bar { flex-wrap: wrap !important; }
   .token-input-wrap { max-width: 100% !important; }
 }
@@ -693,14 +682,14 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
 </div>
 
 <div class="app" id="app">
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-left">
-      <div class="header-eyebrow">Schaeffler · ZfP · Schweinfurt</div>
-      <h1>ZfP-Schulungen</h1>
-      <div class="sub">Wirbelstromprüfung · Ultraschallprüfung · Magnetpulverprüfung · Nital-Ätzen</div>
+  <!-- SITE HEADER -->
+  <div class="site-header">
+    <div class="site-header-left">
+      <div class="site-header-eyebrow">Schaeffler · ZfP · Schweinfurt</div>
+      <div class="site-header-title">ZfP-Schulungen</div>
+      <div class="site-header-sub">Wirbelstromprüfung · Ultraschallprüfung · Magnetpulverprüfung · Nital-Ätzen</div>
     </div>
-    <div class="header-actions">
+    <div class="site-header-right">
       <div class="saving-indicator" id="savingIndicator">
         <div class="save-spinner"></div>
         <span>Speichere…</span>
@@ -709,7 +698,8 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
         <div class="dot" id="ghDot"></div>
         <span id="ghBadgeText">Nicht verbunden</span>
       </div>
-      <button class="theme-btn" id="themeBtn" title="Dark/Light Mode">🌓</button>
+      <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNS4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9InN2ZzI4NzAiIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciDQoJIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNjE0LjVweCIgaGVpZ2h0PSI2OHB4Ig0KCSB2aWV3Qm94PSIwIDAgNjE0LjUgNjgiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDYxNC41IDY4IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJsYXllcjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yOTIuNzUzLCAtNTI2LjkxNykiPg0KCTxwYXRoIGlkPSJwYXRoMjYyMiIgZmlsbD0iIzA4OTU0QyIgZD0iTTMxMi45ODQsNTI3LjAxOGMtMTUuMjA1LDAtMjAuMjMxLDExLjg3NS0yMC4yMzEsMTcuODk3DQoJCWMwLDE2LjgyMywxNC44MDgsMTguNjY3LDE3LjUwOCwxOS40NTRjMTAuNzc3LDMuMjUyLDE3LjUwOCwzLjAzNSwxNy41MDgsMTEuODY3YzAsNS4zODUtNC41MTMsOS41MzEtOS43MjcsOS41MzENCgkJYy04LjgwOSwwLTE0LjQ4OS02LjAxNS0xNS41NjMtMTQuNTloLTkuMTQzdjIyLjE3OGg5LjMzOHYtNC4wODZjNC42NjEsMy44ODMsMTAuMzI2LDUuNjQyLDE2LjM0MSw1LjY0Mg0KCQljMTEuODY3LDAsMjAuNDI2LTguMDg1LDIwLjQyNi0yMC4yMzFjMC0xNC4wMy04LjUwNS0xNy4yMzYtMTcuMzEzLTE5Ljg0M2MtOC44MTYtMi41OTEtMTcuNzAzLTMuODk4LTE3LjcwMy0xMC4xMTYNCgkJYzAtNS41NjQsMy44NTItOC43NTQsOS4xNDQtOC43NTRjMy42MDMsMCw2LjQ5NywxLjM2MSw4Ljc1NCwzLjUwMWMyLjE1NSwyLjA3LDMuNzU4LDQuOTQxLDQuNDc0LDguMzY1aDguOTQ5di0xOS40NTNoLTkuNTMydjQuMDg1DQoJCUMzMjIuNjk2LDUyOS4xMjYsMzE4LjAxOSw1MjcuMDE4LDMxMi45ODQsNTI3LjAxOHogTTM3Ny41Nyw1MjcuMDE4Yy0xNS41NTUsMC0zMi44NzYsMTAuNjE0LTMyLjg3NiwzMy40Ng0KCQljMCwxOS40MDYsMTQuMzcyLDM0LjQzMywzMy4wNzEsMzQuNDMzYzE0LjEyMywwLDI1LjM5OC03LjYxLDI5LjE4LTIzLjE0OWgtMTAuNjk5Yy0zLjYwMyw3LjE4Mi04Ljc2MiwxMi4yNTYtMTguNDgxLDEyLjI1Ng0KCQljLTEzLjc1NywwLTIxLjM5OS0xMC43MjMtMjEuMzk5LTIzLjE1YzAtMTIuNDk3LDcuODI4LTIzLjE1LDIxLjM5OS0yMy4xNWMzLjY4OCwwLDcuNDU1LDEuMjUzLDEwLjUwNSwzLjMwNw0KCQljMy4wNTgsMiw1LjUyNSw0LjcsNi40MTksOC4zNjVoOS4zMzh2LTIxLjAxaC05LjMzOHY0LjI3OUMzODkuNDY4LDUyNy43MjYsMzc5LjYzMiw1MjcuMDE4LDM3Ny41Nyw1MjcuMDE4eiBNNDEzLjU1OSw1MjguMzc5DQoJCXY4Ljk0OGg3LjAwM1Y1ODQuNmgtNy4wMDN2OC43NTVoMjUuNjc5VjU4NC42aC03LjAwM3YtMjAuNjJoMjMuMTV2MjAuNjJoLTYuODA5djguNzU1aDI1LjQ4NFY1ODQuNmgtNy4wMDN2LTQ3LjI3Mmg3LjAwM3YtOC45NDgNCgkJaC0yNS40ODR2OC45NDhoNi44MDl2MTYuMzQxaC0yMy4xNXYtMTYuMzQxaDcuMDAzdi04Ljk0OEg0MTMuNTU5eiBNNDk1Ljg0Nyw1MjguMzc5djguOTQ4aDcuMTk4TDQ4Ni44OTgsNTg0LjZoLTUuNDQ3djguNzU1DQoJCWgyMy4zNDRWNTg0LjZoLTcuMDAzbDQuNDc1LTEyLjY0NWgxOS42NDhsNC40NzQsMTIuNjQ1aC03LjE5OHY4Ljc1NWgyMy45MjhWNTg0LjZoLTQuODYzbC0xNS43NTctNDcuMjcyaDcuMDAzdi04Ljk0OEg0OTUuODQ3eg0KCQkgTTU1Mi42NTEsNTI4LjM3OXY4Ljk0OGg3LjAwM1Y1ODQuNmgtNy4wMDN2OC43NTVoNDkuOTk1VjU3My45aC0xMC4zMVY1ODQuNmgtMjEuMDF2LTIwLjYyaDE4LjA5MnYtMTAuMzExaC0xOC4wOTJ2LTE2LjM0MWgyMS4wMQ0KCQl2OC4zNjVoMTAuMzF2LTE3LjMxM0g1NTIuNjUxeiBNNjE0LjcwOCw1MjguMzc5djguOTQ4aDcuMDAzVjU4NC42aC03LjAwM3Y4Ljc1NWgyNi4yNjNWNTg0LjZoLTcuNTg3di0yMC42MmgxOS40NTN2LTEwLjMxMQ0KCQloLTE5LjQ1M3YtMTYuMzQxaDIxLjc4N3Y4LjM2NWgxMC4zMTF2LTE3LjMxM0g2MTQuNzA4eiBNNjczLjI2Myw1MjguMzc5djguOTQ4aDcuMDA0VjU4NC42aC03LjAwNHY4Ljc1NWgyNi4yNjNWNTg0LjZoLTcuNTg3DQoJCXYtMjAuNjJoMTkuNDUzdi0xMC4zMTFoLTE5LjQ1M3YtMTYuMzQxaDIxLjc4OHY4LjM2NWgxMC4zMXYtMTcuMzEzSDY3My4yNjN6IE03MzQuMTUyLDUyOC4zNzl2OC45NDhoNy4zOTNWNTg0LjZoLTcuMzkzdjguNzU1DQoJCWg0NC43NDN2LTE5LjI2aC0xMC4zMTFWNTg0LjZoLTE1LjM2OHYtNDcuMjcyaDcuOTc2di04Ljk0OEg3MzQuMTUyeiBNNzg1LjUxLDUyOC4zNzl2OC45NDhoNi44MDlWNTg0LjZoLTYuODA5djguNzU1aDQ5Ljk5NVY1NzMuOQ0KCQloLTEwLjMxMVY1ODQuNkg4MDMuOTl2LTIwLjYyaDE4LjA5MnYtMTAuMzExSDgwMy45OXYtMTYuMzQxaDIxLjIwNHY4LjM2NWgxMC4zMTF2LTE3LjMxM0g3ODUuNTF6IE04NDUuODE1LDUyOC4zNzl2OC45NDhoNy4wMDMNCgkJVjU4NC42aC03LjAwM3Y4Ljc1NWgyNS44NzNWNTg0LjZoLTcuMTk3di0yMC42Mmg3LjAwM2M0Ljc3NywwLDExLjI4MywwLjUxNCwxMS4yODMsNi42MTN2MjIuNzYyaDE4LjA5MlY1ODQuNmgtNi40MnYtMTQuNzg0DQoJCWMwLTMuOTUzLTAuNjA3LTguNTIxLTcuOTc2LTEwLjMxMXYtMC4xOTVjNi44MjQtMi44NzEsMTAuMTE1LTcuMDM0LDEwLjExNS0xNC41OWMwLTAuOTg4LDAuMjQ5LTUuMTgzLTIuNzI0LTguOTQ5DQoJCWMtNi4xMDEtOC4xMTYtMTUuNjA5LTcuMzkyLTIwLjAzNy03LjM5Mkg4NDUuODE1eiBNODY0LjQ5MSw1MzcuMzI4aDYuMjI1YzYuMTAxLDAsMTQuMzk2LTAuMDE2LDE0LjM5Niw3Ljk3Ng0KCQljMCw4LjczOS02LjU2Nyw5LjcyNy0xMy4wMzQsOS43MjdoLTcuNTg2VjUzNy4zMjh6IE01MTIuMTg4LDU0MS4yMThoMC4xOTVsNy4xOTgsMjEuNzg5aC0xNC43ODVMNTEyLjE4OCw1NDEuMjE4eiIvPg0KPC9nPg0KPC9zdmc+DQo=" alt="Schaeffler" class="schaeffler-logo" style="display:block;flex-shrink:0;">
+      <button class="theme-toggle-btn" id="themeBtn" title="Dark/Light Mode">🌓</button>
     </div>
   </div>
 
@@ -721,11 +711,10 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
     </div>
     <div class="status-dot" id="tokenDot"></div>
     <div class="token-input-wrap" id="tokenInputWrap">
-      <input type="password" id="cfgToken" placeholder="github_pat_…  (Enter zum Verbinden)" autocomplete="off"
-        onkeydown="if(event.key==='Enter')connectGitHub()">
-      <button class="btn-eye" onclick="togglePAT()" title="Token anzeigen"><i class="fas fa-eye" id="eyeIcon"></i></button>
+      <input type="password" id="cfgToken" placeholder="github_pat_… (Enter zum Verbinden)" autocomplete="off"
+        onkeydown="if(event.key==='Enter')connectGitHub()" spellcheck="false">
     </div>
-    <button class="btn btn-primary btn-sm" onclick="connectGitHub()" id="connectBtn">
+    <button class="token-connect-btn" onclick="connectGitHub()" id="connectBtn">
       <i class="fas fa-plug"></i> Verbinden
     </button>
     <span class="token-status-text" id="tokenStatusText">Bitte Token eingeben</span>
@@ -2380,7 +2369,7 @@ var MAIN=`<div id="pruef-main">
   </div>
   <div class="card" style="max-width:540px">
     <div class="card-title">Über das System</div>
-    <div class="text-sm text-muted" style="line-height:2.1"><b>ZfP Prüfungssystem v2.0</b><br>Norm: DIN EN ISO 9712 · Bestehensschwelle: 80% je Teil<br>Rezertifizierungshinweis: 4 Jahre (DGZfP-Norm)<br>25%-Neu-Fragen-Garantie: gegen die letzte Prüfung<br><br><span style="color:var(--text3)">Schaeffler Technologies AG &amp; Co. KG · WI/SW2-PQT</span></div>
+    <div class="text-sm text-muted" style="line-height:2.1"><b>ZfP Prüfungssystem v2.0</b><br>Norm: DIN EN ISO 9712 · Bestehensschwelle: 80% je Teil<br>Rezertifizierungshinweis: 4 Jahre (DGZfP-Norm)<br>25%-Neu-Fragen-Garantie: gegen die letzte Prüfung<br>GitHub: Acendrion1984/Schulungen<br><span style="color:var(--text3)">Schaeffler Technologies AG &amp; Co. KG · WI/SW2-PQT</span></div>
   </div>
 </div>
 
