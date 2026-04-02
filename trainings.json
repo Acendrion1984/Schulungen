@@ -24,7 +24,9 @@
         "personalnummer": "60834",
         "abteilung": "WI/SW2-P114",
         "geburtstag": "28.06.1965",
-        "geburtsort": "Haßfurt"
+        "geburtsort": "Haßfurt",
+        "pruefungBestanden": "nein",
+        "pruefungDatum": "2026-04-02"
       },
       {
         "vorname": "Celina",
