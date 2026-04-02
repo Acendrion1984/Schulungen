@@ -1,0 +1,85 @@
+[
+  {
+    "id": "mnhw03ako9zp5rlez3",
+    "method": "ET",
+    "date": "2026-04-02",
+    "location": "",
+    "trainer": "",
+    "name": "ET · 02.04.2026",
+    "config": {
+      "AT": 20,
+      "ST": 15,
+      "PR": 8
+    },
+    "status": "prepared",
+    "createdAt": "2026-04-02T19:48:00.814Z",
+    "participants": [
+      {
+        "participantId": "02006619",
+        "name": "Celina Frank",
+        "employeeId": "02006619",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "ET-AT-013",
+            "ET-AT-019",
+            "ET-AT-022",
+            "ET-AT-017",
+            "ET-AT-014",
+            "ET-AT-004",
+            "ET-AT-008",
+            "ET-AT-006",
+            "ET-AT-007",
+            "ET-AT-012",
+            "ET-AT-003",
+            "ET-AT-009",
+            "ET-AT-016",
+            "ET-AT-005",
+            "ET-AT-011",
+            "ET-AT-018",
+            "ET-AT-015",
+            "ET-AT-021",
+            "ET-AT-010",
+            "ET-AT-001"
+          ],
+          "ST": [
+            "ET-ST-036",
+            "ET-ST-019",
+            "ET-ST-026",
+            "ET-ST-010",
+            "ET-ST-009",
+            "ET-ST-016",
+            "ET-ST-032",
+            "ET-ST-018",
+            "ET-ST-002",
+            "ET-ST-035",
+            "ET-ST-014",
+            "ET-ST-025",
+            "ET-ST-029",
+            "ET-ST-005",
+            "ET-ST-012"
+          ],
+          "PR": [
+            "ET-PR-015",
+            "ET-PR-007",
+            "ET-PR-016",
+            "ET-PR-017",
+            "ET-PR-018",
+            "ET-PR-002",
+            "ET-PR-009",
+            "ET-PR-012"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
+  }
+]
