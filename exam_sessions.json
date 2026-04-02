@@ -493,7 +493,49 @@
           }
         },
         "overallPassed": true,
-        "completedAt": "2026-04-02T21:59:58.523Z"
+        "completedAt": "2026-04-02T21:59:58.523Z",
+        "practicalPhase": {
+          "rows": [
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "11",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "9",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "9",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "10",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "1",
+              "evaluations": "1",
+              "comment": "Operator Audit"
+            }
+          ],
+          "totalHours": "161.0",
+          "mitarbeiterName": "Dieter Welz",
+          "mitarbeiterDate": "",
+          "prueferName": "",
+          "prueferDate": "",
+          "experteName": "",
+          "experteDate": "",
+          "updatedAt": "2026-04-02T22:00:53.720Z"
+        }
       }
     ]
   }
