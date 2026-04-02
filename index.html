@@ -1886,7 +1886,7 @@ function showExamSheet(trainingId,pIdx){
     html+='</div>';
   }
   const tdc=document.getElementById('training-detail-content');
-  if(tdc)tdc.innerHTML=`<div class="flex gap8 mb24 no-print"><button class="btn btn-secondary" onclick="renderTrainingDetail('${trainingId}')">← Zurück</button><button class="btn btn-secondary" onclick="window.print()">Drucken</button></div>${html}`;
+  if(tdc)tdc.innerHTML=`<div class="flex gap8 mb24 no-print"><button class="btn btn-secondary" onclick="renderTrainingDetail('${trainingId}')">← Zurück</button></div>${html}`;
 }
 
 function openResultsModal(trainingId,pIdx){
