@@ -32,7 +32,9 @@
         "personalnummer": "02006619",
         "abteilung": "WI/SW1-P06Q",
         "geburtstag": "27.07.1999",
-        "geburtsort": "Werneck"
+        "geburtsort": "Werneck",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-02"
       },
       {
         "vorname": "Christian",
@@ -139,7 +141,9 @@
         "personalnummer": "02006619",
         "abteilung": "WI/SW1-P06Q",
         "geburtstag": "27.07.1999",
-        "geburtsort": "Werneck"
+        "geburtsort": "Werneck",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-02"
       },
       {
         "vorname": "Oliver",
@@ -238,7 +242,9 @@
         "personalnummer": "02006619",
         "abteilung": "WI/SW1-P06Q",
         "geburtstag": "27.07.1999",
-        "geburtsort": "Werneck"
+        "geburtsort": "Werneck",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-02"
       },
       {
         "vorname": "Rene",
