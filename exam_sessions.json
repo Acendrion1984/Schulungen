@@ -147,7 +147,49 @@
           }
         },
         "overallPassed": true,
-        "completedAt": "2026-04-02T21:04:52.792Z"
+        "completedAt": "2026-04-02T21:04:52.792Z",
+        "practicalPhase": {
+          "rows": [
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "25",
+              "comment": "Ätzen von Lageringen bis 600 mm"
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "37",
+              "comment": "Ätzen von Lageringen bis 600 mm"
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "27",
+              "comment": "Ätzen von Lageringen bis 600 mm"
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "22",
+              "comment": "Ätzen von Lageringen bis 600 mm"
+            },
+            {
+              "week": "",
+              "hours": "",
+              "evaluations": "",
+              "comment": ""
+            }
+          ],
+          "totalHours": "160.0",
+          "mitarbeiterName": "Celina Frank",
+          "mitarbeiterDate": "02.04.2026",
+          "prueferName": "Meder Marksu",
+          "prueferDate": "02.04.2026",
+          "experteName": "Häusner Daniel",
+          "experteDate": "02.04.2026",
+          "updatedAt": "2026-04-02T21:06:48.735Z"
+        }
       }
     ]
   }
