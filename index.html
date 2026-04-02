@@ -2365,15 +2365,7 @@ var MAIN=`<div id="pruef-main">
     <div class="h-title" id="headerTitle">Dashboard</div>
     <div class="h-method-badge" id="headerMethod" style="display:none"></div>
   </div>
-  <div class="flex gap8">
-    <button class="btn btn-secondary btn-sm no-print" onclick="exportData()">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export
-    </button>
-    <button class="btn btn-secondary btn-sm no-print" onclick="document.getElementById('importFile').click()">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Import
-    </button>
-    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
-  </div>
+  <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this)">
 </div>
 <div id="pruef-content">
 
@@ -2492,35 +2484,8 @@ var MAIN=`<div id="pruef-main">
     </div>
 
 
-    <!-- METHOD SELECTOR + ACTIONS -->
-    <div style="display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:end;margin-bottom:12px;flex-wrap:wrap">
-      <div class="form-group">
-        <label class="form-label">Prüfverfahren wählen</label>
-        <select class="form-input" id="catalog-method">
-          <option value="ET">ET · Wirbelstromprüfung</option>
-          <option value="UT">UT · Ultraschallprüfung</option>
-          <option value="NE">NE · Ätzprüfung</option>
-          <option value="MT">MT · Magnetpulverprüfung</option>
-          <option value="PT">PT · Eindringprüfung</option>
-          <option value="BN">BN · Barkhausen Rauschen</option>
-        </select>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:4px">
-        <label class="form-label">Excel hochladen</label>
-        <button class="btn btn-primary" onclick="document.getElementById('catalog-upload').click()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          Import .xlsx
-        </button>
-        <input type="file" id="catalog-upload" accept=".xlsx,.xls" style="display:none" onchange="importCatalogXLSX(this)">
-      </div>
-      <div style="display:flex;flex-direction:column;gap:4px">
-        <label class="form-label">Aktuellen Katalog speichern</label>
-        <button class="btn btn-secondary" onclick="exportCatalogXLSX()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Export .xlsx
-        </button>
-      </div>
-    </div>
+    <input type="file" id="catalog-upload" accept=".xlsx,.xls" style="display:none" onchange="importCatalogXLSX(this)">
+    <select id="catalog-method" style="display:none"><option value="ET">ET</option><option value="UT">UT</option><option value="NE">NE</option><option value="MT">MT</option><option value="PT">PT</option><option value="BN">BN</option></select>
 
     <!-- STATUS TABLE -->
     <div id="catalog-status-table">
