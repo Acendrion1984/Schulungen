@@ -9,7 +9,8 @@
         "c": "Thermoelektrischer Effekt",
         "d": "Fotoelektrischer Effekt"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-002",
@@ -20,7 +21,8 @@
         "c": "100 MHz - 1 GHz",
         "d": "1 GHz - 10 GHz"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-003",
@@ -31,7 +33,8 @@
         "c": "Umwandlung von Licht in elektrischen Strom",
         "d": "Umwandlung von Magnetismus in Strom"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-004",
@@ -42,7 +45,8 @@
         "c": "Longitudinal-, Transversal-, Oberflächen- und Plattenwellen",
         "d": "Nur elektromagnetische Wellen"
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "UT-AT-005",
@@ -53,7 +57,8 @@
         "c": "kreisförmig",
         "d": "spiralförmig"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-006",
@@ -64,7 +69,8 @@
         "c": "kreisförmig",
         "d": "spiralförmig"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-AT-007",
@@ -75,7 +81,8 @@
         "c": "Nur in Flüssigkeiten",
         "d": "Nur in Festkörpern"
       },
-      "answer": "d"
+      "answer": "d",
+      "image": ""
     },
     {
       "id": "UT-AT-008",
@@ -86,7 +93,8 @@
         "c": "Nur in Gasen",
         "d": "In Festkörpern, Flüssigkeiten und Gasen"
       },
-      "answer": "d"
+      "answer": "d",
+      "image": ""
     },
     {
       "id": "UT-AT-009",
@@ -97,7 +105,8 @@
         "c": "Oberflächenwellen",
         "d": "Alle gleich schnell"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-AT-010",
@@ -108,7 +117,8 @@
         "c": "vom Material (Elastizitätsmodul und Dichte)",
         "d": "nur von der Amplitude"
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "UT-AT-011",
@@ -119,7 +129,8 @@
         "c": "c = λ / f",
         "d": "c = f + λ"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-AT-012",
@@ -130,7 +141,8 @@
         "c": "Z = c / ρ",
         "d": "Z = ρ + c"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-AT-013",
@@ -141,7 +153,8 @@
         "c": "J/m³",
         "d": "W/m²"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-AT-014",
@@ -152,7 +165,8 @@
         "c": "Keine Schallausbreitung",
         "d": "Verdopplung der Frequenz"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-015",
@@ -163,7 +177,8 @@
         "c": "je höher die Frequenz ist",
         "d": "je niedriger die Frequenz ist"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-016",
@@ -174,7 +189,8 @@
         "c": "Totalreflexion",
         "d": "Phasengleichheit"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-017",
@@ -185,7 +201,8 @@
         "c": "Reflexion an Grenzflächen",
         "d": "Brechung des Schalls"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-018",
@@ -196,7 +213,8 @@
         "c": "Reflexion an Korngrenzen",
         "d": "Brechung des Schallstrahls"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-AT-019",
@@ -207,7 +225,8 @@
         "c": "Reflexion an der Rückwand",
         "d": "Brechung an Grenzflächen"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-020",
@@ -218,7 +237,8 @@
         "c": "je niedriger die Frequenz",
         "d": "je kleiner die Dichte"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-021",
@@ -229,7 +249,8 @@
         "c": "größerer Wellenlänge",
         "d": "kleinerer Amplitude"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-022",
@@ -240,7 +261,8 @@
         "c": "größerer Amplitude",
         "d": "kleinerer Wellenlänge"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-023",
@@ -251,7 +273,8 @@
         "c": "Dauerschall wird ausgesendet",
         "d": "Mehrere Prüfköpfe senden gleichzeitig"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-024",
@@ -262,7 +285,8 @@
         "c": "Mehrere Prüfköpfe auf einer Seite",
         "d": "Tauchtechnik"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-AT-025",
@@ -273,7 +297,8 @@
         "c": "Resonanzverfahren",
         "d": "b) und c)"
       },
-      "answer": "d"
+      "answer": "d",
+      "image": ""
     }
   ],
   "ST": [
@@ -286,7 +311,8 @@
         "c": "Nur Winkelprüfköpfe",
         "d": "Nur Gruppenstrahler"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-002",
@@ -297,7 +323,8 @@
         "c": "Zur Kühlung",
         "d": "Zur Fokussierung"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-003",
@@ -308,7 +335,8 @@
         "c": "Glas",
         "d": "Keramik"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-004",
@@ -319,7 +347,8 @@
         "c": "Mehrere Schwinger in Reihe",
         "d": "Ein Schwinger mit Vorlaufkeil"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-005",
@@ -330,7 +359,8 @@
         "c": "Größere Eindringtiefe",
         "d": "Geringere Kosten"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-006",
@@ -341,7 +371,8 @@
         "c": "Ein großer Schwinger",
         "d": "Ein Prüfkopf mit Vorlaufkeil"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-007",
@@ -352,7 +383,8 @@
         "c": "Höhere Frequenzen",
         "d": "Geringere Kosten"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-008",
@@ -363,7 +395,8 @@
         "c": "Die maximale Prüfentfernung",
         "d": "Der Fokusbereich"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-009",
@@ -374,7 +407,8 @@
         "c": "N = 4λ / D²",
         "d": "N = D × λ"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-010",
@@ -385,7 +419,8 @@
         "c": "nimmt der Schalldruck exponentiell ab",
         "d": "gibt es keine Schallausbreitung"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-011",
@@ -396,7 +431,8 @@
         "c": "Den Winkel des Prüfkopfes",
         "d": "Den Einschallwinkel"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-012",
@@ -407,7 +443,8 @@
         "c": "nur mit kleinerem Durchmesser",
         "d": "nur mit niedrigerer Frequenz"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-013",
@@ -418,7 +455,8 @@
         "c": "Reflexionen an der Oberfläche",
         "d": "Elektronische Störungen"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-014",
@@ -429,7 +467,8 @@
         "c": "Bereich mit geringer Empfindlichkeit",
         "d": "Bereich hinter einem Fehler"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-015",
@@ -440,7 +479,8 @@
         "c": "Durch niedrigere Frequenz",
         "d": "Durch größere Prüfköpfe"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-016",
@@ -451,7 +491,8 @@
         "c": "Diagramm der Schallgeschwindigkeit",
         "d": "Diagramm der Dämpfung"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-017",
@@ -462,7 +503,8 @@
         "c": "Abstand-Verzerrung-Grenze",
         "d": "Amplitude-Verlauf-Gerade"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-018",
@@ -473,7 +515,8 @@
         "c": "Besonders große Prüfteile",
         "d": "Körper aus anderem Material"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-019",
@@ -484,7 +527,8 @@
         "c": "Flachbodenreflektoren, Seitenbohrungen, Kerben, Stufen",
         "d": "Nur Kugeln"
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "UT-ST-020",
@@ -495,7 +539,8 @@
         "c": "Eine Kerbe",
         "d": "Eine Kugel"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-021",
@@ -506,7 +551,8 @@
         "c": "Zur Verstärkungsregelung",
         "d": "Zur Dämpfungsmessung"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-022",
@@ -517,7 +563,8 @@
         "c": "Mittel zur Magnetisierung",
         "d": "Klebemittel"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-ST-023",
@@ -528,7 +575,8 @@
         "c": "Magnetische Eigenschaften",
         "d": "Elektrische Leitfähigkeit"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-024",
@@ -539,7 +587,8 @@
         "c": "Lösungsmittel",
         "d": "Farben"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-ST-025",
@@ -550,7 +599,8 @@
         "c": "Es sind besondere Korrosionsschutzmaßnahmen nötig",
         "d": "Alle genannten"
       },
-      "answer": "d"
+      "answer": "d",
+      "image": ""
     }
   ],
   "PR": [
@@ -563,7 +613,8 @@
         "c": "Durch Sichtprüfung des Prüfkopfes",
         "d": "Mit einem magnetischen Kalibriergerät"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-PR-002",
@@ -574,7 +625,8 @@
         "c": "Name des Betriebsleiters",
         "d": "Stückgewicht des Prüflings"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-PR-003",
@@ -585,7 +637,8 @@
         "c": "Bauteil sofort verschrotten",
         "d": "Befund mit roter Farbe markieren und freigeben"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-PR-004",
@@ -596,7 +649,8 @@
         "c": "magnetisch",
         "d": "erhitzt"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-PR-005",
@@ -607,7 +661,8 @@
         "c": "erwärmt werden",
         "d": "magnetisch sein"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-PR-006",
@@ -618,7 +673,8 @@
         "c": "das Koppelmittel verdampft",
         "d": "die Frequenz sich ändert"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-PR-007",
@@ -629,7 +685,8 @@
         "c": "entfernt werden",
         "d": "aus Metall sein"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-PR-008",
@@ -640,7 +697,8 @@
         "c": "gar nicht",
         "d": "nur bei Neugeräten"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-PR-009",
@@ -651,7 +709,8 @@
         "c": "gekühlt werden",
         "d": "nichts getan werden"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-PR-010",
@@ -662,7 +721,8 @@
         "c": "nur das Datum",
         "d": "nur den Prüfer"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-PR-011",
@@ -673,7 +733,8 @@
         "c": "nichts zu tun",
         "d": "das Bauteil zu magnetisieren"
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "UT-PR-012",
@@ -684,7 +745,8 @@
         "c": "Auf den minimalen Wert",
         "d": "Nach Gefühl"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-PR-013",
@@ -695,7 +757,8 @@
         "c": "Nur große Anzeigen bewerten",
         "d": "Nur Anzeigen über 50% Bildschirmhöhe bewerten"
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "UT-PR-014",
