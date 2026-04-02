@@ -434,6 +434,15 @@ tr:hover td { background:var(--accent-dim); }
 .modal-fields-s .field select:focus { border-color:var(--accent2); box-shadow:0 0 0 3px var(--accent-glow); }
 .modal-actions-s { display:flex; gap:.65rem; margin-top:1.1rem; }
 
+/* === PRAKTISCHE PHASE MODAL === */
+#modal-praktische-phase .modal { max-width:1100px; }
+.prakt-table { width:100%; border-collapse:collapse; margin-top:10px; }
+.prakt-table th, .prakt-table td { border:1px solid var(--border); padding:6px 8px; font-size:13px; }
+.prakt-table thead { background:var(--surface2); }
+.prakt-total { margin-top:10px; font-weight:700; font-size:15px; }
+.prakt-confirm-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+@media(max-width:600px){ .prakt-confirm-grid { grid-template-columns:1fr; } }
+
 /* ══════════════════════════════════════
 PRÜFUNGSSYSTEM
 ══════════════════════════════════════ */
@@ -865,6 +874,67 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
     <div class="modal-footer">
       <button class="btn btn-secondary" onclick="closeModal('modal-results')">Abbrechen</button>
       <button class="btn btn-primary" onclick="saveResults()">Ergebnisse speichern</button>
+    </div>
+  </div>
+</div>
+
+<!-- === PRAKTISCHE PHASE MODAL === -->
+<div class="modal-overlay" id="modal-praktische-phase">
+  <div class="modal" style="max-width:1100px;overflow-y:auto;max-height:90vh">
+    <div class="modal-hdr">
+      <h3>📋 Nachweis der betreuten praktischen Phase</h3>
+      <button class="close-btn" onclick="closeModal('modal-praktische-phase')">×</button>
+    </div>
+    <div id="prakt-modal-subtitle" style="color:var(--text-muted);margin-bottom:14px;font-size:14px"></div>
+
+    <div class="card" style="margin-bottom:14px">
+      <div class="card-title">Nachweise (Gesamtziel: 160 Stunden)</div>
+      <button class="btn btn-secondary btn-sm" onclick="addPraktischeRow()" style="margin-bottom:8px">+ Neue Zeile</button>
+      <div style="overflow-x:auto">
+        <table class="prakt-table">
+          <thead><tr>
+            <th>Woche</th><th>Betreute Stunden</th><th>Anzahl Beurteilungen</th>
+            <th>Kommentar / Lernpunkt</th><th>Aktion</th>
+          </tr></thead>
+          <tbody id="prakt-table-body"></tbody>
+        </table>
+      </div>
+      <p class="prakt-total">Gesamtsumme: <span id="prakt-total-hours">0</span> / 160 h</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Abschließende Bestätigung</div>
+      <div class="prakt-confirm-grid">
+        <div>
+          <label class="form-label">Mitarbeiter – Name</label>
+          <input class="form-input" id="prakt-mitarbeiter-name" type="text" placeholder="Name des Mitarbeiters">
+        </div>
+        <div>
+          <label class="form-label">Mitarbeiter – Datum</label>
+          <input class="form-input" id="prakt-mitarbeiter-date" type="text" placeholder="TT.MM.JJJJ">
+        </div>
+        <div>
+          <label class="form-label">Prüfer / Auditor – Name</label>
+          <input class="form-input" id="prakt-pruefer-name" type="text" placeholder="Name des Prüfers">
+        </div>
+        <div>
+          <label class="form-label">Prüfer / Auditor – Datum</label>
+          <input class="form-input" id="prakt-pruefer-date" type="text" placeholder="TT.MM.JJJJ">
+        </div>
+        <div>
+          <label class="form-label">Prüfaufsicht / Experte – Name</label>
+          <input class="form-input" id="prakt-experte-name" type="text" placeholder="Name des Experten">
+        </div>
+        <div>
+          <label class="form-label">Prüfaufsicht / Experte – Datum</label>
+          <input class="form-input" id="prakt-experte-date" type="text" placeholder="TT.MM.JJJJ">
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer" style="margin-top:14px">
+      <button class="btn btn-secondary" onclick="closeModal('modal-praktische-phase')">Schließen</button>
+      <button class="btn btn-primary" onclick="savePraktischePhase()">💾 Speichern</button>
     </div>
   </div>
 </div>
@@ -1788,7 +1858,7 @@ function renderTrainingDetail(id){
     <div class="card-title">Teilnehmer & Prüfungsstatus</div>
     <div class="table-wrap"><table><thead><tr><th>Name</th><th>Personal-Nr.</th><th>AT Neu</th><th>ST Neu</th><th>PR Neu</th><th>AT</th><th>ST</th><th>PR</th><th>Gesamt</th><th>Aktionen</th></tr></thead><tbody>${training.participants.map((p,idx)=>{
       const nc=p.newCounts||{},s=p.scores;
-      return `<tr><td><strong>${p.name}</strong></td><td class="td-mono">${p.employeeId||'—'}</td><td class="td-mono"><span class="badge badge-blue">${nc.AT||0}/${training.config.AT}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.ST||0}/${training.config.ST}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.PR||0}/${training.config.PR}</span></td>${s?`<td>${scoreCell(s.AT)}</td><td>${scoreCell(s.ST)}</td><td>${scoreCell(s.PR)}</td><td>${p.overallPassed?'<span class="badge badge-green">✓ Bestanden</span>':'<span class="badge badge-red">✗ Nicht bestanden</span>'}</td>`:'<td colspan="4" class="text-muted text-sm">Noch nicht abgenommen</td>'}<td><div class="btn-group"><button class="btn btn-secondary btn-sm" onclick="openResultsModal('${id}',${idx})">${p.completedAt?'Ergebnis':'Eintragen'}</button><button class="btn btn-secondary btn-sm" onclick="showExamSheet('${id}',${idx})">Fragebogen</button></div></td></tr>`;
+      return `<tr><td><strong>${p.name}</strong></td><td class="td-mono">${p.employeeId||'—'}</td><td class="td-mono"><span class="badge badge-blue">${nc.AT||0}/${training.config.AT}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.ST||0}/${training.config.ST}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.PR||0}/${training.config.PR}</span></td>${s?`<td>${scoreCell(s.AT)}</td><td>${scoreCell(s.ST)}</td><td>${scoreCell(s.PR)}</td><td>${p.overallPassed?'<span class="badge badge-green">✓ Bestanden</span>':'<span class="badge badge-red">✗ Nicht bestanden</span>'}</td>`:'<td colspan="4" class="text-muted text-sm">Noch nicht abgenommen</td>'}<td><div class="btn-group"><button class="btn btn-secondary btn-sm" onclick="openResultsModal('${id}',${idx})">${p.completedAt?'Ergebnis':'Eintragen'}</button><button class="btn btn-secondary btn-sm" onclick="showExamSheet('${id}',${idx})">Fragebogen</button><button class="btn btn-secondary btn-sm" onclick="openPraktischePhase('${id}',${idx})">${p.practicalPhase&&parseFloat(p.practicalPhase.totalHours||0)>=160?'✅':'📋'} Prakt. Phase</button></div></td></tr>`;
     }).join('')}</tbody></table></div>
   </div>`;
 }
@@ -2145,6 +2215,109 @@ function renderCatalogStatusTable() {
 }
 
 loadAllQuestions();
+
+/* ══════════════════════════════════
+   PRAKTISCHE PHASE
+══════════════════════════════════ */
+let _praktTrainingId = null;
+let _praktPIdx = null;
+
+function openPraktischePhase(trainingId, pIdx) {
+  _praktTrainingId = trainingId;
+  _praktPIdx = pIdx;
+  const training = getTrainings().find(t => t.id === trainingId);
+  if (!training) return;
+  const p = training.participants[pIdx];
+  document.getElementById('prakt-modal-subtitle').textContent =
+    'Teilnehmer: ' + p.name + ' · Prüfung: ' + training.method + ' · ' + fmtDate(training.date);
+  renderPraktischeTable(p.practicalPhase || null);
+  document.getElementById('prakt-mitarbeiter-name').value = (p.practicalPhase && p.practicalPhase.mitarbeiterName) || p.name || '';
+  document.getElementById('prakt-mitarbeiter-date').value = (p.practicalPhase && p.practicalPhase.mitarbeiterDate) || '';
+  document.getElementById('prakt-pruefer-name').value     = (p.practicalPhase && p.practicalPhase.prueferName) || training.trainer || '';
+  document.getElementById('prakt-pruefer-date').value     = (p.practicalPhase && p.practicalPhase.prueferDate) || '';
+  document.getElementById('prakt-experte-name').value     = (p.practicalPhase && p.practicalPhase.experteName) || '';
+  document.getElementById('prakt-experte-date').value     = (p.practicalPhase && p.practicalPhase.experteDate) || '';
+  openModal('modal-praktische-phase');
+}
+
+function renderPraktischeTable(data) {
+  const tbody = document.getElementById('prakt-table-body');
+  const rows = (data && data.rows && data.rows.length)
+    ? data.rows
+    : [{week:'',hours:'',evaluations:'',comment:''},
+       {week:'',hours:'',evaluations:'',comment:''},
+       {week:'',hours:'',evaluations:'',comment:''},
+       {week:'',hours:'',evaluations:'',comment:''},
+       {week:'',hours:'',evaluations:'',comment:''}];
+  tbody.innerHTML = rows.map((r, i) =>
+    '<tr>'
+    + '<td><input class="form-input prakt-week" type="text" value="' + (r.week||'') + '" placeholder="KW ' + (i+1) + '" style="width:70px"></td>'
+    + '<td><input class="form-input prakt-hours" type="number" min="0" step="0.5" value="' + (r.hours||'') + '" oninput="updatePraktischeTotalHours()" style="width:90px"></td>'
+    + '<td><input class="form-input prakt-evals" type="number" min="0" value="' + (r.evaluations||'') + '" style="width:80px"></td>'
+    + '<td><input class="form-input prakt-comment" type="text" value="' + (r.comment||'').replace(/"/g,'&quot;') + '" style="width:100%"></td>'
+    + '<td><button class="btn btn-secondary btn-sm" onclick="removePraktischeRow(' + i + ')">✕</button></td>'
+    + '</tr>'
+  ).join('');
+  updatePraktischeTotalHours();
+}
+
+function updatePraktischeTotalHours() {
+  const total = Array.from(document.querySelectorAll('.prakt-hours'))
+    .reduce((s, inp) => s + (parseFloat(inp.value) || 0), 0);
+  const span = document.getElementById('prakt-total-hours');
+  span.textContent = total.toFixed(1);
+  span.style.color = total >= 160 ? 'var(--accent)' : 'var(--err-text)';
+}
+
+function addPraktischeRow() {
+  const tbody = document.getElementById('prakt-table-body');
+  const i = tbody.rows.length;
+  const tr = document.createElement('tr');
+  tr.innerHTML =
+    '<td><input class="form-input prakt-week" type="text" placeholder="KW ' + (i+1) + '" style="width:70px"></td>'
+    + '<td><input class="form-input prakt-hours" type="number" min="0" step="0.5" oninput="updatePraktischeTotalHours()" style="width:90px"></td>'
+    + '<td><input class="form-input prakt-evals" type="number" min="0" style="width:80px"></td>'
+    + '<td><input class="form-input prakt-comment" type="text" style="width:100%"></td>'
+    + '<td><button class="btn btn-secondary btn-sm" onclick="removePraktischeRow(' + i + ')">✕</button></td>';
+  tbody.appendChild(tr);
+}
+
+function removePraktischeRow(i) {
+  const tbody = document.getElementById('prakt-table-body');
+  if (tbody.rows.length > 1) tbody.deleteRow(i);
+  updatePraktischeTotalHours();
+}
+
+function collectPraktischeData() {
+  const rows = Array.from(document.getElementById('prakt-table-body').rows).map(tr => ({
+    week:        (tr.querySelector('.prakt-week')    || {}).value || '',
+    hours:       (tr.querySelector('.prakt-hours')   || {}).value || '',
+    evaluations: (tr.querySelector('.prakt-evals')   || {}).value || '',
+    comment:     (tr.querySelector('.prakt-comment') || {}).value || ''
+  }));
+  return {
+    rows,
+    totalHours:      document.getElementById('prakt-total-hours').textContent,
+    mitarbeiterName: document.getElementById('prakt-mitarbeiter-name').value,
+    mitarbeiterDate: document.getElementById('prakt-mitarbeiter-date').value,
+    prueferName:     document.getElementById('prakt-pruefer-name').value,
+    prueferDate:     document.getElementById('prakt-pruefer-date').value,
+    experteName:     document.getElementById('prakt-experte-name').value,
+    experteDate:     document.getElementById('prakt-experte-date').value,
+    updatedAt:       new Date().toISOString()
+  };
+}
+
+function savePraktischePhase() {
+  if (_praktTrainingId === null || _praktPIdx === null) return;
+  const trainings = getTrainings();
+  const training  = trainings.find(t => t.id === _praktTrainingId);
+  if (!training) return;
+  training.participants[_praktPIdx].practicalPhase = collectPraktischeData();
+  saveTrainings(trainings);
+  showPruefToast('✅ Praktische Phase gespeichert', 'success');
+  closeModal('modal-praktische-phase');
+}
 </script>
 
 <script>
