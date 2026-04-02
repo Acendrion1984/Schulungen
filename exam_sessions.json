@@ -1,19 +1,151 @@
 [
   {
-    "id": "mnhw03ako9zp5rlez3",
+    "id": "mni0tu1e05pvepch62il",
     "method": "ET",
-    "date": "2026-04-02",
-    "location": "",
+    "date": "2026-01-19",
+    "location": "Bau 50, Raum Gold",
     "trainer": "",
-    "name": "ET · 02.04.2026",
+    "name": "Wirbelstromprüfung – 19.01.–20.01.2026",
     "config": {
       "AT": 20,
       "ST": 15,
       "PR": 8
     },
-    "status": "completed",
-    "createdAt": "2026-04-02T19:48:00.814Z",
+    "status": "prepared",
+    "createdAt": "2026-04-02T22:03:06.964Z",
     "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-004",
+            "ET-AT-011",
+            "ET-AT-019",
+            "ET-AT-010",
+            "ET-AT-020",
+            "ET-AT-014",
+            "ET-AT-022",
+            "ET-AT-016",
+            "ET-AT-017",
+            "ET-AT-006",
+            "ET-AT-009",
+            "ET-AT-002",
+            "ET-AT-018",
+            "ET-AT-007",
+            "ET-AT-005",
+            "ET-AT-013",
+            "ET-AT-008",
+            "ET-AT-001",
+            "ET-AT-021",
+            "ET-AT-012"
+          ],
+          "ST": [
+            "ET-ST-019",
+            "ET-ST-029",
+            "ET-ST-026",
+            "ET-ST-027",
+            "ET-ST-037",
+            "ET-ST-021",
+            "ET-ST-009",
+            "ET-ST-028",
+            "ET-ST-007",
+            "ET-ST-035",
+            "ET-ST-002",
+            "ET-ST-001",
+            "ET-ST-017",
+            "ET-ST-023",
+            "ET-ST-014"
+          ],
+          "PR": [
+            "ET-PR-020",
+            "ET-PR-014",
+            "ET-PR-004",
+            "ET-PR-002",
+            "ET-PR-010",
+            "ET-PR-022",
+            "ET-PR-005",
+            "ET-PR-015"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "60834",
+        "name": "Dieter Welz",
+        "employeeId": "60834",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-021",
+            "ET-AT-020",
+            "ET-AT-004",
+            "ET-AT-017",
+            "ET-AT-008",
+            "ET-AT-009",
+            "ET-AT-022",
+            "ET-AT-002",
+            "ET-AT-015",
+            "ET-AT-003",
+            "ET-AT-001",
+            "ET-AT-016",
+            "ET-AT-011",
+            "ET-AT-019",
+            "ET-AT-014",
+            "ET-AT-013",
+            "ET-AT-012",
+            "ET-AT-018",
+            "ET-AT-010",
+            "ET-AT-005"
+          ],
+          "ST": [
+            "ET-ST-010",
+            "ET-ST-022",
+            "ET-ST-003",
+            "ET-ST-017",
+            "ET-ST-007",
+            "ET-ST-011",
+            "ET-ST-015",
+            "ET-ST-001",
+            "ET-ST-020",
+            "ET-ST-014",
+            "ET-ST-035",
+            "ET-ST-021",
+            "ET-ST-002",
+            "ET-ST-019",
+            "ET-ST-025"
+          ],
+          "PR": [
+            "ET-PR-005",
+            "ET-PR-004",
+            "ET-PR-017",
+            "ET-PR-022",
+            "ET-PR-018",
+            "ET-PR-002",
+            "ET-PR-014",
+            "ET-PR-019"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
       {
         "participantId": "02006619",
         "name": "Celina Frank",
@@ -21,53 +153,449 @@
         "department": "WI/SW1-P06Q",
         "questions": {
           "AT": [
-            "ET-AT-013",
-            "ET-AT-019",
-            "ET-AT-022",
-            "ET-AT-017",
-            "ET-AT-014",
-            "ET-AT-004",
-            "ET-AT-008",
-            "ET-AT-006",
-            "ET-AT-007",
-            "ET-AT-012",
-            "ET-AT-003",
-            "ET-AT-009",
-            "ET-AT-016",
-            "ET-AT-005",
-            "ET-AT-011",
-            "ET-AT-018",
+            "ET-AT-001",
             "ET-AT-015",
             "ET-AT-021",
+            "ET-AT-018",
+            "ET-AT-013",
+            "ET-AT-005",
+            "ET-AT-022",
+            "ET-AT-004",
+            "ET-AT-007",
+            "ET-AT-011",
+            "ET-AT-017",
             "ET-AT-010",
+            "ET-AT-012",
+            "ET-AT-019",
+            "ET-AT-006",
+            "ET-AT-003",
+            "ET-AT-002",
+            "ET-AT-016",
+            "ET-AT-008",
+            "ET-AT-020"
+          ],
+          "ST": [
+            "ET-ST-003",
+            "ET-ST-008",
+            "ET-ST-012",
+            "ET-ST-013",
+            "ET-ST-031",
+            "ET-ST-021",
+            "ET-ST-032",
+            "ET-ST-025",
+            "ET-ST-018",
+            "ET-ST-011",
+            "ET-ST-030",
+            "ET-ST-015",
+            "ET-ST-010",
+            "ET-ST-034",
+            "ET-ST-006"
+          ],
+          "PR": [
+            "ET-PR-019",
+            "ET-PR-015",
+            "ET-PR-013",
+            "ET-PR-001",
+            "ET-PR-004",
+            "ET-PR-003",
+            "ET-PR-009",
+            "ET-PR-005"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02894633",
+        "name": "Christian Göpfert",
+        "employeeId": "02894633",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "ET-AT-010",
+            "ET-AT-005",
+            "ET-AT-009",
+            "ET-AT-013",
+            "ET-AT-019",
+            "ET-AT-008",
+            "ET-AT-016",
+            "ET-AT-022",
+            "ET-AT-014",
+            "ET-AT-018",
+            "ET-AT-002",
+            "ET-AT-020",
+            "ET-AT-017",
+            "ET-AT-004",
+            "ET-AT-006",
+            "ET-AT-012",
+            "ET-AT-007",
+            "ET-AT-011",
+            "ET-AT-015",
             "ET-AT-001"
           ],
           "ST": [
-            "ET-ST-036",
-            "ET-ST-019",
+            "ET-ST-008",
+            "ET-ST-011",
+            "ET-ST-034",
+            "ET-ST-021",
             "ET-ST-026",
-            "ET-ST-010",
-            "ET-ST-009",
-            "ET-ST-016",
-            "ET-ST-032",
+            "ET-ST-015",
             "ET-ST-018",
-            "ET-ST-002",
+            "ET-ST-007",
             "ET-ST-035",
-            "ET-ST-014",
-            "ET-ST-025",
-            "ET-ST-029",
-            "ET-ST-005",
-            "ET-ST-012"
+            "ET-ST-016",
+            "ET-ST-010",
+            "ET-ST-022",
+            "ET-ST-031",
+            "ET-ST-009",
+            "ET-ST-024"
           ],
           "PR": [
             "ET-PR-015",
-            "ET-PR-007",
-            "ET-PR-016",
+            "ET-PR-011",
+            "ET-PR-005",
             "ET-PR-017",
+            "ET-PR-021",
+            "ET-PR-007",
+            "ET-PR-020",
+            "ET-PR-001"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "020087339",
+        "name": "Andreas Kippes",
+        "employeeId": "020087339",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "ET-AT-017",
+            "ET-AT-019",
+            "ET-AT-010",
+            "ET-AT-007",
+            "ET-AT-018",
+            "ET-AT-005",
+            "ET-AT-020",
+            "ET-AT-002",
+            "ET-AT-006",
+            "ET-AT-008",
+            "ET-AT-021",
+            "ET-AT-003",
+            "ET-AT-022",
+            "ET-AT-015",
+            "ET-AT-012",
+            "ET-AT-013",
+            "ET-AT-004",
+            "ET-AT-011",
+            "ET-AT-009",
+            "ET-AT-014"
+          ],
+          "ST": [
+            "ET-ST-037",
+            "ET-ST-032",
+            "ET-ST-031",
+            "ET-ST-024",
+            "ET-ST-013",
+            "ET-ST-002",
+            "ET-ST-027",
+            "ET-ST-033",
+            "ET-ST-018",
+            "ET-ST-026",
+            "ET-ST-017",
+            "ET-ST-014",
+            "ET-ST-029",
+            "ET-ST-023",
+            "ET-ST-005"
+          ],
+          "PR": [
+            "ET-PR-001",
+            "ET-PR-007",
+            "ET-PR-005",
             "ET-PR-018",
             "ET-PR-002",
+            "ET-PR-012",
+            "ET-PR-020",
+            "ET-PR-015"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02039237",
+        "name": "Holger Müller",
+        "employeeId": "02039237",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "ET-AT-022",
+            "ET-AT-010",
+            "ET-AT-013",
+            "ET-AT-018",
+            "ET-AT-001",
+            "ET-AT-020",
+            "ET-AT-014",
+            "ET-AT-005",
+            "ET-AT-016",
+            "ET-AT-012",
+            "ET-AT-017",
+            "ET-AT-004",
+            "ET-AT-009",
+            "ET-AT-019",
+            "ET-AT-011",
+            "ET-AT-007",
+            "ET-AT-006",
+            "ET-AT-021",
+            "ET-AT-008",
+            "ET-AT-003"
+          ],
+          "ST": [
+            "ET-ST-037",
+            "ET-ST-008",
+            "ET-ST-002",
+            "ET-ST-019",
+            "ET-ST-011",
+            "ET-ST-021",
+            "ET-ST-017",
+            "ET-ST-015",
+            "ET-ST-001",
+            "ET-ST-031",
+            "ET-ST-023",
+            "ET-ST-007",
+            "ET-ST-033",
+            "ET-ST-026",
+            "ET-ST-005"
+          ],
+          "PR": [
+            "ET-PR-008",
+            "ET-PR-013",
+            "ET-PR-005",
+            "ET-PR-015",
+            "ET-PR-019",
+            "ET-PR-006",
+            "ET-PR-004",
+            "ET-PR-009"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02009230",
+        "name": "Rene Bocklet",
+        "employeeId": "02009230",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "ET-AT-005",
+            "ET-AT-020",
+            "ET-AT-003",
+            "ET-AT-021",
+            "ET-AT-015",
+            "ET-AT-018",
+            "ET-AT-001",
+            "ET-AT-017",
+            "ET-AT-009",
+            "ET-AT-006",
+            "ET-AT-022",
+            "ET-AT-014",
+            "ET-AT-007",
+            "ET-AT-012",
+            "ET-AT-008",
+            "ET-AT-016",
+            "ET-AT-019",
+            "ET-AT-010",
+            "ET-AT-004",
+            "ET-AT-002"
+          ],
+          "ST": [
+            "ET-ST-004",
+            "ET-ST-032",
+            "ET-ST-018",
+            "ET-ST-011",
+            "ET-ST-029",
+            "ET-ST-035",
+            "ET-ST-010",
+            "ET-ST-016",
+            "ET-ST-022",
+            "ET-ST-012",
+            "ET-ST-013",
+            "ET-ST-026",
+            "ET-ST-025",
+            "ET-ST-023",
+            "ET-ST-020"
+          ],
+          "PR": [
+            "ET-PR-013",
+            "ET-PR-001",
+            "ET-PR-011",
+            "ET-PR-010",
+            "ET-PR-005",
+            "ET-PR-012",
+            "ET-PR-002",
+            "ET-PR-021"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02002964",
+        "name": "Julian Jauernig",
+        "employeeId": "02002964",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "ET-AT-009",
+            "ET-AT-011",
+            "ET-AT-012",
+            "ET-AT-002",
+            "ET-AT-005",
+            "ET-AT-021",
+            "ET-AT-016",
+            "ET-AT-006",
+            "ET-AT-017",
+            "ET-AT-020",
+            "ET-AT-013",
+            "ET-AT-022",
+            "ET-AT-001",
+            "ET-AT-014",
+            "ET-AT-004",
+            "ET-AT-007",
+            "ET-AT-003",
+            "ET-AT-019",
+            "ET-AT-015",
+            "ET-AT-010"
+          ],
+          "ST": [
+            "ET-ST-030",
+            "ET-ST-015",
+            "ET-ST-028",
+            "ET-ST-021",
+            "ET-ST-014",
+            "ET-ST-034",
+            "ET-ST-029",
+            "ET-ST-031",
+            "ET-ST-032",
+            "ET-ST-037",
+            "ET-ST-004",
+            "ET-ST-018",
+            "ET-ST-008",
+            "ET-ST-005",
+            "ET-ST-025"
+          ],
+          "PR": [
+            "ET-PR-003",
+            "ET-PR-015",
+            "ET-PR-021",
+            "ET-PR-002",
+            "ET-PR-013",
+            "ET-PR-014",
+            "ET-PR-004",
+            "ET-PR-022"
+          ]
+        },
+        "newCounts": {
+          "AT": 20,
+          "ST": 15,
+          "PR": 8
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "02894788",
+        "name": "Daniel Weidner",
+        "employeeId": "02894788",
+        "department": "WI/SW2-P11Q",
+        "questions": {
+          "AT": [
+            "ET-AT-016",
+            "ET-AT-021",
+            "ET-AT-010",
+            "ET-AT-002",
+            "ET-AT-006",
+            "ET-AT-014",
+            "ET-AT-019",
+            "ET-AT-017",
+            "ET-AT-008",
+            "ET-AT-012",
+            "ET-AT-020",
+            "ET-AT-011",
+            "ET-AT-009",
+            "ET-AT-005",
+            "ET-AT-013",
+            "ET-AT-018",
+            "ET-AT-015",
+            "ET-AT-022",
+            "ET-AT-001",
+            "ET-AT-003"
+          ],
+          "ST": [
+            "ET-ST-009",
+            "ET-ST-034",
+            "ET-ST-036",
+            "ET-ST-002",
+            "ET-ST-006",
+            "ET-ST-010",
+            "ET-ST-013",
+            "ET-ST-005",
+            "ET-ST-011",
+            "ET-ST-008",
+            "ET-ST-024",
+            "ET-ST-017",
+            "ET-ST-016",
+            "ET-ST-028",
+            "ET-ST-015"
+          ],
+          "PR": [
+            "ET-PR-020",
+            "ET-PR-018",
+            "ET-PR-007",
+            "ET-PR-022",
+            "ET-PR-015",
+            "ET-PR-019",
             "ET-PR-009",
-            "ET-PR-012"
+            "ET-PR-016"
           ]
         },
         "newCounts": {
@@ -75,193 +603,65 @@
           "ST": 15,
           "PR": 8
         },
-        "answers": {
-          "AT": {
-            "ET-AT-013": "b",
-            "ET-AT-019": "a",
-            "ET-AT-022": "c",
-            "ET-AT-017": "b",
-            "ET-AT-014": "b",
-            "ET-AT-004": "b",
-            "ET-AT-008": "b",
-            "ET-AT-006": "b",
-            "ET-AT-007": "b",
-            "ET-AT-012": "b",
-            "ET-AT-003": "c",
-            "ET-AT-009": "b",
-            "ET-AT-016": "a",
-            "ET-AT-005": "c",
-            "ET-AT-011": "a",
-            "ET-AT-018": "b",
-            "ET-AT-015": "b",
-            "ET-AT-021": "a",
-            "ET-AT-010": "a",
-            "ET-AT-001": "a"
-          },
-          "ST": {
-            "ET-ST-036": "b",
-            "ET-ST-019": "b",
-            "ET-ST-026": "b",
-            "ET-ST-010": "c",
-            "ET-ST-009": "c",
-            "ET-ST-016": "b",
-            "ET-ST-032": "b",
-            "ET-ST-018": "b",
-            "ET-ST-002": "c",
-            "ET-ST-035": "b",
-            "ET-ST-014": "b",
-            "ET-ST-025": "c",
-            "ET-ST-029": "b",
-            "ET-ST-005": "b",
-            "ET-ST-012": "c"
-          },
-          "PR": {
-            "ET-PR-015": "a",
-            "ET-PR-007": "c",
-            "ET-PR-016": "b",
-            "ET-PR-017": "c",
-            "ET-PR-018": "c",
-            "ET-PR-002": "c",
-            "ET-PR-009": "b",
-            "ET-PR-012": "a"
-          }
-        },
-        "scores": {
-          "AT": {
-            "correct": 19,
-            "total": 20,
-            "percent": 95,
-            "passed": true
-          },
-          "ST": {
-            "correct": 14,
-            "total": 15,
-            "percent": 93,
-            "passed": true
-          },
-          "PR": {
-            "correct": 8,
-            "total": 8,
-            "percent": 100,
-            "passed": true
-          }
-        },
-        "overallPassed": true,
-        "completedAt": "2026-04-02T21:04:52.792Z",
-        "practicalPhase": {
-          "rows": [
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "25",
-              "comment": "Ätzen von Lageringen bis 600 mm"
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "37",
-              "comment": "Ätzen von Lageringen bis 600 mm"
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "27",
-              "comment": "Ätzen von Lageringen bis 600 mm"
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "22",
-              "comment": "Ätzen von Lageringen bis 600 mm"
-            },
-            {
-              "week": "",
-              "hours": "0.5",
-              "evaluations": "1",
-              "comment": "Praktische Prüfung (Operator Audit)"
-            }
-          ],
-          "totalHours": "160.5",
-          "mitarbeiterName": "Celina Frank",
-          "mitarbeiterDate": "02.04.2026",
-          "prueferName": "Meder Marksu",
-          "prueferDate": "02.04.2026",
-          "experteName": "Häusner Daniel",
-          "experteDate": "02.04.2026",
-          "updatedAt": "2026-04-02T21:09:36.868Z"
-        }
-      }
-    ]
-  },
-  {
-    "id": "mni0nagiohjz53qow3a",
-    "method": "UT",
-    "date": "2026-04-02",
-    "location": "",
-    "trainer": "",
-    "name": "UT · 02.04.2026",
-    "config": {
-      "AT": 20,
-      "ST": 15,
-      "PR": 8
-    },
-    "status": "completed",
-    "createdAt": "2026-04-02T21:58:01.650Z",
-    "participants": [
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
       {
-        "participantId": "60834",
-        "name": "Dieter Welz",
-        "employeeId": "60834",
-        "department": "WI/SW2-P114",
+        "participantId": "02003676",
+        "name": "Max Endres",
+        "employeeId": "02003676",
+        "department": "WI/SW2-P11Q",
         "questions": {
           "AT": [
-            "UT-AT-014",
-            "UT-AT-021",
-            "UT-AT-013",
-            "UT-AT-009",
-            "UT-AT-018",
-            "UT-AT-022",
-            "UT-AT-016",
-            "UT-AT-003",
-            "UT-AT-015",
-            "UT-AT-010",
-            "UT-AT-005",
-            "UT-AT-001",
-            "UT-AT-024",
-            "UT-AT-004",
-            "UT-AT-006",
-            "UT-AT-023",
-            "UT-AT-011",
-            "UT-AT-002",
-            "UT-AT-012",
-            "UT-AT-007"
+            "ET-AT-016",
+            "ET-AT-022",
+            "ET-AT-002",
+            "ET-AT-004",
+            "ET-AT-010",
+            "ET-AT-018",
+            "ET-AT-011",
+            "ET-AT-013",
+            "ET-AT-021",
+            "ET-AT-007",
+            "ET-AT-012",
+            "ET-AT-008",
+            "ET-AT-009",
+            "ET-AT-014",
+            "ET-AT-020",
+            "ET-AT-019",
+            "ET-AT-001",
+            "ET-AT-006",
+            "ET-AT-017",
+            "ET-AT-005"
           ],
           "ST": [
-            "UT-ST-001",
-            "UT-ST-007",
-            "UT-ST-024",
-            "UT-ST-020",
-            "UT-ST-003",
-            "UT-ST-015",
-            "UT-ST-009",
-            "UT-ST-012",
-            "UT-ST-010",
-            "UT-ST-017",
-            "UT-ST-016",
-            "UT-ST-004",
-            "UT-ST-018",
-            "UT-ST-019",
-            "UT-ST-011"
+            "ET-ST-025",
+            "ET-ST-013",
+            "ET-ST-016",
+            "ET-ST-002",
+            "ET-ST-037",
+            "ET-ST-026",
+            "ET-ST-017",
+            "ET-ST-005",
+            "ET-ST-024",
+            "ET-ST-028",
+            "ET-ST-009",
+            "ET-ST-015",
+            "ET-ST-019",
+            "ET-ST-012",
+            "ET-ST-020"
           ],
           "PR": [
-            "UT-PR-004",
-            "UT-PR-018",
-            "UT-PR-005",
-            "UT-PR-010",
-            "UT-PR-011",
-            "UT-PR-016",
-            "UT-PR-006",
-            "UT-PR-017"
+            "ET-PR-012",
+            "ET-PR-018",
+            "ET-PR-014",
+            "ET-PR-003",
+            "ET-PR-022",
+            "ET-PR-019",
+            "ET-PR-011",
+            "ET-PR-008"
           ]
         },
         "newCounts": {
@@ -269,273 +669,10 @@
           "ST": 15,
           "PR": 8
         },
-        "answers": {
-          "AT": {
-            "UT-AT-014": "a",
-            "UT-AT-021": "a",
-            "UT-AT-013": "a",
-            "UT-AT-009": "a",
-            "UT-AT-018": "a",
-            "UT-AT-022": "a",
-            "UT-AT-016": "a",
-            "UT-AT-003": "a",
-            "UT-AT-015": "a",
-            "UT-AT-010": "a",
-            "UT-AT-005": "a",
-            "UT-AT-001": "a",
-            "UT-AT-024": "a",
-            "UT-AT-004": "a",
-            "UT-AT-006": "a",
-            "UT-AT-023": "a",
-            "UT-AT-011": "a",
-            "UT-AT-002": "a",
-            "UT-AT-012": "a",
-            "UT-AT-007": "a"
-          },
-          "ST": {
-            "UT-ST-001": "a",
-            "UT-ST-007": "a",
-            "UT-ST-024": "a",
-            "UT-ST-020": "a",
-            "UT-ST-003": "a",
-            "UT-ST-015": "a",
-            "UT-ST-009": "a",
-            "UT-ST-012": "a",
-            "UT-ST-010": "a",
-            "UT-ST-017": "a",
-            "UT-ST-016": "a",
-            "UT-ST-004": "a",
-            "UT-ST-018": "a",
-            "UT-ST-019": "a",
-            "UT-ST-011": "a"
-          },
-          "PR": {
-            "UT-PR-004": "a",
-            "UT-PR-018": "a",
-            "UT-PR-005": "a",
-            "UT-PR-010": "a",
-            "UT-PR-011": "a",
-            "UT-PR-016": "a",
-            "UT-PR-006": "a",
-            "UT-PR-017": "a"
-          }
-        },
-        "scores": {
-          "AT": {
-            "correct": 6,
-            "total": 20,
-            "percent": 30,
-            "passed": false
-          },
-          "ST": {
-            "correct": 7,
-            "total": 15,
-            "percent": 47,
-            "passed": false
-          },
-          "PR": {
-            "correct": 2,
-            "total": 8,
-            "percent": 25,
-            "passed": false
-          }
-        },
-        "overallPassed": false,
-        "completedAt": "2026-04-02T21:58:46.013Z"
-      }
-    ]
-  },
-  {
-    "id": "mni0naxtlotdegdprcr",
-    "method": "UT",
-    "date": "2026-04-02",
-    "location": "",
-    "trainer": "",
-    "name": "UT · 02.04.2026",
-    "config": {
-      "AT": 20,
-      "ST": 15,
-      "PR": 8
-    },
-    "status": "completed",
-    "createdAt": "2026-04-02T21:58:02.273Z",
-    "participants": [
-      {
-        "participantId": "60834",
-        "name": "Dieter Welz",
-        "employeeId": "60834",
-        "department": "WI/SW2-P114",
-        "questions": {
-          "AT": [
-            "UT-AT-018",
-            "UT-AT-025",
-            "UT-AT-020",
-            "UT-AT-006",
-            "UT-AT-003",
-            "UT-AT-017",
-            "UT-AT-021",
-            "UT-AT-015",
-            "UT-AT-016",
-            "UT-AT-022",
-            "UT-AT-012",
-            "UT-AT-007",
-            "UT-AT-010",
-            "UT-AT-005",
-            "UT-AT-013",
-            "UT-AT-008",
-            "UT-AT-004",
-            "UT-AT-001",
-            "UT-AT-009",
-            "UT-AT-002"
-          ],
-          "ST": [
-            "UT-ST-011",
-            "UT-ST-021",
-            "UT-ST-003",
-            "UT-ST-004",
-            "UT-ST-014",
-            "UT-ST-016",
-            "UT-ST-013",
-            "UT-ST-017",
-            "UT-ST-008",
-            "UT-ST-012",
-            "UT-ST-010",
-            "UT-ST-006",
-            "UT-ST-002",
-            "UT-ST-005",
-            "UT-ST-009"
-          ],
-          "PR": [
-            "UT-PR-017",
-            "UT-PR-011",
-            "UT-PR-012",
-            "UT-PR-009",
-            "UT-PR-015",
-            "UT-PR-007",
-            "UT-PR-003",
-            "UT-PR-001"
-          ]
-        },
-        "newCounts": {
-          "AT": 20,
-          "ST": 15,
-          "PR": 8
-        },
-        "answers": {
-          "AT": {
-            "UT-AT-018": "a",
-            "UT-AT-025": "d",
-            "UT-AT-020": "b",
-            "UT-AT-006": "a",
-            "UT-AT-003": "b",
-            "UT-AT-017": "b",
-            "UT-AT-021": "b",
-            "UT-AT-015": "b",
-            "UT-AT-016": "b",
-            "UT-AT-022": "b",
-            "UT-AT-012": "a",
-            "UT-AT-007": "d",
-            "UT-AT-010": "c",
-            "UT-AT-005": "b",
-            "UT-AT-013": "b",
-            "UT-AT-008": "d",
-            "UT-AT-004": "c",
-            "UT-AT-001": "b",
-            "UT-AT-009": "a",
-            "UT-AT-002": "b"
-          },
-          "ST": {
-            "UT-ST-011": "b",
-            "UT-ST-021": "b",
-            "UT-ST-003": "b",
-            "UT-ST-004": "a",
-            "UT-ST-014": "b",
-            "UT-ST-016": "b",
-            "UT-ST-013": "b",
-            "UT-ST-017": "b",
-            "UT-ST-008": "b",
-            "UT-ST-012": "b",
-            "UT-ST-010": "a",
-            "UT-ST-006": "a",
-            "UT-ST-002": "b",
-            "UT-ST-005": "b",
-            "UT-ST-009": "a"
-          },
-          "PR": {
-            "UT-PR-017": "d",
-            "UT-PR-011": "a",
-            "UT-PR-012": "b",
-            "UT-PR-009": "b",
-            "UT-PR-015": "b",
-            "UT-PR-007": "a",
-            "UT-PR-003": "b",
-            "UT-PR-001": "a"
-          }
-        },
-        "scores": {
-          "AT": {
-            "correct": 19,
-            "total": 20,
-            "percent": 95,
-            "passed": true
-          },
-          "ST": {
-            "correct": 14,
-            "total": 15,
-            "percent": 93,
-            "passed": true
-          },
-          "PR": {
-            "correct": 7,
-            "total": 8,
-            "percent": 88,
-            "passed": true
-          }
-        },
-        "overallPassed": true,
-        "completedAt": "2026-04-02T21:59:58.523Z",
-        "practicalPhase": {
-          "rows": [
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "11",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "9",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "9",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "10",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "1",
-              "evaluations": "1",
-              "comment": "Operator Audit"
-            }
-          ],
-          "totalHours": "161.0",
-          "mitarbeiterName": "Dieter Welz",
-          "mitarbeiterDate": "",
-          "prueferName": "",
-          "prueferDate": "",
-          "experteName": "",
-          "experteDate": "",
-          "updatedAt": "2026-04-02T22:00:53.720Z"
-        }
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
       }
     ]
   }
