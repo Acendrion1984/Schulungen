@@ -391,7 +391,9 @@
         "personalnummer": "2004784",
         "abteilung": "WI/SW2-P114",
         "geburtstag": "26.06.1983",
-        "geburtsort": "Bamberg"
+        "geburtsort": "Bamberg",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-03"
       },
       {
         "vorname": "Serdar",
