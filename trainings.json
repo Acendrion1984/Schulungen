@@ -9,14 +9,6 @@
     "start_time": "08:00",
     "attendees": [
       {
-        "vorname": "Daniel",
-        "name": "Weidner",
-        "personalnummer": "02894788",
-        "abteilung": "WI/SW2-P11Q",
-        "geburtstag": "06.09.1988",
-        "geburtsort": "Schweinfurt"
-      },
-      {
         "vorname": "Max",
         "name": "Endres",
         "personalnummer": "02003676",
