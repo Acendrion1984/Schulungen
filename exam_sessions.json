@@ -91,7 +91,49 @@
           }
         },
         "overallPassed": true,
-        "completedAt": "2026-04-03T03:59:05.691Z"
+        "completedAt": "2026-04-03T03:59:05.691Z",
+        "practicalPhase": {
+          "rows": [
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "40",
+              "evaluations": "",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "1",
+              "evaluations": "",
+              "comment": ""
+            }
+          ],
+          "totalHours": "161.0",
+          "mitarbeiterName": "Jürgen Wüstenhöfer",
+          "mitarbeiterDate": "",
+          "prueferName": "",
+          "prueferDate": "",
+          "experteName": "",
+          "experteDate": "",
+          "updatedAt": "2026-04-03T04:00:23.659Z"
+        }
       },
       {
         "participantId": "60834",
