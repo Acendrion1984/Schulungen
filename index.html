@@ -89,7 +89,7 @@ body {
 .app { max-width: 100%; display: flex; flex-direction: column; min-height: 100vh; }
 
 /* ── MAIN CONTENT WRAPPER ── */
-.app-inner { max-width: 1800px; margin: 0 auto; padding: 1.2rem 1.4rem 2rem; }
+.app-inner { max-width: 1800px; margin: 0 auto; padding: 1.2rem 1.4rem 2rem; width: 100%; }
 
 /* ── LOADING ── */
 .loading-overlay {
@@ -630,8 +630,8 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
 }
 .print-only { display:none; }
 
-/* ===== DESKTOP MAX-WIDTH 1920px ===== */
-.app-inner { max-width: 1920px !important; }
+/* ===== DESKTOP MAX-WIDTH 1800px ===== */
+.app-inner { max-width: 1800px !important; width: 100% !important; }
 
 /* ===== TOKEN INPUT HIDDEN AFTER CONNECT ===== */
 .token-bar.connected .token-input-wrap { display: none !important; }
