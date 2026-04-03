@@ -1,5 +1,390 @@
 {
-  "AT": [],
+  "AT": [
+    {
+      "id": "1.1",
+      "text": "Die elektrische Leitfähigkeit ist",
+      "options": {
+        "a": "abhängig von der Temperatur",
+        "b": "unabhängig vom Material",
+        "c": "für die Wirbelstromprüfung unwichtig",
+        "d": ""
+      },
+      "answer": "a",
+      "image": ""
+    },
+    {
+      "id": "1.2",
+      "text": "Welches Bild zeigt die korrekte Darstellung des Feldlinienverlaufs einer stromdurchflossenen Spule?",
+      "options": {
+        "a": "Bild 1",
+        "b": "Bild 2",
+        "c": "Bild 3",
+        "d": ""
+      },
+      "answer": "b",
+      "image": "data:image/jpeg;base64,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"
+    },
+    {
+      "id": "1.3",
+      "text": "Wie heisst die Regel für die Ermittlung des Zusammenhangs zwischen Strom und Feldrichtung?",
+      "options": {
+        "a": "Ohm'sches Gesetz",
+        "b": "Linke Hand Regel",
+        "c": "Rechte Hand Regel",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.4",
+      "text": "Die Feldlinien um einen geraden, stromdurchflossenen Leiter verlaufen wie bei Nr.",
+      "options": {
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": ""
+      },
+      "answer": "b",
+      "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCADlAXwDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6pooooAKKKKACiiqcmtaZDI0cmo2aOpwytOoIPoRmgC5RUNte216pa2uIZ1U4JjcMAfwqagAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAQnnFeQ6da2MWnxN/Z+ms8s93I7yWcTs7G7mGSWUnsK9eIzj2rlo/AEVuZFtNe122haSSUQx3CbULuXYDKEgZY96AKHgW3t4PEWrfZ7e2gEljYOwghWNWYm45woAz0/Kup12PUptKu4tHuILbUXiK2806F0jc9GKjrjrjvVfQvDMOh3N1dfbb+9uLpY0eW7lDkKm7aowAABvbt3qXxJop8RaFfaUuoXmnG7iMJubRgssYPUqSCAcZGcd6AOV8B6lqNx4n1uwj1u61/RrKOKP7fdRxgre5bzYkeNVV1A2FuPlY7c9QO9rmvBvg6fwhbrZjXr2/soolit7WW3t4o7cD+75Ua/rn866WgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooriYPHWr3iNPb6NpiQGWaOI3Oq+W7qkrR7iohOMlDxk0AdtRWB4b8SXesX17Y3thBazW0cMwaC689JEk34IOxcHMZ4x6Vqatq1loenXOpajOlvZ2sZlmlfoiDqf8A9VAFuisTw74v03xNLcwWgu4bm02Ga2vLZ7eVFcEo2xwDtbBwfYjqK26ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAEY4I9K8jtLqGC1W2uGvLeaCa6R0fTro9bmVgQViIIKsDkGvXaKAOJ8COLnXNVuIknMAtLKESyW0sKs6mcsF8xVJxuXoMciuk8QXkun6Rd3kOmzapJDGXFnDt3z4/hXPBPoO/StKigDzb4fK8/jrxBqlj/a91pV9bW7NearbvFKtwrSfuIt6q3lKrZxjCsx5JJx6TRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUZFABRRketGRQAUUZHrQCD0NABRRRQAUUZzRketABRRRQAUUE4ooAKKKKACijcM4yM0UAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFeXeI/iBf2XjfWNEbxT4X8PWtjbW00R1WAu9wZA5bB81OBtHQHrXqNclJ4Ds73xD4ivtVitNQstatba2a1lhyUWMSBssfXeOmMYoAxvDXxNe603TdQ8QS2enJJp9/e3AWCTZJFbyqn2iNmOVjZSGCsCxDjnjl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"
+    },
+    {
+      "id": "1.5",
+      "text": "Welche Eigenschaft besitzt Eisen im magnetischen Feld?",
+      "options": {
+        "a": "Eisen verhält sich neutral",
+        "b": "Eisen verdrängt die magnetischen Feldlinien",
+        "c": "Eisen sammelt die magnetischen Feldlinien",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.6",
+      "text": "Die magnetische Permeabilität ist",
+      "options": {
+        "a": "von der Temperatur unabhängig",
+        "b": "von der Temperatur abhängig",
+        "c": "immer konstant",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.7",
+      "text": "Je breiter die Hysteresekurve eines Werkstoffs ist, desto",
+      "options": {
+        "a": "einfacher lässt sich das Material magnetisieren",
+        "b": "schwieriger lässt sich das Material magnetisieren",
+        "c": "die Magnetisierbarkeit ist unabhängig von der Hysteresekurve",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.8",
+      "text": "Um jeden stromdurchflossenen Leiter bildet sich",
+      "options": {
+        "a": "ein Widerstand",
+        "b": "ein Magnetfeld",
+        "c": "ein Spannungsfeld",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.9",
+      "text": "Die Richtung des Magnetfelds hängt ab von",
+      "options": {
+        "a": "Material",
+        "b": "Stromrichtung",
+        "c": "Feldstärke",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.10",
+      "text": "Was bedeutet Sättigung bei einem magnetisierbaren Material?",
+      "options": {
+        "a": "Alle Elementarmagnete sind ausgerichtet.",
+        "b": "Die Mehrzahl aller Elementarmagnete ist ausgerichtet.",
+        "c": "Die Elementarmagnete sind vollständig unregelmäßig angeordnet.",
+        "d": ""
+      },
+      "answer": "a",
+      "image": ""
+    },
+    {
+      "id": "1.11",
+      "text": "Die Wirbelstromdichte beträgt bei der Standardeindringtiefe noch … des Oberflächenwertes.",
+      "options": {
+        "a": "12 %",
+        "b": "23 %",
+        "c": "37 %",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.12",
+      "text": "Die Wirbelstromprüfung ist",
+      "options": {
+        "a": "ein absolutes Prüfverfahren",
+        "b": "ein vergleichendes Prüfverfahren",
+        "c": "beides",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.13",
+      "text": "Die eigentlichen Messgrößen bei einer Wirbelstromprüfung sind:",
+      "options": {
+        "a": "Durchmesser und Länge des Prüflings",
+        "b": "Amplitude und Phase eines Wechselstroms in der Empfängerwicklung",
+        "c": "HV und HRC",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.14",
+      "text": "Welche Eigenschaften lassen sich mit Wirbelstrom ermitteln?",
+      "options": {
+        "a": "Radioaktivität",
+        "b": "Wärmekapazität",
+        "c": "Oberflächenfehler, z.B. Risse",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.15",
+      "text": "Welche Werkstoffe können mit dem Wirbelstromverfahren geprüft werden?",
+      "options": {
+        "a": "Kunststoffe",
+        "b": "Metalle",
+        "c": "Holz",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.16",
+      "text": "Welche der folgenden Prüfaufgaben können bei metallischen Teilen mit dem Wirbelstromverfahren durchgeführt werden?",
+      "options": {
+        "a": "Kontrolle auf Materialverwechslung",
+        "b": "Erkennung von Oberflächenrissen",
+        "c": "Messung der genauen Einhärtetiefe",
+        "d": ""
+      },
+      "answer": "ab",
+      "image": ""
+    },
+    {
+      "id": "1.17",
+      "text": "Welche Prüffrequenz würde bei jeweils gleichem Prüfmaterial zur größten Eindringtiefe führen?",
+      "options": {
+        "a": "2 kHz",
+        "b": "300 Hz",
+        "c": "500 kHz",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.18",
+      "text": "Prüfgeräte, Einstellteile und zu prüfende Teile müssen während der Prüfung wie folgt eingesetzt werden:",
+      "options": {
+        "a": "an einem sauberen, ebenen Arbeitsplatz, in ausreichendem Abstand von metallischen Teilen oder von einem Magnetfeld",
+        "b": "an einem sauberen, ebenen Arbeitsplatz, direkt neben oder auf metallischen Teilen",
+        "c": "an einem sauberen, ebenen Arbeitsplatz, neben einem Magnetfeld",
+        "d": ""
+      },
+      "answer": "a",
+      "image": ""
+    },
+    {
+      "id": "1.19",
+      "text": "Die Prüfkörper dürfen bei der Wirbelstromprüfung einen gewissen Restmagnetismus nicht überschreiten, weil dieser",
+      "options": {
+        "a": "zu Pseudoausschuss führen würde",
+        "b": "die Prüfsonde schädigen könnte",
+        "c": "zu falscher i.O./n.i.O.-Sortierung der Prüflinge führen könnte",
+        "d": ""
+      },
+      "answer": "ac",
+      "image": ""
+    },
+    {
+      "id": "1.20",
+      "text": "Die Ergebnisse der Wirbelstromprüfung",
+      "options": {
+        "a": "sind immer absolute Werte",
+        "b": "geben genau Auskunft, worauf Abweichungen vom Gut-Fall zurückgeführt werden können",
+        "c": "müssen mit Referenzmethoden überprüft werden",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.21",
+      "text": "Zur Wirbelstromprüfung wird das Prüfteil … ausgesetzt.",
+      "options": {
+        "a": "einem magnetischen Gleichfeld",
+        "b": "einem magnetischen Wechselfeld",
+        "c": "magnetischen Gleich- und Wechselfeldern",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.22",
+      "text": "Um messbare Wirbelströme in einem Material zu erzeugen, muss dieses … sein.",
+      "options": {
+        "a": "gehärtet",
+        "b": "elektrisch isolierend",
+        "c": "elektrisch leitfähig",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.23",
+      "text": "Welche der folgenden Prüfaufgaben sind mit Wirbelstromverfahren lösbar?",
+      "options": {
+        "a": "Suche nach Oberflächenrissen in Glasstäben",
+        "b": "Detektion von Rissen an Wälzlagern aus Stahl",
+        "c": "Erkennung von Fehlern in Kunststoffteilen",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.24",
+      "text": "Ein Wirbelstrom",
+      "options": {
+        "a": "entsteht in Luft, wenn ein Magnetfeld vorhanden ist",
+        "b": "entsteht, wenn Strom ungleichmäßig in einem Material fließt",
+        "c": "fließt auf einer Kreisbahn",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.25",
+      "text": "Jeder Magnet",
+      "options": {
+        "a": "hat 2 Pole",
+        "b": "kann zu- und abgeschaltet werden",
+        "c": "produziert ein Magnetfeld",
+        "d": ""
+      },
+      "answer": "ac",
+      "image": ""
+    },
+    {
+      "id": "1.26",
+      "text": "Eisen wird im Magnetfeld",
+      "options": {
+        "a": "elektrisch aufgeladen",
+        "b": "magnetisiert",
+        "c": "nicht verändert",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.27",
+      "text": "Der durch die Spule induzierte Wirbelstrom",
+      "options": {
+        "a": "ist im Inneren des Materials am größten",
+        "b": "ist unabhängig von der Tiefe überall im Material gleich groß",
+        "c": "ist an der Oberfläche des Materials am größten",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "1.28",
+      "text": "Bei der Rissprüfung können alle Risse exakt vermessen werden. Diese Aussage ist",
+      "options": {
+        "a": "richtig",
+        "b": "falsch",
+        "c": "bedingt richtig",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.29",
+      "text": "In welcher physikalischen Einheit wird die Frequenz angegeben?",
+      "options": {
+        "a": "s",
+        "b": "Hz",
+        "c": "m",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.30",
+      "text": "Magnetische Feldlinien",
+      "options": {
+        "a": "kreuzen sich",
+        "b": "sind immer geschlossen",
+        "c": "kreuzen sich nie",
+        "d": ""
+      },
+      "answer": "bc",
+      "image": ""
+    },
+    {
+      "id": "1.31",
+      "text": "Was bewirkt der Skineffekt?",
+      "options": {
+        "a": "gleichmäßige Verteilung der Wirbelströme auf den kompletten Bauteilquerschnitt",
+        "b": "Verdrängung der Wirbelströme in die Bauteilrandzone",
+        "c": "Der Skineffekt ist für die Wirbelstromprüfung unerheblich.",
+        "d": ""
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "1.32",
+      "text": "Welche der nachfolgend genannten Behauptungen für die Wirbelstromprüfung ist/sind falsch?",
+      "options": {
+        "a": "es sind hohe Prüfgeschwindigkeiten möglich",
+        "b": "es kann auf kleine Fehler mit hoher Empfindlichkeit geprüft werden",
+        "c": "es ist die sichere Prüfung auf kleine Fehler bis in eine Tiefe von 15 mm möglich",
+        "d": ""
+      },
+      "answer": "c",
+      "image": ""
+    }
+  ],
   "ST": [],
   "PR": []
 }
