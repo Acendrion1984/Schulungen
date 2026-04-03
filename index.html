@@ -434,14 +434,7 @@ tr:hover td { background:var(--accent-dim); }
 .modal-fields-s .field select:focus { border-color:var(--accent2); box-shadow:0 0 0 3px var(--accent-glow); }
 .modal-actions-s { display:flex; gap:.65rem; margin-top:1.1rem; }
 
-/* === PRAKTISCHE PHASE MODAL === */
-#modal-praktische-phase .modal { max-width:1100px; }
-.prakt-table { width:100%; border-collapse:collapse; margin-top:10px; }
-.prakt-table th, .prakt-table td { border:1px solid var(--border); padding:6px 8px; font-size:13px; }
-.prakt-table thead { background:var(--surface2); }
-.prakt-total { margin-top:10px; font-weight:700; font-size:15px; }
-.prakt-confirm-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
-@media(max-width:600px){ .prakt-confirm-grid { grid-template-columns:1fr; } }
+
 
 /* ══════════════════════════════════════
 PRÜFUNGSSYSTEM
@@ -589,6 +582,14 @@ body.dark #pruef-content th { background:#1b5e20 !important; }
 .answer-input:focus { border-color:var(--accent2); }
 .answer-input.correct { border-color:var(--accent2); background:var(--accent-dim); }
 .answer-input.incorrect { border-color:var(--err-border); background:var(--err-bg); }
+.answer-input.multi-input { width:46px; }
+.multi-badge { display:inline-block; font-size:7px; font-weight:800; background:var(--accent); color:#fff; border-radius:3px; padding:0 3px; margin-left:3px; vertical-align:top; line-height:1.6; font-family:var(--mono); }
+.multi-hint { font-size:.74rem; color:var(--accent); font-style:italic; margin:2px 0 7px; padding:3px 7px; background:var(--accent-dim); border-radius:var(--r-sm); border:1px solid var(--accent2); display:inline-block; }
+#pruef-content .q-radio { width:13px; height:13px; border:2px solid var(--border2); border-radius:50%; flex-shrink:0; margin-top:2px; transition:.12s; }
+#pruef-content .q-option.selected .q-radio { border-color:var(--accent2); background:var(--accent2); }
+#pruef-content .q-checkbox { width:14px; height:14px; border:2px solid var(--border2); border-radius:3px; flex-shrink:0; margin-top:1px; display:inline-flex; align-items:center; justify-content:center; font-size:9px; font-weight:900; color:transparent; transition:.12s; }
+#pruef-content .q-option.selected .q-checkbox { border-color:var(--accent2); background:var(--accent2); color:#fff; }
+#pruef-content .q-option.q-multi { user-select:none; }
 
 /* Modals in pruef context */
 .modal-overlay { z-index:4500; }
@@ -863,7 +864,7 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
     <div class="card" style="margin-bottom:18px">
       <div class="card-title">Schnell-Eingabe</div>
       <div class="form-group">
-        <textarea class="form-input" id="quick-answers" rows="3" placeholder="a,a,b,c,b,d ..."></textarea>
+        <textarea class="form-input" id="quick-answers" rows="3" placeholder="Einzelantwort: a,b,c,d ... | Mehrfachantwort: ab,ac,b,c ... (ab = A+B gleichzeitig)"></textarea>
       </div>
       <div class="btn-group">
         <button type="button" class="btn btn-secondary btn-sm" onclick="applyQuickAnswersAll()">Antworten übertragen</button>
@@ -878,66 +879,7 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
   </div>
 </div>
 
-<!-- === PRAKTISCHE PHASE MODAL === -->
-<div class="modal-overlay" id="modal-praktische-phase">
-  <div class="modal" style="max-width:1100px;overflow-y:auto;max-height:90vh">
-    <div class="modal-hdr">
-      <h3>📋 Nachweis der betreuten praktischen Phase</h3>
-      <button class="close-btn" onclick="closeModal('modal-praktische-phase')">×</button>
-    </div>
-    <div id="prakt-modal-subtitle" style="color:var(--text-muted);margin-bottom:14px;font-size:14px"></div>
 
-    <div class="card" style="margin-bottom:14px">
-      <div class="card-title">Nachweise (Gesamtziel: 160 Stunden)</div>
-      <button class="btn btn-secondary btn-sm" onclick="addPraktischeRow()" style="margin-bottom:8px">+ Neue Zeile</button>
-      <div style="overflow-x:auto">
-        <table class="prakt-table">
-          <thead><tr>
-            <th>Woche</th><th>Betreute Stunden</th><th>Anzahl Beurteilungen</th>
-            <th>Kommentar / Lernpunkt</th><th>Aktion</th>
-          </tr></thead>
-          <tbody id="prakt-table-body"></tbody>
-        </table>
-      </div>
-      <p class="prakt-total">Gesamtsumme: <span id="prakt-total-hours">0</span> / 160 h</p>
-    </div>
-
-    <div class="card">
-      <div class="card-title">Abschließende Bestätigung</div>
-      <div class="prakt-confirm-grid">
-        <div>
-          <label class="form-label">Mitarbeiter – Name</label>
-          <input class="form-input" id="prakt-mitarbeiter-name" type="text" placeholder="Name des Mitarbeiters">
-        </div>
-        <div>
-          <label class="form-label">Mitarbeiter – Datum</label>
-          <input class="form-input" id="prakt-mitarbeiter-date" type="text" placeholder="TT.MM.JJJJ">
-        </div>
-        <div>
-          <label class="form-label">Prüfer / Auditor – Name</label>
-          <input class="form-input" id="prakt-pruefer-name" type="text" placeholder="Name des Prüfers">
-        </div>
-        <div>
-          <label class="form-label">Prüfer / Auditor – Datum</label>
-          <input class="form-input" id="prakt-pruefer-date" type="text" placeholder="TT.MM.JJJJ">
-        </div>
-        <div>
-          <label class="form-label">Prüfaufsicht / Experte – Name</label>
-          <input class="form-input" id="prakt-experte-name" type="text" placeholder="Name des Experten">
-        </div>
-        <div>
-          <label class="form-label">Prüfaufsicht / Experte – Datum</label>
-          <input class="form-input" id="prakt-experte-date" type="text" placeholder="TT.MM.JJJJ">
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-footer" style="margin-top:14px">
-      <button class="btn btn-secondary" onclick="closeModal('modal-praktische-phase')">Schließen</button>
-      <button class="btn btn-primary" onclick="savePraktischePhase()">💾 Speichern</button>
-    </div>
-  </div>
-</div>
 
 <div id="pruef-toast"></div>
   </div><!-- /app-inner -->
@@ -1587,13 +1529,27 @@ else init();
 PRÜFUNGSSYSTEM JS
 ══════════════════════════════════════════════════════════════ */
 
-function getImageUrl(filename) {
-  if (!filename) return '';
+function getImageUrl(src) {
+  if (!src) return '';
+  // Bereits ein Data-URL (data:image/...)
+  if (src.startsWith('data:')) return src;
+  // Rohe Base64-Zeichenkette erkennen: lang, keine Punkte/Schrägstriche → als PNG verpacken
+  const isRawB64 = src.length > 64 && /^[A-Za-z0-9+/=\r\n]+$/.test(src.replace(/\s/g,''));
+  if (isRawB64) {
+    // Versuche Bildtyp aus Magic Bytes zu erkennen
+    const clean = src.replace(/\s/g,'');
+    let mime = 'image/png';
+    if (clean.startsWith('/9j/'))      mime = 'image/jpeg';
+    else if (clean.startsWith('iVBOR')) mime = 'image/png';
+    else if (clean.startsWith('R0lGO')) mime = 'image/gif';
+    else if (clean.startsWith('UklGR')) mime = 'image/webp';
+    return `data:${mime};base64,${clean}`;
+  }
+  // GitHub Raw-URL für Dateinamen/Pfade
   let owner='', repo='', branch='main';
   if (window.ghConfig) { owner=window.ghConfig.owner; repo=window.ghConfig.repo; branch=window.ghConfig.branch||'main'; }
-  if (!owner||!repo) return '';
-  let clean = filename.replace(/^\//, '');
-  return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${clean}`;
+  if (!owner||!repo) return src;
+  return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${src.replace(/^\//,'')}`;
 }
 
 let questionsDB = { ET:{AT:[],ST:[],PR:[]}, UT:{AT:[],ST:[],PR:[]}, MT:{AT:[],ST:[],PR:[]}, PT:{AT:[],ST:[],PR:[]}, NE:{AT:[],ST:[],PR:[]}, BN:{AT:[],ST:[],PR:[]} };
@@ -1858,7 +1814,7 @@ function renderTrainingDetail(id){
     <div class="card-title">Teilnehmer & Prüfungsstatus</div>
     <div class="table-wrap"><table><thead><tr><th>Name</th><th>Personal-Nr.</th><th>AT Neu</th><th>ST Neu</th><th>PR Neu</th><th>AT</th><th>ST</th><th>PR</th><th>Gesamt</th><th>Aktionen</th></tr></thead><tbody>${training.participants.map((p,idx)=>{
       const nc=p.newCounts||{},s=p.scores;
-      return `<tr><td><strong>${p.name}</strong></td><td class="td-mono">${p.employeeId||'—'}</td><td class="td-mono"><span class="badge badge-blue">${nc.AT||0}/${training.config.AT}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.ST||0}/${training.config.ST}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.PR||0}/${training.config.PR}</span></td>${s?`<td>${scoreCell(s.AT)}</td><td>${scoreCell(s.ST)}</td><td>${scoreCell(s.PR)}</td><td>${p.overallPassed?'<span class="badge badge-green">✓ Bestanden</span>':'<span class="badge badge-red">✗ Nicht bestanden</span>'}</td>`:'<td colspan="4" class="text-muted text-sm">Noch nicht abgenommen</td>'}<td><div class="btn-group"><button class="btn btn-secondary btn-sm" onclick="openResultsModal('${id}',${idx})">${p.completedAt?'Ergebnis':'Eintragen'}</button><button class="btn btn-secondary btn-sm" onclick="showExamSheet('${id}',${idx})">Fragebogen</button><button class="btn btn-secondary btn-sm" onclick="openPraktischePhase('${id}',${idx})">${p.practicalPhase&&parseFloat(p.practicalPhase.totalHours||0)>=160?'✅':'📋'} Prakt. Phase</button></div></td></tr>`;
+      return `<tr><td><strong>${p.name}</strong></td><td class="td-mono">${p.employeeId||'—'}</td><td class="td-mono"><span class="badge badge-blue">${nc.AT||0}/${training.config.AT}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.ST||0}/${training.config.ST}</span></td><td class="td-mono"><span class="badge badge-blue">${nc.PR||0}/${training.config.PR}</span></td>${s?`<td>${scoreCell(s.AT)}</td><td>${scoreCell(s.ST)}</td><td>${scoreCell(s.PR)}</td><td>${p.overallPassed?'<span class="badge badge-green">✓ Bestanden</span>':'<span class="badge badge-red">✗ Nicht bestanden</span>'}</td>`:'<td colspan="4" class="text-muted text-sm">Noch nicht abgenommen</td>'}<td><div class="btn-group"><button class="btn btn-secondary btn-sm" onclick="openResultsModal('${id}',${idx})">${p.completedAt?'Ergebnis':'Eintragen'}</button><button class="btn btn-secondary btn-sm" onclick="showExamSheet('${id}',${idx})">Fragebogen</button></div></td></tr>`;
     }).join('')}</tbody></table></div>
   </div>`;
 }
@@ -1881,7 +1837,7 @@ function showExamSheet(trainingId,pIdx){
       const ans=p.answers?.[partKey]?.[qId];
       html+=`<div class="question-block"><div class="q-header"><span class="q-num">${qId}</span><div class="q-text">${q.text}</div></div>`;
       if(q.image)html+=`<div class="question-image"><img src="${getImageUrl(q.image)}" alt="Fragebild" onerror="this.style.display='none'"></div>`;
-      html+=`<div class="q-options">${Object.entries(q.options).map(([k,v])=>{let cls='';if(ans){if(k===q.answer)cls='correct';else if(k===ans)cls='wrong';}return`<div class="q-option ${cls}"><span class="q-option-label">${k})</span><span class="q-option-text">${v}</span></div>`;}).join('')}</div>${ans?`<div class="mt8 text-sm" style="color:${ans===q.answer?'var(--accent)':'var(--err-text)'}">${ans===q.answer?'✓ Richtig':'✗ Falsch (Richtig: '+q.answer+')'}</div>`:''}</div>`;
+      html+=`<div class="q-options">${Object.entries(q.options).map(([k,v])=>{let cls='';if(ans){const correct=normalizeAnswer(q.answer);if(correct.includes(k))cls='correct';else if(normalizeAnswer(ans).includes(k))cls='wrong';}return`<div class="q-option ${cls}"><span class="q-option-label">${k})</span><span class="q-option-text">${v}</span></div>`;}).join('')}</div>${ans?`<div class="mt8 text-sm" style="color:${answersMatch(ans,q.answer)?'var(--accent)':'var(--err-text)'}">${answersMatch(ans,q.answer)?'✓ Richtig':'✗ Falsch (Richtig: '+q.answer.toUpperCase()+')'}</div>`:''}</div>`;
     });
     html+='</div>';
   }
@@ -1896,14 +1852,18 @@ function openResultsModal(trainingId,pIdx){
   let html='';
   for(const[partKey,partLabel]of Object.entries(PART_NAMES)){
     const qIds=p.questions[partKey]||[];
-    html+=`<div class="mb16"><div style="font-size:12px;font-weight:700;margin-bottom:9px;color:var(--text2)">${partLabel} (${qIds.length} Fragen)</div><div class="answer-grid">${qIds.map(qId=>{const q=allQ[qId],existing=p.answers?.[partKey]?.[qId]||'';return`<div class="answer-cell"><div class="q-label">${qId}</div><input class="answer-input" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}" maxlength="1" value="${existing}" oninput="validateAnswerInput(this)" placeholder="?"></div>`;}).join('')}</div></div>`;
+    html+=`<div class="mb16"><div style="font-size:12px;font-weight:700;margin-bottom:9px;color:var(--text2)">${partLabel} (${qIds.length} Fragen)</div><div class="answer-grid">${qIds.map(qId=>{const q=allQ[qId],existing=p.answers?.[partKey]?.[qId]||'',multi=isMultiAnswer(q);return`<div class="answer-cell"><div class="q-label">${qId}${multi?'<span class="multi-badge">M</span>':''}</div><input class="answer-input${multi?' multi-input':''}" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}" maxlength="4" value="${existing}" oninput="validateAnswerInput(this)" placeholder="${multi?'z.B. ab':'?'}" title="${multi?'Mehrfachantwort – z.B. ab für A+B':'Einzelantwort'}"></div>`;}).join('')}</div></div>`;
   }
   const rmc=document.getElementById('results-modal-content');if(rmc)rmc.innerHTML=html;
   setTimeout(()=>document.getElementById('quick-answers')?.focus(),0);
   openModal('modal-results');
 }
 
-function _parseQuickAnswers(raw){if(!raw)return[];return(raw.toLowerCase().match(/[abcd]/g)||[]);}
+function _parseQuickAnswers(raw){
+  if(!raw)return[];
+  // Komma/Semikolon/Leerzeichen als Trennzeichen; "ab" = Mehrfachantwort A+B
+  return raw.toLowerCase().split(/[,;\s]+/).filter(s=>s.replace(/[^abcd]/g,'').length>0).map(s=>normalizeAnswer(s));
+}
 function clearQuickAnswerFields(){document.querySelectorAll('#results-modal-content .answer-input').forEach(inp=>{inp.value='';inp.classList.remove('correct','incorrect');});}
 function applyQuickAnswersAll(){
   const ta=document.getElementById('quick-answers');if(!ta)return;
@@ -1917,9 +1877,12 @@ function applyQuickAnswersAll(){
 }
 function validateAnswerInput(el){
   el.value=el.value.toLowerCase().replace(/[^abcd]/g,'');
-  const correct=el.dataset.correct;
-  if(el.value&&correct){el.classList.toggle('correct',el.value===correct);el.classList.toggle('incorrect',el.value!==correct);}
-  else el.classList.remove('correct','incorrect');
+  const correct=normalizeAnswer(el.dataset.correct);
+  if(el.value&&correct){
+    const given=normalizeAnswer(el.value);
+    el.classList.toggle('correct',given===correct);
+    el.classList.toggle('incorrect',given!==correct);
+  }else el.classList.remove('correct','incorrect');
 }
 
 async function saveResults(){
@@ -1928,7 +1891,7 @@ async function saveResults(){
   const inputs=document.querySelectorAll('#results-modal-content .answer-input'),answers={},scores={};
   for(const[partKey]of Object.entries(PART_NAMES)){
     answers[partKey]={};let correct=0,total=0;
-    inputs.forEach(inp=>{if(inp.dataset.part!==partKey)return;const qId=inp.dataset.qid,val=inp.value.trim().toLowerCase();if(val)answers[partKey][qId]=val;const q=allQ[qId];if(q&&val){total++;if(val===q.answer)correct++;}});
+    inputs.forEach(inp=>{if(inp.dataset.part!==partKey)return;const qId=inp.dataset.qid,val=normalizeAnswer(inp.value.trim());if(val)answers[partKey][qId]=val;const q=allQ[qId];if(q&&val){total++;if(answersMatch(val,q.answer))correct++;}});
     scores[partKey]={correct,total,percent:total?Math.round(correct/total*100):0,passed:total>0&&correct/total>=PASS_THRESHOLD};
   }
   p.answers=answers;p.scores=scores;p.overallPassed=Object.values(scores).every(s=>s.passed);p.completedAt=now_iso();
@@ -1962,16 +1925,33 @@ function startExamForParticipant(trainingId,pIdx){const training=getTrainings().
 function renderExamInterface(trainingId,pIdx,part){
   const training=getTrainings().find(t=>t.id===trainingId),p=training.participants[pIdx],allQ=getAllQuestionsMap(training.method),qIds=p.questions[part]||[],parts=Object.keys(PART_NAMES);
   const emc=document.getElementById('exam-mode-content');if(!emc)return;
-  emc.innerHTML=`<div class="exam-progress-bar"><div class="exam-progress-fill" id="exam-prog" style="width:0%"></div></div><div class="exam-header no-print"><div><div style="font-weight:700;font-size:14px">${p.name}</div><div class="text-sm text-muted">${training.method} · ${training.name}</div></div><div class="part-nav">${parts.map(pt=>`<div class="part-nav-item ${pt===part?'active':''} ${(currentExamAnswers[pt]&&Object.keys(currentExamAnswers[pt]).length>=(p.questions[pt]||[]).length)?'completed':''}">${PART_NAMES[pt].split(' ')[0]} Teil</div>`).join('')}</div></div><div style="max-width:780px;margin:22px auto;padding:0 14px"><div style="font-size:17px;font-weight:800;margin-bottom:3px">${PART_NAMES[part]}</div><div class="text-sm text-muted mb24">${qIds.length} Fragen · Bestehensschwelle 80%</div><div id="exam-questions">${qIds.map((qId,qi)=>{const q=allQ[qId];if(!q)return'';let html=`<div class="question-block" id="qb-${qId}"><div class="q-header"><span class="q-num">${part}-${qi+1}</span><div class="q-text">${q.text}</div></div>`;if(q.image)html+=`<div class="question-image"><img src="${getImageUrl(q.image)}" alt="Fragebild" onerror="this.style.display='none'"></div>`;html+=`<div class="q-options">${Object.entries(q.options).map(([k,v])=>`<div class="q-option ${(currentExamAnswers[part]||{})[qId]===k?'selected':''}" onclick="selectAnswer('${part}','${qId}','${k}','${trainingId}',${pIdx})"><span class="q-option-label">${k})</span><span class="q-option-text">${v}</span></div>`).join('')}</div></div>`;return html;}).join('')}</div><div class="flex justify-between mt22 mb22">${parts.indexOf(part)>0?`<button class="btn btn-secondary" onclick="navExamPart('${trainingId}',${pIdx},'${parts[parts.indexOf(part)-1]}')">← Vorheriger Teil</button>`:'<div></div>'}${parts.indexOf(part)<parts.length-1?`<button class="btn btn-primary" onclick="navExamPart('${trainingId}',${pIdx},'${parts[parts.indexOf(part)+1]}')">Weiter: ${PART_NAMES[parts[parts.indexOf(part)+1]]} →</button>`:`<button class="btn btn-success" onclick="submitDigitalExam('${trainingId}',${pIdx})">✓ Prüfung abgeben</button>`}</div></div>`;
+  emc.innerHTML=`<div class="exam-progress-bar"><div class="exam-progress-fill" id="exam-prog" style="width:0%"></div></div><div class="exam-header no-print"><div><div style="font-weight:700;font-size:14px">${p.name}</div><div class="text-sm text-muted">${training.method} · ${training.name}</div></div><div class="part-nav">${parts.map(pt=>`<div class="part-nav-item ${pt===part?'active':''} ${(currentExamAnswers[pt]&&Object.keys(currentExamAnswers[pt]).length>=(p.questions[pt]||[]).length)?'completed':''}">${PART_NAMES[pt].split(' ')[0]} Teil</div>`).join('')}</div></div><div style="max-width:780px;margin:22px auto;padding:0 14px"><div style="font-size:17px;font-weight:800;margin-bottom:3px">${PART_NAMES[part]}</div><div class="text-sm text-muted mb24">${qIds.length} Fragen · Bestehensschwelle 80%</div><div id="exam-questions">${qIds.map((qId,qi)=>{const q=allQ[qId];if(!q)return'';const multi=isMultiAnswer(q);const curAns=normalizeAnswer((currentExamAnswers[part]||{})[qId]||'');let html=`<div class="question-block" id="qb-${qId}"><div class="q-header"><span class="q-num">${part}-${qi+1}</span><div class="q-text">${q.text}</div></div>`;if(multi)html+=`<div class="multi-hint">☑ Mehrere Antworten möglich – alle zutreffenden auswählen</div>`;if(q.image)html+=`<div class="question-image"><img src="${getImageUrl(q.image)}" alt="Fragebild" onerror="this.style.display='none'"></div>`;html+=`<div class="q-options">${Object.entries(q.options).map(([k,v])=>`<div class="q-option${multi?' q-multi':''} ${curAns.includes(k)?'selected':''}" data-key="${k}" onclick="selectAnswer('${part}','${qId}','${k}','${trainingId}',${pIdx})">${multi?`<span class="q-checkbox">${curAns.includes(k)?'✓':''}</span>`:'<span class="q-radio"></span>'}<span class="q-option-label">${k})</span><span class="q-option-text">${v}</span></div>`).join('')}</div></div>`;return html;}).join('')}</div><div class="flex justify-between mt22 mb22">${parts.indexOf(part)>0?`<button class="btn btn-secondary" onclick="navExamPart('${trainingId}',${pIdx},'${parts[parts.indexOf(part)-1]}')">← Vorheriger Teil</button>`:'<div></div>'}${parts.indexOf(part)<parts.length-1?`<button class="btn btn-primary" onclick="navExamPart('${trainingId}',${pIdx},'${parts[parts.indexOf(part)+1]}')">Weiter: ${PART_NAMES[parts[parts.indexOf(part)+1]]} →</button>`:`<button class="btn btn-success" onclick="submitDigitalExam('${trainingId}',${pIdx})">✓ Prüfung abgeben</button>`}</div></div>`;
   updateExamProgress(part,pIdx,training);
 }
 
 function selectAnswer(part,qId,answer,trainingId,pIdx){
   if(!currentExamAnswers[part])currentExamAnswers[part]={};
-  currentExamAnswers[part][qId]=answer;
-  document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el=>el.classList.remove('selected'));
-  event.currentTarget.classList.add('selected');
   const training=getTrainings().find(t=>t.id===trainingId);
+  const allQ=getAllQuestionsMap(training.method);
+  const q=allQ[qId];
+  if(isMultiAnswer(q)){
+    // Checkbox-Verhalten: Antwort ein-/ausschalten
+    const current=normalizeAnswer(currentExamAnswers[part][qId]||'');
+    const letters=new Set(current.split('').filter(Boolean));
+    if(letters.has(answer)){letters.delete(answer);}else{letters.add(answer);}
+    const newVal=[...letters].sort().join('');
+    if(newVal)currentExamAnswers[part][qId]=newVal;else delete currentExamAnswers[part][qId];
+    // UI aktualisieren
+    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el=>{
+      const k=el.dataset.key,sel=letters.has(k);
+      el.classList.toggle('selected',sel);
+      const cb=el.querySelector('.q-checkbox');if(cb)cb.textContent=sel?'✓':'';
+    });
+  }else{
+    currentExamAnswers[part][qId]=answer;
+    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el=>el.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
+  }
   updateExamProgress(part,pIdx,training);
 }
 function updateExamProgress(part,pIdx,training){
@@ -1990,7 +1970,7 @@ async function submitDigitalExam(trainingId,pIdx){
   for(const[partKey]of Object.entries(PART_NAMES)){
     answers[partKey]=currentExamAnswers[partKey]||{};
     const qIds=p2.questions[partKey]||[];let correct=0,total=qIds.length;
-    qIds.forEach(qId=>{const a=answers[partKey][qId],q=allQ[qId];if(a&&q&&a===q.answer)correct++;});
+    qIds.forEach(qId=>{const a=answers[partKey][qId],q=allQ[qId];if(a&&q&&answersMatch(a,q.answer))correct++;});
     scores[partKey]={correct,total,percent:total?Math.round(correct/total*100):0,passed:total>0&&correct/total>=PASS_THRESHOLD};
   }
   p2.answers=answers;p2.scores=scores;p2.overallPassed=Object.values(scores).every(s=>s.passed);p2.completedAt=now_iso();
@@ -2044,7 +2024,7 @@ function printExam(trainingId){
   for(let pi=0;pi<participants.length;pi++){
     const p=participants[pi];
     let test='<section class="pf-participant'+(pi>0?' pf-page-break':'')+'">';
-    test+='<div class="pf-header"><h2>ZfP Prüfungsbogen – '+training.method+' · '+(METHOD_NAMES[training.method]||'')+'</h2><div class="pf-meta"><div><strong>Teilnehmer:</strong> '+(p.name||'')+' ('+(p.employeeId||'—')+')</div><div><strong>Datum:</strong> '+fmtDate(training.date)+' &nbsp;|&nbsp; <strong>Ort:</strong> '+(training.location||'—')+'</div></div><div class="pf-hint"><em>Bitte nur EINE Antwort je Frage ankreuzen.</em></div></div>';
+    test+='<div class="pf-header"><h2>ZfP Prüfungsbogen – '+training.method+' · '+(METHOD_NAMES[training.method]||'')+'</h2><div class="pf-meta"><div><strong>Teilnehmer:</strong> '+(p.name||'')+' ('+(p.employeeId||'—')+')</div><div><strong>Datum:</strong> '+fmtDate(training.date)+' &nbsp;|&nbsp; <strong>Ort:</strong> '+(training.location||'—')+'</div></div><div class="pf-hint"><em>Einzelne Antwort ankreuzen – bei ☑-Fragen (Mehrfachantwort) alle zutreffenden Antworten ankreuzen.</em></div></div>';
     for(const partKey in PART_NAMES){if(!PART_NAMES.hasOwnProperty(partKey))continue;const partLabel=PART_NAMES[partKey],qIds=(p.questions&&p.questions[partKey])?p.questions[partKey]:[];test+='<h3 class="pf-part-title">'+partLabel+' ('+qIds.length+' Fragen)</h3>';
       for(let qi=0;qi<qIds.length;qi++){const qId=qIds[qi],q=allQ[qId];if(!q)continue;test+='<div class="pf-q"><div class="pf-q-title"><span class="pf-q-num">'+qId+'</span><span class="pf-q-text">'+(q.text||'')+'</span></div>';if(q.image)test+='<div class="question-image"><img src="'+getImageUrl(q.image)+'" alt="Fragebild" style="max-width:100%;max-height:180px;border-radius:6px;margin:6px 0;"></div>';test+='<div class="pf-q-opts">';const opts=q.options||{};for(const k in opts){if(!opts.hasOwnProperty(k))continue;test+='<div class="pf-opt">☐ <strong>'+k+')</strong> '+opts[k]+'</div>';}test+='</div></div>';}}
     test+='</section>';
@@ -2093,6 +2073,19 @@ function importParticipantsCSV(){
 function getAllQuestionsMap(method){const map={};if(!method||!questionsDB[method])return map;const qs=questionsDB[method];(qs.AT||[]).forEach(q=>map[q.id]=q);(qs.ST||[]).forEach(q=>map[q.id]=q);(qs.PR||[]).forEach(q=>map[q.id]=q);return map;}
 function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2);}
+
+/* ── MEHRFACHANTWORTEN-HELFER ── */
+// Normalisiert Antwort-String: "a,b" / "ab" / ["a","b"] → "ab" (sortiert, eindeutig)
+function normalizeAnswer(ans){
+  if(!ans)return'';
+  const src=Array.isArray(ans)?ans.join(''):String(ans);
+  const letters=src.toLowerCase().replace(/[^abcd]/g,'').split('');
+  return[...new Set(letters)].sort().join('');
+}
+// Gibt true, wenn Frage mehrere Antworten hat
+function isMultiAnswer(q){return q&&normalizeAnswer(q.answer).length>1;}
+// Vergleicht gegebene und korrekte Antwort(en)
+function answersMatch(given,correct){return normalizeAnswer(given)===normalizeAnswer(correct);}
 function now_iso(){return new Date().toISOString();}
 function fmtDate(d){if(!d)return'—';const[y,m,day]=(d.split('T')[0]||d).split('-');return`${day}.${m}.${y}`;}
 function openModal(id){document.getElementById(id)?.classList.add('open');}
@@ -2124,7 +2117,7 @@ function xlsRowToQuestion(row, idx) {
       c: get('c', 'antwort_c', 'option_c'),
       d: get('d', 'antwort_d', 'option_d'),
     },
-    answer:  get('answer', 'antwort', 'lösung', 'loesung', 'correct').toLowerCase(),
+    answer:  normalizeAnswer(get('answer', 'antwort', 'lösung', 'loesung', 'correct')),
     image:   get('image', 'bild', 'img', 'bildname'),
   };
 }
@@ -2138,7 +2131,31 @@ function importCatalogXLSX(input) {
   reader.onload = function(e) {
     try {
       if (typeof XLSX === 'undefined') { showPruefToast('❌ SheetJS nicht geladen – bitte Seite neu laden', 'error'); return; }
-      const wb = XLSX.read(e.target.result, { type: 'binary' });
+      const wb = XLSX.read(e.target.result, { type: 'binary', cellStyles: true, cellNF: true, raw: true });
+
+      // ── Eingebettete Bilder aus dem Workbook extrahieren ──────────────────
+      // SheetJS stellt Sheet-Bilder unter wb.Sheets[name]['!images'] oder wb.custprops bereit.
+      // Alternativ: Rohdaten aus zip lesen (xlsx ist ein ZIP).
+      const embeddedImages = {}; // { sheetName_rowIndex: dataURL }
+      try {
+        const zip = wb.zip || (wb._zip ? wb._zip : null);
+        // SheetJS stellt unter wb.Sheets[name]['!images'] ein Array bereit (falls vorhanden)
+        for (const sName of wb.SheetNames) {
+          const ws = wb.Sheets[sName];
+          if (ws['!images'] && Array.isArray(ws['!images'])) {
+            ws['!images'].forEach((img, i) => {
+              const b64 = img.data || img.base64 || '';
+              const mime = img.type || 'image/png';
+              if (b64) {
+                // Verknüpfe Bild mit dem Zellanker (img.l = { c: col, r: row })
+                const row = img.l ? img.l.r : i;
+                embeddedImages[`${sName}_${row}`] = `data:${mime};base64,${b64}`;
+              }
+            });
+          }
+        }
+      } catch(imgErr) { /* Bilder konnten nicht extrahiert werden – kein kritischer Fehler */ }
+
       const result = { AT: [], ST: [], PR: [] };
       const log = [];
       let totalImported = 0;
@@ -2147,10 +2164,18 @@ function importCatalogXLSX(input) {
         if (!sheetName) { log.push('⚠ Blatt "' + part + '" nicht gefunden – übersprungen'); continue; }
         const rows = XLSX.utils.sheet_to_json(wb.Sheets[sheetName], { defval: '' });
         const questions = rows.filter(r => Object.values(r).some(v => String(v).length > 3))
-          .map((r, i) => xlsRowToQuestion(r, i)).filter(q => q.text && q.options.a);
+          .map((r, i) => {
+            const q = xlsRowToQuestion(r, i);
+            // Falls image-Feld leer, aber eingebettetes Bild für diese Zeile vorhanden → zuweisen
+            if (!q.image && embeddedImages[`${sheetName}_${i+1}`]) {
+              q.image = embeddedImages[`${sheetName}_${i+1}`];
+            }
+            return q;
+          }).filter(q => q.text && q.options.a);
         result[part] = questions;
         totalImported += questions.length;
-        log.push('✅ ' + part + ': ' + questions.length + ' Fragen (Blatt: "' + sheetName + '")');
+        const imgCount = questions.filter(q => q.image).length;
+        log.push('✅ ' + part + ': ' + questions.length + ' Fragen' + (imgCount ? ' (' + imgCount + ' mit Bild)' : '') + ' (Blatt: "' + sheetName + '")');
       }
       questionsDB[method] = result;
       if (window.ghSaveFile) {
@@ -2216,109 +2241,9 @@ function renderCatalogStatusTable() {
 
 loadAllQuestions();
 
-/* ══════════════════════════════════
-   PRAKTISCHE PHASE
-══════════════════════════════════ */
-let _praktTrainingId = null;
-let _praktPIdx = null;
 
-function openPraktischePhase(trainingId, pIdx) {
-  _praktTrainingId = trainingId;
-  _praktPIdx = pIdx;
-  const training = getTrainings().find(t => t.id === trainingId);
-  if (!training) return;
-  const p = training.participants[pIdx];
-  document.getElementById('prakt-modal-subtitle').textContent =
-    'Teilnehmer: ' + p.name + ' · Prüfung: ' + training.method + ' · ' + fmtDate(training.date);
-  renderPraktischeTable(p.practicalPhase || null);
-  document.getElementById('prakt-mitarbeiter-name').value = (p.practicalPhase && p.practicalPhase.mitarbeiterName) || p.name || '';
-  document.getElementById('prakt-mitarbeiter-date').value = (p.practicalPhase && p.practicalPhase.mitarbeiterDate) || '';
-  document.getElementById('prakt-pruefer-name').value     = (p.practicalPhase && p.practicalPhase.prueferName) || training.trainer || '';
-  document.getElementById('prakt-pruefer-date').value     = (p.practicalPhase && p.practicalPhase.prueferDate) || '';
-  document.getElementById('prakt-experte-name').value     = (p.practicalPhase && p.practicalPhase.experteName) || '';
-  document.getElementById('prakt-experte-date').value     = (p.practicalPhase && p.practicalPhase.experteDate) || '';
-  openModal('modal-praktische-phase');
-}
-
-function renderPraktischeTable(data) {
-  const tbody = document.getElementById('prakt-table-body');
-  const rows = (data && data.rows && data.rows.length)
-    ? data.rows
-    : [{week:'',hours:'',evaluations:'',comment:''},
-       {week:'',hours:'',evaluations:'',comment:''},
-       {week:'',hours:'',evaluations:'',comment:''},
-       {week:'',hours:'',evaluations:'',comment:''},
-       {week:'',hours:'',evaluations:'',comment:''}];
-  tbody.innerHTML = rows.map((r, i) =>
-    '<tr>'
-    + '<td><input class="form-input prakt-week" type="text" value="' + (r.week||'') + '" placeholder="KW ' + (i+1) + '" style="width:70px"></td>'
-    + '<td><input class="form-input prakt-hours" type="number" min="0" step="0.5" value="' + (r.hours||'') + '" oninput="updatePraktischeTotalHours()" style="width:90px"></td>'
-    + '<td><input class="form-input prakt-evals" type="number" min="0" value="' + (r.evaluations||'') + '" style="width:80px"></td>'
-    + '<td><input class="form-input prakt-comment" type="text" value="' + (r.comment||'').replace(/"/g,'&quot;') + '" style="width:100%"></td>'
-    + '<td><button class="btn btn-secondary btn-sm" onclick="removePraktischeRow(' + i + ')">✕</button></td>'
-    + '</tr>'
-  ).join('');
-  updatePraktischeTotalHours();
-}
-
-function updatePraktischeTotalHours() {
-  const total = Array.from(document.querySelectorAll('.prakt-hours'))
-    .reduce((s, inp) => s + (parseFloat(inp.value) || 0), 0);
-  const span = document.getElementById('prakt-total-hours');
-  span.textContent = total.toFixed(1);
-  span.style.color = total >= 160 ? 'var(--accent)' : 'var(--err-text)';
-}
-
-function addPraktischeRow() {
-  const tbody = document.getElementById('prakt-table-body');
-  const i = tbody.rows.length;
-  const tr = document.createElement('tr');
-  tr.innerHTML =
-    '<td><input class="form-input prakt-week" type="text" placeholder="KW ' + (i+1) + '" style="width:70px"></td>'
-    + '<td><input class="form-input prakt-hours" type="number" min="0" step="0.5" oninput="updatePraktischeTotalHours()" style="width:90px"></td>'
-    + '<td><input class="form-input prakt-evals" type="number" min="0" style="width:80px"></td>'
-    + '<td><input class="form-input prakt-comment" type="text" style="width:100%"></td>'
-    + '<td><button class="btn btn-secondary btn-sm" onclick="removePraktischeRow(' + i + ')">✕</button></td>';
-  tbody.appendChild(tr);
-}
-
-function removePraktischeRow(i) {
-  const tbody = document.getElementById('prakt-table-body');
-  if (tbody.rows.length > 1) tbody.deleteRow(i);
-  updatePraktischeTotalHours();
-}
-
-function collectPraktischeData() {
-  const rows = Array.from(document.getElementById('prakt-table-body').rows).map(tr => ({
-    week:        (tr.querySelector('.prakt-week')    || {}).value || '',
-    hours:       (tr.querySelector('.prakt-hours')   || {}).value || '',
-    evaluations: (tr.querySelector('.prakt-evals')   || {}).value || '',
-    comment:     (tr.querySelector('.prakt-comment') || {}).value || ''
-  }));
-  return {
-    rows,
-    totalHours:      document.getElementById('prakt-total-hours').textContent,
-    mitarbeiterName: document.getElementById('prakt-mitarbeiter-name').value,
-    mitarbeiterDate: document.getElementById('prakt-mitarbeiter-date').value,
-    prueferName:     document.getElementById('prakt-pruefer-name').value,
-    prueferDate:     document.getElementById('prakt-pruefer-date').value,
-    experteName:     document.getElementById('prakt-experte-name').value,
-    experteDate:     document.getElementById('prakt-experte-date').value,
-    updatedAt:       new Date().toISOString()
-  };
-}
-
-function savePraktischePhase() {
-  if (_praktTrainingId === null || _praktPIdx === null) return;
-  const trainings = getTrainings();
-  const training  = trainings.find(t => t.id === _praktTrainingId);
-  if (!training) return;
-  training.participants[_praktPIdx].practicalPhase = collectPraktischeData();
-  saveTrainings(trainings);
-  showPruefToast('✅ Praktische Phase gespeichert', 'success');
-  closeModal('modal-praktische-phase');
-}
 </script>
+
 
 <script>
 /* ══════════════════════════════════════════════════════════════
@@ -2495,6 +2420,14 @@ var MAIN=`<div id="pruef-main">
       </table>
     </div>
     <div id="catalog-import-log" style="margin-top:10px;font-size:.8rem;color:var(--text3);font-family:var(--mono);line-height:1.7;display:none"></div>
+    <div class="alert alert-info" style="margin-top:10px;font-size:.8rem">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8"/></svg>
+      <span><strong>Bilder in der Excel:</strong> Spalte <code>image</code> befüllen mit:<br>
+      • <strong>Base64-String</strong> (direkt, ohne Präfix) – z.B. <code>/9j/4AAQ…</code> für JPEG oder <code>iVBOR…</code> für PNG<br>
+      • <strong>Data-URL</strong> – z.B. <code>data:image/png;base64,iVBOR…</code><br>
+      • <strong>Dateiname/Pfad</strong> – z.B. <code>images/frage01.png</code> (wird von GitHub geladen)<br>
+      Empfehlung: Bilder auf max. 400×300 px verkleinern und als JPEG komprimieren, da Excel-Zellen auf ~32 000 Zeichen begrenzt sind.</span>
+    </div>
   </div>
 
   <!-- FRAGEN-DB STATUS (kompakt) -->
@@ -2531,5 +2464,3 @@ else injectPruef();
 </script>
 </body>
 </html>
-
-
