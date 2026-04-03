@@ -9,14 +9,6 @@
     "start_time": "08:00",
     "attendees": [
       {
-        "vorname": "Rene",
-        "name": "Bocklet",
-        "personalnummer": "02009230",
-        "abteilung": "WI/SW2-P11Q",
-        "geburtstag": "04.05.1988",
-        "geburtsort": "Werneck"
-      },
-      {
         "vorname": "Julian",
         "name": "Jauernig",
         "personalnummer": "02002964",
