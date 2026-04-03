@@ -7,7 +7,94 @@
     "start_date": "2026-01-19",
     "days": 2,
     "start_time": "08:00",
-    "attendees": []
+    "attendees": [
+      {
+        "vorname": "Jürgen",
+        "name": "Wüstenhöfer",
+        "personalnummer": "45785",
+        "abteilung": "WI/SW2-P114",
+        "geburtstag": "14.03.1967",
+        "geburtsort": "Weisbrunn",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-03"
+      },
+      {
+        "vorname": "Dieter",
+        "name": "Welz",
+        "personalnummer": "60834",
+        "abteilung": "WI/SW2-P114",
+        "geburtstag": "28.06.1965",
+        "geburtsort": "Haßfurt",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-03"
+      },
+      {
+        "vorname": "Celina",
+        "name": "Frank",
+        "personalnummer": "02006619",
+        "abteilung": "WI/SW1-P06Q",
+        "geburtstag": "27.07.1999",
+        "geburtsort": "Werneck",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-03"
+      },
+      {
+        "vorname": "Christian",
+        "name": "Göpfert",
+        "personalnummer": "02894633",
+        "abteilung": "WI/SW1-P06Q",
+        "geburtstag": "17.02.1989",
+        "geburtsort": "Schweinfurt"
+      },
+      {
+        "vorname": "Andreas",
+        "name": "Kippes",
+        "personalnummer": "020087339",
+        "abteilung": "WI/SW1-P06Q",
+        "geburtstag": "18.09.1986",
+        "geburtsort": "Würzburg"
+      },
+      {
+        "vorname": "Holger",
+        "name": "Müller",
+        "personalnummer": "02039237",
+        "abteilung": "WI/SW1-P06Q",
+        "geburtstag": "03.03.1965",
+        "geburtsort": "Bad Kissingen"
+      },
+      {
+        "vorname": "Rene",
+        "name": "Bocklet",
+        "personalnummer": "02009230",
+        "abteilung": "WI/SW2-P11Q",
+        "geburtstag": "04.05.1988",
+        "geburtsort": "Werneck"
+      },
+      {
+        "vorname": "Julian",
+        "name": "Jauernig",
+        "personalnummer": "02002964",
+        "abteilung": "WI/SW2-P11Q",
+        "geburtstag": "04.12.1989",
+        "geburtsort": "Schweinfurt"
+      },
+      {
+        "vorname": "Daniel",
+        "name": "Weidner",
+        "personalnummer": "02894788",
+        "abteilung": "WI/SW2-P11Q",
+        "geburtstag": "06.09.1988",
+        "geburtsort": "Schweinfurt"
+      },
+      {
+        "vorname": "Max",
+        "name": "Endres",
+        "personalnummer": "02003676",
+        "abteilung": "WI/SW2-P11Q",
+        "geburtstag": "27.11.1991",
+        "geburtsort": "Schweinfurt"
+      }
+    ]
   },
   {
     "id": "ne-02-02-2026",
