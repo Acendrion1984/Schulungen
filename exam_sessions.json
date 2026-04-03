@@ -165,5 +165,58 @@
         "completedAt": "2026-04-03T04:09:42.653Z"
       }
     ]
+  },
+  {
+    "id": "mniehkf9dxf7u5cu0qq",
+    "method": "ET",
+    "date": "2026-04-03",
+    "location": "",
+    "trainer": "",
+    "name": "ET · 03.04.2026",
+    "config": {
+      "AT": 5,
+      "ST": 5,
+      "PR": 3
+    },
+    "status": "prepared",
+    "createdAt": "2026-04-03T04:25:29.253Z",
+    "participants": [
+      {
+        "participantId": "02006619",
+        "name": "Celina Frank",
+        "employeeId": "02006619",
+        "department": "WI/SW1-P06Q",
+        "questions": {
+          "AT": [
+            "ET-AT-001",
+            "ET-AT-015",
+            "ET-AT-013",
+            "ET-AT-011",
+            "ET-AT-009"
+          ],
+          "ST": [
+            "ET-ST-033",
+            "ET-ST-026",
+            "ET-ST-018",
+            "ET-ST-007",
+            "ET-ST-014"
+          ],
+          "PR": [
+            "ET-PR-006",
+            "ET-PR-020",
+            "ET-PR-021"
+          ]
+        },
+        "newCounts": {
+          "AT": 5,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
   }
 ]
