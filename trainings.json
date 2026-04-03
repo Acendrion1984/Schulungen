@@ -7,16 +7,7 @@
     "start_date": "2026-01-19",
     "days": 2,
     "start_time": "08:00",
-    "attendees": [
-      {
-        "vorname": "Max",
-        "name": "Endres",
-        "personalnummer": "02003676",
-        "abteilung": "WI/SW2-P11Q",
-        "geburtstag": "27.11.1991",
-        "geburtsort": "Schweinfurt"
-      }
-    ]
+    "attendees": []
   },
   {
     "id": "ne-02-02-2026",
