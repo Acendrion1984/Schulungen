@@ -173,5 +173,60 @@
         "completedAt": "2026-04-03T03:59:18.060Z"
       }
     ]
+  },
+  {
+    "id": "mnidk9x2nv28w58fq5s",
+    "method": "ET",
+    "date": "2026-04-03",
+    "location": "",
+    "trainer": "",
+    "name": "ET · 03.04.2026",
+    "config": {
+      "AT": 5,
+      "ST": 5,
+      "PR": 5
+    },
+    "status": "prepared",
+    "createdAt": "2026-04-03T03:59:35.990Z",
+    "participants": [
+      {
+        "participantId": "60834",
+        "name": "Dieter Welz",
+        "employeeId": "60834",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-019",
+            "ET-AT-001",
+            "ET-AT-011",
+            "ET-AT-002",
+            "ET-AT-009"
+          ],
+          "ST": [
+            "ET-ST-006",
+            "ET-ST-032",
+            "ET-ST-019",
+            "ET-ST-003",
+            "ET-ST-009"
+          ],
+          "PR": [
+            "ET-PR-012",
+            "ET-PR-022",
+            "ET-PR-004",
+            "ET-PR-009",
+            "ET-PR-020"
+          ]
+        },
+        "newCounts": {
+          "AT": 3,
+          "ST": 4,
+          "PR": 4
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
   }
 ]
