@@ -6,9 +6,11 @@
       "options": {
         "a": "abhängig von der Temperatur",
         "b": "unabhängig vom Material",
-        "c": "für die Wirbelstromprüfung unwichtig"
+        "c": "für die Wirbelstromprüfung unwichtig",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-AT-002",
@@ -16,7 +18,8 @@
       "options": {
         "a": "Bild 1",
         "b": "Bild 2",
-        "c": "Bild 3"
+        "c": "Bild 3",
+        "d": ""
       },
       "answer": "b",
       "image": "images/ET/ET-AT-002.png"
@@ -27,9 +30,11 @@
       "options": {
         "a": "Ohm'sches Gesetz",
         "b": "Linke Hand Regel",
-        "c": "Rechte Hand Regel"
+        "c": "Rechte Hand Regel",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-AT-004",
@@ -37,9 +42,11 @@
       "options": {
         "a": "radial nach außen",
         "b": "kreisförmig um den Leiter",
-        "c": "parallel zum Leiter"
+        "c": "parallel zum Leiter",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-005",
@@ -47,9 +54,11 @@
       "options": {
         "a": "Eisen verhält sich neutral",
         "b": "Eisen verdrängt die magnetischen Feldlinien",
-        "c": "Eisen sammelt die magnetischen Feldlinien"
+        "c": "Eisen sammelt die magnetischen Feldlinien",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-AT-006",
@@ -57,9 +66,11 @@
       "options": {
         "a": "von der Temperatur unabhängig",
         "b": "von der Temperatur abhängig",
-        "c": "immer konstant"
+        "c": "immer konstant",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-007",
@@ -67,9 +78,11 @@
       "options": {
         "a": "einfacher lässt sich das Material magnetisieren",
         "b": "schwieriger lässt sich das Material magnetisieren",
-        "c": "die Magnetisierbarkeit des Materials ist unabhängig von der Hysteresekurve"
+        "c": "die Magnetisierbarkeit des Materials ist unabhängig von der Hysteresekurve",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-008",
@@ -77,9 +90,11 @@
       "options": {
         "a": "ein Widerstand",
         "b": "ein Magnetfeld",
-        "c": "ein Spannungsfeld"
+        "c": "ein Spannungsfeld",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-009",
@@ -87,9 +102,11 @@
       "options": {
         "a": "Material",
         "b": "Stromrichtung",
-        "c": "Feldstärke"
+        "c": "Feldstärke",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-010",
@@ -97,9 +114,11 @@
       "options": {
         "a": "Alle Elementarmagnete sind ausgerichtet",
         "b": "Die Mehrzahl aller Elementarmagnete ist ausgerichtet",
-        "c": "Die Elementarmagnete sind vollständig unregelmäßig angeordnet"
+        "c": "Die Elementarmagnete sind vollständig unregelmäßig angeordnet",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-AT-011",
@@ -107,9 +126,11 @@
       "options": {
         "a": "hat 2 Pole",
         "b": "kann zu- und abgeschaltet werden",
-        "c": "produziert ein Magnetfeld"
+        "c": "produziert ein Magnetfeld",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-AT-012",
@@ -117,9 +138,11 @@
       "options": {
         "a": "elektrisch aufgeladen",
         "b": "magnetisiert",
-        "c": "nicht verändert"
+        "c": "nicht verändert",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-013",
@@ -127,9 +150,11 @@
       "options": {
         "a": "richtig",
         "b": "falsch",
-        "c": "bedingt richtig"
+        "c": "bedingt richtig",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-014",
@@ -137,9 +162,11 @@
       "options": {
         "a": "Sekunde (s)",
         "b": "Hertz (Hz)",
-        "c": "Meter (m)"
+        "c": "Meter (m)",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-015",
@@ -147,9 +174,11 @@
       "options": {
         "a": "kreuzen sich",
         "b": "sind immer geschlossen",
-        "c": "enden im Nordpol"
+        "c": "enden im Nordpol",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-016",
@@ -157,9 +186,11 @@
       "options": {
         "a": "einer vierfachen Verstärkung",
         "b": "einer dreifachen Verstärkung",
-        "c": "einer zweifachen Verstärkung"
+        "c": "einer zweifachen Verstärkung",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-AT-017",
@@ -167,9 +198,11 @@
       "options": {
         "a": "einer 50-fachen Verstärkung",
         "b": "einer 10-fachen Verstärkung",
-        "c": "einer 5-fachen Verstärkung"
+        "c": "einer 5-fachen Verstärkung",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-018",
@@ -177,9 +210,11 @@
       "options": {
         "a": "lässt nur niedrige Frequenzen passieren",
         "b": "lässt nur hohe Frequenzen passieren",
-        "c": "lässt hohe und niedrige Frequenzen passieren"
+        "c": "lässt hohe und niedrige Frequenzen passieren",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-AT-019",
@@ -187,9 +222,11 @@
       "options": {
         "a": "lässt nur niedrige Frequenzen passieren",
         "b": "lässt nur hohe Frequenzen passieren",
-        "c": "lässt niedrige und hohe Frequenzen passieren"
+        "c": "lässt niedrige und hohe Frequenzen passieren",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-AT-020",
@@ -197,9 +234,11 @@
       "options": {
         "a": "wird ein 200 Hz Signal durchgelassen",
         "b": "wird ein 5 kHz Störsignal ausgeblendet",
-        "c": "keines von beiden"
+        "c": "keines von beiden",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-AT-021",
@@ -207,9 +246,11 @@
       "options": {
         "a": "wird ein 200 Hz Signal durchgelassen",
         "b": "wird ein 5 kHz Störsignal ausgeblendet",
-        "c": "keines von beiden"
+        "c": "keines von beiden",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-AT-022",
@@ -217,9 +258,11 @@
       "options": {
         "a": "ein zu großes Signal-Rausch-Verhältnis",
         "b": "die Phasendrehung des Signals",
-        "c": "Verschiebung des Nullpunktes durch z. B. Temperaturänderung"
+        "c": "Verschiebung des Nullpunktes durch z. B. Temperaturänderung",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     }
   ],
   "ST": [
@@ -229,9 +272,11 @@
       "options": {
         "a": "37%",
         "b": "50%",
-        "c": "63%"
+        "c": "63%",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-ST-002",
@@ -239,9 +284,11 @@
       "options": {
         "a": "ein absolutes Prüfverfahren",
         "b": "ein vergleichendes Prüfverfahren",
-        "c": "beides"
+        "c": "beides",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-003",
@@ -249,9 +296,11 @@
       "options": {
         "a": "Durchmesser und Länge des Prüflings",
         "b": "Amplitude und Phase des Messsignals",
-        "c": "Spannung und Stromstärke"
+        "c": "Spannung und Stromstärke",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-004",
@@ -259,9 +308,11 @@
       "options": {
         "a": "Radioaktivität",
         "b": "Wärmekapazität",
-        "c": "Oberflächenfehler, z.B. Risse"
+        "c": "Oberflächenfehler, z.B. Risse",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-005",
@@ -269,9 +320,11 @@
       "options": {
         "a": "Kunststoffe",
         "b": "Metalle",
-        "c": "Holz"
+        "c": "Holz",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-006",
@@ -279,9 +332,11 @@
       "options": {
         "a": "Kontrolle auf Materialverwechslung",
         "b": "Erkennung von Oberflächenrissen",
-        "c": "Messung der genauen Einhärtetiefe"
+        "c": "Messung der genauen Einhärtetiefe",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-007",
@@ -289,9 +344,11 @@
       "options": {
         "a": "2 kHz",
         "b": "300 Hz",
-        "c": "500 kHz"
+        "c": "500 kHz",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-008",
@@ -299,9 +356,11 @@
       "options": {
         "a": "an einem sauberen, ebenen Arbeitsplatz, in ausreichendem Abstand von metallischen Teilen oder von einem Magnetfeld",
         "b": "an einem sauberen, ebenen Arbeitsplatz, direkt neben oder auf metallischen Teilen",
-        "c": "an einem sauberen, ebenen Arbeitsplatz, neben einem Magnetfeld"
+        "c": "an einem sauberen, ebenen Arbeitsplatz, neben einem Magnetfeld",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-ST-009",
@@ -309,9 +368,11 @@
       "options": {
         "a": "zu Pseudoausschuss führen würde",
         "b": "die Prüfsonde schädigen könnte",
-        "c": "zu falscher i.O./n.i.O.-Sortierung der Prüflinge führen könnte"
+        "c": "zu falscher i.O./n.i.O.-Sortierung der Prüflinge führen könnte",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-010",
@@ -319,9 +380,11 @@
       "options": {
         "a": "sind immer absolute Werte",
         "b": "geben genau Auskunft, worauf Abweichungen vom Gut-Fall zurückgeführt werden können",
-        "c": "müssen mit Referenzmethoden überprüft werden"
+        "c": "müssen mit Referenzmethoden überprüft werden",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-011",
@@ -329,9 +392,11 @@
       "options": {
         "a": "einem magnetischen Gleichfeld",
         "b": "einem magnetischen Wechselfeld",
-        "c": "magnetischen Gleich- und Wechselfeldern"
+        "c": "magnetischen Gleich- und Wechselfeldern",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-012",
@@ -339,9 +404,11 @@
       "options": {
         "a": "gehärtet",
         "b": "elektrisch isolierend",
-        "c": "elektrisch leitfähig"
+        "c": "elektrisch leitfähig",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-013",
@@ -349,9 +416,11 @@
       "options": {
         "a": "Suche nach Oberflächenrissen in Glasstäben",
         "b": "Detektion von Rissen an Wälzlagern aus Stahl",
-        "c": "Erkennung von Fehlern in Kunststoffteilen"
+        "c": "Erkennung von Fehlern in Kunststoffteilen",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-014",
@@ -359,9 +428,11 @@
       "options": {
         "a": "entsteht in Luft, wenn ein Magnetfeld vorhanden ist",
         "b": "entsteht, wenn Strom ungleichmäßig in einem Material fließt",
-        "c": "fließt auf einer Kreisbahn"
+        "c": "fließt auf einer Kreisbahn",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-015",
@@ -369,9 +440,11 @@
       "options": {
         "a": "ist im Inneren des Materials am größten",
         "b": "ist unabhängig von der Tiefe überall im Material gleich groß",
-        "c": "ist an der Oberfläche des Materials am größten"
+        "c": "ist an der Oberfläche des Materials am größten",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-016",
@@ -379,9 +452,11 @@
       "options": {
         "a": "gleichmäßige Verteilung der Wirbelströme auf den kompletten Bauteilquerschnitt",
         "b": "Verdrängung der Wirbelströme in die Bauteilrandzone",
-        "c": "Der Skineffekt ist für die Wirbelstromprüfung unerheblich"
+        "c": "Der Skineffekt ist für die Wirbelstromprüfung unerheblich",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-017",
@@ -389,9 +464,11 @@
       "options": {
         "a": "es sind hohe Prüfgeschwindigkeiten möglich",
         "b": "es kann auf kleine Fehler mit hoher Empfindlichkeit geprüft werden",
-        "c": "es ist die sichere Prüfung auf kleine Fehler bis in eine Tiefe von 15 mm möglich"
+        "c": "es ist die sichere Prüfung auf kleine Fehler bis in eine Tiefe von 15 mm möglich",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-018",
@@ -399,9 +476,11 @@
       "options": {
         "a": "muss die Steigung der Bewegung größer sein als die Spurbreite der Sonde",
         "b": "müssen Bewegung und Sonde aufeinander angepasst sein",
-        "c": "muss die Steigung der Bewegung kleiner sein als die Spurbreite der Sonde"
+        "c": "muss die Steigung der Bewegung kleiner sein als die Spurbreite der Sonde",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-019",
@@ -409,9 +488,11 @@
       "options": {
         "a": "Messung der Schichtdicke von Beschichtungen",
         "b": "Bei der Fehlerprüfung, insbesondere wenn kleine Risse detektiert werden müssen",
-        "c": "zur Wärmebehandlungsüberwachung (Hart-Weich-Trennung)"
+        "c": "zur Wärmebehandlungsüberwachung (Hart-Weich-Trennung)",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-020",
@@ -419,9 +500,11 @@
       "options": {
         "a": "Differenzsonde",
         "b": "Absolutsonde",
-        "c": "Die Abtastrichtung muss bei keinem Sensortyp beachtet werden"
+        "c": "Die Abtastrichtung muss bei keinem Sensortyp beachtet werden",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-ST-021",
@@ -429,9 +512,11 @@
       "options": {
         "a": "Er sollte aus dem gleichen Material sein wie der Prüfgegenstand",
         "b": "Er sollte die gleiche Wärmebehandlung haben wie der Prüfgegenstand",
-        "c": "Er sollte den geforderten Kalibrierfehler aufweisen"
+        "c": "Er sollte den geforderten Kalibrierfehler aufweisen",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-022",
@@ -439,9 +524,11 @@
       "options": {
         "a": "Ultraschallprüfung",
         "b": "metallographische Untersuchungen",
-        "c": "Röntgen"
+        "c": "Röntgen",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-023",
@@ -449,9 +536,11 @@
       "options": {
         "a": "es kann mit den bisherigen Maschineneinstellungen weiter produziert werden, wenn zukünftig mehr Stichprobenprüfungen durchgeführt werden",
         "b": "die Ursache im Fertigungsprozess ist zu ermitteln, zu beseitigen und zu dokumentieren",
-        "c": "alle Teile, die seit der letzten i.O. Prüfung produziert wurden, sind zu sperren"
+        "c": "alle Teile, die seit der letzten i.O. Prüfung produziert wurden, sind zu sperren",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-024",
@@ -459,9 +548,11 @@
       "options": {
         "a": "schwankende Bauteiltemperaturen",
         "b": "Restmagnetismus",
-        "c": "Verkippen der Prüfsonde"
+        "c": "Verkippen der Prüfsonde",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-025",
@@ -469,9 +560,11 @@
       "options": {
         "a": "erhöht sich die Eindringtiefe",
         "b": "bleibt die Eindringtiefe gleich",
-        "c": "verringert sich die Eindringtiefe"
+        "c": "verringert sich die Eindringtiefe",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-026",
@@ -479,9 +572,11 @@
       "options": {
         "a": "sollten möglichst niedrige Frequenzen eingesetzt werden",
         "b": "sollten möglichst hohe Frequenzen eingesetzt werden",
-        "c": "können hohe oder niedrige Frequenzen eingesetzt werden"
+        "c": "können hohe oder niedrige Frequenzen eingesetzt werden",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-027",
@@ -489,9 +584,11 @@
       "options": {
         "a": "reicht es aus, wenn der Taster in der Nähe des Risses über das Material geführt wird",
         "b": "muss der Taster über den Riss hinweggeführt werden",
-        "c": "muss der Taster genau über dem Riss stabil positioniert sein"
+        "c": "muss der Taster genau über dem Riss stabil positioniert sein",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-028",
@@ -499,9 +596,11 @@
       "options": {
         "a": "der Taster über die Oberfläche bewegt werden",
         "b": "die Steigung der Bewegung größer als die erwartete Risslänge sein",
-        "c": "die Steigung der Bewegung kleiner als die erwartete Risslänge sein"
+        "c": "die Steigung der Bewegung kleiner als die erwartete Risslänge sein",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-ST-029",
@@ -509,7 +608,8 @@
       "options": {
         "a": "ist die Größe des gemessenen Signals unabhängig vom Winkel zwischen dem Riss und der Achse der Sondenwicklungen",
         "b": "ist die Größe des gemessenen Signals abhängig vom Winkel zwischen dem Riss und der Achse der Sondenwicklungen",
-        "c": "hängt die Größe des gemessenen Signals nur vom Abstand der Sonde zum Material ab"
+        "c": "hängt die Größe des gemessenen Signals nur vom Abstand der Sonde zum Material ab",
+        "d": ""
       },
       "answer": "b",
       "image": "images/ET/ET-ST-029.png"
@@ -520,7 +620,8 @@
       "options": {
         "a": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 0° sein",
         "b": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 45° sein",
-        "c": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 90° sein"
+        "c": "der Winkel zwischen der Achse der Sondenwicklungen und einem Riss möglichst 90° sein",
+        "d": ""
       },
       "answer": "c",
       "image": "images/ET/ET-ST-030.png"
@@ -531,9 +632,11 @@
       "options": {
         "a": "kleiner",
         "b": "größer",
-        "c": "gleich bleiben"
+        "c": "gleich bleiben",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-ST-032",
@@ -541,9 +644,11 @@
       "options": {
         "a": "Absolutsonden haben eine größere Empfindlichkeit als Differenzsonden",
         "b": "Absolutsonden haben nur eine Messspule",
-        "c": "Absolutsonden sind richtungsunabhängig"
+        "c": "Absolutsonden sind richtungsunabhängig",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-033",
@@ -551,9 +656,11 @@
       "options": {
         "a": "Filterung",
         "b": "Wahl einer höheren Verstärkung",
-        "c": "Verringerung des Abstandes Prüfteil - Sonde"
+        "c": "Verringerung des Abstandes Prüfteil - Sonde",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-ST-034",
@@ -561,9 +668,11 @@
       "options": {
         "a": "kommt es auf die eingestellte Verstärkung nicht an",
         "b": "ist die Phasenlage des Signals unwichtig",
-        "c": "muss das Fehlersignal des Risses die Schwelle überschreiten"
+        "c": "muss das Fehlersignal des Risses die Schwelle überschreiten",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-ST-035",
@@ -571,9 +680,11 @@
       "options": {
         "a": "sie bei fester Risstiefe ein höheres Signal liefern als vergleichbare Absolutsonden",
         "b": "sie den Einfluss langsam veränderlicher Teileeigenschaften unterdrücken",
-        "c": "sie mit höheren Prüffrequenzen betrieben werden können als Absolutsonden"
+        "c": "sie mit höheren Prüffrequenzen betrieben werden können als Absolutsonden",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-036",
@@ -581,9 +692,11 @@
       "options": {
         "a": "in einem Winkel von 60°",
         "b": "senkrecht",
-        "c": "in einem Winkel von 30°"
+        "c": "in einem Winkel von 30°",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-ST-037",
@@ -591,9 +704,11 @@
       "options": {
         "a": "Absolutsonde",
         "b": "Differenzsonde",
-        "c": "beide eignen sich gleich gut"
+        "c": "beide eignen sich gleich gut",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     }
   ],
   "PR": [
@@ -603,9 +718,11 @@
       "options": {
         "a": "die rote LED dauernd leuchtet",
         "b": "die rote LED gerade nicht leuchtet",
-        "c": "der Zeiger in der Mitte steht"
+        "c": "der Zeiger in der Mitte steht",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-PR-002",
@@ -613,9 +730,11 @@
       "options": {
         "a": "in der Luft",
         "b": "auf einer fehlerbehafteten Fläche",
-        "c": "auf einer fehlerfreien Fläche des Prüflings"
+        "c": "auf einer fehlerfreien Fläche des Prüflings",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-PR-003",
@@ -623,7 +742,8 @@
       "options": {
         "a": "Kanteneffekt",
         "b": "Permeabilitätsanzeige",
-        "c": "Abhebeeffekt"
+        "c": "Abhebeeffekt",
+        "d": ""
       },
       "answer": "a",
       "image": "images/ET/ET-PR-003.png"
@@ -634,7 +754,8 @@
       "options": {
         "a": "parallel zur x-Achse liegen",
         "b": "parallel zur y-Achse liegen",
-        "c": "beliebig erfolgen"
+        "c": "beliebig erfolgen",
+        "d": ""
       },
       "answer": "a",
       "image": "images/ET/ET-PR-004.png"
@@ -645,7 +766,8 @@
       "options": {
         "a": "Amplitudenauswertung",
         "b": "y-Komponenten-Auswertung",
-        "c": "Beide"
+        "c": "Beide",
+        "d": ""
       },
       "answer": "c",
       "image": "images/ET/ET-PR-005.png"
@@ -656,9 +778,11 @@
       "options": {
         "a": "sie das Signal verschlechtern",
         "b": "sonst Durchschlupf möglich ist",
-        "c": "sie die Verstärkung beeinflussen"
+        "c": "sie die Verstärkung beeinflussen",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-PR-007",
@@ -666,9 +790,11 @@
       "options": {
         "a": "Material des Prüflings",
         "b": "Prüffrequenz",
-        "c": "Beidem"
+        "c": "Beidem",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-PR-008",
@@ -676,7 +802,8 @@
       "options": {
         "a": "das Rauschsignal unterhalb liegen",
         "b": "das Fehlersignal die Schwelle überschreiten",
-        "c": "Beides"
+        "c": "Beides",
+        "d": ""
       },
       "answer": "c",
       "image": "images/ET/ET-PR-008.png"
@@ -687,9 +814,11 @@
       "options": {
         "a": "in einem Winkel",
         "b": "senkrecht",
-        "c": "beliebig"
+        "c": "beliebig",
+        "d": ""
       },
-      "answer": "b"
+      "answer": "b",
+      "image": ""
     },
     {
       "id": "ET-PR-010",
@@ -697,9 +826,11 @@
       "options": {
         "a": "Filterung",
         "b": "höhere Verstärkung",
-        "c": "größerer Abstand"
+        "c": "größerer Abstand",
+        "d": ""
       },
-      "answer": "a"
+      "answer": "a",
+      "image": ""
     },
     {
       "id": "ET-PR-011",
@@ -707,9 +838,11 @@
       "options": {
         "a": "Pseudoausschuss",
         "b": "falscher Sortierung",
-        "c": "Beidem"
+        "c": "Beidem",
+        "d": ""
       },
-      "answer": "c"
+      "answer": "c",
+      "image": ""
     },
     {
       "id": "ET-PR-012",
@@ -717,7 +850,8 @@
       "options": {
         "a": "y-Komponenten-Auswertung",
         "b": "Amplituden-Auswertung",
-        "c": "Phasen-Amplituden-Auswertung"
+        "c": "Phasen-Amplituden-Auswertung",
+        "d": ""
       },
       "answer": "a",
       "image": "images/ET/ET-PR-012.png"
@@ -728,7 +862,8 @@
       "options": {
         "a": "y-Komponenten-Auswertung",
         "b": "Amplituden-Auswertung",
-        "c": "Phasen-Amplituden-Auswertung"
+        "c": "Phasen-Amplituden-Auswertung",
+        "d": ""
       },
       "answer": "b",
       "image": "images/ET/ET-PR-013.png"
@@ -739,7 +874,8 @@
       "options": {
         "a": "y-Komponenten-Auswertung",
         "b": "Amplituden-Auswertung",
-        "c": "Phasen-Amplituden-Auswertung"
+        "c": "Phasen-Amplituden-Auswertung",
+        "d": ""
       },
       "answer": "c",
       "image": "images/ET/ET-PR-014.png"
@@ -750,7 +886,8 @@
       "options": {
         "a": "Kompensationstaste",
         "b": "Median-Taste",
-        "c": "Phasensteller"
+        "c": "Phasensteller",
+        "d": ""
       },
       "answer": "a",
       "image": "images/ET/ET-PR-015.png"
@@ -761,7 +898,8 @@
       "options": {
         "a": "Anzeige 1, 2 und 3",
         "b": "nur Anzeige 1 und 2",
-        "c": "nur Anzeige 2 und 3"
+        "c": "nur Anzeige 2 und 3",
+        "d": ""
       },
       "answer": "b",
       "image": "images/ET/ET-PR-016.png"
@@ -772,7 +910,8 @@
       "options": {
         "a": "Anzeige 1, 2 und 3",
         "b": "nur Anzeige 1 und 2",
-        "c": "nur Anzeige 2 und 3"
+        "c": "nur Anzeige 2 und 3",
+        "d": ""
       },
       "answer": "c",
       "image": "images/ET/ET-PR-017.png"
@@ -783,7 +922,8 @@
       "options": {
         "a": "Anzeige 1, 2 und 3",
         "b": "nur Anzeige 2 und 3",
-        "c": "nur Anzeige 3"
+        "c": "nur Anzeige 3",
+        "d": ""
       },
       "answer": "c",
       "image": "images/ET/ET-PR-018.png"
@@ -794,7 +934,8 @@
       "options": {
         "a": "a",
         "b": "b",
-        "c": "c"
+        "c": "c",
+        "d": ""
       },
       "answer": "b",
       "image": "images/ET/ET-PR-019.png"
@@ -805,7 +946,8 @@
       "options": {
         "a": "muss beim Einrichten das Signal so in seiner Phase gedreht werden, dass sein größter Ausschlag möglichst parallel zur x-Achse liegt",
         "b": "muss beim Einrichten das Signal so in seiner Phase gedreht werden, dass sein größter Ausschlag möglichst parallel zur y-Achse liegt",
-        "c": "ist es nicht notwendig, das Signal beim Einrichten in seiner Phase zu drehen"
+        "c": "ist es nicht notwendig, das Signal beim Einrichten in seiner Phase zu drehen",
+        "d": ""
       },
       "answer": "b",
       "image": "images/ET/ET-PR-020.png"
@@ -816,7 +958,8 @@
       "options": {
         "a": "Bild 1,3,4",
         "b": "Bild 2,3",
-        "c": "nur Bild 2"
+        "c": "nur Bild 2",
+        "d": ""
       },
       "answer": "c",
       "image": "images/ET/ET-PR-021.png"
@@ -827,7 +970,8 @@
       "options": {
         "a": "Bild 3",
         "b": "Bild 2",
-        "c": "Bild 1+4"
+        "c": "Bild 1+4",
+        "d": ""
       },
       "answer": "a",
       "image": "images/ET/ET-PR-022.png"
