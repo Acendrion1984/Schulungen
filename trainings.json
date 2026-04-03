@@ -9,16 +9,6 @@
     "start_time": "08:00",
     "attendees": [
       {
-        "vorname": "Jürgen",
-        "name": "Wüstenhöfer",
-        "personalnummer": "45785",
-        "abteilung": "WI/SW2-P114",
-        "geburtstag": "14.03.1967",
-        "geburtsort": "Weisbrunn",
-        "pruefungBestanden": "ja",
-        "pruefungDatum": "2026-04-03"
-      },
-      {
         "vorname": "Dieter",
         "name": "Welz",
         "personalnummer": "60834",
