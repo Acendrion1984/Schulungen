@@ -1733,10 +1733,36 @@
           "ST": 15,
           "PR": 8
         },
-        "answers": {},
-        "scores": null,
-        "overallPassed": null,
-        "completedAt": null
+        "answers": {
+          "AT": {
+            "1.10": "a",
+            "1.30": "abc"
+          },
+          "ST": {},
+          "PR": {}
+        },
+        "scores": {
+          "AT": {
+            "correct": 1,
+            "total": 20,
+            "percent": 5,
+            "passed": false
+          },
+          "ST": {
+            "correct": 0,
+            "total": 15,
+            "percent": 0,
+            "passed": false
+          },
+          "PR": {
+            "correct": 0,
+            "total": 8,
+            "percent": 0,
+            "passed": false
+          }
+        },
+        "overallPassed": false,
+        "completedAt": "2026-04-03T16:28:39.560Z"
       },
       {
         "participantId": "60834",
