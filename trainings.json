@@ -9,14 +9,6 @@
     "start_time": "08:00",
     "attendees": [
       {
-        "vorname": "Christian",
-        "name": "Göpfert",
-        "personalnummer": "02894633",
-        "abteilung": "WI/SW1-P06Q",
-        "geburtstag": "17.02.1989",
-        "geburtsort": "Schweinfurt"
-      },
-      {
         "vorname": "Andreas",
         "name": "Kippes",
         "personalnummer": "020087339",
