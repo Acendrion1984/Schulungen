@@ -47,10 +47,33 @@
           "ST": 5,
           "PR": 5
         },
-        "answers": {},
-        "scores": null,
-        "overallPassed": null,
-        "completedAt": null
+        "answers": {
+          "AT": {},
+          "ST": {},
+          "PR": {}
+        },
+        "scores": {
+          "AT": {
+            "correct": 0,
+            "total": 0,
+            "percent": 0,
+            "passed": false
+          },
+          "ST": {
+            "correct": 0,
+            "total": 0,
+            "percent": 0,
+            "passed": false
+          },
+          "PR": {
+            "correct": 0,
+            "total": 0,
+            "percent": 0,
+            "passed": false
+          }
+        },
+        "overallPassed": false,
+        "completedAt": "2026-04-03T03:58:30.313Z"
       },
       {
         "participantId": "60834",
