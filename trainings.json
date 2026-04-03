@@ -9,14 +9,6 @@
     "start_time": "08:00",
     "attendees": [
       {
-        "vorname": "Andreas",
-        "name": "Kippes",
-        "personalnummer": "020087339",
-        "abteilung": "WI/SW1-P06Q",
-        "geburtstag": "18.09.1986",
-        "geburtsort": "Würzburg"
-      },
-      {
         "vorname": "Holger",
         "name": "Müller",
         "personalnummer": "02039237",
