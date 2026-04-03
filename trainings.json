@@ -401,7 +401,9 @@
         "personalnummer": "2084948",
         "abteilung": "WI/SW2-P114",
         "geburtstag": "09.02.1984",
-        "geburtsort": "Schweinfurt"
+        "geburtsort": "Schweinfurt",
+        "pruefungBestanden": "ja",
+        "pruefungDatum": "2026-04-03"
       }
     ]
   },
