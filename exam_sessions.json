@@ -48,32 +48,50 @@
           "PR": 5
         },
         "answers": {
-          "AT": {},
-          "ST": {},
-          "PR": {}
+          "AT": {
+            "ET-AT-001": "a",
+            "ET-AT-021": "a",
+            "ET-AT-008": "b",
+            "ET-AT-007": "b",
+            "ET-AT-014": "b"
+          },
+          "ST": {
+            "ET-ST-037": "b",
+            "ET-ST-031": "a",
+            "ET-ST-005": "b",
+            "ET-ST-021": "c",
+            "ET-ST-028": "a"
+          },
+          "PR": {
+            "ET-PR-010": "a",
+            "ET-PR-019": "b",
+            "ET-PR-016": "b",
+            "ET-PR-007": "c",
+            "ET-PR-018": "c"
+          }
         },
         "scores": {
           "AT": {
-            "correct": 0,
-            "total": 0,
-            "percent": 0,
-            "passed": false
+            "correct": 5,
+            "total": 5,
+            "percent": 100,
+            "passed": true
           },
           "ST": {
-            "correct": 0,
-            "total": 0,
-            "percent": 0,
-            "passed": false
+            "correct": 5,
+            "total": 5,
+            "percent": 100,
+            "passed": true
           },
           "PR": {
-            "correct": 0,
-            "total": 0,
-            "percent": 0,
-            "passed": false
+            "correct": 5,
+            "total": 5,
+            "percent": 100,
+            "passed": true
           }
         },
-        "overallPassed": false,
-        "completedAt": "2026-04-03T03:58:30.313Z"
+        "overallPassed": true,
+        "completedAt": "2026-04-03T03:59:05.691Z"
       },
       {
         "participantId": "60834",
