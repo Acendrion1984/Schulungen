@@ -9,16 +9,6 @@
     "start_time": "08:00",
     "attendees": [
       {
-        "vorname": "Celina",
-        "name": "Frank",
-        "personalnummer": "02006619",
-        "abteilung": "WI/SW1-P06Q",
-        "geburtstag": "27.07.1999",
-        "geburtsort": "Werneck",
-        "pruefungBestanden": "ja",
-        "pruefungDatum": "2026-04-03"
-      },
-      {
         "vorname": "Christian",
         "name": "Göpfert",
         "personalnummer": "02894633",
