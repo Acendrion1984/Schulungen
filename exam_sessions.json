@@ -400,10 +400,55 @@
           "ST": 15,
           "PR": 8
         },
-        "answers": {},
-        "scores": null,
-        "overallPassed": null,
-        "completedAt": null
+        "answers": {
+          "AT": {
+            "1.16": "ab",
+            "1.28": "b",
+            "1.19": "ac",
+            "1.25": "ac",
+            "1.30": "bc"
+          },
+          "ST": {
+            "2.9": "b",
+            "2.20": "b",
+            "2.15": "bc",
+            "2.6": "bc",
+            "2.1": "bc",
+            "2.16": "ac"
+          },
+          "PR": {
+            "3.2": "b",
+            "3.24": "a",
+            "3.14": "b",
+            "3.11": "bc",
+            "3.20": "ac",
+            "3.4": "a",
+            "3.16": "b",
+            "3.3": "c"
+          }
+        },
+        "scores": {
+          "AT": {
+            "correct": 5,
+            "total": 5,
+            "percent": 100,
+            "passed": true
+          },
+          "ST": {
+            "correct": 6,
+            "total": 6,
+            "percent": 100,
+            "passed": true
+          },
+          "PR": {
+            "correct": 8,
+            "total": 8,
+            "percent": 100,
+            "passed": true
+          }
+        },
+        "overallPassed": true,
+        "completedAt": "2026-04-03T10:18:57.853Z"
       },
       {
         "participantId": "02006619",
