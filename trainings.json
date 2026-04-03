@@ -9,14 +9,6 @@
     "start_time": "08:00",
     "attendees": [
       {
-        "vorname": "Holger",
-        "name": "Müller",
-        "personalnummer": "02039237",
-        "abteilung": "WI/SW1-P06Q",
-        "geburtstag": "03.03.1965",
-        "geburtsort": "Bad Kissingen"
-      },
-      {
         "vorname": "Rene",
         "name": "Bocklet",
         "personalnummer": "02009230",
