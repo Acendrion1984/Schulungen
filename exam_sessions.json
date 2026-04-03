@@ -212,7 +212,49 @@
           }
         },
         "overallPassed": false,
-        "completedAt": "2026-04-03T03:59:18.060Z"
+        "completedAt": "2026-04-03T03:59:18.060Z",
+        "practicalPhase": {
+          "rows": [
+            {
+              "week": "",
+              "hours": "41.5",
+              "evaluations": "13",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "41.5",
+              "evaluations": "",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "41.5",
+              "evaluations": "",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "41.5",
+              "evaluations": "",
+              "comment": ""
+            },
+            {
+              "week": "",
+              "hours": "",
+              "evaluations": "",
+              "comment": ""
+            }
+          ],
+          "totalHours": "166.0",
+          "mitarbeiterName": "Dieter Welz",
+          "mitarbeiterDate": "",
+          "prueferName": "",
+          "prueferDate": "",
+          "experteName": "",
+          "experteDate": "",
+          "updatedAt": "2026-04-03T04:01:15.537Z"
+        }
       }
     ]
   },
