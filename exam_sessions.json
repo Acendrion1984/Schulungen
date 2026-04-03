@@ -114,7 +114,7 @@
             },
             {
               "week": "",
-              "hours": "40",
+              "hours": "35",
               "evaluations": "9",
               "comment": ""
             },
@@ -125,14 +125,14 @@
               "comment": ""
             }
           ],
-          "totalHours": "161.0",
+          "totalHours": "156.0",
           "mitarbeiterName": "Jürgen Wüstenhöfer",
           "mitarbeiterDate": "02.04.2026",
           "prueferName": "Meder Markus",
           "prueferDate": "02.04.2026",
           "experteName": "Häusner Daniel",
           "experteDate": "02.04.2026",
-          "updatedAt": "2026-04-03T04:01:18.698Z"
+          "updatedAt": "2026-04-03T04:03:04.936Z"
         }
       },
       {
