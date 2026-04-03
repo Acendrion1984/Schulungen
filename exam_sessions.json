@@ -1,439 +1,42 @@
 [
   {
-    "id": "mnidind80fqt7de2fyat",
+    "id": "mnidvk86z4n86pdzdnm",
     "method": "ET",
-    "date": "2026-04-03",
-    "location": "",
+    "date": "2026-10-12",
+    "location": "Bau 50, Raum Silber",
     "trainer": "",
-    "name": "ET · 03.04.2026",
-    "config": {
-      "AT": 5,
-      "ST": 5,
-      "PR": 5
-    },
-    "status": "completed",
-    "createdAt": "2026-04-03T03:58:20.109Z",
-    "participants": [
-      {
-        "participantId": "45785",
-        "name": "Jürgen Wüstenhöfer",
-        "employeeId": "45785",
-        "department": "WI/SW2-P114",
-        "questions": {
-          "AT": [
-            "ET-AT-001",
-            "ET-AT-021",
-            "ET-AT-008",
-            "ET-AT-007",
-            "ET-AT-014"
-          ],
-          "ST": [
-            "ET-ST-037",
-            "ET-ST-031",
-            "ET-ST-005",
-            "ET-ST-021",
-            "ET-ST-028"
-          ],
-          "PR": [
-            "ET-PR-010",
-            "ET-PR-019",
-            "ET-PR-016",
-            "ET-PR-007",
-            "ET-PR-018"
-          ]
-        },
-        "newCounts": {
-          "AT": 5,
-          "ST": 5,
-          "PR": 5
-        },
-        "answers": {
-          "AT": {
-            "ET-AT-001": "a",
-            "ET-AT-021": "a",
-            "ET-AT-008": "b",
-            "ET-AT-007": "b",
-            "ET-AT-014": "b"
-          },
-          "ST": {
-            "ET-ST-037": "b",
-            "ET-ST-031": "a",
-            "ET-ST-005": "b",
-            "ET-ST-021": "c",
-            "ET-ST-028": "a"
-          },
-          "PR": {
-            "ET-PR-010": "a",
-            "ET-PR-019": "b",
-            "ET-PR-016": "b",
-            "ET-PR-007": "c",
-            "ET-PR-018": "c"
-          }
-        },
-        "scores": {
-          "AT": {
-            "correct": 5,
-            "total": 5,
-            "percent": 100,
-            "passed": true
-          },
-          "ST": {
-            "correct": 5,
-            "total": 5,
-            "percent": 100,
-            "passed": true
-          },
-          "PR": {
-            "correct": 5,
-            "total": 5,
-            "percent": 100,
-            "passed": true
-          }
-        },
-        "overallPassed": true,
-        "completedAt": "2026-04-03T03:59:05.691Z",
-        "practicalPhase": {
-          "rows": [
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "22",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "13",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "13",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "35",
-              "evaluations": "9",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "1",
-              "evaluations": "1",
-              "comment": ""
-            }
-          ],
-          "totalHours": "156.0",
-          "mitarbeiterName": "Jürgen Wüstenhöfer",
-          "mitarbeiterDate": "02.04.2026",
-          "prueferName": "Meder Markus",
-          "prueferDate": "02.04.2026",
-          "experteName": "Häusner Daniel",
-          "experteDate": "02.04.2026",
-          "updatedAt": "2026-04-03T04:03:04.936Z"
-        }
-      },
-      {
-        "participantId": "60834",
-        "name": "Dieter Welz",
-        "employeeId": "60834",
-        "department": "WI/SW2-P114",
-        "questions": {
-          "AT": [
-            "ET-AT-022",
-            "ET-AT-013",
-            "ET-AT-011",
-            "ET-AT-002",
-            "ET-AT-020"
-          ],
-          "ST": [
-            "ET-ST-027",
-            "ET-ST-012",
-            "ET-ST-011",
-            "ET-ST-003",
-            "ET-ST-023"
-          ],
-          "PR": [
-            "ET-PR-018",
-            "ET-PR-017",
-            "ET-PR-015",
-            "ET-PR-019",
-            "ET-PR-012"
-          ]
-        },
-        "newCounts": {
-          "AT": 5,
-          "ST": 5,
-          "PR": 5
-        },
-        "answers": {
-          "AT": {
-            "ET-AT-022": "b",
-            "ET-AT-013": "b",
-            "ET-AT-011": "b",
-            "ET-AT-002": "b",
-            "ET-AT-020": "b"
-          },
-          "ST": {
-            "ET-ST-027": "b",
-            "ET-ST-012": "a",
-            "ET-ST-011": "b",
-            "ET-ST-003": "b",
-            "ET-ST-023": "b"
-          },
-          "PR": {
-            "ET-PR-018": "b",
-            "ET-PR-017": "b",
-            "ET-PR-015": "b",
-            "ET-PR-019": "b",
-            "ET-PR-012": "b"
-          }
-        },
-        "scores": {
-          "AT": {
-            "correct": 2,
-            "total": 5,
-            "percent": 40,
-            "passed": false
-          },
-          "ST": {
-            "correct": 4,
-            "total": 5,
-            "percent": 80,
-            "passed": true
-          },
-          "PR": {
-            "correct": 1,
-            "total": 5,
-            "percent": 20,
-            "passed": false
-          }
-        },
-        "overallPassed": false,
-        "completedAt": "2026-04-03T03:59:18.060Z",
-        "practicalPhase": {
-          "rows": [
-            {
-              "week": "",
-              "hours": "41.5",
-              "evaluations": "13",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "41.5",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "41.5",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "41.5",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "",
-              "evaluations": "",
-              "comment": ""
-            }
-          ],
-          "totalHours": "166.0",
-          "mitarbeiterName": "Dieter Welz",
-          "mitarbeiterDate": "",
-          "prueferName": "",
-          "prueferDate": "",
-          "experteName": "",
-          "experteDate": "",
-          "updatedAt": "2026-04-03T04:01:15.537Z"
-        }
-      }
-    ]
-  },
-  {
-    "id": "mnidk9x2nv28w58fq5s",
-    "method": "ET",
-    "date": "2026-04-03",
-    "location": "",
-    "trainer": "",
-    "name": "ET · 03.04.2026",
-    "config": {
-      "AT": 5,
-      "ST": 5,
-      "PR": 5
-    },
-    "status": "completed",
-    "createdAt": "2026-04-03T03:59:35.990Z",
-    "participants": [
-      {
-        "participantId": "60834",
-        "name": "Dieter Welz",
-        "employeeId": "60834",
-        "department": "WI/SW2-P114",
-        "questions": {
-          "AT": [
-            "ET-AT-019",
-            "ET-AT-001",
-            "ET-AT-011",
-            "ET-AT-002",
-            "ET-AT-009"
-          ],
-          "ST": [
-            "ET-ST-006",
-            "ET-ST-032",
-            "ET-ST-019",
-            "ET-ST-003",
-            "ET-ST-009"
-          ],
-          "PR": [
-            "ET-PR-012",
-            "ET-PR-022",
-            "ET-PR-004",
-            "ET-PR-009",
-            "ET-PR-020"
-          ]
-        },
-        "newCounts": {
-          "AT": 3,
-          "ST": 4,
-          "PR": 4
-        },
-        "answers": {
-          "AT": {
-            "ET-AT-019": "a",
-            "ET-AT-001": "a",
-            "ET-AT-011": "a",
-            "ET-AT-002": "b",
-            "ET-AT-009": "b"
-          },
-          "ST": {
-            "ET-ST-006": "b",
-            "ET-ST-032": "b",
-            "ET-ST-019": "b",
-            "ET-ST-003": "b",
-            "ET-ST-009": "c"
-          },
-          "PR": {
-            "ET-PR-012": "a",
-            "ET-PR-022": "b",
-            "ET-PR-004": "a",
-            "ET-PR-009": "b",
-            "ET-PR-020": "b"
-          }
-        },
-        "scores": {
-          "AT": {
-            "correct": 5,
-            "total": 5,
-            "percent": 100,
-            "passed": true
-          },
-          "ST": {
-            "correct": 5,
-            "total": 5,
-            "percent": 100,
-            "passed": true
-          },
-          "PR": {
-            "correct": 4,
-            "total": 5,
-            "percent": 80,
-            "passed": true
-          }
-        },
-        "overallPassed": true,
-        "completedAt": "2026-04-03T03:59:53.904Z",
-        "practicalPhase": {
-          "rows": [
-            {
-              "week": "",
-              "hours": "40.5",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40.5",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40.5",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40.5",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "",
-              "evaluations": "",
-              "comment": ""
-            }
-          ],
-          "totalHours": "162.0",
-          "mitarbeiterName": "Dieter Welz",
-          "mitarbeiterDate": "",
-          "prueferName": "",
-          "prueferDate": "",
-          "experteName": "",
-          "experteDate": "",
-          "updatedAt": "2026-04-03T04:02:50.567Z"
-        }
-      }
-    ]
-  },
-  {
-    "id": "mnidsdgp4xuj3clrzzl",
-    "method": "ET",
-    "date": "2026-04-03",
-    "location": "",
-    "trainer": "",
-    "name": "ET · 03.04.2026",
+    "name": "Wirbelstromprüfung – 12.10.–13.10.2026",
     "config": {
       "AT": 5,
       "ST": 5,
       "PR": 3
     },
-    "status": "completed",
-    "createdAt": "2026-04-03T04:05:53.833Z",
+    "status": "prepared",
+    "createdAt": "2026-04-03T04:08:22.567Z",
     "participants": [
       {
-        "participantId": "60834",
-        "name": "Dieter Welz",
-        "employeeId": "60834",
+        "participantId": "2004784",
+        "name": "Dominik Rippstein",
+        "employeeId": "2004784",
         "department": "WI/SW2-P114",
         "questions": {
           "AT": [
-            "ET-AT-008",
-            "ET-AT-006",
-            "ET-AT-001",
+            "ET-AT-005",
+            "ET-AT-018",
+            "ET-AT-013",
             "ET-AT-019",
-            "ET-AT-015"
+            "ET-AT-017"
           ],
           "ST": [
-            "ET-ST-034",
-            "ET-ST-010",
-            "ET-ST-032",
-            "ET-ST-020",
-            "ET-ST-008"
+            "ET-ST-029",
+            "ET-ST-006",
+            "ET-ST-027",
+            "ET-ST-001",
+            "ET-ST-034"
           ],
           "PR": [
-            "ET-PR-014",
             "ET-PR-006",
+            "ET-PR-022",
             "ET-PR-002"
           ]
         },
@@ -442,91 +45,46 @@
           "ST": 5,
           "PR": 3
         },
-        "answers": {
-          "AT": {
-            "ET-AT-008": "b",
-            "ET-AT-006": "b",
-            "ET-AT-001": "a",
-            "ET-AT-019": "a",
-            "ET-AT-015": "b"
-          },
-          "ST": {
-            "ET-ST-034": "a",
-            "ET-ST-010": "c",
-            "ET-ST-032": "b",
-            "ET-ST-020": "a",
-            "ET-ST-008": "a"
-          },
-          "PR": {
-            "ET-PR-014": "c",
-            "ET-PR-006": "b",
-            "ET-PR-002": "c"
-          }
-        },
-        "scores": {
-          "AT": {
-            "correct": 5,
-            "total": 5,
-            "percent": 100,
-            "passed": true
-          },
-          "ST": {
-            "correct": 4,
-            "total": 5,
-            "percent": 80,
-            "passed": true
-          },
-          "PR": {
-            "correct": 3,
-            "total": 3,
-            "percent": 100,
-            "passed": true
-          }
-        },
-        "overallPassed": true,
-        "completedAt": "2026-04-03T04:06:40.633Z",
-        "practicalPhase": {
-          "rows": [
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "40",
-              "evaluations": "",
-              "comment": ""
-            },
-            {
-              "week": "",
-              "hours": "",
-              "evaluations": "",
-              "comment": ""
-            }
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      },
+      {
+        "participantId": "2084948",
+        "name": "Serdar Özdemir",
+        "employeeId": "2084948",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "ET-AT-020",
+            "ET-AT-018",
+            "ET-AT-006",
+            "ET-AT-016",
+            "ET-AT-008"
           ],
-          "totalHours": "160.0",
-          "mitarbeiterName": "Dieter Welz",
-          "mitarbeiterDate": "",
-          "prueferName": "",
-          "prueferDate": "",
-          "experteName": "",
-          "experteDate": "",
-          "updatedAt": "2026-04-03T04:06:54.637Z"
-        }
+          "ST": [
+            "ET-ST-023",
+            "ET-ST-017",
+            "ET-ST-022",
+            "ET-ST-036",
+            "ET-ST-025"
+          ],
+          "PR": [
+            "ET-PR-021",
+            "ET-PR-014",
+            "ET-PR-010"
+          ]
+        },
+        "newCounts": {
+          "AT": 5,
+          "ST": 5,
+          "PR": 3
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
       }
     ]
   }
