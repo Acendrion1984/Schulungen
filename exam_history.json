@@ -84,5 +84,49 @@
       },
       "passed": true
     }
+  ],
+  "60834:::ET": [
+    {
+      "trainingId": "mnidind80fqt7de2fyat",
+      "date": "2026-04-03",
+      "questionIds": [
+        "ET-AT-022",
+        "ET-AT-013",
+        "ET-AT-011",
+        "ET-AT-002",
+        "ET-AT-020",
+        "ET-ST-027",
+        "ET-ST-012",
+        "ET-ST-011",
+        "ET-ST-003",
+        "ET-ST-023",
+        "ET-PR-018",
+        "ET-PR-017",
+        "ET-PR-015",
+        "ET-PR-019",
+        "ET-PR-012"
+      ],
+      "scores": {
+        "AT": {
+          "correct": 2,
+          "total": 5,
+          "percent": 40,
+          "passed": false
+        },
+        "ST": {
+          "correct": 4,
+          "total": 5,
+          "percent": 80,
+          "passed": true
+        },
+        "PR": {
+          "correct": 1,
+          "total": 5,
+          "percent": 20,
+          "passed": false
+        }
+      },
+      "passed": false
+    }
   ]
 }
