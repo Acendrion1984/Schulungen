@@ -753,7 +753,19 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
 
     <!-- MONTH GRID -->
     <div class="year-grid" id="monthGrid"></div>
-
+    <!-- DIREKTER DOWNLOAD FÜR FRAGENKATALOG -->
+    <div style="margin: 20px 0; padding: 15px; background: var(--surface); border-radius: var(--r-xl); border: 1.5px solid var(--border);">
+      <h3 style="margin-bottom: 12px;">📥 Fragenkatalog herunterladen (CSV/Excel)</h3>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <button onclick="downloadQuestionsForMethod('ET')" class="btn btn-primary" style="background:#58a6ff">ET · Wirbelstrom</button>
+        <button onclick="downloadQuestionsForMethod('UT')" class="btn btn-primary" style="background:#58a6ff">UT · Ultraschall</button>
+        <button onclick="downloadQuestionsForMethod('MT')" class="btn btn-primary" style="background:#58a6ff">MT · Magnetpulver</button>
+        <button onclick="downloadQuestionsForMethod('NE')" class="btn btn-primary" style="background:#58a6ff">NE · Nital-Ätzen</button>
+        <button onclick="downloadQuestionsForMethod('PT')" class="btn btn-primary" style="background:#58a6ff">PT · Eindringprüfung</button>
+        <button onclick="downloadQuestionsForMethod('BN')" class="btn btn-primary" style="background:#58a6ff">BN · Barkhausen</button>
+      </div>
+      <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px;">⚠️ Die Fragen-Dateien (questions_ET.json usw.) müssen im GitHub-Repository existieren.</p>
+    </div>
     <!-- MODAL: Neue Schulung -->
     <div class="modal-overlay-s" id="newTrainingModal">
       <div class="modal-s" style="max-width:610px">
@@ -2461,6 +2473,50 @@ function injectPruef(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',injectPruef);
 else injectPruef();
 })();
+// ===== FRAGENKATALOG DIREKT-DOWNLOAD (funktioniert ohne Konflikte) =====
+window.downloadQuestionsForMethod = async function(method) {
+  try {
+    showPruefToast(`📥 Lade Fragen für ${method}...`, 'info');
+    const response = await fetch(`questions_${method}.json`);
+    if (!response.ok) throw new Error(`Keine Fragen für ${method} gefunden (HTTP ${response.status})`);
+    
+    const data = await response.json();
+    
+    // CSV erstellen
+    let csvRows = [['ID', 'Frage', 'A', 'B', 'C', 'D', 'Antwort', 'Bild']];
+    
+    for (const part of ['AT', 'ST', 'PR']) {
+      const questions = data[part] || [];
+      for (const q of questions) {
+        csvRows.push([
+          q.id || '',
+          q.text || '',
+          q.options?.a || '',
+          q.options?.b || '',
+          q.options?.c || '',
+          q.options?.d || '',
+          q.answer || '',
+          q.image || ''
+        ]);
+      }
+    }
+    
+    // CSV herunterladen
+    const csvContent = csvRows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(';')).join('\n');
+    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `fragenkatalog_${method}_${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    
+    showPruefToast(`✅ ${method}: ${csvRows.length-1} Fragen heruntergeladen`, 'success');
+  } catch(err) {
+    showPruefToast(`❌ Fehler bei ${method}: ${err.message}`, 'error');
+    console.error(err);
+  }
+};
 </script>
 </body>
 </html>
