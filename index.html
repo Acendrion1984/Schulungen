@@ -1864,7 +1864,7 @@ function openResultsModal(trainingId,pIdx){
   let html='';
   for(const[partKey,partLabel]of Object.entries(PART_NAMES)){
     const qIds=p.questions[partKey]||[];
-    html+=`<div class="mb16"><div style="font-size:12px;font-weight:700;margin-bottom:9px;color:var(--text2)">${partLabel} (${qIds.length} Fragen)</div><div class="answer-grid">${qIds.map(qId=>{const q=allQ[qId],existing=p.answers?.[partKey]?.[qId]||'',multi=isMultiAnswer(q);return`<div class="answer-cell"><div class="q-label">${qId}${multi?'<span class="multi-badge">M</span>':''}</div><input class="answer-input${multi?' multi-input':''}" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}" maxlength="4" value="${existing}" oninput="validateAnswerInput(this)" placeholder="${multi?'z.B. ab':'?'}" title="${multi?'Mehrfachantwort – z.B. ab für A+B':'Einzelantwort'}"></div>`;}).join('')}</div></div>`;
+    html+=`<div class="mb16"><div style="font-size:12px;font-weight:700;margin-bottom:9px;color:var(--text2)">${partLabel} (${qIds.length} Fragen)</div><div class="answer-grid">${qIds.map(qId=>{const q=allQ[qId],existing=p.answers?.[partKey]?.[qId]||'';return`<div class="answer-cell"><div class="q-label">${qId}</div><input class="answer-input" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}" maxlength="4" value="${existing}" oninput="validateAnswerInput(this)" placeholder="?"></div>`;}).join('')}</div></div>`;
   }
   const rmc=document.getElementById('results-modal-content');if(rmc)rmc.innerHTML=html;
   setTimeout(()=>document.getElementById('quick-answers')?.focus(),0);
@@ -1941,30 +1941,45 @@ function renderExamInterface(trainingId,pIdx,part){
   updateExamProgress(part,pIdx,training);
 }
 
-function selectAnswer(part,qId,answer,trainingId,pIdx){
-  if(!currentExamAnswers[part])currentExamAnswers[part]={};
-  const training=getTrainings().find(t=>t.id===trainingId);
-  const allQ=getAllQuestionsMap(training.method);
-  const q=allQ[qId];
-  if(isMultiAnswer(q)){
+function selectAnswer(part, qId, answer, trainingId, pIdx) {
+  if (!currentExamAnswers[part]) currentExamAnswers[part] = {};
+  
+  const training = getTrainings().find(t => t.id === trainingId);
+  const allQ = getAllQuestionsMap(training.method);
+  const q = allQ[qId];
+  
+  // Prüfe ob mehrere Antworten möglich
+  const isMulti = q.answer && q.answer.length > 1;
+  
+  if (isMulti) {
     // Checkbox-Verhalten: Antwort ein-/ausschalten
-    const current=normalizeAnswer(currentExamAnswers[part][qId]||'');
-    const letters=new Set(current.split('').filter(Boolean));
-    if(letters.has(answer)){letters.delete(answer);}else{letters.add(answer);}
-    const newVal=[...letters].sort().join('');
-    if(newVal)currentExamAnswers[part][qId]=newVal;else delete currentExamAnswers[part][qId];
+    const current = normalizeAnswer(currentExamAnswers[part][qId] || '');
+    const letters = new Set(current.split('').filter(Boolean));
+    if (letters.has(answer)) {
+      letters.delete(answer);
+    } else {
+      letters.add(answer);
+    }
+    const newVal = [...letters].sort().join('');
+    if (newVal) {
+      currentExamAnswers[part][qId] = newVal;
+    } else {
+      delete currentExamAnswers[part][qId];
+    }
     // UI aktualisieren
-    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el=>{
-      const k=el.dataset.key,sel=letters.has(k);
-      el.classList.toggle('selected',sel);
-      const cb=el.querySelector('.q-checkbox');if(cb)cb.textContent=sel?'✓':'';
+    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el => {
+      const k = el.dataset.key;
+      const sel = letters.has(k);
+      el.classList.toggle('selected', sel);
+      const cb = el.querySelector('.q-checkbox');
+      if (cb) cb.textContent = sel ? '✓' : '';
     });
-  }else{
-    currentExamAnswers[part][qId]=answer;
-    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el=>el.classList.remove('selected'));
+  } else {
+    currentExamAnswers[part][qId] = answer;
+    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el => el.classList.remove('selected'));
     event.currentTarget.classList.add('selected');
   }
-  updateExamProgress(part,pIdx,training);
+  updateExamProgress(part, pIdx, training);
 }
 function updateExamProgress(part,pIdx,training){
   const p=training.participants[pIdx],total=(p.questions[part]||[]).length,answered=Object.keys(currentExamAnswers[part]||{}).length,pct=total?Math.round(answered/total*100):0;
