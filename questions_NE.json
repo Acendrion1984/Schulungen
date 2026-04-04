@@ -542,5 +542,193 @@
       "image": ""
     }
   ],
-  "PR": []
+  "PR": [
+    {
+      "id": "6.1",
+      "text": "Mit welchem(n) Prüfverfahren lassen sich Anlass- und Neuhärtungszonen nachweisen?",
+      "options": {
+        "a": "mikroskopischer Querschliff",
+        "b": "Magnetpulverprüfung",
+        "c": "Wirbelstromprüfung"
+      },
+      "answer": "ac",
+      "image": ""
+    },
+    {
+      "id": "6.2",
+      "text": "Bei einem Innenring mit einem Außendurchmesser von 200mm wurde Schleifbrand festgestellt. Welche Maßnahme(n) ist/sind laut Reaktionsplan zulässig?",
+      "options": {
+        "a": "Nacharbeit",
+        "b": "Sonderfreigabe",
+        "c": "Verschrotten"
+      },
+      "answer": "abc",
+      "image": ""
+    },
+    {
+      "id": "6.3",
+      "text": "Welche Referenzverfahren werden vorzugsweise bei Ätzanzeigen eingesetzt?",
+      "options": {
+        "a": "Photothermik",
+        "b": "HCL-Ätzen",
+        "c": "röntgenographische Eigenspannungsuntersuchung"
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "6.4",
+      "text": "Welche Voraussetzungen sind/ist zu erfüllen, wenn ein Bauteil mit Ätzanzeige der Sonderfreigabe zugeführt werden soll?",
+      "options": {
+        "a": "Losgröße <50",
+        "b": "kein Vorliegen von Rissen",
+        "c": "Lageraußendurchmesser >480 mm"
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "6.5",
+      "text": "Sind Ätzanzeigen an Funktionsflächen zulässig?",
+      "options": {
+        "a": "punktuelle Verfärbungen werden toleriert",
+        "b": "grundsätzlich nein",
+        "c": "hängt von der Bauteilbelastung ab"
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "6.6",
+      "text": "Wann wird eine Nacharbeit der Teile durchgeführt?",
+      "options": {
+        "a": "immer",
+        "b": "wenn noch Fertigungskapazität vorhanden ist",
+        "c": "wenn die Nacharbeit wirtschaftlich und technologisch Sinn macht"
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "6.7",
+      "text": "Was ist bei Ätzanzeigen zu veranlassen?",
+      "options": {
+        "a": "das betroffene Los ist zu sperren",
+        "b": "der Kunde ist unverzüglich zu informieren",
+        "c": "die Fertigungsleitung ist unverzüglich zu informieren"
+      },
+      "answer": "ac",
+      "image": ""
+    },
+    {
+      "id": "6.8",
+      "text": "Was geschieht mit nachbearbeiteten Teilen?",
+      "options": {
+        "a": "werden bei erneutem Schleifbrand verschrottet, wenn keine weitere Nacharbeit mehr möglich",
+        "b": "sie sind erneut auf Schleifbrand zu überprüfen",
+        "c": "sie können sofort ausgeliefert werden."
+      },
+      "answer": "ab",
+      "image": ""
+    },
+    {
+      "id": "6.9",
+      "text": "Was geschieht, wenn Schleifbrand aufgetreten ist?",
+      "options": {
+        "a": "es kann mit den bisherigen Maschineneinstellungen weiter produziert werden, wenn zukünftig mehr Schleifbrandprüfungen durchgeführt werden.",
+        "b": "die Ursache im Fertigungsprozess ist zu ermitteln, zu beseitigen und zu dokumentieren.",
+        "c": "alle Teile, die seit der letzten i.O.Prüfung produziert wurden, sind zu sperren."
+      },
+      "answer": "bc",
+      "image": ""
+    },
+    {
+      "id": "6.10",
+      "text": "Wer ist bei der Entscheidung, ob für eine Komponente mit Ätzanzeige die Sonderfreigabe möglich ist, einzubinden?",
+      "options": {
+        "a": "Anwendungstechnik",
+        "b": "Qualitätssicherung",
+        "c": "Produktlinienleiter"
+      },
+      "answer": "abc",
+      "image": ""
+    },
+    {
+      "id": "7.1",
+      "text": "Die Mindestinformationen des Prüfprotokolls sind u. a. :",
+      "options": {
+        "a": "Unterschrift des Prüfers",
+        "b": "Datum",
+        "c": "Stichprobenumfang"
+      },
+      "answer": "abc",
+      "image": ""
+    },
+    {
+      "id": "7.2",
+      "text": "Die endgültige Entscheidung, ob ein Prüflos freigegeben werden darf, ist vom",
+      "options": {
+        "a": "Prüfwerker",
+        "b": "Level 2",
+        "c": "Werkstofflabor"
+      },
+      "answer": "bc",
+      "image": ""
+    },
+    {
+      "id": "7.3",
+      "text": "Die Protokolle der Badüberwachung sind aufzubewahren",
+      "options": {
+        "a": "im zentralen Werkstofflabor",
+        "b": "beim Qualitätsleiter des Segmentes",
+        "c": "im Ätzraum"
+      },
+      "answer": "c",
+      "image": ""
+    },
+    {
+      "id": "7.4",
+      "text": "Wann ist die Ätzanlage auf Undichtigkeit zu prüfen?",
+      "options": {
+        "a": "nur bei der Erstinbetriebnahme",
+        "b": "täglich",
+        "c": "jährlich"
+      },
+      "answer": "b",
+      "image": ""
+    },
+    {
+      "id": "7.5",
+      "text": "Warum sollte die Dusche regelmäßig gespült werden?",
+      "options": {
+        "a": "um ihre einwandfreie Funktion zu überprüfen",
+        "b": "um den Ätzraumboden zu reinigen",
+        "c": "um Säurereste zu entfernen"
+      },
+      "answer": "a",
+      "image": ""
+    },
+    {
+      "id": "7.6",
+      "text": "Wer prüft die Ätzanlage auf Undichtigkeit?",
+      "options": {
+        "a": "der Prüfwerker",
+        "b": "der Level 2",
+        "c": "der Segmentleiter"
+      },
+      "answer": "ab",
+      "image": ""
+    },
+    {
+      "id": "7.7",
+      "text": "Wie hoch muss die Nennbeleuchtungsstärke am Prüfobjekt mindestens sein?",
+      "options": {
+        "a": "2000 Lux",
+        "b": "500 Lux",
+        "c": "1000 Lux"
+      },
+      "answer": "c",
+      "image": ""
+    }
+  ]
 }
