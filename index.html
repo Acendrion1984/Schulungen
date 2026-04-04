@@ -2518,5 +2518,128 @@ window.downloadQuestionsForMethod = async function(method) {
   }
 };
 </script>
+<script>
+/* ===== FRAGENKATALOG DIREKT-DOWNLOAD (verbesserte Version) ===== */
+// Nutzt die bereits geladenen Fragen aus questionsDB statt erneutem Fetch
+window.downloadQuestionsForMethod = async function(method) {
+  try {
+    showPruefToast(`📥 Erstelle Export für ${method}...`, 'info');
+    
+    // Stelle sicher, dass Fragen geladen sind
+    let questions = questionsDB[method];
+    if (!questions || (questions.AT?.length === 0 && questions.ST?.length === 0 && questions.PR?.length === 0)) {
+      showPruefToast(`⚠️ Keine Fragen für ${method} im Cache – lade nach...`, 'info');
+      const loaded = await loadQuestionsForMethod(method);
+      if (!loaded) {
+        showPruefToast(`❌ Keine Fragen für ${method} verfügbar`, 'error');
+        return;
+      }
+      questions = questionsDB[method];
+    }
+    
+    // CSV erstellen mit dynamischen Spalten (A,B,C[,D])
+    const allQuestions = [];
+    for (const part of ['AT', 'ST', 'PR']) {
+      const partQuestions = questions[part] || [];
+      for (const q of partQuestions) {
+        // Prüfe wie viele Antwortoptionen vorhanden sind (nur nicht-leere)
+        const options = q.options || {};
+        const availableOptions = ['a', 'b', 'c', 'd'].filter(opt => options[opt] && options[opt].trim() !== '');
+        const hasD = availableOptions.includes('d');
+        
+        allQuestions.push({
+          id: q.id || '',
+          text: q.text || '',
+          a: options.a || '',
+          b: options.b || '',
+          c: options.c || '',
+          d: hasD ? (options.d || '') : '',  // Leer wenn keine D-Antwort
+          answer: q.answer || '',
+          image: q.image || '',
+          hasD: hasD
+        });
+      }
+    }
+    
+    if (allQuestions.length === 0) {
+      showPruefToast(`❌ Keine Fragen für ${method} gefunden`, 'error');
+      return;
+    }
+    
+    // CSV Header basierend auf vorhandenen Antworten
+    const hasAnyD = allQuestions.some(q => q.hasD);
+    const headers = ['ID', 'Frage', 'A', 'B', 'C'];
+    if (hasAnyD) headers.push('D');
+    headers.push('Antwort', 'Bild');
+    
+    const csvRows = [headers];
+    
+    for (const q of allQuestions) {
+      const row = [
+        `"${String(q.id).replace(/"/g, '""')}"`,
+        `"${String(q.text).replace(/"/g, '""')}"`,
+        `"${String(q.a).replace(/"/g, '""')}"`,
+        `"${String(q.b).replace(/"/g, '""')}"`,
+        `"${String(q.c).replace(/"/g, '""')}"`
+      ];
+      if (hasAnyD) {
+        row.push(`"${String(q.d).replace(/"/g, '""')}"`);
+      }
+      row.push(`"${String(q.answer).replace(/"/g, '""')}"`);
+      row.push(`"${String(q.image).replace(/"/g, '""')}"`);
+      csvRows.push(row);
+    }
+    
+    // CSV herunterladen
+    const csvContent = csvRows.map(row => row.join(';')).join('\n');
+    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `fragenkatalog_${method}_${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    
+    showPruefToast(`✅ ${method}: ${allQuestions.length} Fragen exportiert`, 'success');
+  } catch(err) {
+    showPruefToast(`❌ Fehler: ${err.message}`, 'error');
+    console.error(err);
+  }
+};
+</script>
+<script>
+// Ersetze die bestehende xlsRowToQuestion-Funktion mit dieser Version
+window.xlsRowToQuestion = function(row, idx) {
+  const get = (...keys) => {
+    for (const k of keys) {
+      const found = Object.keys(row).find(rk => rk.trim().toLowerCase() === k.toLowerCase());
+      if (found !== undefined && row[found] !== undefined && row[found] !== null && String(row[found]).trim() !== '') {
+        return String(row[found]).trim();
+      }
+    }
+    return '';
+  };
+  
+  const options = {
+    a: get('a', 'antwort_a', 'option_a'),
+    b: get('b', 'antwort_b', 'option_b'),
+    c: get('c', 'antwort_c', 'option_c')
+  };
+  
+  // Prüfe ob D existiert (nicht leer)
+  const dVal = get('d', 'antwort_d', 'option_d');
+  if (dVal && dVal.trim() !== '') {
+    options.d = dVal;
+  }
+  
+  return {
+    id:      get('id') || String(idx + 1).padStart(3, '0'),
+    text:    get('text', 'frage', 'question', 'fragetext'),
+    options: options,
+    answer:  normalizeAnswer(get('answer', 'antwort', 'lösung', 'loesung', 'correct')),
+    image:   get('image', 'bild', 'img', 'bildname'),
+  };
+};
+</script>
 </body>
 </html>
