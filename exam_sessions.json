@@ -307,5 +307,85 @@
         "completedAt": null
       }
     ]
+  },
+  {
+    "id": "mnp7xqg7rdmqd4o5cy",
+    "method": "MT",
+    "date": "2026-04-07",
+    "location": "",
+    "trainer": "",
+    "name": "MT · 07.04.2026",
+    "config": {
+      "AT": 15,
+      "ST": 15,
+      "PR": 10
+    },
+    "status": "prepared",
+    "createdAt": "2026-04-07T22:56:29.480Z",
+    "participants": [
+      {
+        "participantId": "45785",
+        "name": "Jürgen Wüstenhöfer",
+        "employeeId": "45785",
+        "department": "WI/SW2-P114",
+        "questions": {
+          "AT": [
+            "MT-AT-019",
+            "MT-AT-003",
+            "MT-AT-005",
+            "MT-AT-007",
+            "MT-AT-008",
+            "MT-AT-016",
+            "MT-AT-015",
+            "MT-AT-010",
+            "MT-AT-017",
+            "MT-AT-009",
+            "MT-AT-002",
+            "MT-AT-018",
+            "MT-AT-001",
+            "MT-AT-012",
+            "MT-AT-014"
+          ],
+          "ST": [
+            "MT-ST-030",
+            "MT-ST-036",
+            "MT-ST-019",
+            "MT-ST-035",
+            "MT-ST-040",
+            "MT-ST-039",
+            "MT-ST-005",
+            "MT-ST-014",
+            "MT-ST-007",
+            "MT-ST-003",
+            "MT-ST-004",
+            "MT-ST-026",
+            "MT-ST-016",
+            "MT-ST-008",
+            "MT-ST-017"
+          ],
+          "PR": [
+            "MT-PR-010",
+            "MT-PR-011",
+            "MT-PR-015",
+            "MT-PR-005",
+            "MT-PR-013",
+            "MT-PR-019",
+            "MT-PR-018",
+            "MT-PR-008",
+            "MT-PR-007",
+            "MT-PR-006"
+          ]
+        },
+        "newCounts": {
+          "AT": 15,
+          "ST": 15,
+          "PR": 10
+        },
+        "answers": {},
+        "scores": null,
+        "overallPassed": null,
+        "completedAt": null
+      }
+    ]
   }
 ]
