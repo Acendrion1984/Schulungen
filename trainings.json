@@ -323,6 +323,14 @@
         "abteilung": "",
         "geburtstag": "",
         "geburtsort": ""
+      },
+      {
+        "vorname": "Johann",
+        "name": "Gaborfi",
+        "personalnummer": "?",
+        "abteilung": "WI/SW2-P12Q",
+        "geburtstag": "01.01.1900",
+        "geburtsort": "?"
       }
     ]
   },
