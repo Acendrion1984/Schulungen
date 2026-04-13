@@ -89,7 +89,7 @@ body {
 .app { max-width: 100%; display: flex; flex-direction: column; min-height: 100vh; }
 
 /* ── MAIN CONTENT WRAPPER ── */
-.app-inner { max-width: 1800px; margin: 0 auto; padding: 1.2rem 1.4rem 2rem; width: 100%; }
+.app-inner { max-width: 1800px; margin: 0 auto; padding: 1.2rem 1.4rem 2rem; }
 
 /* ── LOADING ── */
 .loading-overlay {
@@ -630,8 +630,8 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
 }
 .print-only { display:none; }
 
-/* ===== DESKTOP MAX-WIDTH 1800px ===== */
-.app-inner { max-width: 1800px !important; width: 100% !important; }
+/* ===== DESKTOP MAX-WIDTH 1920px ===== */
+.app-inner { max-width: 1920px !important; }
 
 /* ===== TOKEN INPUT HIDDEN AFTER CONNECT ===== */
 .token-bar.connected .token-input-wrap { display: none !important; }
@@ -753,7 +753,7 @@ body.dark #listContainer th { background:#1b5e20 !important; color:#fff !importa
 
     <!-- MONTH GRID -->
     <div class="year-grid" id="monthGrid"></div>
-   
+
     <!-- MODAL: Neue Schulung -->
     <div class="modal-overlay-s" id="newTrainingModal">
       <div class="modal-s" style="max-width:610px">
@@ -1852,7 +1852,7 @@ function openResultsModal(trainingId,pIdx){
   let html='';
   for(const[partKey,partLabel]of Object.entries(PART_NAMES)){
     const qIds=p.questions[partKey]||[];
-    html+=`<div class="mb16"><div style="font-size:12px;font-weight:700;margin-bottom:9px;color:var(--text2)">${partLabel} (${qIds.length} Fragen)</div><div class="answer-grid">${qIds.map(qId=>{const q=allQ[qId],existing=p.answers?.[partKey]?.[qId]||'';return`<div class="answer-cell"><div class="q-label">${qId}</div><input class="answer-input" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}" maxlength="4" value="${existing}" oninput="validateAnswerInput(this)" placeholder="?"></div>`;}).join('')}</div></div>`;
+    html+=`<div class="mb16"><div style="font-size:12px;font-weight:700;margin-bottom:9px;color:var(--text2)">${partLabel} (${qIds.length} Fragen)</div><div class="answer-grid">${qIds.map(qId=>{const q=allQ[qId],existing=p.answers?.[partKey]?.[qId]||'',multi=isMultiAnswer(q);return`<div class="answer-cell"><div class="q-label">${qId}${multi?'<span class="multi-badge">M</span>':''}</div><input class="answer-input${multi?' multi-input':''}" data-part="${partKey}" data-qid="${qId}" data-correct="${q?.answer||''}" maxlength="4" value="${existing}" oninput="validateAnswerInput(this)" placeholder="${multi?'z.B. ab':'?'}" title="${multi?'Mehrfachantwort – z.B. ab für A+B':'Einzelantwort'}"></div>`;}).join('')}</div></div>`;
   }
   const rmc=document.getElementById('results-modal-content');if(rmc)rmc.innerHTML=html;
   setTimeout(()=>document.getElementById('quick-answers')?.focus(),0);
@@ -1929,45 +1929,30 @@ function renderExamInterface(trainingId,pIdx,part){
   updateExamProgress(part,pIdx,training);
 }
 
-function selectAnswer(part, qId, answer, trainingId, pIdx) {
-  if (!currentExamAnswers[part]) currentExamAnswers[part] = {};
-  
-  const training = getTrainings().find(t => t.id === trainingId);
-  const allQ = getAllQuestionsMap(training.method);
-  const q = allQ[qId];
-  
-  // Prüfe ob mehrere Antworten möglich
-  const isMulti = q.answer && q.answer.length > 1;
-  
-  if (isMulti) {
+function selectAnswer(part,qId,answer,trainingId,pIdx){
+  if(!currentExamAnswers[part])currentExamAnswers[part]={};
+  const training=getTrainings().find(t=>t.id===trainingId);
+  const allQ=getAllQuestionsMap(training.method);
+  const q=allQ[qId];
+  if(isMultiAnswer(q)){
     // Checkbox-Verhalten: Antwort ein-/ausschalten
-    const current = normalizeAnswer(currentExamAnswers[part][qId] || '');
-    const letters = new Set(current.split('').filter(Boolean));
-    if (letters.has(answer)) {
-      letters.delete(answer);
-    } else {
-      letters.add(answer);
-    }
-    const newVal = [...letters].sort().join('');
-    if (newVal) {
-      currentExamAnswers[part][qId] = newVal;
-    } else {
-      delete currentExamAnswers[part][qId];
-    }
+    const current=normalizeAnswer(currentExamAnswers[part][qId]||'');
+    const letters=new Set(current.split('').filter(Boolean));
+    if(letters.has(answer)){letters.delete(answer);}else{letters.add(answer);}
+    const newVal=[...letters].sort().join('');
+    if(newVal)currentExamAnswers[part][qId]=newVal;else delete currentExamAnswers[part][qId];
     // UI aktualisieren
-    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el => {
-      const k = el.dataset.key;
-      const sel = letters.has(k);
-      el.classList.toggle('selected', sel);
-      const cb = el.querySelector('.q-checkbox');
-      if (cb) cb.textContent = sel ? '✓' : '';
+    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el=>{
+      const k=el.dataset.key,sel=letters.has(k);
+      el.classList.toggle('selected',sel);
+      const cb=el.querySelector('.q-checkbox');if(cb)cb.textContent=sel?'✓':'';
     });
-  } else {
-    currentExamAnswers[part][qId] = answer;
-    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el => el.classList.remove('selected'));
+  }else{
+    currentExamAnswers[part][qId]=answer;
+    document.querySelectorAll(`#qb-${qId} .q-option`).forEach(el=>el.classList.remove('selected'));
     event.currentTarget.classList.add('selected');
   }
-  updateExamProgress(part, pIdx, training);
+  updateExamProgress(part,pIdx,training);
 }
 function updateExamProgress(part,pIdx,training){
   const p=training.participants[pIdx],total=(p.questions[part]||[]).length,answered=Object.keys(currentExamAnswers[part]||{}).length,pct=total?Math.round(answered/total*100):0;
@@ -2360,9 +2345,9 @@ var MAIN=`<div id="pruef-main">
       <div class="card">
         <div class="card-title">Fragenanzahl pro Teil</div>
         <div class="form-row col3">
-          <div class="form-group"><label class="form-label">Allg. Teil (AT)</label><input class="form-input" type="number" id="nt-count-at" value="15" min="5" max="20"></div>
+          <div class="form-group"><label class="form-label">Allg. Teil (AT)</label><input class="form-input" type="number" id="nt-count-at" value="20" min="5" max="35"></div>
           <div class="form-group"><label class="form-label">Spez. Teil (ST)</label><input class="form-input" type="number" id="nt-count-st" value="15" min="5" max="20"></div>
-          <div class="form-group"><label class="form-label">Prakt. Teil (PR)</label><input class="form-input" type="number" id="nt-count-pr" value="10" min="5" max="20"></div>
+          <div class="form-group"><label class="form-label">Prakt. Teil (PR)</label><input class="form-input" type="number" id="nt-count-pr" value="8" min="3" max="10"></div>
         </div>
         <div class="alert alert-info" style="margin-top:7px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8"/></svg><span>Bestehensbedingung: ≥ 80% je Teil. 25%-Neu-Garantie automatisch.</span></div>
       </div>
@@ -2476,173 +2461,6 @@ function injectPruef(){
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',injectPruef);
 else injectPruef();
 })();
-// ===== FRAGENKATALOG DIREKT-DOWNLOAD (funktioniert ohne Konflikte) =====
-window.downloadQuestionsForMethod = async function(method) {
-  try {
-    showPruefToast(`📥 Lade Fragen für ${method}...`, 'info');
-    const response = await fetch(`questions_${method}.json`);
-    if (!response.ok) throw new Error(`Keine Fragen für ${method} gefunden (HTTP ${response.status})`);
-    
-    const data = await response.json();
-    
-    // CSV erstellen
-    let csvRows = [['ID', 'Frage', 'A', 'B', 'C', 'D', 'Antwort', 'Bild']];
-    
-    for (const part of ['AT', 'ST', 'PR']) {
-      const questions = data[part] || [];
-      for (const q of questions) {
-        csvRows.push([
-          q.id || '',
-          q.text || '',
-          q.options?.a || '',
-          q.options?.b || '',
-          q.options?.c || '',
-          q.options?.d || '',
-          q.answer || '',
-          q.image || ''
-        ]);
-      }
-    }
-    
-    // CSV herunterladen
-    const csvContent = csvRows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(';')).join('\n');
-    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `fragenkatalog_${method}_${new Date().toISOString().split('T')[0]}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    showPruefToast(`✅ ${method}: ${csvRows.length-1} Fragen heruntergeladen`, 'success');
-  } catch(err) {
-    showPruefToast(`❌ Fehler bei ${method}: ${err.message}`, 'error');
-    console.error(err);
-  }
-};
-</script>
-<script>
-/* ===== FRAGENKATALOG DIREKT-DOWNLOAD (verbesserte Version) ===== */
-// Nutzt die bereits geladenen Fragen aus questionsDB statt erneutem Fetch
-window.downloadQuestionsForMethod = async function(method) {
-  try {
-    showPruefToast(`📥 Erstelle Export für ${method}...`, 'info');
-    
-    // Stelle sicher, dass Fragen geladen sind
-    let questions = questionsDB[method];
-    if (!questions || (questions.AT?.length === 0 && questions.ST?.length === 0 && questions.PR?.length === 0)) {
-      showPruefToast(`⚠️ Keine Fragen für ${method} im Cache – lade nach...`, 'info');
-      const loaded = await loadQuestionsForMethod(method);
-      if (!loaded) {
-        showPruefToast(`❌ Keine Fragen für ${method} verfügbar`, 'error');
-        return;
-      }
-      questions = questionsDB[method];
-    }
-    
-    // CSV erstellen mit dynamischen Spalten (A,B,C[,D])
-    const allQuestions = [];
-    for (const part of ['AT', 'ST', 'PR']) {
-      const partQuestions = questions[part] || [];
-      for (const q of partQuestions) {
-        // Prüfe wie viele Antwortoptionen vorhanden sind (nur nicht-leere)
-        const options = q.options || {};
-        const availableOptions = ['a', 'b', 'c', 'd'].filter(opt => options[opt] && options[opt].trim() !== '');
-        const hasD = availableOptions.includes('d');
-        
-        allQuestions.push({
-          id: q.id || '',
-          text: q.text || '',
-          a: options.a || '',
-          b: options.b || '',
-          c: options.c || '',
-          d: hasD ? (options.d || '') : '',  // Leer wenn keine D-Antwort
-          answer: q.answer || '',
-          image: q.image || '',
-          hasD: hasD
-        });
-      }
-    }
-    
-    if (allQuestions.length === 0) {
-      showPruefToast(`❌ Keine Fragen für ${method} gefunden`, 'error');
-      return;
-    }
-    
-    // CSV Header basierend auf vorhandenen Antworten
-    const hasAnyD = allQuestions.some(q => q.hasD);
-    const headers = ['ID', 'Frage', 'A', 'B', 'C'];
-    if (hasAnyD) headers.push('D');
-    headers.push('Antwort', 'Bild');
-    
-    const csvRows = [headers];
-    
-    for (const q of allQuestions) {
-      const row = [
-        `"${String(q.id).replace(/"/g, '""')}"`,
-        `"${String(q.text).replace(/"/g, '""')}"`,
-        `"${String(q.a).replace(/"/g, '""')}"`,
-        `"${String(q.b).replace(/"/g, '""')}"`,
-        `"${String(q.c).replace(/"/g, '""')}"`
-      ];
-      if (hasAnyD) {
-        row.push(`"${String(q.d).replace(/"/g, '""')}"`);
-      }
-      row.push(`"${String(q.answer).replace(/"/g, '""')}"`);
-      row.push(`"${String(q.image).replace(/"/g, '""')}"`);
-      csvRows.push(row);
-    }
-    
-    // CSV herunterladen
-    const csvContent = csvRows.map(row => row.join(';')).join('\n');
-    const blob = new Blob(['\uFEFF' + csvContent], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `fragenkatalog_${method}_${new Date().toISOString().split('T')[0]}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
-    
-    showPruefToast(`✅ ${method}: ${allQuestions.length} Fragen exportiert`, 'success');
-  } catch(err) {
-    showPruefToast(`❌ Fehler: ${err.message}`, 'error');
-    console.error(err);
-  }
-};
-</script>
-<script>
-// Ersetze die bestehende xlsRowToQuestion-Funktion mit dieser Version
-window.xlsRowToQuestion = function(row, idx) {
-  const get = (...keys) => {
-    for (const k of keys) {
-      const found = Object.keys(row).find(rk => rk.trim().toLowerCase() === k.toLowerCase());
-      if (found !== undefined && row[found] !== undefined && row[found] !== null && String(row[found]).trim() !== '') {
-        return String(row[found]).trim();
-      }
-    }
-    return '';
-  };
-  
-  const options = {
-    a: get('a', 'antwort_a', 'option_a'),
-    b: get('b', 'antwort_b', 'option_b'),
-    c: get('c', 'antwort_c', 'option_c')
-  };
-  
-  // Prüfe ob D existiert (nicht leer)
-  const dVal = get('d', 'antwort_d', 'option_d');
-  if (dVal && dVal.trim() !== '') {
-    options.d = dVal;
-  }
-  
-  return {
-    id:      get('id') || String(idx + 1).padStart(3, '0'),
-    text:    get('text', 'frage', 'question', 'fragetext'),
-    options: options,
-    answer:  normalizeAnswer(get('answer', 'antwort', 'lösung', 'loesung', 'correct')),
-    image:   get('image', 'bild', 'img', 'bildname'),
-  };
-};
 </script>
 </body>
 </html>
