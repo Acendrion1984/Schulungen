@@ -2197,29 +2197,81 @@ function importCatalogXLSX(input) {
 }
 
 function exportCatalogXLSX() {
-  const method = document.getElementById('catalog-method').value;
-  if (!method) { showPruefToast('Bitte zuerst Prüfverfahren wählen', 'error'); return; }
-  if (typeof XLSX === 'undefined') { showPruefToast('❌ SheetJS nicht geladen', 'error'); return; }
-  const qs = questionsDB[method];
-  if (!qs || (qs.AT.length + qs.ST.length + qs.PR.length) === 0) {
-    // Leere Vorlage erzeugen
-    showPruefToast('Keine Fragen vorhanden – leere Vorlage wird erstellt', 'success');
-  }
-  const wb = XLSX.utils.book_new();
-  for (const part of ['AT', 'ST', 'PR']) {
-    const questions = (qs && qs[part]) ? qs[part] : [];
-    const rows = questions.length > 0
-      ? questions.map(q => ({ id: q.id||'', text: q.text||'', a: q.options?.a||'', b: q.options?.b||'', c: q.options?.c||'', d: q.options?.d||'', answer: q.answer||'', image: q.image||'' }))
-      : [{ id: 'BEISPIEL-001', text: 'Beispielfrage hier eintragen', a: 'Antwort A', b: 'Antwort B', c: 'Antwort C', d: 'Antwort D', answer: 'a', image: '' }];
-    const ws = XLSX.utils.json_to_sheet(rows, { header: ['id','text','a','b','c','d','answer','image'] });
-    ws['!cols'] = [{wch:14},{wch:65},{wch:38},{wch:38},{wch:38},{wch:38},{wch:9},{wch:22}];
-    XLSX.utils.book_append_sheet(wb, ws, part);
-  }
-  const filename = 'fragenkatalog_' + method + '_' + new Date().toISOString().split('T')[0] + '.xlsx';
-  XLSX.writeFile(wb, filename);
-  showPruefToast('✅ ' + filename + ' gespeichert', 'success');
+    const method = document.getElementById('catalog-method').value;
+    if (!method) { 
+        showPruefToast('Bitte zuerst Prüfverfahren wählen', 'error'); 
+        return; 
+    }
+    
+    if (typeof XLSX === 'undefined') { 
+        showPruefToast('❌ SheetJS nicht geladen', 'error'); 
+        return; 
+    }
+    
+    const qs = questionsDB[method];
+    const wb = XLSX.utils.book_new();
+    
+    // Für jeden Prüfungsteil (AT, ST, PR) ein eigenes Blatt
+    for (const part of ['AT', 'ST', 'PR']) {
+        const questions = (qs && qs[part]) ? qs[part] : [];
+        
+        // Daten für Excel vorbereiten
+        let rows;
+        if (questions.length > 0) {
+            rows = questions.map(q => ({
+                'ID': q.id || '',
+                'Frage': q.text || '',
+                'A': q.options?.a || '',
+                'B': q.options?.b || '',
+                'C': q.options?.c || '',
+                'D': q.options?.d || '',
+                'Antwort (a/b/c/d/ab/ac/ad/bc/bd/cd/abc/...)': q.answer || '',
+                'Bild-URL/Base64': q.image || ''
+            }));
+        } else {
+            // Leeres Blatt mit Beispielzeile
+            rows = [{
+                'ID': 'BEISPIEL-001',
+                'Frage': 'Beispielfrage hier eintragen',
+                'A': 'Antwort A',
+                'B': 'Antwort B',
+                'C': 'Antwort C',
+                'D': 'Antwort D',
+                'Antwort (a/b/c/d/ab/ac/ad/bc/bd/cd/abc/...)': 'a',
+                'Bild-URL/Base64': ''
+            }];
+        }
+        
+        // Worksheet erstellen
+        const ws = XLSX.utils.json_to_sheet(rows);
+        
+        // Spaltenbreiten optimieren
+        ws['!cols'] = [
+            { wch: 12 },  // ID
+            { wch: 60 },  // Frage
+            { wch: 35 },  // A
+            { wch: 35 },  // B
+            { wch: 35 },  // C
+            { wch: 35 },  // D
+            { wch: 25 },  // Antwort
+            { wch: 50 }   // Bild
+        ];
+        
+        // Zeilen höher für bessere Lesbarkeit
+        ws['!rows'] = [{ hpt: 30 }];
+        
+        XLSX.utils.book_append_sheet(wb, ws, part);
+    }
+    
+    // Dateiname mit Datum
+    const date = new Date().toISOString().split('T')[0];
+    const filename = `fragenkatalog_${method}_${date}.xlsx`;
+    
+    // Download auslösen
+    XLSX.writeFile(wb, filename);
+    
+    showPruefToast(`✅ Fragenkatalog "${filename}" wurde heruntergeladen`, 'success');
 }
-
 function renderCatalogStatusTable() {
   const tbody = document.getElementById('catalog-status-body');
   if (!tbody) return;
